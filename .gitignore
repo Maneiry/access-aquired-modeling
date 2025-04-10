@@ -1,4 +1,5 @@
 *.mel
 *.00*.ma
 *.00*.mb
+*_autosave_*.spp
 .mayaSwatches/
