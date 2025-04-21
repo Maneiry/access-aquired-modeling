@@ -1,11 +1,11 @@
 //Maya ASCII 2025ff03 scene
 //Name: PunkBot_HeavyAtk02.ma
-//Last modified: Fri, Apr 18, 2025 09:11:04 PM
+//Last modified: Mon, Apr 21, 2025 09:24:18 AM
 //Codeset: 1252
 file -rdi 1 -ns "PunkBot_Rigged" -rfn "PunkBot_RiggedPipeRN" -op "v=0;" -typ
-		 "mayaAscii" "E:/UnrealGames/access-aquired-modeling//Characters/PunkBot_Rigged.ma";
+		 "mayaAscii" "E:/UnrealGames/access-aquired-modeling//Characters/PunkBot_Rigged.0001.ma";
 file -r -ns "PunkBot_Rigged" -dr 1 -rfn "PunkBot_RiggedPipeRN" -op "v=0;" -typ "mayaAscii"
-		 "E:/UnrealGames/access-aquired-modeling//Characters/PunkBot_Rigged.ma";
+		 "E:/UnrealGames/access-aquired-modeling//Characters/PunkBot_Rigged.0001.ma";
 requires maya "2025ff03";
 requires -dataType "HIKCharacter" -dataType "HIKCharacterState" -dataType "HIKEffectorState"
 		 -dataType "HIKPropertySetState" "mayaHIK" "1.0_HIK_2018.11";
@@ -20,17 +20,17 @@ fileInfo "product" "Maya 2025";
 fileInfo "version" "2025";
 fileInfo "cutIdentifier" "202409190603-cbdc5a7e54";
 fileInfo "osv" "Windows 10 Pro v2009 (Build: 19045)";
-fileInfo "UUID" "E0078680-441F-3D4D-9FA9-D4B71BB77A4F";
+fileInfo "UUID" "32917029-4FD6-56E3-B436-139AF9C50E4B";
 createNode transform -s -n "persp";
 	rename -uid "E8BC8761-41D0-8F47-898E-9E96F01983D5";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -169.60933816291723 522.14353820481142 689.78420429297489 ;
-	setAttr ".r" -type "double3" -38.138352729200761 -17.000000000007404 -1.6629399057315689e-15 ;
+	setAttr ".t" -type "double3" -537.76755811262694 334.36100740322991 566.67107259036197 ;
+	setAttr ".r" -type "double3" -18.338352729375774 -44.600000000008819 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "3478CD1E-4CE5-A125-50C1-7297B7AAB664";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 807.5739897485098;
+	setAttr ".coi" 787.68606368384906;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -86,7 +86,7 @@ createNode camera -s -n "sideShape" -p "side";
 	setAttr ".o" yes;
 	setAttr ".ai_translator" -type "string" "orthographic";
 createNode fosterParent -n "PunkBot_RiggedPipeRNfosterParent1";
-	rename -uid "958EE7C4-4ADF-AB66-DF0B-7C82AA052917";
+	rename -uid "8758DA02-49CF-D85D-87E1-B0B91D73DDF6";
 createNode parentConstraint -n "Character1_Ctrl_LeftWristEffector_parentConstraint1" 
 		-p "PunkBot_RiggedPipeRNfosterParent1";
 	rename -uid "1C3C055C-4CD9-EA5F-ACD7-22B12F012F86";
@@ -109,20 +109,20 @@ createNode parentConstraint -n "Character1_Ctrl_LeftWristEffector_parentConstrai
 	setAttr ".rsrr" -type "double3" 32.211374199396047 -49.974131994677442 171.53461829439084 ;
 	setAttr -k on ".w0";
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "9C0ADF6B-4C98-3442-F1AB-02889875D5D4";
-	setAttr -s 7 ".lnk";
-	setAttr -s 7 ".slnk";
+	rename -uid "E4A382C6-4E60-A889-7F35-758AA7F80BDE";
+	setAttr -s 17 ".lnk";
+	setAttr -s 17 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "E1D0328A-4B7D-EB55-3C4B-3588AFF5CFFE";
+	rename -uid "94F707E9-46B9-8C83-CB5E-EE8294E03965";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "993500CB-474B-0A0C-4531-98909493017F";
+	rename -uid "8242CF6C-4AC5-8AF3-65A8-B0807D57E016";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "6E534D42-4B97-FBCE-085D-C6BA066F5CAB";
+	rename -uid "2C19D5DB-4F0A-9C8B-C206-4EAAB7E70D09";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "B9E643DF-4DA0-FB02-6B29-25BF9892FE59";
 	setAttr ".ufem" -type "stringArray" 0  ;
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "B5F86404-4EC0-4032-1DDD-4AB12CFF2464";
+	rename -uid "7A21F880-4DAB-D9B0-D05D-D798B44DE8FF";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "2C0B1470-4B07-AD8F-CA0F-018FD1DC8D52";
 	setAttr ".g" yes;
@@ -270,7 +270,7 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1\n            -height 1\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n"
 		+ "            -camera \"|persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n"
 		+ "            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n"
-		+ "            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1931\n            -height 1040\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n"
+		+ "            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1925\n            -height 1040\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n"
 		+ "\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"ToggledOutliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"ToggledOutliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 1\n            -showReferenceMembers 1\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -organizeByClip 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showParentContainers 0\n            -showContainerContents 1\n            -ignoreDagHierarchy 0\n"
 		+ "            -expandConnections 0\n            -showUpstreamCurves 1\n            -showUnitlessCurves 1\n            -showCompounds 1\n            -showLeafs 1\n            -showNumericAttrsOnly 0\n            -highlightActive 1\n            -autoSelectNewObjects 0\n            -doNotSelectNewObjects 0\n            -dropIsParent 1\n            -transmitFilters 0\n            -setFilter \"defaultSetFilter\" \n            -showSetMembers 1\n            -allowMultiSelection 1\n            -alwaysToggleSelect 0\n            -directSelect 0\n            -isSet 0\n            -isSetMember 0\n            -showUfeItems 1\n            -displayMode \"DAG\" \n            -expandObjects 0\n            -setsIgnoreFilters 1\n            -containersIgnoreFilters 0\n            -editAttrName 0\n            -showAttrValues 0\n            -highlightSecondary 0\n            -showUVAttrsOnly 0\n            -showTextureNodesOnly 0\n            -attrAlphaOrder \"default\" \n            -animLayerFilterOptions \"allAffecting\" \n            -sortOrder \"none\" \n            -longNames 0\n"
 		+ "            -niceNames 1\n            -showNamespace 1\n            -showPinIcons 0\n            -mapMotionTrails 0\n            -ignoreHiddenAttribute 0\n            -ignoreOutlinerColor 0\n            -renderFilterVisible 0\n            -renderFilterIndex 0\n            -selectionOrder \"chronological\" \n            -expandAttribute 0\n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 0\n            -showReferenceMembers 0\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n"
@@ -297,8 +297,8 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -depthOfFieldPreview 1\n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -controllers 1\n                -nurbsCurves 1\n"
 		+ "                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -bluePencil 1\n                -greasePencils 0\n                -shadows 0\n"
 		+ "                -captureSequenceNumber -1\n                -width 0\n                -height 0\n                -sceneRenderFilter 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName; };\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-userCreated false\n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
-		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -bluePencil 1\\n    -greasePencils 0\\n    -excludeObjectPreset \\\"All\\\" \\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1931\\n    -height 1040\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
-		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -bluePencil 1\\n    -greasePencils 0\\n    -excludeObjectPreset \\\"All\\\" \\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1931\\n    -height 1040\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -bluePencil 1\\n    -greasePencils 0\\n    -excludeObjectPreset \\\"All\\\" \\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1925\\n    -height 1040\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -bluePencil 1\\n    -greasePencils 0\\n    -excludeObjectPreset \\\"All\\\" \\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1925\\n    -height 1040\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 400 -size 400 -divisions 40 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
@@ -361,401 +361,401 @@ createNode reference -n "PunkBot_RiggedPipeRN";
 	setAttr -s 2 ".fn";
 	setAttr ".fn[0]" -type "string" "E:/UnrealGames/access-aquired-modeling//Characters/PunkBot_Rigged.ma";
 	setAttr ".fn[1]" -type "string" "C:/Users/manue/Documents/GitHub/access-aquired-modeling//Characters/PunkBot_RiggedPipe.ma";
-	setAttr -s 391 ".phl";
-	setAttr ".phl[1]" 0;
-	setAttr ".phl[2]" 0;
-	setAttr ".phl[3]" 0;
-	setAttr ".phl[4]" 0;
-	setAttr ".phl[5]" 0;
-	setAttr ".phl[6]" 0;
-	setAttr ".phl[7]" 0;
-	setAttr ".phl[8]" 0;
-	setAttr ".phl[9]" 0;
-	setAttr ".phl[10]" 0;
-	setAttr ".phl[11]" 0;
-	setAttr ".phl[12]" 0;
-	setAttr ".phl[13]" 0;
-	setAttr ".phl[14]" 0;
-	setAttr ".phl[15]" 0;
-	setAttr ".phl[16]" 0;
-	setAttr ".phl[17]" 0;
-	setAttr ".phl[18]" 0;
-	setAttr ".phl[19]" 0;
-	setAttr ".phl[20]" 0;
-	setAttr ".phl[21]" 0;
-	setAttr ".phl[22]" 0;
-	setAttr ".phl[23]" 0;
-	setAttr ".phl[24]" 0;
-	setAttr ".phl[25]" 0;
-	setAttr ".phl[26]" 0;
-	setAttr ".phl[27]" 0;
-	setAttr ".phl[28]" 0;
-	setAttr ".phl[29]" 0;
-	setAttr ".phl[30]" 0;
-	setAttr ".phl[31]" 0;
-	setAttr ".phl[32]" 0;
-	setAttr ".phl[33]" 0;
-	setAttr ".phl[34]" 0;
-	setAttr ".phl[35]" 0;
-	setAttr ".phl[36]" 0;
-	setAttr ".phl[37]" 0;
-	setAttr ".phl[38]" 0;
-	setAttr ".phl[39]" 0;
-	setAttr ".phl[40]" 0;
-	setAttr ".phl[41]" 0;
-	setAttr ".phl[42]" 0;
-	setAttr ".phl[43]" 0;
-	setAttr ".phl[44]" 0;
-	setAttr ".phl[45]" 0;
-	setAttr ".phl[46]" 0;
-	setAttr ".phl[47]" 0;
-	setAttr ".phl[48]" 0;
-	setAttr ".phl[49]" 0;
-	setAttr ".phl[50]" 0;
-	setAttr ".phl[51]" 0;
-	setAttr ".phl[52]" 0;
-	setAttr ".phl[53]" 0;
-	setAttr ".phl[54]" 0;
-	setAttr ".phl[55]" 0;
-	setAttr ".phl[56]" 0;
-	setAttr ".phl[57]" 0;
-	setAttr ".phl[58]" 0;
-	setAttr ".phl[59]" 0;
-	setAttr ".phl[60]" 0;
-	setAttr ".phl[61]" 0;
-	setAttr ".phl[62]" 0;
-	setAttr ".phl[63]" 0;
-	setAttr ".phl[64]" 0;
-	setAttr ".phl[65]" 0;
-	setAttr ".phl[66]" 0;
-	setAttr ".phl[67]" 0;
-	setAttr ".phl[68]" 0;
-	setAttr ".phl[69]" 0;
-	setAttr ".phl[70]" 0;
-	setAttr ".phl[71]" 0;
-	setAttr ".phl[72]" 0;
-	setAttr ".phl[73]" 0;
-	setAttr ".phl[74]" 0;
-	setAttr ".phl[75]" 0;
-	setAttr ".phl[76]" 0;
-	setAttr ".phl[77]" 0;
-	setAttr ".phl[78]" 0;
-	setAttr ".phl[79]" 0;
-	setAttr ".phl[80]" 0;
-	setAttr ".phl[81]" 0;
-	setAttr ".phl[82]" 0;
-	setAttr ".phl[83]" 0;
-	setAttr ".phl[84]" 0;
-	setAttr ".phl[85]" 0;
-	setAttr ".phl[86]" 0;
-	setAttr ".phl[87]" 0;
-	setAttr ".phl[88]" 0;
-	setAttr ".phl[89]" 0;
-	setAttr ".phl[90]" 0;
-	setAttr ".phl[91]" 0;
-	setAttr ".phl[92]" 0;
-	setAttr ".phl[93]" 0;
-	setAttr ".phl[94]" 0;
-	setAttr ".phl[95]" 0;
-	setAttr ".phl[96]" 0;
-	setAttr ".phl[97]" 0;
-	setAttr ".phl[98]" 0;
-	setAttr ".phl[99]" 0;
-	setAttr ".phl[100]" 0;
-	setAttr ".phl[101]" 0;
-	setAttr ".phl[102]" 0;
-	setAttr ".phl[103]" 0;
-	setAttr ".phl[104]" 0;
-	setAttr ".phl[105]" 0;
-	setAttr ".phl[106]" 0;
-	setAttr ".phl[107]" 0;
-	setAttr ".phl[108]" 0;
-	setAttr ".phl[109]" 0;
-	setAttr ".phl[110]" 0;
-	setAttr ".phl[111]" 0;
-	setAttr ".phl[112]" 0;
-	setAttr ".phl[113]" 0;
-	setAttr ".phl[114]" 0;
-	setAttr ".phl[115]" 0;
-	setAttr ".phl[116]" 0;
-	setAttr ".phl[117]" 0;
-	setAttr ".phl[118]" 0;
-	setAttr ".phl[119]" 0;
-	setAttr ".phl[120]" 0;
-	setAttr ".phl[121]" 0;
-	setAttr ".phl[122]" 0;
-	setAttr ".phl[123]" 0;
-	setAttr ".phl[124]" 0;
-	setAttr ".phl[125]" 0;
-	setAttr ".phl[126]" 0;
-	setAttr ".phl[127]" 0;
-	setAttr ".phl[128]" 0;
-	setAttr ".phl[129]" 0;
-	setAttr ".phl[130]" 0;
-	setAttr ".phl[131]" 0;
-	setAttr ".phl[132]" 0;
-	setAttr ".phl[133]" 0;
-	setAttr ".phl[134]" 0;
-	setAttr ".phl[135]" 0;
-	setAttr ".phl[136]" 0;
-	setAttr ".phl[137]" 0;
-	setAttr ".phl[138]" 0;
-	setAttr ".phl[139]" 0;
-	setAttr ".phl[140]" 0;
-	setAttr ".phl[141]" 0;
-	setAttr ".phl[142]" 0;
-	setAttr ".phl[143]" 0;
-	setAttr ".phl[144]" 0;
-	setAttr ".phl[145]" 0;
-	setAttr ".phl[146]" 0;
-	setAttr ".phl[147]" 0;
-	setAttr ".phl[148]" 0;
-	setAttr ".phl[149]" 0;
-	setAttr ".phl[150]" 0;
-	setAttr ".phl[151]" 0;
-	setAttr ".phl[152]" 0;
-	setAttr ".phl[153]" 0;
-	setAttr ".phl[154]" 0;
-	setAttr ".phl[155]" 0;
-	setAttr ".phl[156]" 0;
-	setAttr ".phl[157]" 0;
-	setAttr ".phl[158]" 0;
-	setAttr ".phl[159]" 0;
-	setAttr ".phl[160]" 0;
-	setAttr ".phl[161]" 0;
-	setAttr ".phl[162]" 0;
-	setAttr ".phl[163]" 0;
-	setAttr ".phl[164]" 0;
-	setAttr ".phl[165]" 0;
-	setAttr ".phl[166]" 0;
-	setAttr ".phl[167]" 0;
-	setAttr ".phl[168]" 0;
-	setAttr ".phl[169]" 0;
-	setAttr ".phl[170]" 0;
-	setAttr ".phl[171]" 0;
-	setAttr ".phl[172]" 0;
-	setAttr ".phl[173]" 0;
-	setAttr ".phl[174]" 0;
-	setAttr ".phl[175]" 0;
-	setAttr ".phl[176]" 0;
-	setAttr ".phl[177]" 0;
-	setAttr ".phl[178]" 0;
-	setAttr ".phl[179]" 0;
-	setAttr ".phl[180]" 0;
-	setAttr ".phl[181]" 0;
-	setAttr ".phl[182]" 0;
-	setAttr ".phl[183]" 0;
-	setAttr ".phl[184]" 0;
-	setAttr ".phl[185]" 0;
-	setAttr ".phl[186]" 0;
-	setAttr ".phl[187]" 0;
-	setAttr ".phl[188]" 0;
-	setAttr ".phl[189]" 0;
-	setAttr ".phl[190]" 0;
-	setAttr ".phl[191]" 0;
-	setAttr ".phl[192]" 0;
-	setAttr ".phl[193]" 0;
-	setAttr ".phl[194]" 0;
-	setAttr ".phl[195]" 0;
-	setAttr ".phl[196]" 0;
-	setAttr ".phl[197]" 0;
-	setAttr ".phl[198]" 0;
-	setAttr ".phl[199]" 0;
-	setAttr ".phl[200]" 0;
-	setAttr ".phl[201]" 0;
-	setAttr ".phl[202]" 0;
-	setAttr ".phl[203]" 0;
-	setAttr ".phl[204]" 0;
-	setAttr ".phl[205]" 0;
-	setAttr ".phl[206]" 0;
-	setAttr ".phl[207]" 0;
-	setAttr ".phl[208]" 0;
-	setAttr ".phl[209]" 0;
-	setAttr ".phl[210]" 0;
-	setAttr ".phl[211]" 0;
-	setAttr ".phl[212]" 0;
-	setAttr ".phl[213]" 0;
-	setAttr ".phl[214]" 0;
-	setAttr ".phl[215]" 0;
-	setAttr ".phl[216]" 0;
-	setAttr ".phl[217]" 0;
-	setAttr ".phl[218]" 0;
-	setAttr ".phl[219]" 0;
-	setAttr ".phl[220]" 0;
-	setAttr ".phl[221]" 0;
-	setAttr ".phl[222]" 0;
-	setAttr ".phl[223]" 0;
-	setAttr ".phl[224]" 0;
-	setAttr ".phl[225]" 0;
-	setAttr ".phl[226]" 0;
-	setAttr ".phl[227]" 0;
-	setAttr ".phl[228]" 0;
-	setAttr ".phl[229]" 0;
-	setAttr ".phl[230]" 0;
-	setAttr ".phl[231]" 0;
-	setAttr ".phl[232]" 0;
-	setAttr ".phl[233]" 0;
-	setAttr ".phl[234]" 0;
-	setAttr ".phl[235]" 0;
-	setAttr ".phl[236]" 0;
-	setAttr ".phl[237]" 0;
-	setAttr ".phl[238]" 0;
-	setAttr ".phl[239]" 0;
-	setAttr ".phl[240]" 0;
-	setAttr ".phl[241]" 0;
-	setAttr ".phl[242]" 0;
-	setAttr ".phl[243]" 0;
-	setAttr ".phl[244]" 0;
-	setAttr ".phl[245]" 0;
-	setAttr ".phl[246]" 0;
-	setAttr ".phl[247]" 0;
-	setAttr ".phl[248]" 0;
-	setAttr ".phl[249]" 0;
-	setAttr ".phl[250]" 0;
-	setAttr ".phl[251]" 0;
-	setAttr ".phl[252]" 0;
-	setAttr ".phl[253]" 0;
-	setAttr ".phl[254]" 0;
-	setAttr ".phl[255]" 0;
-	setAttr ".phl[256]" 0;
-	setAttr ".phl[257]" 0;
-	setAttr ".phl[258]" 0;
-	setAttr ".phl[259]" 0;
-	setAttr ".phl[260]" 0;
-	setAttr ".phl[261]" 0;
-	setAttr ".phl[262]" 0;
-	setAttr ".phl[263]" 0;
-	setAttr ".phl[264]" 0;
-	setAttr ".phl[265]" 0;
-	setAttr ".phl[266]" 0;
-	setAttr ".phl[267]" 0;
-	setAttr ".phl[268]" 0;
-	setAttr ".phl[269]" 0;
-	setAttr ".phl[270]" 0;
-	setAttr ".phl[271]" 0;
-	setAttr ".phl[272]" 0;
-	setAttr ".phl[273]" 0;
-	setAttr ".phl[274]" 0;
-	setAttr ".phl[275]" 0;
-	setAttr ".phl[276]" 0;
-	setAttr ".phl[277]" 0;
-	setAttr ".phl[278]" 0;
-	setAttr ".phl[279]" 0;
-	setAttr ".phl[280]" 0;
-	setAttr ".phl[281]" 0;
-	setAttr ".phl[282]" 0;
-	setAttr ".phl[283]" 0;
-	setAttr ".phl[284]" 0;
-	setAttr ".phl[285]" 0;
-	setAttr ".phl[286]" 0;
-	setAttr ".phl[287]" 0;
-	setAttr ".phl[288]" 0;
-	setAttr ".phl[289]" 0;
-	setAttr ".phl[290]" 0;
-	setAttr ".phl[291]" 0;
-	setAttr ".phl[292]" 0;
-	setAttr ".phl[293]" 0;
-	setAttr ".phl[294]" 0;
-	setAttr ".phl[295]" 0;
-	setAttr ".phl[296]" 0;
-	setAttr ".phl[297]" 0;
-	setAttr ".phl[298]" 0;
-	setAttr ".phl[299]" 0;
-	setAttr ".phl[300]" 0;
-	setAttr ".phl[301]" 0;
-	setAttr ".phl[302]" 0;
-	setAttr ".phl[303]" 0;
-	setAttr ".phl[304]" 0;
-	setAttr ".phl[305]" 0;
-	setAttr ".phl[306]" 0;
-	setAttr ".phl[307]" 0;
-	setAttr ".phl[308]" 0;
-	setAttr ".phl[309]" 0;
-	setAttr ".phl[310]" 0;
-	setAttr ".phl[311]" 0;
-	setAttr ".phl[312]" 0;
-	setAttr ".phl[313]" 0;
-	setAttr ".phl[314]" 0;
-	setAttr ".phl[315]" 0;
-	setAttr ".phl[316]" 0;
-	setAttr ".phl[317]" 0;
-	setAttr ".phl[318]" 0;
-	setAttr ".phl[319]" 0;
-	setAttr ".phl[320]" 0;
-	setAttr ".phl[321]" 0;
-	setAttr ".phl[322]" 0;
-	setAttr ".phl[323]" 0;
-	setAttr ".phl[324]" 0;
-	setAttr ".phl[325]" 0;
-	setAttr ".phl[326]" 0;
-	setAttr ".phl[327]" 0;
-	setAttr ".phl[328]" 0;
-	setAttr ".phl[329]" 0;
-	setAttr ".phl[330]" 0;
-	setAttr ".phl[331]" 0;
-	setAttr ".phl[332]" 0;
-	setAttr ".phl[333]" 0;
-	setAttr ".phl[334]" 0;
-	setAttr ".phl[335]" 0;
-	setAttr ".phl[336]" 0;
-	setAttr ".phl[337]" 0;
-	setAttr ".phl[338]" 0;
-	setAttr ".phl[339]" 0;
-	setAttr ".phl[340]" 0;
-	setAttr ".phl[341]" 0;
-	setAttr ".phl[342]" 0;
-	setAttr ".phl[343]" 0;
-	setAttr ".phl[344]" 0;
-	setAttr ".phl[345]" 0;
-	setAttr ".phl[346]" 0;
-	setAttr ".phl[347]" 0;
-	setAttr ".phl[348]" 0;
-	setAttr ".phl[349]" 0;
-	setAttr ".phl[350]" 0;
-	setAttr ".phl[351]" 0;
-	setAttr ".phl[352]" 0;
-	setAttr ".phl[353]" 0;
-	setAttr ".phl[354]" 0;
-	setAttr ".phl[355]" 0;
-	setAttr ".phl[356]" 0;
-	setAttr ".phl[357]" 0;
-	setAttr ".phl[358]" 0;
-	setAttr ".phl[359]" 0;
-	setAttr ".phl[360]" 0;
-	setAttr ".phl[361]" 0;
-	setAttr ".phl[362]" 0;
-	setAttr ".phl[363]" 0;
-	setAttr ".phl[364]" 0;
-	setAttr ".phl[365]" 0;
-	setAttr ".phl[366]" 0;
-	setAttr ".phl[367]" 0;
-	setAttr ".phl[368]" 0;
-	setAttr ".phl[369]" 0;
-	setAttr ".phl[370]" 0;
-	setAttr ".phl[371]" 0;
-	setAttr ".phl[372]" 0;
-	setAttr ".phl[373]" 0;
-	setAttr ".phl[374]" 0;
-	setAttr ".phl[375]" 0;
-	setAttr ".phl[376]" 0;
-	setAttr ".phl[377]" 0;
-	setAttr ".phl[378]" 0;
-	setAttr ".phl[379]" 0;
-	setAttr ".phl[380]" 0;
-	setAttr ".phl[381]" 0;
-	setAttr ".phl[382]" 0;
-	setAttr ".phl[383]" 0;
-	setAttr ".phl[384]" 0;
-	setAttr ".phl[385]" 0;
-	setAttr ".phl[386]" 0;
-	setAttr ".phl[387]" 0;
-	setAttr ".phl[388]" 0;
-	setAttr ".phl[389]" 0;
-	setAttr ".phl[390]" 0;
-	setAttr ".phl[391]" 0;
+	setAttr -s 401 ".phl";
+	setAttr ".phl[402]" 0;
+	setAttr ".phl[403]" 0;
+	setAttr ".phl[404]" 0;
+	setAttr ".phl[405]" 0;
+	setAttr ".phl[406]" 0;
+	setAttr ".phl[407]" 0;
+	setAttr ".phl[408]" 0;
+	setAttr ".phl[409]" 0;
+	setAttr ".phl[410]" 0;
+	setAttr ".phl[411]" 0;
+	setAttr ".phl[412]" 0;
+	setAttr ".phl[413]" 0;
+	setAttr ".phl[414]" 0;
+	setAttr ".phl[415]" 0;
+	setAttr ".phl[416]" 0;
+	setAttr ".phl[417]" 0;
+	setAttr ".phl[418]" 0;
+	setAttr ".phl[419]" 0;
+	setAttr ".phl[420]" 0;
+	setAttr ".phl[421]" 0;
+	setAttr ".phl[422]" 0;
+	setAttr ".phl[423]" 0;
+	setAttr ".phl[424]" 0;
+	setAttr ".phl[425]" 0;
+	setAttr ".phl[426]" 0;
+	setAttr ".phl[427]" 0;
+	setAttr ".phl[428]" 0;
+	setAttr ".phl[429]" 0;
+	setAttr ".phl[430]" 0;
+	setAttr ".phl[431]" 0;
+	setAttr ".phl[432]" 0;
+	setAttr ".phl[433]" 0;
+	setAttr ".phl[434]" 0;
+	setAttr ".phl[435]" 0;
+	setAttr ".phl[436]" 0;
+	setAttr ".phl[437]" 0;
+	setAttr ".phl[438]" 0;
+	setAttr ".phl[439]" 0;
+	setAttr ".phl[440]" 0;
+	setAttr ".phl[441]" 0;
+	setAttr ".phl[442]" 0;
+	setAttr ".phl[443]" 0;
+	setAttr ".phl[444]" 0;
+	setAttr ".phl[445]" 0;
+	setAttr ".phl[446]" 0;
+	setAttr ".phl[447]" 0;
+	setAttr ".phl[448]" 0;
+	setAttr ".phl[449]" 0;
+	setAttr ".phl[450]" 0;
+	setAttr ".phl[451]" 0;
+	setAttr ".phl[452]" 0;
+	setAttr ".phl[453]" 0;
+	setAttr ".phl[454]" 0;
+	setAttr ".phl[455]" 0;
+	setAttr ".phl[456]" 0;
+	setAttr ".phl[457]" 0;
+	setAttr ".phl[458]" 0;
+	setAttr ".phl[459]" 0;
+	setAttr ".phl[460]" 0;
+	setAttr ".phl[461]" 0;
+	setAttr ".phl[462]" 0;
+	setAttr ".phl[463]" 0;
+	setAttr ".phl[464]" 0;
+	setAttr ".phl[465]" 0;
+	setAttr ".phl[466]" 0;
+	setAttr ".phl[467]" 0;
+	setAttr ".phl[468]" 0;
+	setAttr ".phl[469]" 0;
+	setAttr ".phl[470]" 0;
+	setAttr ".phl[471]" 0;
+	setAttr ".phl[472]" 0;
+	setAttr ".phl[473]" 0;
+	setAttr ".phl[474]" 0;
+	setAttr ".phl[475]" 0;
+	setAttr ".phl[476]" 0;
+	setAttr ".phl[477]" 0;
+	setAttr ".phl[478]" 0;
+	setAttr ".phl[479]" 0;
+	setAttr ".phl[480]" 0;
+	setAttr ".phl[481]" 0;
+	setAttr ".phl[482]" 0;
+	setAttr ".phl[483]" 0;
+	setAttr ".phl[484]" 0;
+	setAttr ".phl[485]" 0;
+	setAttr ".phl[486]" 0;
+	setAttr ".phl[487]" 0;
+	setAttr ".phl[488]" 0;
+	setAttr ".phl[489]" 0;
+	setAttr ".phl[490]" 0;
+	setAttr ".phl[491]" 0;
+	setAttr ".phl[492]" 0;
+	setAttr ".phl[493]" 0;
+	setAttr ".phl[494]" 0;
+	setAttr ".phl[495]" 0;
+	setAttr ".phl[496]" 0;
+	setAttr ".phl[497]" 0;
+	setAttr ".phl[498]" 0;
+	setAttr ".phl[499]" 0;
+	setAttr ".phl[500]" 0;
+	setAttr ".phl[501]" 0;
+	setAttr ".phl[502]" 0;
+	setAttr ".phl[503]" 0;
+	setAttr ".phl[504]" 0;
+	setAttr ".phl[505]" 0;
+	setAttr ".phl[506]" 0;
+	setAttr ".phl[507]" 0;
+	setAttr ".phl[508]" 0;
+	setAttr ".phl[509]" 0;
+	setAttr ".phl[510]" 0;
+	setAttr ".phl[511]" 0;
+	setAttr ".phl[512]" 0;
+	setAttr ".phl[513]" 0;
+	setAttr ".phl[514]" 0;
+	setAttr ".phl[515]" 0;
+	setAttr ".phl[516]" 0;
+	setAttr ".phl[517]" 0;
+	setAttr ".phl[518]" 0;
+	setAttr ".phl[519]" 0;
+	setAttr ".phl[520]" 0;
+	setAttr ".phl[521]" 0;
+	setAttr ".phl[522]" 0;
+	setAttr ".phl[523]" 0;
+	setAttr ".phl[524]" 0;
+	setAttr ".phl[525]" 0;
+	setAttr ".phl[526]" 0;
+	setAttr ".phl[527]" 0;
+	setAttr ".phl[528]" 0;
+	setAttr ".phl[529]" 0;
+	setAttr ".phl[530]" 0;
+	setAttr ".phl[531]" 0;
+	setAttr ".phl[532]" 0;
+	setAttr ".phl[533]" 0;
+	setAttr ".phl[534]" 0;
+	setAttr ".phl[535]" 0;
+	setAttr ".phl[536]" 0;
+	setAttr ".phl[537]" 0;
+	setAttr ".phl[538]" 0;
+	setAttr ".phl[539]" 0;
+	setAttr ".phl[540]" 0;
+	setAttr ".phl[541]" 0;
+	setAttr ".phl[542]" 0;
+	setAttr ".phl[543]" 0;
+	setAttr ".phl[544]" 0;
+	setAttr ".phl[545]" 0;
+	setAttr ".phl[546]" 0;
+	setAttr ".phl[547]" 0;
+	setAttr ".phl[548]" 0;
+	setAttr ".phl[549]" 0;
+	setAttr ".phl[550]" 0;
+	setAttr ".phl[551]" 0;
+	setAttr ".phl[552]" 0;
+	setAttr ".phl[553]" 0;
+	setAttr ".phl[554]" 0;
+	setAttr ".phl[555]" 0;
+	setAttr ".phl[556]" 0;
+	setAttr ".phl[557]" 0;
+	setAttr ".phl[558]" 0;
+	setAttr ".phl[559]" 0;
+	setAttr ".phl[560]" 0;
+	setAttr ".phl[561]" 0;
+	setAttr ".phl[562]" 0;
+	setAttr ".phl[563]" 0;
+	setAttr ".phl[564]" 0;
+	setAttr ".phl[565]" 0;
+	setAttr ".phl[566]" 0;
+	setAttr ".phl[567]" 0;
+	setAttr ".phl[568]" 0;
+	setAttr ".phl[569]" 0;
+	setAttr ".phl[570]" 0;
+	setAttr ".phl[571]" 0;
+	setAttr ".phl[572]" 0;
+	setAttr ".phl[573]" 0;
+	setAttr ".phl[574]" 0;
+	setAttr ".phl[575]" 0;
+	setAttr ".phl[576]" 0;
+	setAttr ".phl[577]" 0;
+	setAttr ".phl[578]" 0;
+	setAttr ".phl[579]" 0;
+	setAttr ".phl[580]" 0;
+	setAttr ".phl[581]" 0;
+	setAttr ".phl[582]" 0;
+	setAttr ".phl[583]" 0;
+	setAttr ".phl[584]" 0;
+	setAttr ".phl[585]" 0;
+	setAttr ".phl[586]" 0;
+	setAttr ".phl[587]" 0;
+	setAttr ".phl[588]" 0;
+	setAttr ".phl[589]" 0;
+	setAttr ".phl[590]" 0;
+	setAttr ".phl[591]" 0;
+	setAttr ".phl[592]" 0;
+	setAttr ".phl[593]" 0;
+	setAttr ".phl[594]" 0;
+	setAttr ".phl[595]" 0;
+	setAttr ".phl[596]" 0;
+	setAttr ".phl[597]" 0;
+	setAttr ".phl[598]" 0;
+	setAttr ".phl[599]" 0;
+	setAttr ".phl[600]" 0;
+	setAttr ".phl[601]" 0;
+	setAttr ".phl[602]" 0;
+	setAttr ".phl[603]" 0;
+	setAttr ".phl[604]" 0;
+	setAttr ".phl[605]" 0;
+	setAttr ".phl[606]" 0;
+	setAttr ".phl[607]" 0;
+	setAttr ".phl[608]" 0;
+	setAttr ".phl[609]" 0;
+	setAttr ".phl[610]" 0;
+	setAttr ".phl[611]" 0;
+	setAttr ".phl[612]" 0;
+	setAttr ".phl[613]" 0;
+	setAttr ".phl[614]" 0;
+	setAttr ".phl[615]" 0;
+	setAttr ".phl[616]" 0;
+	setAttr ".phl[617]" 0;
+	setAttr ".phl[618]" 0;
+	setAttr ".phl[619]" 0;
+	setAttr ".phl[620]" 0;
+	setAttr ".phl[621]" 0;
+	setAttr ".phl[622]" 0;
+	setAttr ".phl[623]" 0;
+	setAttr ".phl[624]" 0;
+	setAttr ".phl[625]" 0;
+	setAttr ".phl[626]" 0;
+	setAttr ".phl[627]" 0;
+	setAttr ".phl[628]" 0;
+	setAttr ".phl[629]" 0;
+	setAttr ".phl[630]" 0;
+	setAttr ".phl[631]" 0;
+	setAttr ".phl[632]" 0;
+	setAttr ".phl[633]" 0;
+	setAttr ".phl[634]" 0;
+	setAttr ".phl[635]" 0;
+	setAttr ".phl[636]" 0;
+	setAttr ".phl[637]" 0;
+	setAttr ".phl[638]" 0;
+	setAttr ".phl[639]" 0;
+	setAttr ".phl[640]" 0;
+	setAttr ".phl[641]" 0;
+	setAttr ".phl[642]" 0;
+	setAttr ".phl[643]" 0;
+	setAttr ".phl[644]" 0;
+	setAttr ".phl[645]" 0;
+	setAttr ".phl[646]" 0;
+	setAttr ".phl[647]" 0;
+	setAttr ".phl[648]" 0;
+	setAttr ".phl[649]" 0;
+	setAttr ".phl[650]" 0;
+	setAttr ".phl[651]" 0;
+	setAttr ".phl[652]" 0;
+	setAttr ".phl[653]" 0;
+	setAttr ".phl[654]" 0;
+	setAttr ".phl[655]" 0;
+	setAttr ".phl[656]" 0;
+	setAttr ".phl[657]" 0;
+	setAttr ".phl[658]" 0;
+	setAttr ".phl[659]" 0;
+	setAttr ".phl[660]" 0;
+	setAttr ".phl[661]" 0;
+	setAttr ".phl[662]" 0;
+	setAttr ".phl[663]" 0;
+	setAttr ".phl[664]" 0;
+	setAttr ".phl[665]" 0;
+	setAttr ".phl[666]" 0;
+	setAttr ".phl[667]" 0;
+	setAttr ".phl[668]" 0;
+	setAttr ".phl[669]" 0;
+	setAttr ".phl[670]" 0;
+	setAttr ".phl[671]" 0;
+	setAttr ".phl[672]" 0;
+	setAttr ".phl[673]" 0;
+	setAttr ".phl[674]" 0;
+	setAttr ".phl[675]" 0;
+	setAttr ".phl[676]" 0;
+	setAttr ".phl[677]" 0;
+	setAttr ".phl[678]" 0;
+	setAttr ".phl[679]" 0;
+	setAttr ".phl[680]" 0;
+	setAttr ".phl[681]" 0;
+	setAttr ".phl[682]" 0;
+	setAttr ".phl[683]" 0;
+	setAttr ".phl[684]" 0;
+	setAttr ".phl[685]" 0;
+	setAttr ".phl[686]" 0;
+	setAttr ".phl[687]" 0;
+	setAttr ".phl[688]" 0;
+	setAttr ".phl[689]" 0;
+	setAttr ".phl[690]" 0;
+	setAttr ".phl[691]" 0;
+	setAttr ".phl[692]" 0;
+	setAttr ".phl[693]" 0;
+	setAttr ".phl[694]" 0;
+	setAttr ".phl[695]" 0;
+	setAttr ".phl[696]" 0;
+	setAttr ".phl[697]" 0;
+	setAttr ".phl[698]" 0;
+	setAttr ".phl[699]" 0;
+	setAttr ".phl[700]" 0;
+	setAttr ".phl[701]" 0;
+	setAttr ".phl[702]" 0;
+	setAttr ".phl[703]" 0;
+	setAttr ".phl[704]" 0;
+	setAttr ".phl[705]" 0;
+	setAttr ".phl[706]" 0;
+	setAttr ".phl[707]" 0;
+	setAttr ".phl[708]" 0;
+	setAttr ".phl[709]" 0;
+	setAttr ".phl[710]" 0;
+	setAttr ".phl[711]" 0;
+	setAttr ".phl[712]" 0;
+	setAttr ".phl[713]" 0;
+	setAttr ".phl[714]" 0;
+	setAttr ".phl[715]" 0;
+	setAttr ".phl[716]" 0;
+	setAttr ".phl[717]" 0;
+	setAttr ".phl[718]" 0;
+	setAttr ".phl[719]" 0;
+	setAttr ".phl[720]" 0;
+	setAttr ".phl[721]" 0;
+	setAttr ".phl[722]" 0;
+	setAttr ".phl[723]" 0;
+	setAttr ".phl[724]" 0;
+	setAttr ".phl[725]" 0;
+	setAttr ".phl[726]" 0;
+	setAttr ".phl[727]" 0;
+	setAttr ".phl[728]" 0;
+	setAttr ".phl[729]" 0;
+	setAttr ".phl[730]" 0;
+	setAttr ".phl[731]" 0;
+	setAttr ".phl[732]" 0;
+	setAttr ".phl[733]" 0;
+	setAttr ".phl[734]" 0;
+	setAttr ".phl[735]" 0;
+	setAttr ".phl[736]" 0;
+	setAttr ".phl[737]" 0;
+	setAttr ".phl[738]" 0;
+	setAttr ".phl[739]" 0;
+	setAttr ".phl[740]" 0;
+	setAttr ".phl[741]" 0;
+	setAttr ".phl[742]" 0;
+	setAttr ".phl[743]" 0;
+	setAttr ".phl[744]" 0;
+	setAttr ".phl[745]" 0;
+	setAttr ".phl[746]" 0;
+	setAttr ".phl[747]" 0;
+	setAttr ".phl[748]" 0;
+	setAttr ".phl[749]" 0;
+	setAttr ".phl[750]" 0;
+	setAttr ".phl[751]" 0;
+	setAttr ".phl[752]" 0;
+	setAttr ".phl[753]" 0;
+	setAttr ".phl[754]" 0;
+	setAttr ".phl[755]" 0;
+	setAttr ".phl[756]" 0;
+	setAttr ".phl[757]" 0;
+	setAttr ".phl[758]" 0;
+	setAttr ".phl[759]" 0;
+	setAttr ".phl[760]" 0;
+	setAttr ".phl[761]" 0;
+	setAttr ".phl[762]" 0;
+	setAttr ".phl[763]" 0;
+	setAttr ".phl[764]" 0;
+	setAttr ".phl[765]" 0;
+	setAttr ".phl[766]" 0;
+	setAttr ".phl[767]" 0;
+	setAttr ".phl[768]" 0;
+	setAttr ".phl[769]" 0;
+	setAttr ".phl[770]" 0;
+	setAttr ".phl[771]" 0;
+	setAttr ".phl[772]" 0;
+	setAttr ".phl[773]" 0;
+	setAttr ".phl[774]" 0;
+	setAttr ".phl[775]" 0;
+	setAttr ".phl[776]" 0;
+	setAttr ".phl[777]" 0;
+	setAttr ".phl[778]" 0;
+	setAttr ".phl[779]" 0;
+	setAttr ".phl[780]" 0;
+	setAttr ".phl[781]" 0;
+	setAttr ".phl[782]" 0;
+	setAttr ".phl[783]" 0;
+	setAttr ".phl[784]" 0;
+	setAttr ".phl[785]" 0;
+	setAttr ".phl[786]" 0;
+	setAttr ".phl[787]" 0;
+	setAttr ".phl[788]" 0;
+	setAttr ".phl[789]" 0;
+	setAttr ".phl[790]" 0;
+	setAttr ".phl[791]" 0;
+	setAttr ".phl[792]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"PunkBot_RiggedPipeRN"
-		"PunkBot_RiggedPipeRN" 4
+		"PunkBot_RiggedPipeRN" 14
 		2 "|PunkBot_Rigged:MasterPipe|PunkBot_Rigged:PipeRotation" "visibility" " 1"
 		
 		2 "|PunkBot_Rigged:MasterPipe|PunkBot_Rigged:PipeRotation" "translate" " -type \"double3\" 0 0 0"
@@ -764,136 +764,32 @@ createNode reference -n "PunkBot_RiggedPipeRN";
 		
 		2 "|PunkBot_Rigged:MasterPipe|PunkBot_Rigged:PipeRotation" "scale" " -type \"double3\" 1 1 1"
 		
+		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Root.scaleX" 
+		"PunkBot_RiggedPipeRN.placeHolderList[392]" ""
+		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Root.scaleY" 
+		"PunkBot_RiggedPipeRN.placeHolderList[393]" ""
+		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Root.scaleZ" 
+		"PunkBot_RiggedPipeRN.placeHolderList[394]" ""
+		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Root.translateZ" 
+		"PunkBot_RiggedPipeRN.placeHolderList[395]" ""
+		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Root.translateX" 
+		"PunkBot_RiggedPipeRN.placeHolderList[396]" ""
+		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Root.translateY" 
+		"PunkBot_RiggedPipeRN.placeHolderList[397]" ""
+		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Root.visibility" 
+		"PunkBot_RiggedPipeRN.placeHolderList[398]" ""
+		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Root.rotateX" 
+		"PunkBot_RiggedPipeRN.placeHolderList[399]" ""
+		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Root.rotateY" 
+		"PunkBot_RiggedPipeRN.placeHolderList[400]" ""
+		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Root.rotateZ" 
+		"PunkBot_RiggedPipeRN.placeHolderList[401]" ""
 		"PunkBot_RiggedPipeRN" 558
 		0 "|PunkBot_RiggedPipeRNfosterParent1|Character1_Ctrl_LeftWristEffector_parentConstraint1" 
 		"|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftWristEffector" 
 		"-s -r "
 		1 "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftWristEffector" 
 		"blendParent1" "blendParent1" " -ci 1 -k 1 -dv 1 -smn 0 -smx 1 -at \"double\""
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips" "drawStyle" 
-		" 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_LeftUpLeg" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_LeftUpLeg|PunkBot_Rigged:Character1_LeftLeg" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_LeftUpLeg|PunkBot_Rigged:Character1_LeftLeg|PunkBot_Rigged:Character1_LeftFoot" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_LeftUpLeg|PunkBot_Rigged:Character1_LeftLeg|PunkBot_Rigged:Character1_LeftFoot|PunkBot_Rigged:Character1_LeftToeBase" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_RightUpLeg" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_RightUpLeg|PunkBot_Rigged:Character1_RightLeg" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_RightUpLeg|PunkBot_Rigged:Character1_RightLeg|PunkBot_Rigged:Character1_RightFoot" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_RightUpLeg|PunkBot_Rigged:Character1_RightLeg|PunkBot_Rigged:Character1_RightFoot|PunkBot_Rigged:Character1_RightToeBase" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm|PunkBot_Rigged:Character1_LeftHand" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm|PunkBot_Rigged:Character1_LeftHand|PunkBot_Rigged:Character1_LeftHandThumb1" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm|PunkBot_Rigged:Character1_LeftHand|PunkBot_Rigged:Character1_LeftHandThumb1|PunkBot_Rigged:Character1_LeftHandThumb2" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm|PunkBot_Rigged:Character1_LeftHand|PunkBot_Rigged:Character1_LeftHandThumb1|PunkBot_Rigged:Character1_LeftHandThumb2|PunkBot_Rigged:Character1_LeftHandThumb3" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm|PunkBot_Rigged:Character1_LeftHand|PunkBot_Rigged:Character1_LeftHandThumb1|PunkBot_Rigged:Character1_LeftHandThumb2|PunkBot_Rigged:Character1_LeftHandThumb3|PunkBot_Rigged:Character1_LeftHandThumb4" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm|PunkBot_Rigged:Character1_LeftHand|PunkBot_Rigged:Character1_LeftHandIndex1" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm|PunkBot_Rigged:Character1_LeftHand|PunkBot_Rigged:Character1_LeftHandIndex1|PunkBot_Rigged:Character1_LeftHandIndex2" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm|PunkBot_Rigged:Character1_LeftHand|PunkBot_Rigged:Character1_LeftHandIndex1|PunkBot_Rigged:Character1_LeftHandIndex2|PunkBot_Rigged:Character1_LeftHandIndex3" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm|PunkBot_Rigged:Character1_LeftHand|PunkBot_Rigged:Character1_LeftHandIndex1|PunkBot_Rigged:Character1_LeftHandIndex2|PunkBot_Rigged:Character1_LeftHandIndex3|PunkBot_Rigged:Character1_LeftHandIndex4" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm|PunkBot_Rigged:Character1_LeftHand|PunkBot_Rigged:Character1_LeftHandMiddle1" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm|PunkBot_Rigged:Character1_LeftHand|PunkBot_Rigged:Character1_LeftHandMiddle1|PunkBot_Rigged:Character1_LeftHandMiddle2" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm|PunkBot_Rigged:Character1_LeftHand|PunkBot_Rigged:Character1_LeftHandMiddle1|PunkBot_Rigged:Character1_LeftHandMiddle2|PunkBot_Rigged:Character1_LeftHandMiddle3" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm|PunkBot_Rigged:Character1_LeftHand|PunkBot_Rigged:Character1_LeftHandMiddle1|PunkBot_Rigged:Character1_LeftHandMiddle2|PunkBot_Rigged:Character1_LeftHandMiddle3|PunkBot_Rigged:Character1_LeftHandMiddle4" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm|PunkBot_Rigged:Character1_LeftHand|PunkBot_Rigged:Character1_LeftHandRing1" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm|PunkBot_Rigged:Character1_LeftHand|PunkBot_Rigged:Character1_LeftHandRing1|PunkBot_Rigged:Character1_LeftHandRing2" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm|PunkBot_Rigged:Character1_LeftHand|PunkBot_Rigged:Character1_LeftHandRing1|PunkBot_Rigged:Character1_LeftHandRing2|PunkBot_Rigged:Character1_LeftHandRing3" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm|PunkBot_Rigged:Character1_LeftHand|PunkBot_Rigged:Character1_LeftHandRing1|PunkBot_Rigged:Character1_LeftHandRing2|PunkBot_Rigged:Character1_LeftHandRing3|PunkBot_Rigged:Character1_LeftHandRing4" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm|PunkBot_Rigged:Character1_LeftHand|PunkBot_Rigged:Character1_LeftHandPinky1" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm|PunkBot_Rigged:Character1_LeftHand|PunkBot_Rigged:Character1_LeftHandPinky1|PunkBot_Rigged:Character1_LeftHandPinky2" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm|PunkBot_Rigged:Character1_LeftHand|PunkBot_Rigged:Character1_LeftHandPinky1|PunkBot_Rigged:Character1_LeftHandPinky2|PunkBot_Rigged:Character1_LeftHandPinky3" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm|PunkBot_Rigged:Character1_LeftHand|PunkBot_Rigged:Character1_LeftHandPinky1|PunkBot_Rigged:Character1_LeftHandPinky2|PunkBot_Rigged:Character1_LeftHandPinky3|PunkBot_Rigged:Character1_LeftHandPinky4" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm|PunkBot_Rigged:Character1_RightHand" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm|PunkBot_Rigged:Character1_RightHand|PunkBot_Rigged:Character1_RightHandThumb1" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm|PunkBot_Rigged:Character1_RightHand|PunkBot_Rigged:Character1_RightHandThumb1|PunkBot_Rigged:Character1_RightHandThumb2" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm|PunkBot_Rigged:Character1_RightHand|PunkBot_Rigged:Character1_RightHandThumb1|PunkBot_Rigged:Character1_RightHandThumb2|PunkBot_Rigged:Character1_RightHandThumb3" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm|PunkBot_Rigged:Character1_RightHand|PunkBot_Rigged:Character1_RightHandThumb1|PunkBot_Rigged:Character1_RightHandThumb2|PunkBot_Rigged:Character1_RightHandThumb3|PunkBot_Rigged:Character1_RightHandThumb4" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm|PunkBot_Rigged:Character1_RightHand|PunkBot_Rigged:Character1_RightHandIndex1" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm|PunkBot_Rigged:Character1_RightHand|PunkBot_Rigged:Character1_RightHandIndex1|PunkBot_Rigged:Character1_RightHandIndex2" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm|PunkBot_Rigged:Character1_RightHand|PunkBot_Rigged:Character1_RightHandIndex1|PunkBot_Rigged:Character1_RightHandIndex2|PunkBot_Rigged:Character1_RightHandIndex3" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm|PunkBot_Rigged:Character1_RightHand|PunkBot_Rigged:Character1_RightHandIndex1|PunkBot_Rigged:Character1_RightHandIndex2|PunkBot_Rigged:Character1_RightHandIndex3|PunkBot_Rigged:Character1_RightHandIndex4" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm|PunkBot_Rigged:Character1_RightHand|PunkBot_Rigged:Character1_RightHandMiddle1" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm|PunkBot_Rigged:Character1_RightHand|PunkBot_Rigged:Character1_RightHandMiddle1|PunkBot_Rigged:Character1_RightHandMiddle2" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm|PunkBot_Rigged:Character1_RightHand|PunkBot_Rigged:Character1_RightHandMiddle1|PunkBot_Rigged:Character1_RightHandMiddle2|PunkBot_Rigged:Character1_RightHandMiddle3" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm|PunkBot_Rigged:Character1_RightHand|PunkBot_Rigged:Character1_RightHandMiddle1|PunkBot_Rigged:Character1_RightHandMiddle2|PunkBot_Rigged:Character1_RightHandMiddle3|PunkBot_Rigged:Character1_RightHandMiddle4" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm|PunkBot_Rigged:Character1_RightHand|PunkBot_Rigged:Character1_RightHandRing1" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm|PunkBot_Rigged:Character1_RightHand|PunkBot_Rigged:Character1_RightHandRing1|PunkBot_Rigged:Character1_RightHandRing2" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm|PunkBot_Rigged:Character1_RightHand|PunkBot_Rigged:Character1_RightHandRing1|PunkBot_Rigged:Character1_RightHandRing2|PunkBot_Rigged:Character1_RightHandRing3" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm|PunkBot_Rigged:Character1_RightHand|PunkBot_Rigged:Character1_RightHandRing1|PunkBot_Rigged:Character1_RightHandRing2|PunkBot_Rigged:Character1_RightHandRing3|PunkBot_Rigged:Character1_RightHandRing4" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm|PunkBot_Rigged:Character1_RightHand|PunkBot_Rigged:Character1_RightHandPinky1" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm|PunkBot_Rigged:Character1_RightHand|PunkBot_Rigged:Character1_RightHandPinky1|PunkBot_Rigged:Character1_RightHandPinky2" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm|PunkBot_Rigged:Character1_RightHand|PunkBot_Rigged:Character1_RightHandPinky1|PunkBot_Rigged:Character1_RightHandPinky2|PunkBot_Rigged:Character1_RightHandPinky3" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm|PunkBot_Rigged:Character1_RightHand|PunkBot_Rigged:Character1_RightHandPinky1|PunkBot_Rigged:Character1_RightHandPinky2|PunkBot_Rigged:Character1_RightHandPinky3|PunkBot_Rigged:Character1_RightHandPinky4" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_Neck" 
-		"drawStyle" " 2"
-		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_Neck|PunkBot_Rigged:Character1_Head" 
-		"drawStyle" " 2"
 		2 "|PunkBot_Rigged:Character1_Ctrl_Reference" "translate" " -type \"double3\" 0 0 0"
 		
 		2 "|PunkBot_Rigged:Character1_Ctrl_Reference" "rotate" " -type \"double3\" 0 0 0"
@@ -1092,792 +988,916 @@ createNode reference -n "PunkBot_RiggedPipeRN";
 		"visibility" " -k 0 -cb 1 0"
 		2 "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_Neck|PunkBot_Rigged:Character1_Ctrl_Head" 
 		"visibility" " -k 0 -cb 1 0"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips" "drawStyle" 
+		" 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_LeftUpLeg" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_LeftUpLeg|PunkBot_Rigged:Character1_LeftLeg" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_LeftUpLeg|PunkBot_Rigged:Character1_LeftLeg|PunkBot_Rigged:Character1_LeftFoot" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_LeftUpLeg|PunkBot_Rigged:Character1_LeftLeg|PunkBot_Rigged:Character1_LeftFoot|PunkBot_Rigged:Character1_LeftToeBase" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_RightUpLeg" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_RightUpLeg|PunkBot_Rigged:Character1_RightLeg" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_RightUpLeg|PunkBot_Rigged:Character1_RightLeg|PunkBot_Rigged:Character1_RightFoot" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_RightUpLeg|PunkBot_Rigged:Character1_RightLeg|PunkBot_Rigged:Character1_RightFoot|PunkBot_Rigged:Character1_RightToeBase" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm|PunkBot_Rigged:Character1_LeftHand" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm|PunkBot_Rigged:Character1_LeftHand|PunkBot_Rigged:Character1_LeftHandThumb1" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm|PunkBot_Rigged:Character1_LeftHand|PunkBot_Rigged:Character1_LeftHandThumb1|PunkBot_Rigged:Character1_LeftHandThumb2" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm|PunkBot_Rigged:Character1_LeftHand|PunkBot_Rigged:Character1_LeftHandThumb1|PunkBot_Rigged:Character1_LeftHandThumb2|PunkBot_Rigged:Character1_LeftHandThumb3" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm|PunkBot_Rigged:Character1_LeftHand|PunkBot_Rigged:Character1_LeftHandThumb1|PunkBot_Rigged:Character1_LeftHandThumb2|PunkBot_Rigged:Character1_LeftHandThumb3|PunkBot_Rigged:Character1_LeftHandThumb4" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm|PunkBot_Rigged:Character1_LeftHand|PunkBot_Rigged:Character1_LeftHandIndex1" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm|PunkBot_Rigged:Character1_LeftHand|PunkBot_Rigged:Character1_LeftHandIndex1|PunkBot_Rigged:Character1_LeftHandIndex2" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm|PunkBot_Rigged:Character1_LeftHand|PunkBot_Rigged:Character1_LeftHandIndex1|PunkBot_Rigged:Character1_LeftHandIndex2|PunkBot_Rigged:Character1_LeftHandIndex3" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm|PunkBot_Rigged:Character1_LeftHand|PunkBot_Rigged:Character1_LeftHandIndex1|PunkBot_Rigged:Character1_LeftHandIndex2|PunkBot_Rigged:Character1_LeftHandIndex3|PunkBot_Rigged:Character1_LeftHandIndex4" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm|PunkBot_Rigged:Character1_LeftHand|PunkBot_Rigged:Character1_LeftHandMiddle1" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm|PunkBot_Rigged:Character1_LeftHand|PunkBot_Rigged:Character1_LeftHandMiddle1|PunkBot_Rigged:Character1_LeftHandMiddle2" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm|PunkBot_Rigged:Character1_LeftHand|PunkBot_Rigged:Character1_LeftHandMiddle1|PunkBot_Rigged:Character1_LeftHandMiddle2|PunkBot_Rigged:Character1_LeftHandMiddle3" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm|PunkBot_Rigged:Character1_LeftHand|PunkBot_Rigged:Character1_LeftHandMiddle1|PunkBot_Rigged:Character1_LeftHandMiddle2|PunkBot_Rigged:Character1_LeftHandMiddle3|PunkBot_Rigged:Character1_LeftHandMiddle4" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm|PunkBot_Rigged:Character1_LeftHand|PunkBot_Rigged:Character1_LeftHandRing1" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm|PunkBot_Rigged:Character1_LeftHand|PunkBot_Rigged:Character1_LeftHandRing1|PunkBot_Rigged:Character1_LeftHandRing2" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm|PunkBot_Rigged:Character1_LeftHand|PunkBot_Rigged:Character1_LeftHandRing1|PunkBot_Rigged:Character1_LeftHandRing2|PunkBot_Rigged:Character1_LeftHandRing3" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm|PunkBot_Rigged:Character1_LeftHand|PunkBot_Rigged:Character1_LeftHandRing1|PunkBot_Rigged:Character1_LeftHandRing2|PunkBot_Rigged:Character1_LeftHandRing3|PunkBot_Rigged:Character1_LeftHandRing4" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm|PunkBot_Rigged:Character1_LeftHand|PunkBot_Rigged:Character1_LeftHandPinky1" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm|PunkBot_Rigged:Character1_LeftHand|PunkBot_Rigged:Character1_LeftHandPinky1|PunkBot_Rigged:Character1_LeftHandPinky2" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm|PunkBot_Rigged:Character1_LeftHand|PunkBot_Rigged:Character1_LeftHandPinky1|PunkBot_Rigged:Character1_LeftHandPinky2|PunkBot_Rigged:Character1_LeftHandPinky3" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_LeftShoulder|PunkBot_Rigged:Character1_LeftArm|PunkBot_Rigged:Character1_LeftForeArm|PunkBot_Rigged:Character1_LeftHand|PunkBot_Rigged:Character1_LeftHandPinky1|PunkBot_Rigged:Character1_LeftHandPinky2|PunkBot_Rigged:Character1_LeftHandPinky3|PunkBot_Rigged:Character1_LeftHandPinky4" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm|PunkBot_Rigged:Character1_RightHand" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm|PunkBot_Rigged:Character1_RightHand|PunkBot_Rigged:Character1_RightHandThumb1" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm|PunkBot_Rigged:Character1_RightHand|PunkBot_Rigged:Character1_RightHandThumb1|PunkBot_Rigged:Character1_RightHandThumb2" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm|PunkBot_Rigged:Character1_RightHand|PunkBot_Rigged:Character1_RightHandThumb1|PunkBot_Rigged:Character1_RightHandThumb2|PunkBot_Rigged:Character1_RightHandThumb3" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm|PunkBot_Rigged:Character1_RightHand|PunkBot_Rigged:Character1_RightHandThumb1|PunkBot_Rigged:Character1_RightHandThumb2|PunkBot_Rigged:Character1_RightHandThumb3|PunkBot_Rigged:Character1_RightHandThumb4" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm|PunkBot_Rigged:Character1_RightHand|PunkBot_Rigged:Character1_RightHandIndex1" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm|PunkBot_Rigged:Character1_RightHand|PunkBot_Rigged:Character1_RightHandIndex1|PunkBot_Rigged:Character1_RightHandIndex2" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm|PunkBot_Rigged:Character1_RightHand|PunkBot_Rigged:Character1_RightHandIndex1|PunkBot_Rigged:Character1_RightHandIndex2|PunkBot_Rigged:Character1_RightHandIndex3" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm|PunkBot_Rigged:Character1_RightHand|PunkBot_Rigged:Character1_RightHandIndex1|PunkBot_Rigged:Character1_RightHandIndex2|PunkBot_Rigged:Character1_RightHandIndex3|PunkBot_Rigged:Character1_RightHandIndex4" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm|PunkBot_Rigged:Character1_RightHand|PunkBot_Rigged:Character1_RightHandMiddle1" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm|PunkBot_Rigged:Character1_RightHand|PunkBot_Rigged:Character1_RightHandMiddle1|PunkBot_Rigged:Character1_RightHandMiddle2" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm|PunkBot_Rigged:Character1_RightHand|PunkBot_Rigged:Character1_RightHandMiddle1|PunkBot_Rigged:Character1_RightHandMiddle2|PunkBot_Rigged:Character1_RightHandMiddle3" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm|PunkBot_Rigged:Character1_RightHand|PunkBot_Rigged:Character1_RightHandMiddle1|PunkBot_Rigged:Character1_RightHandMiddle2|PunkBot_Rigged:Character1_RightHandMiddle3|PunkBot_Rigged:Character1_RightHandMiddle4" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm|PunkBot_Rigged:Character1_RightHand|PunkBot_Rigged:Character1_RightHandRing1" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm|PunkBot_Rigged:Character1_RightHand|PunkBot_Rigged:Character1_RightHandRing1|PunkBot_Rigged:Character1_RightHandRing2" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm|PunkBot_Rigged:Character1_RightHand|PunkBot_Rigged:Character1_RightHandRing1|PunkBot_Rigged:Character1_RightHandRing2|PunkBot_Rigged:Character1_RightHandRing3" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm|PunkBot_Rigged:Character1_RightHand|PunkBot_Rigged:Character1_RightHandRing1|PunkBot_Rigged:Character1_RightHandRing2|PunkBot_Rigged:Character1_RightHandRing3|PunkBot_Rigged:Character1_RightHandRing4" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm|PunkBot_Rigged:Character1_RightHand|PunkBot_Rigged:Character1_RightHandPinky1" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm|PunkBot_Rigged:Character1_RightHand|PunkBot_Rigged:Character1_RightHandPinky1|PunkBot_Rigged:Character1_RightHandPinky2" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm|PunkBot_Rigged:Character1_RightHand|PunkBot_Rigged:Character1_RightHandPinky1|PunkBot_Rigged:Character1_RightHandPinky2|PunkBot_Rigged:Character1_RightHandPinky3" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_RightShoulder|PunkBot_Rigged:Character1_RightArm|PunkBot_Rigged:Character1_RightForeArm|PunkBot_Rigged:Character1_RightHand|PunkBot_Rigged:Character1_RightHandPinky1|PunkBot_Rigged:Character1_RightHandPinky2|PunkBot_Rigged:Character1_RightHandPinky3|PunkBot_Rigged:Character1_RightHandPinky4" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_Neck" 
+		"drawStyle" " 2"
+		2 "|PunkBot_Rigged:Character1_Reference|PunkBot_Rigged:Character1_Hips|PunkBot_Rigged:Character1_Spine|PunkBot_Rigged:Character1_Spine1|PunkBot_Rigged:Character1_Spine2|PunkBot_Rigged:Character1_Neck|PunkBot_Rigged:Character1_Head" 
+		"drawStyle" " 2"
 		2 "PunkBot_Rigged:HIKSolverNode1" "nodeState" " 0"
 		2 "PunkBot_Rigged:HIKSolverNode1" "InputActive" " 1"
 		2 "PunkBot_Rigged:HIKSolverNode1" "InputStance" " 0"
 		2 "PunkBot_Rigged:HIKSolverNode1" "InputStanceMask" " 0"
-		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Reference.translateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[1]" ""
-		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Reference.translateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[2]" ""
-		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Reference.translateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[3]" ""
-		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Reference.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[4]" ""
-		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Reference.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[5]" ""
-		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Reference.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[6]" ""
-		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Reference.scaleX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[7]" ""
-		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Reference.scaleY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[8]" ""
-		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Reference.scaleZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[9]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_HipsEffector.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[10]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[402]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_HipsEffector.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[11]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[403]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_HipsEffector.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[12]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[404]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_HipsEffector.translateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[13]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[405]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_HipsEffector.translateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[14]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[406]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_HipsEffector.translateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[15]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[407]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftAnkleEffector.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[16]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[408]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftAnkleEffector.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[17]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[409]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftAnkleEffector.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[18]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[410]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftAnkleEffector.translateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[19]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[411]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftAnkleEffector.translateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[20]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[412]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftAnkleEffector.translateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[21]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[413]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightAnkleEffector.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[22]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[414]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightAnkleEffector.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[23]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[415]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightAnkleEffector.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[24]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[416]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightAnkleEffector.translateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[25]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[417]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightAnkleEffector.translateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[26]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[418]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightAnkleEffector.translateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[27]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[419]" ""
 		5 3 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftWristEffector.jointOrient" 
-		"PunkBot_RiggedPipeRN.placeHolderList[28]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[420]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftWristEffector.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[29]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[421]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftWristEffector.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[30]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[422]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftWristEffector.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[31]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[423]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftWristEffector.translateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[32]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[424]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftWristEffector.translateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[33]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[425]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftWristEffector.translateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[34]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[426]" ""
 		5 3 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftWristEffector.blendParent1" 
-		"PunkBot_RiggedPipeRN.placeHolderList[35]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[427]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftWristEffector.blendParent1" 
-		"PunkBot_RiggedPipeRN.placeHolderList[36]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[428]" ""
 		5 3 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftWristEffector.rotateOrder" 
-		"PunkBot_RiggedPipeRN.placeHolderList[37]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[429]" ""
 		5 3 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftWristEffector.rotateOrder" 
-		"PunkBot_RiggedPipeRN.placeHolderList[38]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[430]" ""
 		5 3 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftWristEffector.parentInverseMatrix" 
-		"PunkBot_RiggedPipeRN.placeHolderList[39]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[431]" ""
 		5 3 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftWristEffector.rotatePivot" 
-		"PunkBot_RiggedPipeRN.placeHolderList[40]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[432]" ""
 		5 3 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftWristEffector.rotatePivotTranslate" 
-		"PunkBot_RiggedPipeRN.placeHolderList[41]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[433]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightWristEffector.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[42]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[434]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightWristEffector.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[43]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[435]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightWristEffector.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[44]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[436]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightWristEffector.translateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[45]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[437]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightWristEffector.translateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[46]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[438]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightWristEffector.translateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[47]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[439]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftKneeEffector.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[48]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[440]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftKneeEffector.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[49]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[441]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftKneeEffector.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[50]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[442]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftKneeEffector.translateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[51]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[443]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftKneeEffector.translateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[52]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[444]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftKneeEffector.translateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[53]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[445]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightKneeEffector.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[54]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[446]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightKneeEffector.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[55]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[447]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightKneeEffector.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[56]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[448]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightKneeEffector.translateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[57]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[449]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightKneeEffector.translateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[58]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[450]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightKneeEffector.translateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[59]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[451]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftElbowEffector.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[60]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[452]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftElbowEffector.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[61]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[453]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftElbowEffector.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[62]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[454]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftElbowEffector.translateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[63]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[455]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftElbowEffector.translateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[64]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[456]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftElbowEffector.translateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[65]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[457]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightElbowEffector.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[66]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[458]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightElbowEffector.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[67]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[459]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightElbowEffector.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[68]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[460]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightElbowEffector.translateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[69]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[461]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightElbowEffector.translateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[70]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[462]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightElbowEffector.translateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[71]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[463]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_ChestOriginEffector.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[72]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[464]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_ChestOriginEffector.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[73]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[465]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_ChestOriginEffector.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[74]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[466]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_ChestOriginEffector.translateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[75]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[467]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_ChestOriginEffector.translateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[76]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[468]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_ChestOriginEffector.translateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[77]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[469]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_ChestEndEffector.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[78]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[470]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_ChestEndEffector.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[79]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[471]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_ChestEndEffector.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[80]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[472]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_ChestEndEffector.translateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[81]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[473]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_ChestEndEffector.translateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[82]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[474]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_ChestEndEffector.translateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[83]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[475]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftFootEffector.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[84]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[476]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftFootEffector.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[85]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[477]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftFootEffector.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[86]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[478]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftFootEffector.translateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[87]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[479]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftFootEffector.translateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[88]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[480]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftFootEffector.translateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[89]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[481]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightFootEffector.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[90]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[482]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightFootEffector.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[91]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[483]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightFootEffector.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[92]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[484]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightFootEffector.translateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[93]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[485]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightFootEffector.translateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[94]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[486]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightFootEffector.translateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[95]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[487]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftShoulderEffector.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[96]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[488]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftShoulderEffector.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[97]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[489]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftShoulderEffector.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[98]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[490]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftShoulderEffector.translateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[99]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[491]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftShoulderEffector.translateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[100]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[492]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftShoulderEffector.translateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[101]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[493]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightShoulderEffector.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[102]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[494]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightShoulderEffector.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[103]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[495]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightShoulderEffector.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[104]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[496]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightShoulderEffector.translateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[105]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[497]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightShoulderEffector.translateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[106]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[498]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightShoulderEffector.translateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[107]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[499]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_HeadEffector.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[108]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[500]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_HeadEffector.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[109]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[501]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_HeadEffector.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[110]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[502]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_HeadEffector.translateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[111]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[503]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_HeadEffector.translateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[112]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[504]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_HeadEffector.translateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[113]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[505]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftHipEffector.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[114]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[506]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftHipEffector.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[115]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[507]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftHipEffector.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[116]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[508]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftHipEffector.translateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[117]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[509]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftHipEffector.translateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[118]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[510]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftHipEffector.translateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[119]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[511]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightHipEffector.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[120]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[512]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightHipEffector.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[121]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[513]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightHipEffector.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[122]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[514]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightHipEffector.translateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[123]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[515]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightHipEffector.translateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[124]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[516]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightHipEffector.translateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[125]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[517]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftHandThumbEffector.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[126]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[518]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftHandThumbEffector.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[127]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[519]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftHandThumbEffector.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[128]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[520]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftHandThumbEffector.translateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[129]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[521]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftHandThumbEffector.translateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[130]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[522]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftHandThumbEffector.translateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[131]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[523]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftHandIndexEffector.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[132]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[524]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftHandIndexEffector.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[133]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[525]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftHandIndexEffector.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[134]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[526]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftHandIndexEffector.translateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[135]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[527]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftHandIndexEffector.translateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[136]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[528]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftHandIndexEffector.translateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[137]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[529]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftHandMiddleEffector.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[138]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[530]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftHandMiddleEffector.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[139]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[531]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftHandMiddleEffector.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[140]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[532]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftHandMiddleEffector.translateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[141]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[533]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftHandMiddleEffector.translateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[142]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[534]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftHandMiddleEffector.translateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[143]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[535]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftHandRingEffector.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[144]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[536]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftHandRingEffector.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[145]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[537]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftHandRingEffector.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[146]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[538]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftHandRingEffector.translateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[147]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[539]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftHandRingEffector.translateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[148]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[540]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftHandRingEffector.translateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[149]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[541]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftHandPinkyEffector.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[150]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[542]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftHandPinkyEffector.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[151]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[543]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftHandPinkyEffector.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[152]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[544]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftHandPinkyEffector.translateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[153]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[545]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftHandPinkyEffector.translateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[154]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[546]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_LeftHandPinkyEffector.translateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[155]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[547]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightHandThumbEffector.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[156]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[548]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightHandThumbEffector.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[157]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[549]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightHandThumbEffector.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[158]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[550]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightHandThumbEffector.translateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[159]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[551]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightHandThumbEffector.translateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[160]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[552]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightHandThumbEffector.translateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[161]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[553]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightHandIndexEffector.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[162]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[554]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightHandIndexEffector.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[163]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[555]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightHandIndexEffector.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[164]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[556]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightHandIndexEffector.translateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[165]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[557]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightHandIndexEffector.translateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[166]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[558]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightHandIndexEffector.translateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[167]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[559]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightHandMiddleEffector.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[168]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[560]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightHandMiddleEffector.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[169]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[561]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightHandMiddleEffector.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[170]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[562]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightHandMiddleEffector.translateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[171]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[563]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightHandMiddleEffector.translateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[172]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[564]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightHandMiddleEffector.translateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[173]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[565]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightHandRingEffector.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[174]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[566]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightHandRingEffector.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[175]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[567]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightHandRingEffector.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[176]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[568]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightHandRingEffector.translateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[177]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[569]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightHandRingEffector.translateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[178]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[570]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightHandRingEffector.translateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[179]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[571]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightHandPinkyEffector.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[180]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[572]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightHandPinkyEffector.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[181]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[573]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightHandPinkyEffector.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[182]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[574]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightHandPinkyEffector.translateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[183]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[575]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightHandPinkyEffector.translateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[184]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[576]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_RightHandPinkyEffector.translateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[185]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[577]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[186]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[578]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[187]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[579]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[188]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[580]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips.translateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[189]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[581]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips.translateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[190]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[582]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips.translateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[191]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[583]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_LeftUpLeg.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[192]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[584]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_LeftUpLeg.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[193]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[585]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_LeftUpLeg.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[194]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[586]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_LeftUpLeg|PunkBot_Rigged:Character1_Ctrl_LeftLeg.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[195]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[587]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_LeftUpLeg|PunkBot_Rigged:Character1_Ctrl_LeftLeg.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[196]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[588]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_LeftUpLeg|PunkBot_Rigged:Character1_Ctrl_LeftLeg.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[197]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[589]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_LeftUpLeg|PunkBot_Rigged:Character1_Ctrl_LeftLeg|PunkBot_Rigged:Character1_Ctrl_LeftFoot.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[198]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[590]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_LeftUpLeg|PunkBot_Rigged:Character1_Ctrl_LeftLeg|PunkBot_Rigged:Character1_Ctrl_LeftFoot.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[199]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[591]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_LeftUpLeg|PunkBot_Rigged:Character1_Ctrl_LeftLeg|PunkBot_Rigged:Character1_Ctrl_LeftFoot.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[200]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[592]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_LeftUpLeg|PunkBot_Rigged:Character1_Ctrl_LeftLeg|PunkBot_Rigged:Character1_Ctrl_LeftFoot|PunkBot_Rigged:Character1_Ctrl_LeftToeBase.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[201]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[593]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_LeftUpLeg|PunkBot_Rigged:Character1_Ctrl_LeftLeg|PunkBot_Rigged:Character1_Ctrl_LeftFoot|PunkBot_Rigged:Character1_Ctrl_LeftToeBase.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[202]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[594]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_LeftUpLeg|PunkBot_Rigged:Character1_Ctrl_LeftLeg|PunkBot_Rigged:Character1_Ctrl_LeftFoot|PunkBot_Rigged:Character1_Ctrl_LeftToeBase.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[203]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[595]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_RightUpLeg.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[204]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[596]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_RightUpLeg.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[205]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[597]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_RightUpLeg.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[206]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[598]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_RightUpLeg|PunkBot_Rigged:Character1_Ctrl_RightLeg.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[207]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[599]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_RightUpLeg|PunkBot_Rigged:Character1_Ctrl_RightLeg.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[208]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[600]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_RightUpLeg|PunkBot_Rigged:Character1_Ctrl_RightLeg.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[209]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[601]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_RightUpLeg|PunkBot_Rigged:Character1_Ctrl_RightLeg|PunkBot_Rigged:Character1_Ctrl_RightFoot.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[210]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[602]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_RightUpLeg|PunkBot_Rigged:Character1_Ctrl_RightLeg|PunkBot_Rigged:Character1_Ctrl_RightFoot.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[211]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[603]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_RightUpLeg|PunkBot_Rigged:Character1_Ctrl_RightLeg|PunkBot_Rigged:Character1_Ctrl_RightFoot.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[212]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[604]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_RightUpLeg|PunkBot_Rigged:Character1_Ctrl_RightLeg|PunkBot_Rigged:Character1_Ctrl_RightFoot|PunkBot_Rigged:Character1_Ctrl_RightToeBase.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[213]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[605]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_RightUpLeg|PunkBot_Rigged:Character1_Ctrl_RightLeg|PunkBot_Rigged:Character1_Ctrl_RightFoot|PunkBot_Rigged:Character1_Ctrl_RightToeBase.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[214]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[606]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_RightUpLeg|PunkBot_Rigged:Character1_Ctrl_RightLeg|PunkBot_Rigged:Character1_Ctrl_RightFoot|PunkBot_Rigged:Character1_Ctrl_RightToeBase.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[215]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[607]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[216]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[608]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[217]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[609]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[218]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[610]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[219]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[611]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[220]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[612]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[221]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[613]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[222]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[614]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[223]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[615]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[224]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[616]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[225]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[617]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[226]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[618]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[227]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[619]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[228]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[620]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[229]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[621]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[230]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[622]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[231]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[623]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[232]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[624]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[233]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[625]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[234]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[626]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[235]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[627]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[236]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[628]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandThumb1.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[237]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[629]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandThumb1.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[238]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[630]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandThumb1.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[239]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[631]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandThumb1|PunkBot_Rigged:Character1_Ctrl_LeftHandThumb2.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[240]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[632]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandThumb1|PunkBot_Rigged:Character1_Ctrl_LeftHandThumb2.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[241]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[633]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandThumb1|PunkBot_Rigged:Character1_Ctrl_LeftHandThumb2.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[242]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[634]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandThumb1|PunkBot_Rigged:Character1_Ctrl_LeftHandThumb2|PunkBot_Rigged:Character1_Ctrl_LeftHandThumb3.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[243]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[635]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandThumb1|PunkBot_Rigged:Character1_Ctrl_LeftHandThumb2|PunkBot_Rigged:Character1_Ctrl_LeftHandThumb3.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[244]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[636]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandThumb1|PunkBot_Rigged:Character1_Ctrl_LeftHandThumb2|PunkBot_Rigged:Character1_Ctrl_LeftHandThumb3.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[245]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[637]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandThumb1|PunkBot_Rigged:Character1_Ctrl_LeftHandThumb2|PunkBot_Rigged:Character1_Ctrl_LeftHandThumb3|PunkBot_Rigged:Character1_Ctrl_LeftHandThumb4.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[246]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[638]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandThumb1|PunkBot_Rigged:Character1_Ctrl_LeftHandThumb2|PunkBot_Rigged:Character1_Ctrl_LeftHandThumb3|PunkBot_Rigged:Character1_Ctrl_LeftHandThumb4.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[247]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[639]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandThumb1|PunkBot_Rigged:Character1_Ctrl_LeftHandThumb2|PunkBot_Rigged:Character1_Ctrl_LeftHandThumb3|PunkBot_Rigged:Character1_Ctrl_LeftHandThumb4.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[248]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[640]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandIndex1.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[249]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[641]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandIndex1.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[250]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[642]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandIndex1.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[251]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[643]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandIndex1|PunkBot_Rigged:Character1_Ctrl_LeftHandIndex2.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[252]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[644]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandIndex1|PunkBot_Rigged:Character1_Ctrl_LeftHandIndex2.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[253]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[645]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandIndex1|PunkBot_Rigged:Character1_Ctrl_LeftHandIndex2.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[254]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[646]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandIndex1|PunkBot_Rigged:Character1_Ctrl_LeftHandIndex2|PunkBot_Rigged:Character1_Ctrl_LeftHandIndex3.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[255]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[647]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandIndex1|PunkBot_Rigged:Character1_Ctrl_LeftHandIndex2|PunkBot_Rigged:Character1_Ctrl_LeftHandIndex3.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[256]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[648]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandIndex1|PunkBot_Rigged:Character1_Ctrl_LeftHandIndex2|PunkBot_Rigged:Character1_Ctrl_LeftHandIndex3.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[257]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[649]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandIndex1|PunkBot_Rigged:Character1_Ctrl_LeftHandIndex2|PunkBot_Rigged:Character1_Ctrl_LeftHandIndex3|PunkBot_Rigged:Character1_Ctrl_LeftHandIndex4.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[258]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[650]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandIndex1|PunkBot_Rigged:Character1_Ctrl_LeftHandIndex2|PunkBot_Rigged:Character1_Ctrl_LeftHandIndex3|PunkBot_Rigged:Character1_Ctrl_LeftHandIndex4.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[259]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[651]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandIndex1|PunkBot_Rigged:Character1_Ctrl_LeftHandIndex2|PunkBot_Rigged:Character1_Ctrl_LeftHandIndex3|PunkBot_Rigged:Character1_Ctrl_LeftHandIndex4.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[260]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[652]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandMiddle1.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[261]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[653]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandMiddle1.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[262]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[654]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandMiddle1.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[263]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[655]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandMiddle1|PunkBot_Rigged:Character1_Ctrl_LeftHandMiddle2.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[264]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[656]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandMiddle1|PunkBot_Rigged:Character1_Ctrl_LeftHandMiddle2.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[265]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[657]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandMiddle1|PunkBot_Rigged:Character1_Ctrl_LeftHandMiddle2.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[266]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[658]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandMiddle1|PunkBot_Rigged:Character1_Ctrl_LeftHandMiddle2|PunkBot_Rigged:Character1_Ctrl_LeftHandMiddle3.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[267]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[659]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandMiddle1|PunkBot_Rigged:Character1_Ctrl_LeftHandMiddle2|PunkBot_Rigged:Character1_Ctrl_LeftHandMiddle3.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[268]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[660]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandMiddle1|PunkBot_Rigged:Character1_Ctrl_LeftHandMiddle2|PunkBot_Rigged:Character1_Ctrl_LeftHandMiddle3.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[269]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[661]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandMiddle1|PunkBot_Rigged:Character1_Ctrl_LeftHandMiddle2|PunkBot_Rigged:Character1_Ctrl_LeftHandMiddle3|PunkBot_Rigged:Character1_Ctrl_LeftHandMiddle4.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[270]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[662]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandMiddle1|PunkBot_Rigged:Character1_Ctrl_LeftHandMiddle2|PunkBot_Rigged:Character1_Ctrl_LeftHandMiddle3|PunkBot_Rigged:Character1_Ctrl_LeftHandMiddle4.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[271]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[663]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandMiddle1|PunkBot_Rigged:Character1_Ctrl_LeftHandMiddle2|PunkBot_Rigged:Character1_Ctrl_LeftHandMiddle3|PunkBot_Rigged:Character1_Ctrl_LeftHandMiddle4.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[272]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[664]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandRing1.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[273]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[665]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandRing1.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[274]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[666]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandRing1.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[275]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[667]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandRing1|PunkBot_Rigged:Character1_Ctrl_LeftHandRing2.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[276]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[668]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandRing1|PunkBot_Rigged:Character1_Ctrl_LeftHandRing2.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[277]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[669]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandRing1|PunkBot_Rigged:Character1_Ctrl_LeftHandRing2.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[278]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[670]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandRing1|PunkBot_Rigged:Character1_Ctrl_LeftHandRing2|PunkBot_Rigged:Character1_Ctrl_LeftHandRing3.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[279]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[671]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandRing1|PunkBot_Rigged:Character1_Ctrl_LeftHandRing2|PunkBot_Rigged:Character1_Ctrl_LeftHandRing3.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[280]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[672]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandRing1|PunkBot_Rigged:Character1_Ctrl_LeftHandRing2|PunkBot_Rigged:Character1_Ctrl_LeftHandRing3.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[281]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[673]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandRing1|PunkBot_Rigged:Character1_Ctrl_LeftHandRing2|PunkBot_Rigged:Character1_Ctrl_LeftHandRing3|PunkBot_Rigged:Character1_Ctrl_LeftHandRing4.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[282]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[674]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandRing1|PunkBot_Rigged:Character1_Ctrl_LeftHandRing2|PunkBot_Rigged:Character1_Ctrl_LeftHandRing3|PunkBot_Rigged:Character1_Ctrl_LeftHandRing4.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[283]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[675]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandRing1|PunkBot_Rigged:Character1_Ctrl_LeftHandRing2|PunkBot_Rigged:Character1_Ctrl_LeftHandRing3|PunkBot_Rigged:Character1_Ctrl_LeftHandRing4.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[284]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[676]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandPinky1.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[285]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[677]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandPinky1.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[286]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[678]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandPinky1.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[287]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[679]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandPinky1|PunkBot_Rigged:Character1_Ctrl_LeftHandPinky2.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[288]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[680]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandPinky1|PunkBot_Rigged:Character1_Ctrl_LeftHandPinky2.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[289]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[681]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandPinky1|PunkBot_Rigged:Character1_Ctrl_LeftHandPinky2.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[290]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[682]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandPinky1|PunkBot_Rigged:Character1_Ctrl_LeftHandPinky2|PunkBot_Rigged:Character1_Ctrl_LeftHandPinky3.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[291]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[683]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandPinky1|PunkBot_Rigged:Character1_Ctrl_LeftHandPinky2|PunkBot_Rigged:Character1_Ctrl_LeftHandPinky3.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[292]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[684]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandPinky1|PunkBot_Rigged:Character1_Ctrl_LeftHandPinky2|PunkBot_Rigged:Character1_Ctrl_LeftHandPinky3.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[293]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[685]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandPinky1|PunkBot_Rigged:Character1_Ctrl_LeftHandPinky2|PunkBot_Rigged:Character1_Ctrl_LeftHandPinky3|PunkBot_Rigged:Character1_Ctrl_LeftHandPinky4.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[294]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[686]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandPinky1|PunkBot_Rigged:Character1_Ctrl_LeftHandPinky2|PunkBot_Rigged:Character1_Ctrl_LeftHandPinky3|PunkBot_Rigged:Character1_Ctrl_LeftHandPinky4.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[295]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[687]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_LeftShoulder|PunkBot_Rigged:Character1_Ctrl_LeftArm|PunkBot_Rigged:Character1_Ctrl_LeftForeArm|PunkBot_Rigged:Character1_Ctrl_LeftHand|PunkBot_Rigged:Character1_Ctrl_LeftHandPinky1|PunkBot_Rigged:Character1_Ctrl_LeftHandPinky2|PunkBot_Rigged:Character1_Ctrl_LeftHandPinky3|PunkBot_Rigged:Character1_Ctrl_LeftHandPinky4.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[296]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[688]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[297]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[689]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[298]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[690]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[299]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[691]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[300]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[692]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[301]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[693]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[302]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[694]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[303]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[695]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[304]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[696]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[305]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[697]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[306]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[698]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[307]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[699]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[308]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[700]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandThumb1.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[309]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[701]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandThumb1.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[310]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[702]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandThumb1.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[311]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[703]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandThumb1|PunkBot_Rigged:Character1_Ctrl_RightHandThumb2.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[312]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[704]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandThumb1|PunkBot_Rigged:Character1_Ctrl_RightHandThumb2.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[313]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[705]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandThumb1|PunkBot_Rigged:Character1_Ctrl_RightHandThumb2.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[314]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[706]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandThumb1|PunkBot_Rigged:Character1_Ctrl_RightHandThumb2|PunkBot_Rigged:Character1_Ctrl_RightHandThumb3.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[315]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[707]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandThumb1|PunkBot_Rigged:Character1_Ctrl_RightHandThumb2|PunkBot_Rigged:Character1_Ctrl_RightHandThumb3.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[316]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[708]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandThumb1|PunkBot_Rigged:Character1_Ctrl_RightHandThumb2|PunkBot_Rigged:Character1_Ctrl_RightHandThumb3.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[317]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[709]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandThumb1|PunkBot_Rigged:Character1_Ctrl_RightHandThumb2|PunkBot_Rigged:Character1_Ctrl_RightHandThumb3|PunkBot_Rigged:Character1_Ctrl_RightHandThumb4.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[318]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[710]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandThumb1|PunkBot_Rigged:Character1_Ctrl_RightHandThumb2|PunkBot_Rigged:Character1_Ctrl_RightHandThumb3|PunkBot_Rigged:Character1_Ctrl_RightHandThumb4.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[319]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[711]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandThumb1|PunkBot_Rigged:Character1_Ctrl_RightHandThumb2|PunkBot_Rigged:Character1_Ctrl_RightHandThumb3|PunkBot_Rigged:Character1_Ctrl_RightHandThumb4.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[320]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[712]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandIndex1.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[321]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[713]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandIndex1.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[322]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[714]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandIndex1.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[323]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[715]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandIndex1|PunkBot_Rigged:Character1_Ctrl_RightHandIndex2.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[324]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[716]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandIndex1|PunkBot_Rigged:Character1_Ctrl_RightHandIndex2.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[325]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[717]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandIndex1|PunkBot_Rigged:Character1_Ctrl_RightHandIndex2.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[326]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[718]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandIndex1|PunkBot_Rigged:Character1_Ctrl_RightHandIndex2|PunkBot_Rigged:Character1_Ctrl_RightHandIndex3.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[327]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[719]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandIndex1|PunkBot_Rigged:Character1_Ctrl_RightHandIndex2|PunkBot_Rigged:Character1_Ctrl_RightHandIndex3.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[328]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[720]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandIndex1|PunkBot_Rigged:Character1_Ctrl_RightHandIndex2|PunkBot_Rigged:Character1_Ctrl_RightHandIndex3.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[329]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[721]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandIndex1|PunkBot_Rigged:Character1_Ctrl_RightHandIndex2|PunkBot_Rigged:Character1_Ctrl_RightHandIndex3|PunkBot_Rigged:Character1_Ctrl_RightHandIndex4.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[330]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[722]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandIndex1|PunkBot_Rigged:Character1_Ctrl_RightHandIndex2|PunkBot_Rigged:Character1_Ctrl_RightHandIndex3|PunkBot_Rigged:Character1_Ctrl_RightHandIndex4.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[331]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[723]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandIndex1|PunkBot_Rigged:Character1_Ctrl_RightHandIndex2|PunkBot_Rigged:Character1_Ctrl_RightHandIndex3|PunkBot_Rigged:Character1_Ctrl_RightHandIndex4.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[332]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[724]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandMiddle1.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[333]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[725]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandMiddle1.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[334]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[726]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandMiddle1.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[335]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[727]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandMiddle1|PunkBot_Rigged:Character1_Ctrl_RightHandMiddle2.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[336]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[728]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandMiddle1|PunkBot_Rigged:Character1_Ctrl_RightHandMiddle2.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[337]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[729]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandMiddle1|PunkBot_Rigged:Character1_Ctrl_RightHandMiddle2.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[338]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[730]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandMiddle1|PunkBot_Rigged:Character1_Ctrl_RightHandMiddle2|PunkBot_Rigged:Character1_Ctrl_RightHandMiddle3.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[339]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[731]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandMiddle1|PunkBot_Rigged:Character1_Ctrl_RightHandMiddle2|PunkBot_Rigged:Character1_Ctrl_RightHandMiddle3.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[340]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[732]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandMiddle1|PunkBot_Rigged:Character1_Ctrl_RightHandMiddle2|PunkBot_Rigged:Character1_Ctrl_RightHandMiddle3.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[341]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[733]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandMiddle1|PunkBot_Rigged:Character1_Ctrl_RightHandMiddle2|PunkBot_Rigged:Character1_Ctrl_RightHandMiddle3|PunkBot_Rigged:Character1_Ctrl_RightHandMiddle4.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[342]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[734]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandMiddle1|PunkBot_Rigged:Character1_Ctrl_RightHandMiddle2|PunkBot_Rigged:Character1_Ctrl_RightHandMiddle3|PunkBot_Rigged:Character1_Ctrl_RightHandMiddle4.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[343]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[735]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandMiddle1|PunkBot_Rigged:Character1_Ctrl_RightHandMiddle2|PunkBot_Rigged:Character1_Ctrl_RightHandMiddle3|PunkBot_Rigged:Character1_Ctrl_RightHandMiddle4.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[344]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[736]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandRing1.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[345]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[737]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandRing1.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[346]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[738]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandRing1.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[347]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[739]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandRing1|PunkBot_Rigged:Character1_Ctrl_RightHandRing2.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[348]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[740]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandRing1|PunkBot_Rigged:Character1_Ctrl_RightHandRing2.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[349]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[741]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandRing1|PunkBot_Rigged:Character1_Ctrl_RightHandRing2.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[350]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[742]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandRing1|PunkBot_Rigged:Character1_Ctrl_RightHandRing2|PunkBot_Rigged:Character1_Ctrl_RightHandRing3.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[351]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[743]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandRing1|PunkBot_Rigged:Character1_Ctrl_RightHandRing2|PunkBot_Rigged:Character1_Ctrl_RightHandRing3.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[352]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[744]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandRing1|PunkBot_Rigged:Character1_Ctrl_RightHandRing2|PunkBot_Rigged:Character1_Ctrl_RightHandRing3.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[353]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[745]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandRing1|PunkBot_Rigged:Character1_Ctrl_RightHandRing2|PunkBot_Rigged:Character1_Ctrl_RightHandRing3|PunkBot_Rigged:Character1_Ctrl_RightHandRing4.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[354]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[746]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandRing1|PunkBot_Rigged:Character1_Ctrl_RightHandRing2|PunkBot_Rigged:Character1_Ctrl_RightHandRing3|PunkBot_Rigged:Character1_Ctrl_RightHandRing4.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[355]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[747]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandRing1|PunkBot_Rigged:Character1_Ctrl_RightHandRing2|PunkBot_Rigged:Character1_Ctrl_RightHandRing3|PunkBot_Rigged:Character1_Ctrl_RightHandRing4.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[356]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[748]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandPinky1.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[357]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[749]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandPinky1.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[358]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[750]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandPinky1.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[359]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[751]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandPinky1|PunkBot_Rigged:Character1_Ctrl_RightHandPinky2.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[360]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[752]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandPinky1|PunkBot_Rigged:Character1_Ctrl_RightHandPinky2.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[361]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[753]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandPinky1|PunkBot_Rigged:Character1_Ctrl_RightHandPinky2.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[362]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[754]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandPinky1|PunkBot_Rigged:Character1_Ctrl_RightHandPinky2|PunkBot_Rigged:Character1_Ctrl_RightHandPinky3.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[363]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[755]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandPinky1|PunkBot_Rigged:Character1_Ctrl_RightHandPinky2|PunkBot_Rigged:Character1_Ctrl_RightHandPinky3.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[364]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[756]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandPinky1|PunkBot_Rigged:Character1_Ctrl_RightHandPinky2|PunkBot_Rigged:Character1_Ctrl_RightHandPinky3.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[365]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[757]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandPinky1|PunkBot_Rigged:Character1_Ctrl_RightHandPinky2|PunkBot_Rigged:Character1_Ctrl_RightHandPinky3|PunkBot_Rigged:Character1_Ctrl_RightHandPinky4.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[366]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[758]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandPinky1|PunkBot_Rigged:Character1_Ctrl_RightHandPinky2|PunkBot_Rigged:Character1_Ctrl_RightHandPinky3|PunkBot_Rigged:Character1_Ctrl_RightHandPinky4.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[367]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[759]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_RightShoulder|PunkBot_Rigged:Character1_Ctrl_RightArm|PunkBot_Rigged:Character1_Ctrl_RightForeArm|PunkBot_Rigged:Character1_Ctrl_RightHand|PunkBot_Rigged:Character1_Ctrl_RightHandPinky1|PunkBot_Rigged:Character1_Ctrl_RightHandPinky2|PunkBot_Rigged:Character1_Ctrl_RightHandPinky3|PunkBot_Rigged:Character1_Ctrl_RightHandPinky4.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[368]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[760]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_Neck.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[369]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[761]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_Neck.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[370]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[762]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_Neck.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[371]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[763]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_Neck|PunkBot_Rigged:Character1_Ctrl_Head.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[372]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[764]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_Neck|PunkBot_Rigged:Character1_Ctrl_Head.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[373]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[765]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Ctrl_Reference|PunkBot_Rigged:Character1_Ctrl_Hips|PunkBot_Rigged:Character1_Ctrl_Spine|PunkBot_Rigged:Character1_Ctrl_Spine1|PunkBot_Rigged:Character1_Ctrl_Spine2|PunkBot_Rigged:Character1_Ctrl_Neck|PunkBot_Rigged:Character1_Ctrl_Head.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[374]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[766]" ""
 		5 3 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:MasterPipe|PunkBot_Rigged:SlavePipe.translate" 
-		"PunkBot_RiggedPipeRN.placeHolderList[375]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[767]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:MasterPipe|PunkBot_Rigged:SlavePipe.translateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[376]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[768]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:MasterPipe|PunkBot_Rigged:SlavePipe.translateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[377]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[769]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:MasterPipe|PunkBot_Rigged:SlavePipe.translateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[378]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[770]" ""
 		5 3 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:MasterPipe|PunkBot_Rigged:SlavePipe.rotatePivot" 
-		"PunkBot_RiggedPipeRN.placeHolderList[379]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[771]" ""
 		5 3 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:MasterPipe|PunkBot_Rigged:SlavePipe.rotatePivotTranslate" 
-		"PunkBot_RiggedPipeRN.placeHolderList[380]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[772]" ""
 		5 3 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:MasterPipe|PunkBot_Rigged:SlavePipe.rotate" 
-		"PunkBot_RiggedPipeRN.placeHolderList[381]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[773]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:MasterPipe|PunkBot_Rigged:SlavePipe.rotateX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[382]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[774]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:MasterPipe|PunkBot_Rigged:SlavePipe.rotateY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[383]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[775]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:MasterPipe|PunkBot_Rigged:SlavePipe.rotateZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[384]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[776]" ""
 		5 3 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:MasterPipe|PunkBot_Rigged:SlavePipe.rotateOrder" 
-		"PunkBot_RiggedPipeRN.placeHolderList[385]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[777]" ""
 		5 3 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:MasterPipe|PunkBot_Rigged:SlavePipe.scale" 
-		"PunkBot_RiggedPipeRN.placeHolderList[386]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[778]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:MasterPipe|PunkBot_Rigged:SlavePipe.scaleX" 
-		"PunkBot_RiggedPipeRN.placeHolderList[387]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[779]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:MasterPipe|PunkBot_Rigged:SlavePipe.scaleY" 
-		"PunkBot_RiggedPipeRN.placeHolderList[388]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[780]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:MasterPipe|PunkBot_Rigged:SlavePipe.scaleZ" 
-		"PunkBot_RiggedPipeRN.placeHolderList[389]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[781]" ""
 		5 3 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:MasterPipe|PunkBot_Rigged:SlavePipe.parentMatrix" 
-		"PunkBot_RiggedPipeRN.placeHolderList[390]" ""
+		"PunkBot_RiggedPipeRN.placeHolderList[782]" ""
 		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:MasterPipe|PunkBot_Rigged:SlavePipe.visibility" 
-		"PunkBot_RiggedPipeRN.placeHolderList[391]" "";
+		"PunkBot_RiggedPipeRN.placeHolderList[783]" ""
+		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Reference.scaleX" 
+		"PunkBot_RiggedPipeRN.placeHolderList[784]" ""
+		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Reference.scaleY" 
+		"PunkBot_RiggedPipeRN.placeHolderList[785]" ""
+		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Reference.scaleZ" 
+		"PunkBot_RiggedPipeRN.placeHolderList[786]" ""
+		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Reference.translateX" 
+		"PunkBot_RiggedPipeRN.placeHolderList[787]" ""
+		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Reference.translateY" 
+		"PunkBot_RiggedPipeRN.placeHolderList[788]" ""
+		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Reference.translateZ" 
+		"PunkBot_RiggedPipeRN.placeHolderList[789]" ""
+		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Reference.rotateX" 
+		"PunkBot_RiggedPipeRN.placeHolderList[790]" ""
+		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Reference.rotateY" 
+		"PunkBot_RiggedPipeRN.placeHolderList[791]" ""
+		5 4 "PunkBot_RiggedPipeRN" "|PunkBot_Rigged:Character1_Reference.rotateZ" 
+		"PunkBot_RiggedPipeRN.placeHolderList[792]" "";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
 createNode animCurveTA -n "Character1_Ctrl_HipsEffector_rotateX";
@@ -1894,7 +1914,7 @@ createNode animCurveTA -n "Character1_Ctrl_HipsEffector_rotateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 9 ".ktv[0:8]"  0 -0.3895844248142164 6 6.1776883569967307
-		 15 12.796973910325534 19 5.4799597372847408 22 5.2338865848559282 27 3.3045392274647885
+		 15 12.796973910325534 19 5.4799597372847408 22 5.2338865848559282 27 3.3045392274647889
 		 30 1.2012971139484168 32 1.1642089077596671 40 -0.3895873470266415;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -1933,7 +1953,7 @@ createNode animCurveTA -n "Character1_Ctrl_Hips_rotateY";
 	setAttr ".wgt" no;
 	setAttr -s 11 ".ktv[0:10]"  0 -0.38958443272316196 6 6.1776883862447285
 		 11 9.4901298785995145 15 12.796973374334303 19 5.4799597291449826 22 5.2338866942357569
-		 27 3.3045392274647885 30 1.2012971139484168 32 1.1642089077596671 34 0.5700844777167583
+		 27 3.3045392274647889 30 1.2012971139484168 32 1.1642089077596671 34 0.5700844777167583
 		 40 -0.38958734964824698;
 	setAttr -s 11 ".kix[0:10]"  1 0.95668809262231524 0.98376664027462435 
 		1 0.98562897991046794 0.99001533779106399 0.96391425255446506 0.99906277285550826 
@@ -1954,7 +1974,7 @@ createNode animCurveTA -n "Character1_Ctrl_Hips_rotateX";
 	setAttr -s 11 ".ktv[0:10]"  0 -0.16778988324680866 6 -20.898167583970597
 		 11 -22.090943141888303 15 -32.318779573924928 19 -38.821321796464012 22 -37.437448239843128
 		 27 -27.981025513337791 30 -4.6391867898744339 32 -4.6570054765214959 34 -3.6832232219174479
-		 40 -0.16778811951242853;
+		 40 -0.16778811951242856;
 	setAttr -s 11 ".kix[0:10]"  1 0.84817520260226853 0.98580238014081267 
 		0.93451340077550915 1 0.81557778403465786 1 0.99716140671450293 0.93796374402969951 
 		0.99880110598337302 1;
@@ -2087,7 +2107,7 @@ createNode animCurveTA -n "Character1_Ctrl_Spine1_rotateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 11 ".ktv[0:10]"  0 2.3663641711528194 6 1.9087807954417901
-		 11 3.8466552070637325 15 2.4611178981066502 19 2.2981572450032188 22 2.6864741190666548
+		 11 3.8466552070637325 15 2.4611178981066502 19 2.2981572450032193 22 2.6864741190666548
 		 27 3.7959314832480371 30 2.8607952403273598 32 2.4136245473750719 34 2.346360703312306
 		 40 2.3663664111084635;
 	setAttr ".pre" 3;
@@ -2107,7 +2127,7 @@ createNode animCurveTA -n "Character1_Ctrl_Spine2_rotateZ";
 	setAttr ".wgt" no;
 	setAttr -s 9 ".ktv[0:8]"  0 0.00072629370640928158 6 0.00052482110537266206
 		 11 -5.0078846088576467 19 -1.5048569034396768 27 -3.7640792998344859 30 2.6786543398513563
-		 32 5.1926393861144478 34 4.4074857339518179 40 0.00072630959477301628;
+		 32 5.1926393861144486 34 4.4074857339518179 40 0.00072630959477301628;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
 createNode animCurveTA -n "Character1_Ctrl_Spine2_rotateY";
@@ -2132,9 +2152,9 @@ createNode animCurveTA -n "Character1_Ctrl_ChestOriginEffector_rotateX";
 	rename -uid "7763AA6F-4942-4A78-97AD-10A04A3D8CF8";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  0 0.15822779069204115 6 -20.530920624635428
-		 15 -32.93442526599884 19 -38.923572828934411 27 -27.248428537017386 30 -1.4827627189938273
-		 32 -1.5027047752254965 34 -0.93517462641069782 40 0.15823264606714008;
+	setAttr -s 9 ".ktv[0:8]"  0 0.15822779037089854 6 -20.530920130704061
+		 15 -32.934425010920961 19 -38.923573175226863 27 -27.24842894097938 30 -1.4827627096895408
+		 32 -1.5027047839910646 34 -0.93517462623851833 40 0.15823264564489581;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -2142,9 +2162,9 @@ createNode animCurveTA -n "Character1_Ctrl_ChestOriginEffector_rotateY";
 	rename -uid "4E806BE8-4C42-50B7-A4CA-42BD7E0089F5";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  0 -1.5012801389986987 6 5.089330341257754
-		 15 11.908284091735279 19 4.7920853301503632 27 2.1946379840695251 30 3.4542111131485225
-		 32 3.4015743636177191 34 2.2606121918448445 40 -1.5012882479236291;
+	setAttr -s 9 ".ktv[0:8]"  0 -1.501280135948065 6 5.0893302296041849
+		 15 11.908283974704647 19 4.7920853946834026 27 2.1946380264594549 30 3.4542110428207455
+		 32 3.401574430920475 34 2.2606121908036472 40 -1.501288243912779;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -2152,9 +2172,9 @@ createNode animCurveTA -n "Character1_Ctrl_ChestOriginEffector_rotateZ";
 	rename -uid "17EC4B9E-4677-E213-1267-D99CFD3D1DEB";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  0 0.017524251390895574 6 -2.0018177454134385
-		 15 11.373930143243982 19 7.6786380285931228 27 2.952473120122435 30 31.408054947868468
-		 32 32.84343766039737 34 26.178346340769327 40 0.017290959392836893;
+	setAttr -s 9 ".ktv[0:8]"  0 0.017524251359489991 6 -2.0018176761112381
+		 15 11.373930081751984 19 7.6786380802793186 27 2.9524731554089967 30 31.408054362446396
+		 32 32.843438251750555 34 26.178346329574975 40 0.017290959352170319;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -2189,9 +2209,9 @@ createNode animCurveTA -n "Character1_Ctrl_ChestEndEffector_rotateX";
 	rename -uid "1C324713-481F-F39B-08A6-C99420C73BDA";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 7 ".ktv[0:6]"  0 0.18184934049597051 6 -20.569036905939985
-		 15 -53.049513294811788 27 -20.528367408603852 30 7.7900833437999113 32 8.2226119525866768
-		 40 0.18185411744410251;
+	setAttr -s 7 ".ktv[0:6]"  0 0.18184933637787434 6 -20.569036747435309
+		 15 -53.049514262573425 27 -20.528367069489097 30 7.7900833581898219 32 8.2226120031768808
+		 40 0.18185411356068024;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -2199,9 +2219,9 @@ createNode animCurveTA -n "Character1_Ctrl_ChestEndEffector_rotateY";
 	rename -uid "7734785D-4BB9-5822-DA6C-0E82E74EC084";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 7 ".ktv[0:6]"  0 3.3100561202167302 6 9.0721678570096049
-		 15 14.175278283327545 27 4.8718725711167883 30 7.6767099816684876 32 6.8599480285003622
-		 40 3.3100526372262804;
+	setAttr -s 7 ".ktv[0:6]"  0 3.3100560457411596 6 9.0721677940856207
+		 15 14.175278520734683 27 4.871872512394094 30 7.6767099887073504 32 6.8599480450926622
+		 40 3.3100525669940883;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -2209,9 +2229,9 @@ createNode animCurveTA -n "Character1_Ctrl_ChestEndEffector_rotateZ";
 	rename -uid "E859DA7E-4D56-571F-F94B-D9A237C0A66E";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 7 ".ktv[0:6]"  0 0.031889354648524555 6 -3.4307775965879381
-		 15 0.42116624774575967 27 -6.722337799512661 30 36.617783720428228 32 43.08470818802855
-		 40 0.031656476985712237;
+	setAttr -s 7 ".ktv[0:6]"  0 0.031889353811623347 6 -3.4307775583527711
+		 15 0.42116613443926643 27 -6.722337676795429 30 36.617783773893848 32 43.084708399345374
+		 40 0.031656476201438341;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -2294,7 +2314,7 @@ createNode animCurveTA -n "Character1_Ctrl_LeftForeArm_rotateY";
 	setAttr ".wgt" no;
 	setAttr -s 9 ".ktv[0:8]"  0 1.4945582088611515 6 -6.5478617428998156
 		 11 -7.4795654949395658 19 -6.1081952042643231 27 -7.302921988028773 30 -1.1262841464986673
-		 32 -5.7572311124657025 34 -7.2887323047135135 40 -6.7821174279684966;
+		 32 -5.7572311124657025 34 -7.2887323047135135 40 -6.7821174279684975;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
 createNode animCurveTA -n "Character1_Ctrl_LeftForeArm_rotateX";
@@ -2311,7 +2331,7 @@ createNode animCurveTA -n "Character1_Ctrl_LeftHand_rotateZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 10 ".ktv[0:9]"  0 5.3877696159206385 6 4.3242239054134997
-		 11 4.0694258750505492 15 -16.828015867233312 19 69.024337826608999 22 39.034139951793669
+		 11 4.0694258750505492 15 -16.828015867233312 19 69.024337826608999 22 39.034139951793676
 		 27 51.353522078058354 30 -42.214883120224634 34 -21.018611172060261 40 -21.815175397487184;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -2337,7 +2357,7 @@ createNode animCurveTA -n "Character1_Ctrl_LeftShoulder_rotateZ";
 	rename -uid "C118EB4C-42C5-257F-AC65-4B92C499FE5B";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  0 0 6 9.5466903901629392e-06 11 2.0262675586165451e-05
+	setAttr -s 11 ".ktv[0:10]"  0 0 6 9.5466903901629392e-06 11 2.0262675586165454e-05
 		 15 2.2269321755332538e-05 19 2.7970161506310083 22 8.2094581747153565 27 22.15933979914821
 		 30 -7.3040255252875621 32 -7.0985629248205511 34 -6.1627456163281549 40 2.3854160110976376e-15;
 	setAttr ".pre" 3;
@@ -2364,9 +2384,9 @@ createNode animCurveTA -n "Character1_Ctrl_LeftWristEffector_rotateX";
 	rename -uid "E1A3C3E9-490C-5CF4-5006-3498655F3CAE";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 7 ".ktv[0:6]"  0 -8.4376003993511901 6 21.442899217458603
-		 9 41.269383443874574 27 156.71414950666338 30 177.86237907929956 32 142.84899927504961
-		 34 207.80681230288252;
+	setAttr -s 7 ".ktv[0:6]"  0 -8.4376004010027188 6 21.442899217325621
+		 9 41.269383443874602 27 156.71414949901927 30 177.86237953482507 32 142.84900034154708
+		 34 207.80681218685268;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -2374,9 +2394,9 @@ createNode animCurveTA -n "Character1_Ctrl_LeftWristEffector_rotateY";
 	rename -uid "FBD1463C-4512-106A-8B50-A187850FDFB4";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 7 ".ktv[0:6]"  0 -47.549265832588723 6 -46.06298617929771
-		 9 -47.808755256304863 27 49.723448966592535 30 -74.293357814528676 32 -88.277032154678039
-		 34 -72.876024394779805;
+	setAttr -s 7 ".ktv[0:6]"  0 -47.549265832813973 6 -46.062986179338075
+		 9 -47.808755256304842 27 49.723448960090479 30 -74.293357662603071 32 -88.27703214392497
+		 34 -72.876024595057146;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -2384,9 +2404,9 @@ createNode animCurveTA -n "Character1_Ctrl_LeftWristEffector_rotateZ";
 	rename -uid "97F807F5-4C93-8ED1-F2D6-5482D573D94F";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 7 ".ktv[0:6]"  0 138.14068022325591 6 180.77406769526192
-		 9 169.04316115800523 27 265.37971723222006 30 256.51218962221293 32 286.8006603815171
-		 34 220.07450761618406;
+	setAttr -s 7 ".ktv[0:6]"  0 138.14068022682306 6 180.77406769557396
+		 9 169.04316115800518 27 265.37971723017364 30 256.51218927260658 32 286.80065933410845
+		 34 220.07450763003516;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -2420,9 +2440,9 @@ createNode animCurveTA -n "Character1_Ctrl_LeftElbowEffector_rotateX";
 	rename -uid "81EC8B51-47B4-FC6C-4014-748359E3044E";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 8 ".ktv[0:7]"  0 -55.053731371646322 6 -42.845438280966903
-		 15 -56.63754816390292 27 10.405452209071996 30 -53.071779219980606 32 -58.570269613731867
-		 34 -62.192364505562473 40 -94.858735610076806;
+	setAttr -s 8 ".ktv[0:7]"  0 -55.053731373078108 6 -42.845438269174416
+		 15 -56.637548163906004 27 10.405452209933562 30 -53.071779224812843 32 -58.57026962209337
+		 34 -62.192364508504852 40 -94.858735613330907;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -2430,9 +2450,9 @@ createNode animCurveTA -n "Character1_Ctrl_LeftElbowEffector_rotateY";
 	rename -uid "AD2D231A-4E1C-67E8-FC5F-9A851C2F222D";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 8 ".ktv[0:7]"  0 -50.290653102008712 6 -31.602690484621263
-		 15 -47.189414780571589 27 55.74602152931535 30 -23.658302295197263 32 -43.584358462707975
-		 34 -38.623436664033107 40 -36.359691839377916;
+	setAttr -s 8 ".ktv[0:7]"  0 -50.290653101466859 6 -31.602690494908551
+		 15 -47.189414780567539 27 55.746021529273548 30 -23.65830228752862 32 -43.584358455180279
+		 34 -38.623436659654516 40 -36.359691826175556;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -2440,9 +2460,9 @@ createNode animCurveTA -n "Character1_Ctrl_LeftElbowEffector_rotateZ";
 	rename -uid "A349E055-48EA-2858-90A8-5FB40D6C5CFB";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 8 ".ktv[0:7]"  0 145.29777948905308 6 162.97726887543206
-		 15 203.38000217642309 27 170.31346618115711 30 165.52356704317239 32 173.32970670769527
-		 34 184.91320749456517 40 191.11965094542103;
+	setAttr -s 8 ".ktv[0:7]"  0 145.29777949149081 6 162.97726884034878
+		 15 203.3800021764321 27 170.3134661827693 30 165.52356706111689 32 173.32970672728101
+		 34 184.91320750354902 40 191.11965095954196;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -2478,9 +2498,9 @@ createNode animCurveTA -n "Character1_Ctrl_LeftShoulderEffector_rotateX";
 	rename -uid "498AAFA7-4486-3206-F0BA-3CA19714A069";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 7 ".ktv[0:6]"  0 57.821604516278725 9 -6.176527577449872
-		 15 -67.875239690888066 27 -31.396732278966816 30 -26.75664037870364 32 -61.437955443848139
-		 40 -101.35594449853144;
+	setAttr -s 7 ".ktv[0:6]"  0 57.821604535714918 9 -6.1765276013581021
+		 15 -67.875239690881642 27 -31.396732276082908 30 -26.756640256592153 32 -61.437955422809871
+		 40 -101.35594450040054;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -2488,9 +2508,9 @@ createNode animCurveTA -n "Character1_Ctrl_LeftShoulderEffector_rotateY";
 	rename -uid "F5D69057-4E9B-2B72-0663-699AA99B5414";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 7 ".ktv[0:6]"  0 66.387830031669239 9 50.912970523596286
-		 15 57.386279682805245 27 -36.100936547798071 30 60.320119589976279 32 56.572799163716525
-		 40 45.531122372388616;
+	setAttr -s 7 ".ktv[0:6]"  0 66.387830049074083 9 50.912970529094878
+		 15 57.386279682814695 27 -36.100936554531359 30 60.320119591547311 32 56.572799176905384
+		 40 45.531122363012663;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -2498,9 +2518,9 @@ createNode animCurveTA -n "Character1_Ctrl_LeftShoulderEffector_rotateZ";
 	rename -uid "663B5C6A-4F6D-1D01-2859-C08C02123634";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 7 ".ktv[0:6]"  0 -32.142383219257773 9 -126.98703635545533
-		 15 -217.95662845113296 27 -119.72787337654141 30 -138.45864436070536 32 -181.71695727406856
-		 40 -202.04144864875491;
+	setAttr -s 7 ".ktv[0:6]"  0 -32.142383215345689 9 -126.98703640360013
+		 15 -217.95662845111514 27 -119.72787339332072 30 -138.45864416926375 32 -181.71695723450671
+		 40 -202.04144865800518;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -2537,7 +2557,7 @@ createNode animCurveTA -n "Character1_Ctrl_RightArm_rotateZ";
 	setAttr ".wgt" no;
 	setAttr -s 8 ".ktv[0:7]"  0 8.2117177500067431 6 9.9930197700913173
 		 15 10.973630854322328 19 -61.404226671537138 27 -97.690006274783883 30 -34.312209919475634
-		 32 -28.584388726830046 40 8.243213812403253;
+		 32 -28.584388726830049 40 8.243213812403253;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
 createNode animCurveTA -n "Character1_Ctrl_RightArm_rotateY";
@@ -2554,7 +2574,7 @@ createNode animCurveTA -n "Character1_Ctrl_RightArm_rotateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 9 ".ktv[0:8]"  0 71.341790483963379 6 43.813835014952552
-		 11 41.365077111241412 15 51.599430225351789 19 -58.331773382653523 27 -35.06046423866465
+		 11 41.365077111241412 15 51.599430225351789 19 -58.331773382653523 27 -35.060464238664657
 		 30 -4.2587429544581017 32 -0.72015326818449277 40 71.370641741669829;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -2564,7 +2584,7 @@ createNode animCurveTA -n "Character1_Ctrl_RightForeArm_rotateZ";
 	setAttr ".wgt" no;
 	setAttr -s 9 ".ktv[0:8]"  0 26.433935786343664 6 81.611676360289664
 		 11 86.566570810866693 15 60.276090504342463 19 93.87657453743131 27 33.742301764576951
-		 30 20.309462786903612 32 28.092115091239094 40 26.422358008183338;
+		 30 20.309462786903612 32 28.092115091239098 40 26.422358008183338;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
 createNode animCurveTA -n "Character1_Ctrl_RightForeArm_rotateY";
@@ -2572,7 +2592,7 @@ createNode animCurveTA -n "Character1_Ctrl_RightForeArm_rotateY";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 8 ".ktv[0:7]"  0 -4.113037606065113 6 0.16687324817451368
-		 11 0.55668613819654578 15 -0.51655418281141374 19 -2.2968510420174182 27 -1.645074838306793
+		 11 0.55668613819654578 15 -0.51655418281141374 19 -2.2968510420174182 27 -1.6450748383067932
 		 30 -7.7519961906961026 40 -4.0929019295884963;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -2600,7 +2620,7 @@ createNode animCurveTA -n "Character1_Ctrl_RightHand_rotateY";
 	setAttr ".wgt" no;
 	setAttr -s 9 ".ktv[0:8]"  0 28.344966432008938 6 -11.623379027873654
 		 11 -15.214448976748811 15 17.324622594773079 19 -25.643938884519443 27 -34.565706230900055
-		 30 70.995308050584086 32 50.157090963169971 40 28.345037431572006;
+		 30 70.995308050584086 32 50.157090963169971 40 28.34503743157201;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
 createNode animCurveTA -n "Character1_Ctrl_RightHand_rotateX";
@@ -2634,7 +2654,7 @@ createNode animCurveTA -n "Character1_Ctrl_RightShoulder_rotateX";
 	rename -uid "2752A2E0-4B5D-0B8D-CB90-649120131403";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 7 ".ktv[0:6]"  0 0.00089136512954572211 19 0.0010842703335291587
+	setAttr -s 7 ".ktv[0:6]"  0 0.00089136512954572211 19 0.001084270333529159
 		 22 -1.6064263908859915 27 -6.1993123408254593 30 -2.1230755618488182 34 -1.2546614450591955
 		 40 0.00089321362409023957;
 	setAttr ".pre" 3;
@@ -2643,9 +2663,9 @@ createNode animCurveTA -n "Character1_Ctrl_RightWristEffector_rotateX";
 	rename -uid "25F0D820-4339-F76F-7B3C-7FA567FE55FF";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  0 -155.93824783283304 6 -107.68646806344056
-		 9 -88.291996641230924 15 8.642035222373547 19 37.174491553267714 27 13.451392281831225
-		 30 -5.3836947266229291 34 6.0931650979887158 40 24.061782788650088;
+	setAttr -s 9 ".ktv[0:8]"  0 -155.93824783018857 6 -107.68646682265967
+		 9 -88.291996636775039 15 8.6420352658622637 19 37.174491555425732 27 13.45139236822224
+		 30 -5.3836946335857006 34 6.0931650192690459 40 24.061783073343623;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -2653,9 +2673,9 @@ createNode animCurveTA -n "Character1_Ctrl_RightWristEffector_rotateY";
 	rename -uid "94A69703-4237-FDCA-A49F-519ACCA4B658";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  0 51.308895676896014 6 122.57175036732278
-		 9 132.33638404676287 15 108.81390032313764 19 253.39797371400695 27 259.39095060475108
-		 30 135.04099543593429 34 131.90631016215653 40 128.69087955664673;
+	setAttr -s 9 ".ktv[0:8]"  0 51.308895677665639 6 122.57175025768267
+		 9 132.33638404705104 15 108.81390036780454 19 253.39797348677189 27 259.39095057744754
+		 30 135.04099535830147 34 131.90631020507453 40 128.69087947379415;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -2663,9 +2683,9 @@ createNode animCurveTA -n "Character1_Ctrl_RightWristEffector_rotateZ";
 	rename -uid "D4EF40ED-4781-46C7-0061-DE880018D323";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  0 -61.617585984598577 6 -124.92712692746022
-		 9 -122.616625581725 15 -41.054649909634442 19 28.453863156795844 27 71.62596514907797
-		 30 82.826444539073051 34 98.831450957266767 40 118.3825041253626;
+	setAttr -s 9 ".ktv[0:8]"  0 -61.617585983084787 6 -124.92712580225479
+		 9 -122.61662557821367 15 -41.05464988351023 19 28.453863266954226 27 71.625965082445873
+		 30 82.826444573368477 34 98.83145091932424 40 118.38250428833221;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -2700,9 +2720,9 @@ createNode animCurveTA -n "Character1_Ctrl_RightElbowEffector_rotateX";
 	rename -uid "1DED58F0-4623-71E3-5B9E-E19B32657284";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  0 -52.152178127403737 6 -82.956655013142665
-		 9 -88.600593655224458 15 -91.429756209870277 22 -129.80356318389167 27 -158.2339711573423
-		 30 -225.13482846522197 34 -239.22161604647886 40 -232.16194684125352;
+	setAttr -s 9 ".ktv[0:8]"  0 -52.152177954674968 6 -82.956654744643672
+		 9 -88.600593649725425 15 -91.42975662276271 22 -129.80356315840325 27 -158.23397115964909
+		 30 -225.13482871041921 34 -239.22161627888138 40 -232.16194710799343;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -2710,9 +2730,9 @@ createNode animCurveTA -n "Character1_Ctrl_RightElbowEffector_rotateY";
 	rename -uid "F05C39A5-43F8-A4CA-9CE2-5E9E5D06D68A";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  0 -74.827777008398911 6 -17.78097433887579
-		 9 -5.8724666009585134 15 -47.67311223199485 22 121.66428464694025 27 115.65628664096441
-		 30 224.12891428077205 34 247.34034198805563 40 254.82441268394319;
+	setAttr -s 9 ".ktv[0:8]"  0 -74.827777008418877 6 -17.780974504457451
+		 9 -5.8724666050162035 15 -47.673112186208698 22 121.66428465822405 27 115.65628664076172
+		 30 224.1289142354054 34 247.34034195893895 40 254.82441268389738;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -2720,9 +2740,9 @@ createNode animCurveTA -n "Character1_Ctrl_RightElbowEffector_rotateZ";
 	rename -uid "FF1245A1-4EF0-0456-33C7-A7964349F139";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  0 114.83183410527036 6 85.924986733819736
-		 9 79.1525412897455 15 65.328319964516808 22 0.27756024392722534 27 -11.049392507800757
-		 30 -62.522755185743485 34 -44.908212632212809 40 -65.158031772751585;
+	setAttr -s 9 ".ktv[0:8]"  0 114.8318339066517 6 85.924986454929652
+		 9 79.152541285011381 15 65.328320309746076 22 0.27756028965754587 27 -11.04939251140425
+		 30 -62.522754774767478 34 -44.908212333929448 40 -65.158031466021683;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -2757,9 +2777,9 @@ createNode animCurveTA -n "Character1_Ctrl_RightShoulderEffector_rotateX";
 	rename -uid "1E17D654-44A5-F622-0E73-7D9E9A8C546E";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  0 71.39484844141171 6 51.350272403214753
-		 9 44.159336021929057 15 85.270178416051849 19 114.34884871064916 27 154.33757968732112
-		 30 176.85411274389764 34 240.86784059517097 40 251.42913638208213;
+	setAttr -s 9 ".ktv[0:8]"  0 71.394848594693187 6 51.350271047515214
+		 9 44.159334786405083 15 85.270177549717516 19 114.34884854862638 27 154.33757970923253
+		 30 176.85411254162545 34 240.8678410739102 40 251.42913678125382;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -2767,9 +2787,9 @@ createNode animCurveTA -n "Character1_Ctrl_RightShoulderEffector_rotateY";
 	rename -uid "19C3E4B6-4D01-442C-831A-57A81A866684";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  0 61.431450468420458 6 72.26756623311303
-		 9 81.960929823970233 15 71.368605573357726 19 194.55248216071945 27 226.29989996916095
-		 30 122.01417152772615 34 114.28601588849665 40 118.54697436962752;
+	setAttr -s 9 ".ktv[0:8]"  0 61.431450520759498 6 72.267565981884687
+		 9 81.960929680335099 15 71.368605652148972 19 194.55248225766309 27 226.29989999663039
+		 30 122.01417139959199 34 114.28601560683815 40 118.54697423354123;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -2777,9 +2797,9 @@ createNode animCurveTA -n "Character1_Ctrl_RightShoulderEffector_rotateZ";
 	rename -uid "3AAA6C4C-4AB0-59EE-4391-1E850525BD32";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  0 8.1182454168450455 6 50.639821087166204
-		 9 50.465637905269055 15 107.69143313339538 19 138.94569941461776 27 66.193269353380828
-		 30 105.82454142714928 34 165.33251591265105 40 188.15437663071535;
+	setAttr -s 9 ".ktv[0:8]"  0 8.1182455171660255 6 50.639819734836891
+		 9 50.465636656682904 15 107.69143220960393 19 138.94569933539168 27 66.193269279858484
+		 30 105.82454107769375 34 165.3325161506489 40 188.15437689214565;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -2824,8 +2844,8 @@ createNode animCurveTA -n "Character1_Ctrl_LeftUpLeg_rotateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 11 ".ktv[0:10]"  0 -0.48651769257761118 6 -1.767528647349293
-		 11 -2.4636803452083513 15 17.05854936532797 19 4.5709964946404487 22 -6.4983871010040186
-		 27 8.9856879132814278 30 -5.4582130662243378 32 -4.7729214960975064 34 -4.0672337021220786
+		 11 -2.4636803452083513 15 17.05854936532797 19 4.5709964946404487 22 -6.4983871010040195
+		 27 8.9856879132814278 30 -5.4582130662243378 32 -4.7729214960975073 34 -4.0672337021220786
 		 40 -0.48647617644814478;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -2871,16 +2891,16 @@ createNode animCurveTA -n "Character1_Ctrl_LeftFoot_rotateY";
 	setAttr ".wgt" no;
 	setAttr -s 9 ".ktv[0:8]"  0 0.20304238099402031 6 -5.0079707679722993
 		 11 -4.9178838366317397 15 10.492871500022497 22 9.3235288653301147 27 17.309496775916653
-		 30 11.162688881083325 32 10.613801853838549 40 0.20181577602950493;
+		 30 11.162688881083325 32 10.613801853838551 40 0.20181577602950493;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
 createNode animCurveTA -n "Character1_Ctrl_LeftFoot_rotateX";
 	rename -uid "20790E0F-45CF-F3F1-FDC4-D0B00D9DA260";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 10 ".ktv[0:9]"  0 -0.6447753263229119 6 13.367629798653018
-		 11 13.753525172701204 15 -10.297554540138403 19 -3.3681930679012284 22 -5.5474141831335038
-		 27 -1.0843307747153423 30 1.5751326858654133 32 0.84964566888440873 40 -0.64207915704984908;
+	setAttr -s 10 ".ktv[0:9]"  0 -0.6447753263229119 6 13.36762979865302
+		 11 13.753525172701206 15 -10.297554540138403 19 -3.3681930679012284 22 -5.5474141831335038
+		 27 -1.0843307747153423 30 1.5751326858654136 32 0.84964566888440873 40 -0.64207915704984908;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
 createNode animCurveTA -n "Character1_Ctrl_LeftToeBase_rotateZ";
@@ -2935,9 +2955,9 @@ createNode animCurveTA -n "Character1_Ctrl_LeftAnkleEffector_rotateX";
 	rename -uid "8485CD8B-44E3-42B2-10FC-FB83D90489FC";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 10 ".ktv[0:9]"  0 -5.2950122674708722e-06 6 42.036830757566207
-		 15 32.275288543219325 19 45.162631820259975 22 25.994463685353843 27 45.162719008704528
-		 30 14.390825477954566 32 11.527655201641158 34 11.384993586283292 40 -9.9069999590986664e-06;
+	setAttr -s 10 ".ktv[0:9]"  0 -5.2950122674706918e-06 6 42.036830288255601
+		 15 32.275288710637128 19 45.162632094296136 22 25.994463825408271 27 45.162719229839468
+		 30 14.390825563171328 32 11.527655363202696 34 11.384993434688594 40 -9.9069999590986664e-06;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -2945,9 +2965,9 @@ createNode animCurveTA -n "Character1_Ctrl_LeftAnkleEffector_rotateY";
 	rename -uid "E07CCE6E-4C6B-BB82-4F22-A597AFDE7385";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 10 ".ktv[0:9]"  0 -8.8896452458021191e-06 6 0.80183487030807887
-		 15 9.4999452243279734 19 5.1957003241836652 22 -0.69959590428661 27 5.1957574695035582
-		 30 15.907516696941013 32 14.91109519914461 34 12.700634384490602 40 -1.5735210387590109e-05;
+	setAttr -s 10 ".ktv[0:9]"  0 -8.8896452458018142e-06 6 0.8018349835565497
+		 15 9.4999452530891801 19 5.1957002452868881 22 -0.69959596858658635 27 5.1957574058378029
+		 30 15.907516786353087 32 14.911095409793147 34 12.700634220288137 40 -1.5735210387590109e-05;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -2955,9 +2975,9 @@ createNode animCurveTA -n "Character1_Ctrl_LeftAnkleEffector_rotateZ";
 	rename -uid "4B9173B1-46FD-98B3-5751-F89B86B7E48C";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 10 ".ktv[0:9]"  0 2.8174529791966501e-05 6 29.222370805794263
-		 15 12.283932626712888 19 44.701224159198752 22 46.293335078822189 27 44.701134189654034
-		 30 0.8141088621464474 32 -2.2003678212678799 34 0.31345685984348359 40 5.7202839896633029e-05;
+	setAttr -s 10 ".ktv[0:9]"  0 2.8174529791965528e-05 6 29.222370485618981
+		 15 12.283932700604462 19 44.701224430396287 22 46.293335340320311 27 44.701134408497474
+		 30 0.81410887871800242 32 -2.2003678311085255 34 0.31345683887649745 40 5.7202839896633029e-05;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -2992,9 +3012,9 @@ createNode animCurveTA -n "Character1_Ctrl_LeftKneeEffector_rotateX";
 	rename -uid "81654FA0-4397-38FC-E863-7AA975D1D1A5";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  0 -0.3192242420715814 6 24.724311426709725
-		 15 32.992925773578072 19 45.554335099562813 22 23.291432164967578 27 41.505452348624196
-		 30 12.035701193975084 32 9.8151918525910435 40 -0.31941710552825658;
+	setAttr -s 9 ".ktv[0:8]"  0 -0.31922423690210011 6 24.724311708850358
+		 15 32.992925784661637 19 45.554336053680096 22 23.2914323212628 27 41.505453056487674
+		 30 12.035701345276882 32 9.8151918983987194 40 -0.31941710586715427;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -3002,9 +3022,9 @@ createNode animCurveTA -n "Character1_Ctrl_LeftKneeEffector_rotateY";
 	rename -uid "C33EB778-4363-1CFE-A662-8BBE3A231FAF";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  0 -0.61914113828037287 6 -14.725036310002483
-		 15 -27.449817406447643 19 -17.196496349605528 22 -23.07764921057759 27 -23.361203981928522
-		 30 -5.9975719590649454 32 -5.6294557160511252 40 -0.61617015421017096;
+	setAttr -s 9 ".ktv[0:8]"  0 -0.61914113054707542 6 -14.725036540579385
+		 15 -27.44981741353622 19 -17.196496700619512 22 -23.077649411498577 27 -23.361204336414673
+		 30 -5.9975720275934368 32 -5.6294557412759998 40 -0.6161701547147127;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -3012,9 +3032,9 @@ createNode animCurveTA -n "Character1_Ctrl_LeftKneeEffector_rotateZ";
 	rename -uid "3012E480-44FB-E64A-46F2-7EB99BEE9DEB";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  0 12.969820102368542 6 19.352473107142643
-		 15 -7.4649843132335221 19 2.5161676410087557 22 19.364765202156384 27 -0.0082114773545059333
-		 30 -3.8779897925785076 32 -1.6762964385241479 40 12.971567560057249;
+	setAttr -s 9 ".ktv[0:8]"  0 12.96981992951574 6 19.352473310635247
+		 15 -7.4649843181191944 19 2.5161675458919937 22 19.364765319457391 27 -0.0082116238242142363
+		 30 -3.8779898481592978 32 -1.6762964484974952 40 12.971567571394484;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -3050,9 +3070,9 @@ createNode animCurveTA -n "Character1_Ctrl_LeftFootEffector_rotateX";
 	rename -uid "0F2DBF35-41EE-1AC6-362A-7EB55A22E39C";
 	setAttr ".tan" 2;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  0 1.707549480724867e-06 6 34.044298970029402
-		 9 37.448445345199147 15 19.487581606114432 19 -19.74013019366469 22 -5.7077824925702245
-		 27 -19.740091271202012 30 -4.1942808629526285 32 -5.0356874646098229 34 -1.4494255733516503
+	setAttr -s 11 ".ktv[0:10]"  0 1.7075494807249254e-06 6 34.044299190002079
+		 9 37.448444630928996 15 19.48758164757902 19 -19.740130153940108 22 -5.7077825444013914
+		 27 -19.740091680395636 30 -4.1942807759891449 32 -5.0356875696973198 34 -1.4494255363169981
 		 40 2.614690900754114e-06;
 	setAttr -s 11 ".kit[2:10]"  18 2 2 2 2 2 2 2 
 		2;
@@ -3063,19 +3083,19 @@ createNode animCurveTA -n "Character1_Ctrl_LeftFootEffector_rotateY";
 	rename -uid "C148773D-4C75-901F-B733-BC9EFA98444C";
 	setAttr ".tan" 2;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  0 -2.9965836158700847e-05 6 26.329770299636067
-		 9 27.260621782013715 15 27.80123904883596 19 41.751248669243694 22 25.411584500857231
-		 27 41.751251076695368 30 20.927330635710852 32 18.101906677660669 34 16.933253417279403
+	setAttr -s 11 ".ktv[0:10]"  0 -2.9965836158699811e-05 6 26.329770366854781
+		 9 27.260621609187698 15 27.801239089638294 19 41.751248632146265 22 25.411584619983312
+		 27 41.75125145882766 30 20.927330386096756 32 18.101906907277133 34 16.933253174025232
 		 40 -6.0092209720843292e-05;
 	setAttr ".roti" 5;
 createNode animCurveTA -n "Character1_Ctrl_LeftFootEffector_rotateZ";
 	rename -uid "A1CC1167-45FC-1A30-FE15-899557A204AA";
 	setAttr ".tan" 2;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  0 -4.4652632713194904e-13 6 37.106180353038752
-		 9 40.706288259276441 15 14.396408400388054 19 -28.194552324776087 22 -17.974263072667345
-		 27 -28.194597374053384 30 -13.620874800783078 32 -16.155528413761672 34 -6.8589647752458927
-		 40 0;
+	setAttr -s 11 ".ktv[0:10]"  0 -4.4652632713194889e-13 6 37.106180585923546
+		 9 40.706287504620988 15 14.396408434870082 19 -28.194552278024108 22 -17.974263175344738
+		 27 -28.194597855635294 30 -13.620874613752436 32 -16.155528648823367 34 -6.8589646691197474
+		 40 -1.3708190677107757e-12;
 	setAttr ".roti" 5;
 createNode animCurveTL -n "Character1_Ctrl_LeftFootEffector_translateZ";
 	rename -uid "DC508AFA-47A6-B9C8-9AA3-0081FEF250E2";
@@ -3140,9 +3160,9 @@ createNode animCurveTA -n "Character1_Ctrl_LeftHipEffector_rotateX";
 	rename -uid "FAD6BDC4-405D-E13B-61D3-729642AA278E";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  0 -0.49235054637815634 6 18.6606024226081
-		 15 33.881448391922319 19 42.942560586587184 22 19.577772783548255 27 30.207019679172433
-		 30 -3.9177028031744641 32 -4.7316866980626866 40 -0.4923296073827782;
+	setAttr -s 9 ".ktv[0:8]"  0 -0.4923505439039137 6 18.660602462439254
+		 15 33.881448568972225 19 42.942561240975401 22 19.577772810625056 27 30.207020089124502
+		 30 -3.9177028027446505 32 -4.7316866979810097 40 -0.4923296068147836;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -3150,9 +3170,9 @@ createNode animCurveTA -n "Character1_Ctrl_LeftHipEffector_rotateY";
 	rename -uid "46DFE768-4A38-0F29-8FDE-3BB586FF56BF";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  0 -2.8692656993395627 6 5.5806220972263381
-		 15 15.19033137094576 19 5.2262619754378807 22 15.401935357723124 27 11.706046605249146
-		 30 -3.5769997283114878 32 -4.8527398260433783 40 -2.8725237182075518;
+	setAttr -s 9 ".ktv[0:8]"  0 -2.869265731289476 6 5.5806221276310053
+		 15 15.190331676617712 19 5.226262166903628 22 15.401935414424612 27 11.706047013001479
+		 30 -3.5769997267744373 32 -4.8527398253597545 40 -2.8725237255219209;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -3160,9 +3180,9 @@ createNode animCurveTA -n "Character1_Ctrl_LeftHipEffector_rotateZ";
 	rename -uid "59B35382-4D50-705C-B43A-8F9C5DAAEC18";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  0 -28.315149915687723 6 -41.929048036293729
-		 15 -74.307456836446221 19 -19.50931622955245 22 -54.383026763715506 27 -49.299226553353321
-		 30 -64.021675833461742 32 -74.972946680441837 40 -28.316911383298173;
+	setAttr -s 9 ".ktv[0:8]"  0 -28.315150224400202 6 -41.929048138903191
+		 15 -74.307457460212419 19 -19.509316490916504 22 -54.383026892560181 27 -49.299227346630502
+		 30 -64.021675815192125 32 -74.972946673353121 40 -28.316911453900261;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -3199,7 +3219,7 @@ createNode animCurveTA -n "Character1_Ctrl_RightUpLeg_rotateY";
 	setAttr ".wgt" no;
 	setAttr -s 10 ".ktv[0:9]"  0 2.0643590268024412 6 7.5994987938740159
 		 11 8.6917093493387245 15 17.038009197726431 19 15.492447633384957 22 15.950331526302653
-		 27 5.2616186223476982 30 12.210632812178769 32 14.569879663251616 40 2.0647279260159643;
+		 27 5.2616186223476982 30 12.210632812178771 32 14.569879663251616 40 2.0647279260159643;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
 createNode animCurveTA -n "Character1_Ctrl_RightUpLeg_rotateX";
@@ -3207,7 +3227,7 @@ createNode animCurveTA -n "Character1_Ctrl_RightUpLeg_rotateX";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 10 ".ktv[0:9]"  0 0.10014415232544817 11 -3.2341982619089689
-		 15 -11.766839702637204 19 -3.253497324482677 22 -6.6198201462870392 27 -3.8068072484315802
+		 15 -11.766839702637204 19 -3.2534973244826775 22 -6.6198201462870392 27 -3.8068072484315802
 		 30 21.380139108105038 32 20.638636710010818 34 17.821402787963862 40 0.10061463293399267;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -3262,7 +3282,7 @@ createNode animCurveTA -n "Character1_Ctrl_RightFoot_rotateX";
 	setAttr ".wgt" no;
 	setAttr -s 9 ".ktv[0:8]"  0 9.8497138540863922 6 1.0556343543355371
 		 11 0.64918696621839367 15 -0.4607628055475691 19 -6.0536102918271846 27 9.1016553560720013
-		 30 17.699058803013706 32 17.85128457231982 40 9.8496903653608445;
+		 30 17.699058803013706 32 17.85128457231982 40 9.8496903653608463;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
 createNode animCurveTA -n "Character1_Ctrl_RightToeBase_rotateZ";
@@ -3270,7 +3290,7 @@ createNode animCurveTA -n "Character1_Ctrl_RightToeBase_rotateZ";
 	setAttr ".tan" 1;
 	setAttr ".wgt" no;
 	setAttr -s 11 ".ktv[0:10]"  0 2.6430117977775931e-21 6 6.2823321291841651e-21
-		 11 6.6161151260605832e-21 15 1.0878370123508996e-20 19 9.1123212866978057e-21 22 -9.099881106019243
+		 11 6.6161151260605832e-21 15 1.0878370123508996e-20 19 9.1123212866978057e-21 22 -9.0998811060192448
 		 27 -35.099642430243009 30 -28.836946421478682 32 -28.83694915192503 34 -21.293711838644732
 		 40 0;
 	setAttr -s 11 ".kix[0:10]"  1 1 1 1 1 0.39912504135816623 1 1 0.81659496652783548 
@@ -3285,10 +3305,10 @@ createNode animCurveTA -n "Character1_Ctrl_RightToeBase_rotateY";
 	rename -uid "0467B15C-4018-D8A8-6993-18B356E46AF6";
 	setAttr ".tan" 1;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  0 -2.1581829141411514e-05 6 -5.1299134848974345e-05
+	setAttr -s 11 ".ktv[0:10]"  0 -2.1581829141411514e-05 6 -5.1299134848974351e-05
 		 11 -5.4024679867513398e-05 15 -8.8828633147066538e-05 19 -7.4407749998097719e-05
 		 22 1.152438684128662 27 4.4453075472892358 30 3.6520540333935663 32 3.6520280183510172
-		 34 2.6967761046062146 40 -1.7513685124517415e-05;
+		 34 2.6967761046062151 40 -1.7513685124517415e-05;
 	setAttr -s 11 ".kix[0:10]"  1 0.99999999999950073 0.99999999999992428 
 		1 0.99999999999895928 0.96018480416073548 0.99999999999891676 0.99999999998467226 
 		0.99601683468503177 0.99873627498918183 1;
@@ -3320,9 +3340,9 @@ createNode animCurveTA -n "Character1_Ctrl_RightAnkleEffector_rotateX";
 	rename -uid "9B20BF42-4F01-32C6-BC47-A3A11AA0FC36";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 10 ".ktv[0:9]"  0 8.0188973880388748 6 8.0188969040578648
-		 15 8.0188442738141212 19 12.250440676310074 22 19.306127765484874 27 31.807981249408641
-		 30 27.008733047570811 32 25.629265448575399 34 22.836867730826373 40 8.0189036620977774;
+	setAttr -s 10 ".ktv[0:9]"  0 8.0188973798136711 6 8.0188967767060113
+		 15 8.0188442668674966 19 12.250440773219879 22 19.306127407634158 27 31.807982003019042
+		 30 27.008732229055649 32 25.629265736160935 34 22.836868203448848 40 8.0189035952224366;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -3330,9 +3350,9 @@ createNode animCurveTA -n "Character1_Ctrl_RightAnkleEffector_rotateY";
 	rename -uid "C571E80C-4F3D-FBBA-846E-2E91ED001D3F";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 10 ".ktv[0:9]"  0 9.4627291632826296 6 9.4627501576300599
-		 15 9.4627655985944124 19 -1.7994328091780767 22 1.6878135900190658 27 17.479332751274175
-		 30 18.439614813317853 32 18.172350462764168 34 17.164993078178359 40 9.4627331559027361;
+	setAttr -s 10 ".ktv[0:9]"  0 9.4627291537023837 6 9.462750009297574
+		 15 9.462765590503281 19 -1.7994328825504262 22 1.6878137320095306 27 17.479332926451651
+		 30 18.439614469551749 32 18.17235059478903 34 17.164993326562278 40 9.4627330780101726;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -3340,9 +3360,9 @@ createNode animCurveTA -n "Character1_Ctrl_RightAnkleEffector_rotateZ";
 	rename -uid "E386124D-4B4B-8339-35E4-739BC130069B";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 10 ".ktv[0:9]"  0 7.8196319955226303e-05 6 7.9486922397254339e-05
-		 15 -4.058749810647309e-05 19 57.636336153959576 22 53.201181760294439 27 29.304030437548111
-		 30 20.348488629694074 32 18.64339047022019 34 15.912817384504073 40 6.7010603454990334e-05;
+	setAttr -s 10 ".ktv[0:9]"  0 7.8195639107488211e-05 6 7.9476380705398097e-05
+		 15 -4.0588073018788781e-05 19 57.636336692633428 22 53.201180745458309 27 29.304031145095564
+		 30 20.348487965717876 32 18.643390697512832 34 15.912817745219368 40 6.7005067887219974e-05;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -3377,9 +3397,9 @@ createNode animCurveTA -n "Character1_Ctrl_RightKneeEffector_rotateX";
 	rename -uid "BC778D4E-4058-713B-7629-02AF4F81B78C";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 10 ".ktv[0:9]"  0 8.634670287866486 6 14.773466388784868
-		 9 14.99151120851824 15 12.879750757929441 19 20.65534359321288 22 23.006627539758465
-		 27 30.443235401735706 30 24.647592257969386 32 22.029056679945132 40 8.634809878008598;
+	setAttr -s 10 ".ktv[0:9]"  0 8.6346702310031738 6 14.773466118167459
+		 9 14.991511003676617 15 12.879750790310361 19 20.655343698152976 22 23.006627362045837
+		 27 30.443234788424331 30 24.647592412796371 32 22.029056521607419 40 8.6348101226973455;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -3387,9 +3407,9 @@ createNode animCurveTA -n "Character1_Ctrl_RightKneeEffector_rotateY";
 	rename -uid "13118E49-48F8-605A-BB64-87868192E0B2";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 10 ".ktv[0:9]"  0 3.6233475091207987 6 -1.236951017405479
-		 9 -1.3927782091699523 15 -14.157136251346593 19 -0.15297536441518875 22 -5.868376994452654
-		 27 -0.62844576706850619 30 -10.710278475197013 32 -13.326113077194245 40 3.6229193638916963;
+	setAttr -s 10 ".ktv[0:9]"  0 3.6233474992783656 6 -1.23695095963457
+		 9 -1.3927781649178816 15 -14.15713638726915 19 -0.15297539310096128 22 -5.8683768711944433
+		 27 -0.62844565512917361 30 -10.710278673238019 32 -13.326112751953536 40 3.62291940622729;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -3397,9 +3417,9 @@ createNode animCurveTA -n "Character1_Ctrl_RightKneeEffector_rotateZ";
 	rename -uid "0A56EA94-44F6-8C91-4BE7-148416D0F300";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 10 ".ktv[0:9]"  0 25.786176331359155 6 14.586776152192785
-		 9 13.831790375987334 15 58.525873306747201 19 29.737704153017745 22 41.498472960473556
-		 27 18.379010770733441 30 58.494057064066055 32 67.362012869758004 40 25.788627190918593;
+	setAttr -s 10 ".ktv[0:9]"  0 25.786176172393603 6 14.58677588510756
+		 9 13.831790187531622 15 58.525873715351217 19 29.737704306066494 22 41.498472604824947
+		 27 18.379010408270567 30 58.49405756729255 32 67.362011997067683 40 25.788627875020811;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -3434,10 +3454,10 @@ createNode animCurveTA -n "Character1_Ctrl_RightFootEffector_rotateX";
 	rename -uid "CED4D13A-4812-C14C-0D09-09893D953B63";
 	setAttr ".tan" 2;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  0 -0.07694803074617701 6 -0.076962429135236585
-		 9 -0.076963516362106119 15 -0.077012951809347738 19 10.560656727635179 22 11.266735589961549
-		 27 -13.442890302551332 30 -11.045877883858031 32 -11.093798543737734 34 -6.3509069329227437
-		 40 -0.07694591475949579;
+	setAttr -s 11 ".ktv[0:10]"  0 -0.076948027893681867 6 -0.076962428176349809
+		 9 -0.076963519233633718 15 -0.077012949455643798 19 10.560656553518733 22 11.266735663634043
+		 27 -13.44289068452858 30 -11.045878299051761 32 -11.093798191645256 34 -6.3509067315706087
+		 40 -0.076945919136626031;
 	setAttr -s 11 ".kit[2:10]"  18 2 2 2 2 2 2 2 
 		2;
 	setAttr -s 11 ".kot[2:10]"  18 2 2 2 2 2 2 2 
@@ -3447,19 +3467,19 @@ createNode animCurveTA -n "Character1_Ctrl_RightFootEffector_rotateY";
 	rename -uid "698D8857-49EA-A882-9DC7-81A4D85FD3B6";
 	setAttr ".tan" 2;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  0 12.379584753057546 6 12.379571469809981
-		 9 12.379546542823753 15 12.379511276727154 19 6.4971717093354062 22 16.794024210589203
-		 27 38.565750478181002 30 34.614733810912178 32 33.278649970448839 34 30.498516270835886
-		 40 12.379597127269275;
+	setAttr -s 11 ".ktv[0:10]"  0 12.379584522135019 6 12.379571392191298
+		 9 12.379546775267903 15 12.379511086284106 19 6.497171702264712 22 16.794024257136961
+		 27 38.565751081234701 30 34.614734530248683 32 33.278649388239948 34 30.498515694498661
+		 40 12.379597481620108;
 	setAttr ".roti" 5;
 createNode animCurveTA -n "Character1_Ctrl_RightFootEffector_rotateZ";
 	rename -uid "078F9781-4D83-3BD9-BB75-1D93AB505A01";
 	setAttr ".tan" 2;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  0 -0.67303815376605314 6 -0.67303984638437375
-		 9 -0.67300718355538125 15 -0.6731619685859479 19 58.430552112959354 22 45.649493226907062
-		 27 -15.461428733002098 30 -16.338663846142712 32 -17.63721782269559 34 -10.500736831686147
-		 40 -0.67304989290431061;
+	setAttr -s 11 ".ktv[0:10]"  0 -0.67303814080335078 6 -0.67303984202726863
+		 9 -0.6730071966029767 15 -0.67316195789342381 19 58.430551321378253 22 45.649493426448061
+		 27 -15.461429141862032 30 -16.338664356044248 32 -17.6372173707672 34 -10.500736564107232
+		 40 -0.67304991279590665;
 	setAttr ".roti" 5;
 createNode animCurveTL -n "Character1_Ctrl_RightFootEffector_translateZ";
 	rename -uid "E18298F9-4E71-8753-184E-F49098037C55";
@@ -3525,9 +3545,9 @@ createNode animCurveTA -n "Character1_Ctrl_RightHipEffector_rotateX";
 	rename -uid "2EE0B0EC-4487-56CF-130F-C2AF4DD1C8B8";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  0 0.24753792987217788 6 19.211168952132724
-		 15 23.267270107507652 19 33.066012613310917 22 30.983863156896039 27 23.718457275834272
-		 30 23.941336916626785 32 23.093600842870327 40 0.24799349350150235;
+	setAttr -s 9 ".ktv[0:8]"  0 0.2475379320178944 6 19.211168533173129
+		 15 23.267269644667078 19 33.066012300207355 22 30.983863868799865 27 23.718456993341967
+		 30 23.941336345523563 32 23.093601384158497 40 0.2479934937919506;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -3535,9 +3555,9 @@ createNode animCurveTA -n "Character1_Ctrl_RightHipEffector_rotateY";
 	rename -uid "95CB036A-45EF-43B8-8C6C-BB99E2993AA0";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  0 2.4613403061081685 6 3.0731734418005821
-		 15 17.219654999226854 19 1.6209852870274741 22 9.1770506870548942 27 0.84908397113550771
-		 30 12.865264588592034 32 15.401265374448307 40 2.4617196632534415;
+	setAttr -s 9 ".ktv[0:8]"  0 2.4613403594281338 6 3.0731733424981975
+		 15 17.219654632021193 19 1.6209853292564811 22 9.1770508361235645 27 0.84908396881463943
+		 30 12.865264265974153 32 15.401265763385869 40 2.4617196704453197;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -3545,9 +3565,9 @@ createNode animCurveTA -n "Character1_Ctrl_RightHipEffector_rotateZ";
 	rename -uid "F930F911-4C4E-2507-6F4D-5AB932909C29";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  0 -6.8794688495965604 6 -8.6921218456077955
-		 15 -6.7628783547088585 19 20.825640263425072 22 8.3462068844022586 27 3.1003165366510013
-		 30 -4.1756543127313668 32 -6.3980818678296911 40 -6.882299648758921;
+	setAttr -s 9 ".ktv[0:8]"  0 -6.879468997908778 6 -8.6921216665487844
+		 15 -6.7628782891076309 19 20.825640066883121 22 8.3462071238805251 27 3.1003164981889806
+		 30 -4.1756542782547568 32 -6.3980819455973759 40 -6.8822996687683951;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -3584,7 +3604,7 @@ createNode animCurveTA -n "Character1_Ctrl_Head_rotateZ";
 	setAttr ".wgt" no;
 	setAttr -s 11 ".ktv[0:10]"  0 0 6 5.7267855500158089e-15 11 -5.7017063416226073e-06
 		 15 -1.7188480204619769 19 -0.85941059377076512 22 -0.88996244728661389 27 -0.85939836727649732
-		 30 -14.828396505648199 32 -16.196194150044661 34 -13.665522988260102 40 0;
+		 30 -14.828396505648199 32 -16.196194150044661 34 -13.665522988260104 40 0;
 	setAttr -s 11 ".kix[0:10]"  1 1 0.9999999999996686 1 0.9999999999990955 
 		1 0.99935264432163839 0.95850438909064872 1 0.98851324807385843 1;
 	setAttr -s 11 ".kiy[0:10]"  0 0 -8.1420176244332784e-07 0 1.3450474264832168e-06 
@@ -3598,7 +3618,7 @@ createNode animCurveTA -n "Character1_Ctrl_Head_rotateY";
 	setAttr ".tan" 1;
 	setAttr ".wgt" no;
 	setAttr -s 11 ".ktv[0:10]"  0 -1.838847395822972e-05 6 -1.898389476399702e-05
-		 11 -2.7382956979463921e-05 15 -4.6959346665527013 19 -2.3479748944539374 22 -2.4314416424290997
+		 11 -2.7382956979463921e-05 15 -4.6959346665527013 19 -2.3479748944539374 22 -2.4314416424291001
 		 27 -2.3479360483097338 30 -3.704678048411373 32 -3.778126791674238 34 -3.1877918871180393
 		 40 -1.9406616673030935e-05;
 	setAttr -s 11 ".kix[0:10]"  1 0.99999999999999778 0.99999999999928069 
@@ -3652,16 +3672,16 @@ createNode animCurveTA -n "Character1_Ctrl_Neck_rotateX";
 	setAttr ".wgt" no;
 	setAttr -s 8 ".ktv[0:7]"  0 -1.7644524448307172e-05 6 -0.00026452494438776848
 		 11 -0.00034060240049167277 15 24.71893411588692 19 12.359359711861879 27 12.359185708807594
-		 30 -3.9654811229653197 40 -1.276583796435952e-05;
+		 30 -3.9654811229653197 40 -1.2765837964359521e-05;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
 createNode animCurveTA -n "Character1_Ctrl_HeadEffector_rotateX";
 	rename -uid "8CBB9623-4F81-A935-F57D-78AC916E2033";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 7 ".ktv[0:6]"  0 0.12451084080879106 9 -24.90721939116904
-		 15 -1.0919024997600997 19 -22.558248276430945 27 5.2796199551192826 32 -1.7735056761774006
-		 40 0.12448263741431595;
+	setAttr -s 7 ".ktv[0:6]"  0 0.12451084331944176 9 -24.907218951816002
+		 15 -1.0919024904643626 19 -22.558248733892455 27 5.2796200303556287 32 -1.7735056471951884
+		 40 0.1244826336812373;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -3669,9 +3689,9 @@ createNode animCurveTA -n "Character1_Ctrl_HeadEffector_rotateY";
 	rename -uid "056B822C-4B0B-F217-0988-80B02B49F4D5";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 7 ".ktv[0:6]"  0 3.3125273459280038 9 11.947376789363503
-		 15 3.6337971629492607 19 2.4204277016492028 27 -0.40107123721214993 32 1.449681767853134
-		 40 3.3127269285599001;
+	setAttr -s 7 ".ktv[0:6]"  0 3.312527412145251 9 11.947376634523273
+		 15 3.6337971287821804 19 2.4204277613137126 27 -0.40107123761743529 32 1.4496817398473756
+		 40 3.3127268300699155;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -3679,9 +3699,9 @@ createNode animCurveTA -n "Character1_Ctrl_HeadEffector_rotateZ";
 	rename -uid "4CF2C1B0-43F3-1B97-6FC7-4495F70FA41D";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 7 ".ktv[0:6]"  0 0.031421950604577503 9 -11.083449355597562
-		 15 3.058421543691729 19 2.7820764577209678 27 -8.0649822791928027 32 9.5307201039191263
-		 40 0.031257240779425363;
+	setAttr -s 7 ".ktv[0:6]"  0 0.031421951305653416 9 -11.083449127106597
+		 15 3.0584215154324039 19 2.7820765038739776 27 -8.0649823938797258 32 9.5307199368019155
+		 40 0.031257239741645355;
 	setAttr ".roti" 5;
 	setAttr ".pre" 3;
 	setAttr ".pst" 3;
@@ -3717,7 +3737,7 @@ createNode animCurveTA -n "Character1_Ctrl_LeftHandThumb1_rotateZ";
 	setAttr ".tan" 1;
 	setAttr ".wgt" no;
 	setAttr -s 11 ".ktv[0:10]"  0 8.27984078891867e-06 6 -2.3768030237887301e-05
-		 11 -2.5226149637252668e-05 15 -2.7947370952651892e-05 19 2.7199431050552292e-05 22 -7.4346794356044361e-07
+		 11 -2.5226149637252671e-05 15 -2.7947370952651892e-05 19 2.7199431050552292e-05 22 -7.4346794356044361e-07
 		 27 -3.5958400156515139e-05 30 -3.4188097823118724e-05 32 -7.6038542527290224e-06
 		 34 6.5410745027755227e-05 40 2.0608183131683049e-05;
 	setAttr -s 11 ".kix[0:10]"  1 0.99999999999970857 0.99999999999997835 
@@ -3803,7 +3823,7 @@ createNode animCurveTA -n "Character1_Ctrl_LeftHandThumb2_rotateX";
 	setAttr -s 11 ".ktv[0:10]"  0 9.7590342246860727e-05 6 0.00010703727084063358
 		 11 8.8189904783131709e-05 15 0.00010802786321461262 19 0.00017555384183916238 22 0.00022485963962750515
 		 27 9.0920518970312217e-05 30 9.1212847855560452e-05 32 0.00014214808071123127 34 0.00012010776476664738
-		 40 8.2065401103957971e-05;
+		 40 8.2065401103957985e-05;
 	setAttr -s 11 ".kix[0:10]"  1 1 1 0.99999999999825762 1 1 1 0.99999999999966593 
 		1 0.99999999999997657 1;
 	setAttr -s 11 ".kiy[0:10]"  0 0 0 1.8667686858477217e-06 0 0 0 8.1733475777627475e-07 
@@ -3833,7 +3853,7 @@ createNode animCurveTA -n "Character1_Ctrl_LeftHandThumb3_rotateY";
 	setAttr ".tan" 1;
 	setAttr ".wgt" no;
 	setAttr -s 11 ".ktv[0:10]"  0 -4.2381626910083063e-05 6 -3.2282378061829591e-05
-		 11 -3.2928743990881462e-05 15 -6.5438895809309773e-06 19 -0.00010291744987993698
+		 11 -3.2928743990881469e-05 15 -6.5438895809309773e-06 19 -0.00010291744987993698
 		 22 -5.6585059484789871e-05 27 -5.1423382762192417e-05 30 8.8542482001658171e-05 32 3.324922769007447e-05
 		 34 1.5833261030861903e-05 40 -1.1642513128946483e-05;
 	setAttr -s 11 ".kix[0:10]"  1 1 1 1 1 0.9999999999885204 1 1 1 0.99999999999991307 
@@ -3865,7 +3885,7 @@ createNode animCurveTA -n "Character1_Ctrl_LeftHandThumb4_rotateZ";
 	setAttr ".tan" 1;
 	setAttr ".wgt" no;
 	setAttr -s 11 ".ktv[0:10]"  0 -6.4745434639748682e-06 6 -1.9976176757627283e-05
-		 11 -2.8063713592757671e-05 15 -2.5296935437134084e-05 19 -6.7705231346326185e-06
+		 11 -2.8063713592757671e-05 15 -2.5296935437134084e-05 19 -6.7705231346326193e-06
 		 22 -5.1282399387266383e-05 27 8.3967703682234394e-05 30 6.8923155171056211e-05 32 7.8183777007128283e-05
 		 34 6.0892268162245989e-05 40 -2.0275390721618395e-05;
 	setAttr -s 11 ".kix[0:10]"  1 0.99999999999977884 1 0.99999999999988243 
@@ -3935,7 +3955,7 @@ createNode animCurveTA -n "Character1_Ctrl_LeftHandIndex1_rotateY";
 	setAttr -s 11 ".ktv[0:10]"  0 4.3783258197829217e-05 6 1.9496274591336246e-05
 		 11 1.9754043966027492e-05 15 2.4328483122403064e-05 19 5.4095800444231611e-05 22 0.0001216598042796361
 		 27 0.00020612463655236745 30 0.00023296137452831692 32 0.0002774122668998934 34 0.00015937627698404044
-		 40 4.9594562382322589e-05;
+		 40 4.9594562382322595e-05;
 	setAttr -s 11 ".kix[0:10]"  1 1 1 1 0.99999999999367506 0.99999999995038447 
 		1 0.99999999999941169 1 0.99999999999553746 1;
 	setAttr -s 11 ".kiy[0:10]"  0 0 0 0 3.5566455490070875e-06 9.9614776705081299e-06 
@@ -4026,7 +4046,7 @@ createNode animCurveTA -n "Character1_Ctrl_LeftHandIndex3_rotateZ";
 	setAttr ".wgt" no;
 	setAttr -s 11 ".ktv[0:10]"  0 9.8377883286346663e-05 6 8.4227025637914106e-05
 		 11 6.2159217099828118e-05 15 -2.2358157856304744e-06 19 2.0123371585810373e-05 22 -4.8043484793015045e-05
-		 27 -8.5200861887892108e-05 30 -8.411264173077072e-05 32 -0.00012313956204214284 34 -5.5957356357530974e-05
+		 27 -8.5200861887892122e-05 30 -8.411264173077072e-05 32 -0.00012313956204214284 34 -5.5957356357530974e-05
 		 40 0.0001072274186911649;
 	setAttr -s 11 ".kix[0:10]"  1 0.99999999999937772 0.99999999999554312 
 		1 1 0.99999999997146827 0.9999999999967093 1 0.99999999999999101 0.99999999999621392 
@@ -4067,7 +4087,7 @@ createNode animCurveTA -n "Character1_Ctrl_LeftHandIndex3_rotateX";
 	setAttr -s 11 ".ktv[0:10]"  0 2.4187973217458825e-05 6 4.0105318399660624e-05
 		 11 4.5274496372158736e-05 15 2.7762468857324665e-05 19 5.6301447545468189e-05 22 9.3846808217554943e-05
 		 27 8.2878071067358001e-05 30 0.0001609210685566203 32 0.00015719843097457848 34 0.00011559599337547292
-		 40 1.1978901112802086e-05;
+		 40 1.1978901112802087e-05;
 	setAttr -s 11 ".kix[0:10]"  1 0.99999999999978906 1 1 0.99999999999951283 
 		0.99999999999812383 1 1 1 0.99999999999918388 1;
 	setAttr -s 11 ".kiy[0:10]"  0 6.4946339443668961e-07 0 0 9.8701079217720163e-07 
@@ -4081,13 +4101,13 @@ createNode animCurveTA -n "Character1_Ctrl_LeftHandIndex4_rotateZ";
 	setAttr ".tan" 1;
 	setAttr ".wgt" no;
 	setAttr -s 11 ".ktv[0:10]"  0 -4.2151258593832061e-05 6 -3.840259135227716e-05
-		 11 -1.472373069312433e-05 15 -8.5998042492360134e-05 19 -4.2853036636077884e-05 22 -1.7069457147574046e-05
-		 27 -5.5890829793871265e-05 30 -0.00012096754953346381 32 -0.00011801260732021885
-		 34 -0.00010938966267823125 40 -5.0188993387760344e-05;
+		 11 -1.4723730693124333e-05 15 -8.5998042492360134e-05 19 -4.2853036636077884e-05
+		 22 -1.7069457147574046e-05 27 -5.5890829793871265e-05 30 -0.00012096754953346381
+		 32 -0.00011801260732021885 34 -0.00010938966267823125 40 -5.0188993387760344e-05;
 	setAttr -s 11 ".kix[0:10]"  1 0.99999999999991152 1 0.99999999999990685 
 		0.99999999999998479 1 1 0.99999999999893208 1 0.99999999999952105 1;
 	setAttr -s 11 ".kiy[0:10]"  0 4.205994809578768e-07 0 -4.3150516049191168e-07 
-		-1.748278992839033e-07 0 0 -1.46141248435882e-06 0 9.7869722712003097e-07 0;
+		-1.748278992839033e-07 0 0 -1.4614124843588202e-06 0 9.7869722712003097e-07 0;
 	setAttr -s 11 ".kox[0:10]"  1 0.99999999999991163 1 0.99999999999990696 
 		0.99999999999998468 1 1 0.99999999999893208 1 0.99999999999952105 1;
 	setAttr -s 11 ".koy[0:10]"  0 4.205994809578768e-07 0 -4.3150516049191168e-07 
@@ -4129,7 +4149,7 @@ createNode animCurveTA -n "Character1_Ctrl_LeftHandMiddle1_rotateZ";
 	setAttr ".tan" 1;
 	setAttr ".wgt" no;
 	setAttr -s 11 ".ktv[0:10]"  0 -6.8606389088057387e-05 6 -3.3037576250851014e-05
-		 11 -2.0794684487780764e-05 15 -6.6919946798646511e-05 19 -5.0101830204838727e-05
+		 11 -2.0794684487780764e-05 15 -6.6919946798646524e-05 19 -5.0101830204838727e-05
 		 22 -3.6746545370634053e-05 27 -5.4674080189425452e-05 30 -4.8090119491618811e-05
 		 32 -5.7195772049016688e-05 34 -6.7412750814616057e-05 40 -8.906713763504032e-05;
 	setAttr -s 11 ".kix[0:10]"  1 0.99999999999891576 1 0.9999999999997774 
@@ -4185,9 +4205,9 @@ createNode animCurveTA -n "Character1_Ctrl_LeftHandMiddle2_rotateZ";
 	setAttr ".tan" 1;
 	setAttr ".wgt" no;
 	setAttr -s 11 ".ktv[0:10]"  0 0.00026758769569213634 6 0.00028581531997104968
-		 11 0.00027099180154816133 15 0.00023244853352837343 19 0.00025139218942476843 22 0.00025312931839992627
+		 11 0.00027099180154816133 15 0.00023244853352837343 19 0.00025139218942476848 22 0.00025312931839992627
 		 27 0.00042329477837512732 30 0.0004001807142277319 32 0.0003834831129154249 34 0.00034857586613841615
-		 40 0.00028024326707477972;
+		 40 0.00028024326707477978;
 	setAttr -s 11 ".kix[0:10]"  1 1 0.99999999999975464 0.99999999999990041 
 		1 0.99999999993173694 1 0.99999999999913558 0.99999999999465661 0.99999999999982403 
 		1;
@@ -4205,7 +4225,7 @@ createNode animCurveTA -n "Character1_Ctrl_LeftHandMiddle2_rotateY";
 	setAttr ".tan" 1;
 	setAttr ".wgt" no;
 	setAttr -s 11 ".ktv[0:10]"  0 5.8463691463571423e-06 6 -7.9944220369674256e-05
-		 11 -9.2845025776822405e-05 15 -9.7063522997814505e-05 19 -0.00014886055647639085
+		 11 -9.2845025776822418e-05 15 -9.7063522997814505e-05 19 -0.00014886055647639085
 		 22 -0.00025266729398243511 27 -0.00020631492930307701 30 -0.00014653638648747856
 		 32 -0.00012777339197318468 34 -9.0631654798646653e-05 40 6.4574729059177448e-06;
 	setAttr -s 11 ".kix[0:10]"  1 0.99999999999538014 1 1 0.99999999999958467 
@@ -4223,7 +4243,7 @@ createNode animCurveTA -n "Character1_Ctrl_LeftHandMiddle2_rotateX";
 	setAttr -s 11 ".ktv[0:10]"  0 -4.3372779163571883e-05 6 -4.0308900289517809e-05
 		 11 -4.4813092928886496e-05 15 -4.6768295813697136e-05 19 -7.0947468654028424e-05
 		 22 -0.00010433608094069925 27 -0.0001890690446383726 30 -0.00021532970382727088 32 -0.00019235703977980531
-		 34 -0.00017187548424817107 40 -7.048550917584614e-05;
+		 34 -0.00017187548424817107 40 -7.0485509175846153e-05;
 	setAttr -s 11 ".kix[0:10]"  1 1 0.99999999999998712 0.99999999999998879 
 		0.99999999999789768 0.99999999997341216 1 1 1 0.99999999999857059 1;
 	setAttr -s 11 ".kiy[0:10]"  0 0 -1.6080598430397642e-07 -1.4934084658784307e-07 
@@ -4302,7 +4322,7 @@ createNode animCurveTA -n "Character1_Ctrl_LeftHandMiddle4_rotateY";
 	setAttr ".wgt" no;
 	setAttr -s 11 ".ktv[0:10]"  0 8.2658942528801961e-05 6 4.9674906187488179e-05
 		 11 4.144337052793209e-05 15 2.8764328976878573e-05 19 2.7296626244238176e-05 22 9.9901061964924299e-05
-		 27 0.00023821732086355034 30 0.00015164806957928309 32 0.00017530273710752921 34 0.00015808151093866491
+		 27 0.00023821732086355034 30 0.00015164806957928309 32 0.00017530273710752921 34 0.00015808151093866493
 		 40 8.5719358627171305e-05;
 	setAttr -s 11 ".kix[0:10]"  1 0.9999999999991942 0.99999999999995037 
 		0.99999999999994815 1 0.99999999993633182 1 0.9999999999998419 0.99999999999722189 
@@ -4321,7 +4341,7 @@ createNode animCurveTA -n "Character1_Ctrl_LeftHandMiddle4_rotateX";
 	setAttr ".tan" 1;
 	setAttr ".wgt" no;
 	setAttr -s 11 ".ktv[0:10]"  0 -4.3604721347052611e-05 6 3.0622878929660419e-06
-		 11 1.322862333445982e-06 15 -2.5006707634228918e-05 19 -4.3620366520975167e-06 22 4.4000069281068269e-06
+		 11 1.3228623334459818e-06 15 -2.5006707634228921e-05 19 -4.3620366520975167e-06 22 4.4000069281068269e-06
 		 27 9.2432802128046315e-05 30 6.7432510995720658e-06 32 -5.2902963547230159e-05 34 -5.1171725142571188e-05
 		 40 -4.6861311030286566e-05;
 	setAttr -s 11 ".kix[0:10]"  1 1 0.99999999999996914 1 0.99999999999909583 
@@ -4354,7 +4374,7 @@ createNode animCurveTA -n "Character1_Ctrl_LeftHandRing1_rotateY";
 	setAttr ".wgt" no;
 	setAttr -s 11 ".ktv[0:10]"  0 -0.0001217409438444417 6 -0.00019611813106310517
 		 11 -0.00021369847375922932 15 -0.0001954982987036589 19 -0.00019582415480045976 22 -0.00019397069868309094
-		 27 -6.9997070338646272e-05 30 2.7365303665168274e-05 32 5.674453097598462e-05 34 1.4186670448419468e-05
+		 27 -6.9997070338646272e-05 30 2.7365303665168274e-05 32 5.6744530975984634e-05 34 1.4186670448419468e-05
 		 40 -0.00010829386625720941;
 	setAttr -s 11 ".kix[0:10]"  1 0.9999999999959891 1 0.99999999999991718 
 		0.99999999999987854 1 0.99999999999945843 0.99999999999964262 1 0.99999999999973432 
@@ -4388,7 +4408,7 @@ createNode animCurveTA -n "Character1_Ctrl_LeftHandRing2_rotateZ";
 	rename -uid "C90F3FCD-49C6-F126-4592-F28CF42D4E84";
 	setAttr ".tan" 1;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  0 0.00049365915574572038 6 0.00058136977816481512
+	setAttr -s 11 ".ktv[0:10]"  0 0.00049365915574572038 6 0.00058136977816481523
 		 11 0.00059147691687400051 15 0.00056014381498273888 19 0.00046752010613073145 22 0.00044128743518463665
 		 27 0.00049626066742128121 30 0.00055917011020824509 32 0.00051338158926765934 34 0.00050702711622288143
 		 40 0.00049293534097789328;
@@ -4404,7 +4424,7 @@ createNode animCurveTA -n "Character1_Ctrl_LeftHandRing2_rotateY";
 	rename -uid "3F34CD93-42EA-7EC5-01FF-8AA8D9F78679";
 	setAttr ".tan" 1;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  0 -3.1187968176865419e-05 6 -1.0228158946699103e-05
+	setAttr -s 11 ".ktv[0:10]"  0 -3.1187968176865419e-05 6 -1.0228158946699104e-05
 		 11 -2.3573932564171283e-06 15 -8.9233435990975545e-06 19 -6.8552722858064195e-05
 		 22 -0.00017825608825679563 27 -9.3639055667921122e-05 30 -6.7304647796227784e-05
 		 32 -9.598316652346588e-05 34 -0.0001827648235414692 40 -2.2136884311407771e-05;
@@ -4438,7 +4458,7 @@ createNode animCurveTA -n "Character1_Ctrl_LeftHandRing3_rotateZ";
 	setAttr ".wgt" no;
 	setAttr -s 11 ".ktv[0:10]"  0 -4.8513810622860342e-05 6 -9.5225689397872865e-05
 		 11 -0.000101849506929083 15 -9.3527046245729035e-05 19 -0.00014738853505573616 22 -0.00012734916384957788
-		 27 -0.00013204647299610935 30 -9.5220905985016961e-05 32 -9.0418969375121068e-05
+		 27 -0.00013204647299610935 30 -9.5220905985016961e-05 32 -9.0418969375121082e-05
 		 34 -0.00013226052948718441 40 -7.3697055078476525e-05;
 	setAttr -s 11 ".kix[0:10]"  1 0.99999999999865075 1 1 1 1 1 0.99999999999986522 
 		0.99999999999860067 1 1;
@@ -4489,7 +4509,7 @@ createNode animCurveTA -n "Character1_Ctrl_LeftHandRing4_rotateZ";
 	setAttr ".tan" 1;
 	setAttr ".wgt" no;
 	setAttr -s 11 ".ktv[0:10]"  0 5.9032626643097464e-06 6 2.20583923229405e-05
-		 11 3.5268707519542941e-05 15 5.0225167948040938e-06 19 -4.9093219528905056e-05 22 -0.00013447762060968621
+		 11 3.5268707519542941e-05 15 5.0225167948040938e-06 19 -4.9093219528905063e-05 22 -0.00013447762060968621
 		 27 -3.9515603257728361e-05 30 -2.3994524095734348e-05 32 -1.450855721248134e-05 34 -4.3616744250859543e-06
 		 40 6.5655605067389993e-08;
 	setAttr -s 11 ".kix[0:10]"  1 0.99999999999959088 1 0.99999999999815581 
@@ -4505,8 +4525,8 @@ createNode animCurveTA -n "Character1_Ctrl_LeftHandRing4_rotateY";
 	setAttr ".tan" 1;
 	setAttr ".wgt" no;
 	setAttr -s 11 ".ktv[0:10]"  0 -2.3396610668703553e-05 6 -2.3662680530400541e-05
-		 11 -2.0840032891302854e-05 15 -1.2820747541965623e-05 19 -0.00010390896266082659
-		 22 -6.637044202863081e-05 27 -0.00018081758086346104 30 -8.9958358058688244e-05 32 -5.4949208517993479e-05
+		 11 -2.0840032891302854e-05 15 -1.2820747541965625e-05 19 -0.0001039089626608266 22 -6.637044202863081e-05
+		 27 -0.00018081758086346104 30 -8.9958358058688258e-05 32 -5.4949208517993479e-05
 		 34 -5.6697239984409823e-05 40 -8.4294048483406088e-06;
 	setAttr -s 11 ".kix[0:10]"  1 1 0.99999999999997002 1 0.99999999999687461 
 		0.99999999999478273 1 1 0.99999999999658007 0.99999999999957512 1;
@@ -4553,7 +4573,7 @@ createNode animCurveTA -n "Character1_Ctrl_LeftHandPinky1_rotateY";
 	setAttr -s 11 ".ktv[0:10]"  0 -0.00011138881137292165 6 -0.00013967503074123475
 		 11 -0.00014424851817046441 15 -0.00014996688239568871 19 -0.00017437221380448763
 		 22 -0.00017441989456401746 27 -5.3174185264576916e-05 30 2.5505891620495891e-05 32 6.4899097844046386e-05
-		 34 -2.3663922189413558e-05 40 -9.7298062496455618e-05;
+		 34 -2.3663922189413558e-05 40 -9.7298062496455631e-05;
 	setAttr -s 11 ".kix[0:10]"  1 0.99999999999948774 1 1 1 1 1 1 1 0.99999999999830036 
 		1;
 	setAttr -s 11 ".kiy[0:10]"  0 -1.0120766026884517e-06 0 0 0 0 0 0 0 
@@ -4580,7 +4600,7 @@ createNode animCurveTA -n "Character1_Ctrl_LeftHandPinky2_rotateZ";
 	rename -uid "BB94F629-4A9C-BA3A-7CE4-0EA2E03F8E4D";
 	setAttr ".tan" 1;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  0 0.00070727225402190746 6 0.0007289741741832908
+	setAttr -s 11 ".ktv[0:10]"  0 0.00070727225402190746 6 0.00072897417418329091
 		 11 0.00073257316523363096 15 0.00080961958400694992 19 0.00070876892420533241 22 0.0006967240907448176
 		 27 0.000739900375939798 30 0.00065766957302658619 32 0.00064550887163587365 34 0.00067087082684852027
 		 40 0.00069497431441276655;
@@ -4612,10 +4632,10 @@ createNode animCurveTA -n "Character1_Ctrl_LeftHandPinky2_rotateX";
 	rename -uid "DBE60FF9-4C1A-0CC7-E656-22A1A4C3AB87";
 	setAttr ".tan" 1;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  0 -0.00016581905960422031 6 -6.7133468300132758e-05
+	setAttr -s 11 ".ktv[0:10]"  0 -0.00016581905960422031 6 -6.7133468300132772e-05
 		 11 -5.9749060721525701e-05 15 -9.4822663011337165e-05 19 -7.2316194456113839e-05
 		 22 -0.00011566368352415453 27 -0.0001450836246692757 30 -0.00023612175540340245 32 -0.00024984372076100608
-		 34 -0.00021469622729201353 40 -0.00015832438101895201;
+		 34 -0.00021469622729201356 40 -0.00015832438101895201;
 	setAttr -s 11 ".kix[0:10]"  1 0.9999999999946636 1 1 1 0.99999999999192102 
 		1 1 1 0.9999999999998842 1;
 	setAttr -s 11 ".kiy[0:10]"  0 3.2669483260232618e-06 0 0 0 -4.0196862819154888e-06 
@@ -4645,7 +4665,7 @@ createNode animCurveTA -n "Character1_Ctrl_LeftHandPinky3_rotateY";
 	setAttr ".tan" 1;
 	setAttr ".wgt" no;
 	setAttr -s 11 ".ktv[0:10]"  0 8.9120693102409925e-05 6 9.2367640010218181e-05
-		 11 8.5099045379355675e-05 15 7.3413770957116096e-05 19 1.0940816862666273e-05 22 -8.9299260299920887e-05
+		 11 8.5099045379355675e-05 15 7.3413770957116096e-05 19 1.0940816862666273e-05 22 -8.92992602999209e-05
 		 27 -6.2833085034400146e-06 30 -3.4812005959931318e-05 32 -3.1039154409834954e-05
 		 34 -8.1768590677984068e-06 40 9.2760154258638008e-05;
 	setAttr -s 11 ".kix[0:10]"  1 1 0.99999999999999667 0.99999999999999889 
@@ -4715,7 +4735,7 @@ createNode animCurveTA -n "Character1_Ctrl_LeftHandPinky4_rotateX";
 	setAttr -s 11 ".ktv[0:10]"  0 -9.5133447040796994e-06 6 -1.5325004806178635e-05
 		 11 -1.3098019500950143e-05 15 -1.8205882942613516e-05 19 -2.6735167503974443e-05
 		 22 -5.9190693592169322e-05 27 1.2611924604980055e-05 30 -1.321686055004596e-05 32 -5.4356739501828079e-05
-		 34 -3.7249208432309744e-05 40 -1.8207292567337937e-05;
+		 34 -3.7249208432309751e-05 40 -1.8207292567337937e-05;
 	setAttr -s 11 ".kix[0:10]"  1 1 0.99999999999999634 1 1 0.99999999999779488 
 		1 0.99999999999988332 1 1 1;
 	setAttr -s 11 ".kiy[0:10]"  0 0 8.6677447642904144e-08 0 0 2.1000224982313788e-06 
@@ -4728,10 +4748,10 @@ createNode animCurveTA -n "Character1_Ctrl_LeftHandThumbEffector_rotateX";
 	rename -uid "6AE99BDA-49A8-5CFB-7E13-3FB960FD7751";
 	setAttr ".tan" 2;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  0 92.657000879611402 6 136.11979875612752
-		 9 134.20572270374652 15 179.73832156999859 19 313.51776030817098 22 314.92046762620453
-		 27 326.25638284184339 30 285.83078981890247 32 276.32611072439391 34 296.20489901499508
-		 40 304.71674308403374;
+	setAttr -s 11 ".ktv[0:10]"  0 92.65700088107414 6 136.11979875859052
+		 9 134.20572270374615 15 179.73832150645183 19 313.51776031069897 22 314.92046762386178
+		 27 326.25638283746849 30 285.83078985684102 32 276.32611091642519 34 296.20489887296611
+		 40 304.71674313377866;
 	setAttr -s 11 ".kit[2:10]"  18 2 2 2 2 2 2 2 
 		2;
 	setAttr -s 11 ".kot[2:10]"  18 2 2 2 2 2 2 2 
@@ -4741,19 +4761,19 @@ createNode animCurveTA -n "Character1_Ctrl_LeftHandThumbEffector_rotateY";
 	rename -uid "1C800592-4774-DB95-AA0C-5AAC52A42FDD";
 	setAttr ".tan" 2;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  0 33.924792511380261 6 103.66746146748103
-		 9 113.90059725816056 15 136.30887341117742 19 196.18896149678793 22 193.46437108405948
-		 27 187.0844371146633 30 217.11398776812879 32 216.9846590121991 34 214.82290995016604
-		 40 212.75869312231436;
+	setAttr -s 11 ".ktv[0:10]"  0 33.924792513310813 6 103.66746146677197
+		 9 113.90059725816077 15 136.30887342657195 19 196.18896150066232 22 193.46437108003155
+		 27 187.08443710887951 30 217.11398773670555 32 216.98465890439076 34 214.82291008120177
+		 40 212.75869307676535;
 	setAttr ".roti" 5;
 createNode animCurveTA -n "Character1_Ctrl_LeftHandThumbEffector_rotateZ";
 	rename -uid "08DAFF75-4848-7EEB-D26E-A498EE8C2753";
 	setAttr ".tan" 2;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  0 -83.2157499348546 6 -46.974057435698448
-		 9 -39.392371968585543 15 -36.392565365021795 19 -71.133690141020693 22 -64.597998588702069
-		 27 -75.937745068116669 30 59.350763812160906 32 76.462071738276506 34 61.236495507815135
-		 40 67.6283712817078;
+	setAttr -s 11 ".ktv[0:10]"  0 -83.215749935925544 6 -46.974057432221521
+		 9 -39.392371968586254 15 -36.392565523783887 19 -71.133690139753767 22 -64.597998590069551
+		 27 -75.937745069581254 30 59.350763768528893 32 76.462071533612388 34 61.236495653629319
+		 40 67.628371238191988;
 	setAttr ".roti" 5;
 createNode animCurveTL -n "Character1_Ctrl_LeftHandThumbEffector_translateZ";
 	rename -uid "FC50FFA2-46D3-3301-ACAA-048864452808";
@@ -4819,10 +4839,10 @@ createNode animCurveTA -n "Character1_Ctrl_LeftHandIndexEffector_rotateX";
 	rename -uid "A295FBCF-48DF-821C-3C16-608436463599";
 	setAttr ".tan" 2;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  0 -145.40502813261742 6 -200.32488720068713
-		 9 -212.6912595453019 15 -205.20663468179907 19 -218.79994729311861 22 -222.88533957793302
-		 27 -239.60027947114045 30 -249.10775671107646 32 -246.55321937135039 34 -244.27268052767172
-		 40 -240.57116300947732;
+	setAttr -s 11 ".ktv[0:10]"  0 -145.40502813229443 6 -200.32488720092172
+		 9 -212.69125954530193 15 -205.20663475685689 19 -218.79994730115533 22 -222.88533957159723
+		 27 -239.600279470793 30 -249.10775643012195 32 -246.55321936584258 34 -244.27268064386675
+		 40 -240.57116307985237;
 	setAttr -s 11 ".kit[2:10]"  18 2 2 2 2 2 2 2 
 		2;
 	setAttr -s 11 ".kot[2:10]"  18 2 2 2 2 2 2 2 
@@ -4832,19 +4852,19 @@ createNode animCurveTA -n "Character1_Ctrl_LeftHandIndexEffector_rotateY";
 	rename -uid "705C8605-47E0-7D6C-E11D-B0AC76CF343A";
 	setAttr ".tan" 2;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  0 -36.763432500859281 6 6.249043192447985
-		 9 1.0158373734932493 15 24.810596740808776 19 57.509595412481673 22 64.6849930269872
-		 27 57.126410478763255 30 181.933032233419 32 194.87661769543408 34 186.17682520754354
-		 40 194.59330824756233;
+	setAttr -s 11 ".ktv[0:10]"  0 -36.763432501652929 6 6.2490431939225219
+		 9 1.0158373734933439 15 24.81059684375867 19 57.509595409933667 22 64.68499302886778
+		 27 57.126410478997379 30 181.93303258723563 32 194.87661769985849 34 186.17682505511581
+		 40 194.59330816667779;
 	setAttr ".roti" 5;
 createNode animCurveTA -n "Character1_Ctrl_LeftHandIndexEffector_rotateZ";
 	rename -uid "51A1EC50-4570-E6D3-A2C7-4CBD92A6747B";
 	setAttr ".tan" 2;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  0 155.70304008903335 6 163.14753769892266
-		 9 158.66067856509139 15 118.6397011698969 19 -39.226825978599472 22 -41.601694786461046
-		 27 -67.657911247072633 30 -74.065556259130275 32 -78.034102866190096 34 -64.496533593360226
-		 40 -55.462130085771101;
+	setAttr -s 11 ".ktv[0:10]"  0 155.70304008864534 6 163.14753769864436
+		 9 158.66067856509139 15 118.63970112852982 19 -39.22682598225245 22 -41.601694783074478
+		 27 -67.65791124700209 30 -74.065556787464132 32 -78.034102875083178 34 -64.496533329793053
+		 40 -55.462129917653641;
 	setAttr ".roti" 5;
 createNode animCurveTL -n "Character1_Ctrl_LeftHandIndexEffector_translateZ";
 	rename -uid "7611D51F-40E7-069B-270A-B68CDD796273";
@@ -4910,10 +4930,10 @@ createNode animCurveTA -n "Character1_Ctrl_LeftHandMiddleEffector_rotateX";
 	rename -uid "1F4911B0-4B2B-6DA1-0108-15948EEAC736";
 	setAttr ".tan" 2;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  0 -138.24366664441848 6 -200.78230910921573
-		 9 -212.0145154768212 15 -210.24215127603256 19 -227.71114251655257 22 -233.1755112000956
-		 27 -243.03282755645398 30 -249.58320069073 32 -247.89156794485453 34 -244.80752741897467
-		 40 -241.66061106615251;
+	setAttr -s 11 ".ktv[0:10]"  0 -138.2436666451369 6 -200.78230910908763
+		 9 -212.01451547682115 15 -210.24215117944735 19 -227.71114251855187 22 -233.17551120490776
+		 27 -243.03282755621143 30 -249.58320077671524 32 -247.89156808525513 34 -244.80752745286645
+		 40 -241.66061104918597;
 	setAttr -s 11 ".kit[2:10]"  18 2 2 2 2 2 2 2 
 		2;
 	setAttr -s 11 ".kot[2:10]"  18 2 2 2 2 2 2 2 
@@ -4923,19 +4943,19 @@ createNode animCurveTA -n "Character1_Ctrl_LeftHandMiddleEffector_rotateY";
 	rename -uid "C8E0FB25-4457-BF38-7253-01A028FF5D05";
 	setAttr ".tan" 2;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  0 -28.390280527807167 6 1.8921406045472688
-		 9 -5.6024237243915467 15 18.455127001094827 19 46.220761569999901 22 52.756912010785953
-		 27 44.224437174151497 30 168.51253529098861 32 181.66392987802769 34 172.8491777702493
-		 40 181.36458300398382;
+	setAttr -s 11 ".ktv[0:10]"  0 -28.39028052673525 6 1.8921406042112148
+		 9 -5.6024237243916959 15 18.455126911587072 19 46.220761568707438 22 52.756912007577604
+		 27 44.224437174422945 30 168.51253516463487 32 181.66392973649403 34 172.84917771420351
+		 40 181.36458303034883;
 	setAttr ".roti" 5;
 createNode animCurveTA -n "Character1_Ctrl_LeftHandMiddleEffector_rotateZ";
 	rename -uid "93BEA4F5-49A7-6C38-B0FC-8A98DD57B2BB";
 	setAttr ".tan" 2;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  0 129.97380059518005 6 138.63441350756554
-		 9 135.64616554371034 15 93.692191471470508 19 -64.738820462788482 22 -67.658291102589175
-		 27 -86.756242221292396 30 -83.871714352279085 32 -87.043591582491374 34 -73.173266039026586
-		 40 -63.22371583547644;
+	setAttr -s 11 ".ktv[0:10]"  0 129.97380059581727 6 138.63441350762938
+		 9 135.6461655437104 15 93.692191513051867 19 -64.738820463121044 22 -67.658291103515722
+		 27 -86.756242221347321 30 -83.871714198373056 32 -87.043591365748171 34 -73.173265958535055
+		 40 -63.223715880408619;
 	setAttr ".roti" 5;
 createNode animCurveTL -n "Character1_Ctrl_LeftHandMiddleEffector_translateZ";
 	rename -uid "60574C81-49EC-7F52-C729-74B6E7DDEB26";
@@ -5001,10 +5021,10 @@ createNode animCurveTA -n "Character1_Ctrl_LeftHandRingEffector_rotateX";
 	rename -uid "4D0EBA29-4117-D151-9FE3-73BAD40AC4DC";
 	setAttr ".tan" 2;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  0 -134.60097327351946 6 -201.55675678023121
-		 9 -211.24262090200082 15 -214.37578245573761 19 -231.89056023863154 22 -237.46848999689158
-		 27 -244.28956803561758 30 -249.99104604896993 32 -248.97636430487461 34 -245.07893224833401
-		 40 -242.36087005572506;
+	setAttr -s 11 ".ktv[0:10]"  0 -134.60097327363081 6 -201.55675678127244
+		 9 -211.24262090200085 15 -214.37578239768405 19 -231.89056023816181 22 -237.46848999549977
+		 27 -244.28956804023656 30 -249.99104592654155 32 -248.97636410707992 34 -245.07893230418938
+		 40 -242.36087013298726;
 	setAttr -s 11 ".kit[2:10]"  18 2 2 2 2 2 2 2 
 		2;
 	setAttr -s 11 ".kot[2:10]"  18 2 2 2 2 2 2 2 
@@ -5014,19 +5034,19 @@ createNode animCurveTA -n "Character1_Ctrl_LeftHandRingEffector_rotateY";
 	rename -uid "5084491C-4F82-7D8D-6330-D896DC371166";
 	setAttr ".tan" 2;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  0 -19.210370682347101 6 -3.3994751283563249
-		 9 -13.030585241601484 15 9.793130004785084 19 34.157931937557507 22 40.090496972042729
-		 27 31.25813483416076 30 154.95035480521793 32 168.26064349470116 34 159.29054681065952
-		 40 167.77556974471966;
+	setAttr -s 11 ".ktv[0:10]"  0 -19.210370682228419 6 -3.3994751267667569
+		 9 -13.030585241601433 15 9.7931299678286337 19 34.157931938054148 22 40.090496973607451
+		 27 31.258134826607705 30 154.95035499954722 32 168.26064372449071 34 159.29054670052693
+		 40 167.77556958957302;
 	setAttr ".roti" 5;
 createNode animCurveTA -n "Character1_Ctrl_LeftHandRingEffector_rotateZ";
 	rename -uid "A0831FA5-46F0-4FC9-DE5E-6596CD55507B";
 	setAttr ".tan" 2;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  0 105.01551126575741 6 112.99108081677592
-		 9 111.41154550631818 15 68.761282972971813 19 -86.900880220374376 22 -88.906815994815702
-		 27 -104.86170904427412 30 -94.64090944019587 32 -97.267828907606415 34 -82.719468639262516
-		 40 -71.974355269380666;
+	setAttr -s 11 ".ktv[0:10]"  0 105.01551126583026 6 112.99108081650508
+		 9 111.41154550631816 15 68.761282989924482 19 -86.90088022045849 22 -88.906815995115352
+		 27 -104.86170904105819 30 -94.640909629702577 32 -97.267829176199157 34 -82.719468507010262
+		 40 -71.974355047867846;
 	setAttr ".roti" 5;
 createNode animCurveTL -n "Character1_Ctrl_LeftHandRingEffector_translateZ";
 	rename -uid "4E7903DC-4779-7AEE-48E7-36B53F7A1697";
@@ -5092,10 +5112,10 @@ createNode animCurveTA -n "Character1_Ctrl_LeftHandPinkyEffector_rotateX";
 	rename -uid "8588E4DA-4A5C-9329-3A20-10A5FC45799D";
 	setAttr ".tan" 2;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  0 -133.59268388816338 6 -201.93756230606294
-		 9 -209.67494785046279 15 -216.66058741356122 19 -234.00937495056843 22 -239.61959082374312
-		 27 -244.93274347599899 30 -250.05609050824646 32 -249.68565489050758 34 -244.83424260662181
-		 40 -242.55624673585848;
+	setAttr -s 11 ".ktv[0:10]"  0 -133.59268388664543 6 -201.93756230630922
+		 9 -209.67494785046276 15 -216.66058741501681 19 -234.00937495294622 22 -239.61959082177768
+		 27 -244.93274347486664 30 -250.05609050836864 32 -249.68565486925877 34 -244.83424258090619
+		 40 -242.55624672601402;
 	setAttr -s 11 ".kit[2:10]"  18 2 2 2 2 2 2 2 
 		2;
 	setAttr -s 11 ".kot[2:10]"  18 2 2 2 2 2 2 2 
@@ -5105,19 +5125,19 @@ createNode animCurveTA -n "Character1_Ctrl_LeftHandPinkyEffector_rotateY";
 	rename -uid "11EBCA61-4EE9-4F53-A125-0E94CF3D0A7B";
 	setAttr ".tan" 2;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  0 -10.452521006226144 6 -9.9561457829926265
-		 9 -21.400427202065092 15 -0.664800247356236 19 22.450063123773418 22 27.797899626494075
-		 27 18.830155191471402 30 141.79953490141338 32 155.21790455344342 34 146.11405151487531
-		 40 154.48299650108268;
+	setAttr -s 11 ".ktv[0:10]"  0 -10.452521007390537 6 -9.9561457827546054
+		 9 -21.400427202065121 15 -0.66480024675823446 19 22.450063120011066 22 27.797899629822385
+		 27 18.830155194058623 30 141.79953490122148 32 155.21790457946963 34 146.11405157157387
+		 40 154.48299652529937;
 	setAttr ".roti" 5;
 createNode animCurveTA -n "Character1_Ctrl_LeftHandPinkyEffector_rotateZ";
 	rename -uid "35380DA5-4A5B-2DDA-E198-169652C5A5FB";
 	setAttr ".tan" 2;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  0 80.400520514022261 6 86.982872841290387
-		 9 86.43866580979433 15 44.451241375131566 19 -107.87051089807029 22 -108.69937008954776
-		 27 -122.95430327091805 30 -105.74862153407254 32 -108.12719732622988 34 -92.520298825942476
-		 40 -81.1768827262146;
+	setAttr -s 11 ".ktv[0:10]"  0 80.400520513355602 6 86.982872841266172
+		 9 86.438665809794315 15 44.451241374942803 19 -107.87051089668601 22 -108.69937009089828
+		 27 -122.95430327232997 30 -105.74862153392934 32 -108.1271973488651 34 -92.520298883098462
+		 40 -81.176882755749489;
 	setAttr ".roti" 5;
 createNode animCurveTL -n "Character1_Ctrl_LeftHandPinkyEffector_translateZ";
 	rename -uid "54960041-4981-385E-0CEC-FC9CEE5CA5F6";
@@ -5216,7 +5236,7 @@ createNode animCurveTA -n "Character1_Ctrl_RightHandThumb1_rotateX";
 	setAttr ".tan" 1;
 	setAttr ".wgt" no;
 	setAttr -s 11 ".ktv[0:10]"  0 -11.288849526876556 6 -11.288852561127808
-		 11 -11.288848042214036 15 -11.288863710566162 19 -11.288887902517414 22 -11.288896668977589
+		 11 -11.288848042214036 15 -11.288863710566162 19 -11.288887902517414 22 -11.288896668977591
 		 27 -11.289009302693069 30 -11.289067585239424 32 -11.289010493710087 34 -11.288994308707794
 		 40 -11.288813493168893;
 	setAttr -s 11 ".kix[0:10]"  1 1 1 0.99999999999958833 0.99999999999887601 
@@ -5233,7 +5253,7 @@ createNode animCurveTA -n "Character1_Ctrl_RightHandThumb2_rotateZ";
 	setAttr ".wgt" no;
 	setAttr -s 11 ".ktv[0:10]"  0 0.044820829511507954 6 0.044724751826309278
 		 11 0.044669212675306422 15 0.044681143919852985 19 0.044455418183151234 22 0.044468154698979266
-		 27 0.044464747572752407 30 0.044477930270556597 32 0.04455013157028441 34 0.044582430472807792
+		 27 0.044464747572752407 30 0.044477930270556597 32 0.04455013157028441 34 0.044582430472807799
 		 40 0.044736905905732934;
 	setAttr -s 11 ".kix[0:10]"  1 0.99999999998909661 1 1 0.99999999998949984 
 		0.99999999999989675 1 0.99999999999876765 0.99999999996817968 0.99999999999043698 
@@ -5306,7 +5326,7 @@ createNode animCurveTA -n "Character1_Ctrl_RightHandThumb3_rotateY";
 	setAttr -s 11 ".ktv[0:10]"  0 12.572914873635932 6 12.572853083670996
 		 11 12.572841291091253 15 12.572924980985825 19 12.572944426315285 22 12.572954647300669
 		 27 12.572892049870733 30 12.572907459654246 32 12.572883434697509 34 12.572876695554159
-		 40 12.57296656733193;
+		 40 12.572966567331932;
 	setAttr -s 11 ".kix[0:10]"  1 0.99999999999743183 1 0.99999999999724376 
 		1 0.99999999999569433 1 1 0.99999999999977796 0.99999999999998435 1;
 	setAttr -s 11 ".kiy[0:10]"  0 -2.2663370764319712e-06 0 2.3478903053583537e-06 
@@ -5370,7 +5390,7 @@ createNode animCurveTA -n "Character1_Ctrl_RightHandThumb4_rotateX";
 	setAttr ".tan" 1;
 	setAttr ".wgt" no;
 	setAttr -s 11 ".ktv[0:10]"  0 5.6285248036775459e-05 6 6.0661490911080145e-05
-		 11 6.0346593249489397e-05 15 0.0001050054683202373 19 8.6432326711910701e-05 22 7.6248721852758563e-05
+		 11 6.0346593249489397e-05 15 0.0001050054683202373 19 8.6432326711910715e-05 22 7.6248721852758563e-05
 		 27 8.5722761986965255e-05 30 0.00012512292643006474 32 0.00013319361583252938 34 0.00012234056524939115
 		 40 6.6689835643277067e-05;
 	setAttr -s 11 ".kix[0:10]"  1 1 1 1 1 1 0.99999999999965616 0.99999999999978684 
@@ -5434,7 +5454,7 @@ createNode animCurveTA -n "Character1_Ctrl_RightHandIndex2_rotateZ";
 	setAttr ".tan" 1;
 	setAttr ".wgt" no;
 	setAttr -s 11 ".ktv[0:10]"  0 6.7642752054409511e-05 6 7.016325610417049e-05
-		 11 6.7946318713981994e-05 15 4.9757134559777442e-05 19 0.00024600038624738381 22 0.00024770617762420667
+		 11 6.7946318713981994e-05 15 4.9757134559777449e-05 19 0.00024600038624738381 22 0.00024770617762420667
 		 27 0.0002223324468094915 30 0.00035438530062776165 32 0.000367345791937222 34 0.00032655522627993849
 		 40 0.00014895055332862545;
 	setAttr -s 11 ".kix[0:10]"  1 1 0.99999999999994993 1 1 0.99999999999980083 
@@ -5466,7 +5486,7 @@ createNode animCurveTA -n "Character1_Ctrl_RightHandIndex2_rotateX";
 	setAttr ".tan" 1;
 	setAttr ".wgt" no;
 	setAttr -s 11 ".ktv[0:10]"  0 0.00019645487723388253 6 0.00019453358641120146
-		 11 0.0001714862409997511 15 6.8096659410071773e-05 19 0.00013759285860550212 22 7.6373948745843154e-05
+		 11 0.0001714862409997511 15 6.8096659410071773e-05 19 0.00013759285860550215 22 7.6373948745843154e-05
 		 27 7.2746673290749987e-05 30 -2.4233263202581275e-05 32 -5.1771214638438217e-05 34 3.923851275854908e-06
 		 40 0.00018771427740330927;
 	setAttr -s 11 ".kix[0:10]"  1 0.99999999999997669 0.99999999999458422 
@@ -5483,8 +5503,8 @@ createNode animCurveTA -n "Character1_Ctrl_RightHandIndex3_rotateZ";
 	setAttr ".wgt" no;
 	setAttr -s 11 ".ktv[0:10]"  0 -0.00012820680437010602 6 -0.00012516535933787697
 		 11 -0.00013567899784880521 15 -6.096972251280986e-05 19 -3.904763929385896e-05 22 -4.1937947205270397e-05
-		 27 -3.9103736024141464e-05 30 -5.357872872790216e-05 32 -5.5781210312353768e-05 34 -7.8778627070900682e-05
-		 40 -0.0001397614585366533;
+		 27 -3.9103736024141464e-05 30 -5.3578728727902153e-05 32 -5.5781210312353768e-05
+		 34 -7.8778627070900682e-05 40 -0.00013976145853665333;
 	setAttr -s 11 ".kix[0:10]"  1 1 1 0.99999999999981715 1 1 1 1 0.9999999999984277 
 		0.99999999999941358 1;
 	setAttr -s 11 ".kiy[0:10]"  0 0 0 6.04620836404782e-07 0 0 0 0 -1.7733338180407468e-06 
@@ -5586,7 +5606,7 @@ createNode animCurveTA -n "Character1_Ctrl_RightHandMiddle1_rotateZ";
 	setAttr ".tan" 1;
 	setAttr ".wgt" no;
 	setAttr -s 11 ".ktv[0:10]"  0 -27.113164773011576 6 -27.113132469717375
-		 11 -27.113106219758876 15 -27.113075985048191 19 -27.112868649573194 22 -27.112760304345787
+		 11 -27.113106219758876 15 -27.113075985048194 19 -27.112868649573194 22 -27.112760304345787
 		 27 -27.112866366207307 30 -27.112907367552086 32 -27.112904904262837 34 -27.112849521330585
 		 40 -27.113232372464633;
 	setAttr -s 11 ".kix[0:10]"  1 0.99999999999837386 0.99999999999751377 
@@ -5634,7 +5654,7 @@ createNode animCurveTA -n "Character1_Ctrl_RightHandMiddle2_rotateZ";
 	setAttr ".tan" 1;
 	setAttr ".wgt" no;
 	setAttr -s 11 ".ktv[0:10]"  0 0.10820743097407498 6 0.1081999938537074
-		 11 0.10820506545238064 15 0.10822291061058116 19 0.10824038230237461 22 0.10826249742233918
+		 11 0.10820506545238065 15 0.10822291061058116 19 0.10824038230237461 22 0.10826249742233918
 		 27 0.10828893027751685 30 0.10823451802216673 32 0.10821446404895475 34 0.10821655508114228
 		 40 0.1081967649387619;
 	setAttr -s 11 ".kix[0:10]"  1 1 0.99999999999998057 0.9999999999999728 
@@ -5671,7 +5691,7 @@ createNode animCurveTA -n "Character1_Ctrl_RightHandMiddle2_rotateX";
 	setAttr ".wgt" no;
 	setAttr -s 11 ".ktv[0:10]"  0 -2.2937768014346151e-05 6 7.3856267239399723e-05
 		 11 9.1653727567769525e-05 15 0.00016274044998544596 19 -4.5349520758310777e-05 22 -7.0489082022275008e-05
-		 27 0.00021013623209726047 30 0.0001737508644808095 32 1.7748783798518104e-05 34 7.4645326968664608e-06
+		 27 0.0002101362320972605 30 0.00017375086448080952 32 1.7748783798518104e-05 34 7.4645326968664608e-06
 		 40 -9.4985711176560018e-06;
 	setAttr -s 11 ".kix[0:10]"  1 0.99999999999377165 0.9999999999976823 
 		1 1 0.99999999981923049 1 0.99999999999629297 0.99999999998542444 0.99999999999834788 
@@ -5706,9 +5726,9 @@ createNode animCurveTA -n "Character1_Ctrl_RightHandMiddle3_rotateY";
 	setAttr ".tan" 1;
 	setAttr ".wgt" no;
 	setAttr -s 11 ".ktv[0:10]"  0 -0.0003418483181394363 6 -0.00034313819658352707
-		 11 -0.00034120212415085141 15 -0.0003784923695177194 19 -0.00041745008161368666 22 -0.00042083311990782452
-		 27 -0.00039433384838407411 30 -0.00034873889080258054 32 -0.00035124823118440243
-		 34 -0.00034130373736753871 40 -0.00033677980240323939;
+		 11 -0.00034120212415085141 15 -0.00037849236951771945 19 -0.00041745008161368666
+		 22 -0.00042083311990782452 27 -0.00039433384838407411 30 -0.00034873889080258054
+		 32 -0.00035124823118440243 34 -0.00034130373736753871 40 -0.00033677980240323939;
 	setAttr -s 11 ".kix[0:10]"  1 1 1 0.99999999999849343 1 0.99999999999990841 
 		1 1 0.99999999999976219 0.999999999999996 1;
 	setAttr -s 11 ".kiy[0:10]"  0 0 0 -1.7357972682326766e-06 0 4.2793643048407756e-07 
@@ -5772,7 +5792,7 @@ createNode animCurveTA -n "Character1_Ctrl_RightHandMiddle4_rotateX";
 	setAttr ".tan" 1;
 	setAttr ".wgt" no;
 	setAttr -s 11 ".ktv[0:10]"  0 3.4249728537957904e-05 6 9.7034614762897957e-05
-		 11 9.6052833974242578e-05 15 -0.0001147619269566207 19 2.6747302343459987e-05 22 0.0001509382518772124
+		 11 9.6052833974242591e-05 15 -0.0001147619269566207 19 2.6747302343459987e-05 22 0.0001509382518772124
 		 27 9.7700354671075633e-05 30 6.0247500047843316e-05 32 0.00012343691469526006 34 3.8903329660397447e-05
 		 40 1.5290355024765836e-05;
 	setAttr -s 11 ".kix[0:10]"  1 1 0.99999999999999012 1 0.99999999999399303 
@@ -5824,7 +5844,7 @@ createNode animCurveTA -n "Character1_Ctrl_RightHandRing1_rotateX";
 	setAttr ".wgt" no;
 	setAttr -s 11 ".ktv[0:10]"  0 28.199322133806614 6 28.199541018346885
 		 11 28.199644694353665 15 28.199560278875513 19 28.199603323909773 22 28.199385889779293
-		 27 28.199770126026579 30 28.199666179792874 32 28.199805932710607 34 28.199561729734565
+		 27 28.199770126026582 30 28.199666179792874 32 28.199805932710607 34 28.199561729734565
 		 40 28.199407525600066;
 	setAttr -s 11 ".kix[0:10]"  1 0.99999999995064948 1 1 0.99999999999841649 
 		1 1 0.99999999999220068 0.99999999994225797 0.99999999999062905 1;
@@ -5876,7 +5896,7 @@ createNode animCurveTA -n "Character1_Ctrl_RightHandRing2_rotateX";
 	setAttr ".wgt" no;
 	setAttr -s 11 ".ktv[0:10]"  0 6.7077358544429457e-06 6 0.00011649901486199812
 		 11 0.00012888474158157643 15 6.4677764357214047e-06 19 8.1346082892598971e-05 22 -4.8503635467195594e-05
-		 27 -1.056485124909103e-05 30 5.1765851185913023e-05 32 1.7221763043505219e-05 34 3.5171275201689392e-05
+		 27 -1.056485124909103e-05 30 5.176585118591303e-05 32 1.7221763043505219e-05 34 3.5171275201689392e-05
 		 40 2.6602543186120558e-05;
 	setAttr -s 11 ".kix[0:10]"  1 0.99999999999291966 1 1 1 1 1 0.99999999999943878 
 		1 0.99999999999988975 1;
@@ -5892,7 +5912,7 @@ createNode animCurveTA -n "Character1_Ctrl_RightHandRing3_rotateZ";
 	setAttr ".wgt" no;
 	setAttr -s 11 ".ktv[0:10]"  0 -0.60059099513828507 6 -0.60057601559448737
 		 11 -0.60059172508396508 15 -0.60056196391854944 19 -0.60071834524997392 22 -0.60070456518293058
-		 27 -0.60070502951188076 30 -0.60068929676491867 32 -0.60070047533004522 34 -0.60067381395114461
+		 27 -0.60070502951188076 30 -0.60068929676491867 32 -0.60070047533004522 34 -0.60067381395114472
 		 40 -0.60059587997691788;
 	setAttr -s 11 ".kix[0:10]"  1 1 1 1 1 0.99999999999972378 1 1 0.99999999999727196 
 		0.99999999999880407 1;
@@ -5947,7 +5967,7 @@ createNode animCurveTA -n "Character1_Ctrl_RightHandRing4_rotateZ";
 	setAttr ".tan" 1;
 	setAttr ".wgt" no;
 	setAttr -s 11 ".ktv[0:10]"  0 1.7106744347282631e-05 6 2.5101415296014289e-05
-		 11 3.0154541712389115e-05 15 0.00010440659581346474 19 2.1689211716132627e-05 22 1.8299679541626266e-05
+		 11 3.0154541712389115e-05 15 0.00010440659581346474 19 2.168921171613263e-05 22 1.8299679541626266e-05
 		 27 2.9354219299435572e-05 30 4.4349139989096126e-05 32 5.3261692448911521e-05 34 3.7839862108466383e-05
 		 40 9.5966886025167154e-06;
 	setAttr -s 11 ".kix[0:10]"  1 0.99999999999991929 0.99999999999973976 
@@ -6004,8 +6024,8 @@ createNode animCurveTA -n "Character1_Ctrl_RightHandPinky1_rotateZ";
 	setAttr ".wgt" no;
 	setAttr -s 11 ".ktv[0:10]"  0 20.338681381854954 6 20.338707443875858
 		 11 20.338721857411791 15 20.338908295525272 19 20.338549523741527 22 20.338699379541161
-		 27 20.338374209977708 30 20.338473082124874 32 20.33846688578501 34 20.338623293780959
-		 40 20.338658468760165;
+		 27 20.338374209977712 30 20.338473082124874 32 20.33846688578501 34 20.338623293780962
+		 40 20.338658468760169;
 	setAttr -s 11 ".kix[0:10]"  1 0.99999999999922284 0.99999999999788169 
 		1 0.99999999994579847 1 1 0.99999999999245937 0.99999999997744637 0.99999999999803046 
 		1;
@@ -6046,7 +6066,7 @@ createNode animCurveTA -n "Character1_Ctrl_RightHandPinky1_rotateX";
 		1 0.9999999999866126 0.99999999999689748 1 0.99999999999502565 0.99999999999624756 
 		1 1;
 	setAttr -s 11 ".kiy[0:10]"  0 -1.0550964030889781e-06 -1.8728102314379836e-06 
-		0 5.1744156733388102e-06 2.4910354703900211e-06 0 -3.154171749388172e-06 -2.7395199465237306e-06 
+		0 5.1744156733388102e-06 2.4910354703900211e-06 0 -3.1541717493881716e-06 -2.7395199465237306e-06 
 		0 0;
 	setAttr -s 11 ".kox[0:10]"  1 0.99999999999944356 0.9999999999982464 
 		1 0.99999999998661271 0.99999999999689726 1 0.99999999999502565 0.99999999999624756 
@@ -6075,7 +6095,7 @@ createNode animCurveTA -n "Character1_Ctrl_RightHandPinky2_rotateY";
 	setAttr ".tan" 1;
 	setAttr ".wgt" no;
 	setAttr -s 11 ".ktv[0:10]"  0 0.00016151049451839416 6 0.00010278997875320269
-		 11 0.00010454390261219636 15 0.00010713119753333961 19 0.00032596485124895179 22 0.00033785132083994648
+		 11 0.00010454390261219636 15 0.00010713119753333962 19 0.00032596485124895179 22 0.00033785132083994648
 		 27 0.00033255334016440351 30 0.00032874286251770822 32 0.00031583505122651336 34 0.0003306558133905002
 		 40 0.00016547280552904904;
 	setAttr -s 11 ".kix[0:10]"  1 1 0.999999999999998 0.99999999999999833 
@@ -6129,7 +6149,7 @@ createNode animCurveTA -n "Character1_Ctrl_RightHandPinky3_rotateY";
 	setAttr -s 11 ".kix[0:10]"  1 0.99999999999980438 0.99999999999994804 
 		0.99999999999998301 1 1 1 0.99999999999897526 1 1 1;
 	setAttr -s 11 ".kiy[0:10]"  0 6.2556086825428408e-07 3.2227194488747263e-07 
-		1.8415539707856223e-07 0 -1.484755582614025e-08 0 -1.4315840693603612e-06 0 0 0;
+		1.8415539707856223e-07 0 -1.4847555826140251e-08 0 -1.4315840693603612e-06 0 0 0;
 	setAttr -s 11 ".kox[0:10]"  1 0.99999999999980438 0.99999999999994815 
 		0.99999999999998301 1 0.99999999999999978 1 0.99999999999897526 1 1 1;
 	setAttr -s 11 ".koy[0:10]"  0 6.2556086825428408e-07 3.2227194488747268e-07 
@@ -6156,7 +6176,7 @@ createNode animCurveTA -n "Character1_Ctrl_RightHandPinky4_rotateZ";
 	setAttr ".wgt" no;
 	setAttr -s 11 ".ktv[0:10]"  0 1.6463060496254224e-05 6 2.9498153565898131e-05
 		 11 2.0640100137619251e-05 15 3.7270950988083197e-05 19 -4.6129947282784073e-05 22 -3.9194614593589431e-05
-		 27 4.5101991584003571e-06 30 -3.7389744072590174e-05 32 -3.65024443640107e-05 34 -1.3036113432318289e-05
+		 27 4.5101991584003571e-06 30 -3.7389744072590174e-05 32 -3.6502444364010707e-05 34 -1.3036113432318289e-05
 		 40 5.2994899654960902e-05;
 	setAttr -s 11 ".kix[0:10]"  1 1 1 1 1 0.99999999999508149 1 0.99999999999964762 
 		1 0.99999999999963585 1;
@@ -6187,7 +6207,7 @@ createNode animCurveTA -n "Character1_Ctrl_RightHandPinky4_rotateX";
 	setAttr ".tan" 1;
 	setAttr ".wgt" no;
 	setAttr -s 11 ".ktv[0:10]"  0 4.2117055225629323e-05 6 1.0809757351987806e-05
-		 11 -2.3040068800531688e-05 15 -6.1188015239377005e-05 19 4.2517857252502342e-05 22 0.00010031568406921228
+		 11 -2.3040068800531688e-05 15 -6.1188015239377005e-05 19 4.2517857252502348e-05 22 0.00010031568406921228
 		 27 -2.5207977838051786e-05 30 2.0487177449810998e-05 32 -1.265451645829202e-05 34 5.491183778488258e-06
 		 40 5.6598076540686579e-05;
 	setAttr -s 11 ".kix[0:10]"  1 0.99999999999798628 0.99999999999885048 
@@ -6202,10 +6222,10 @@ createNode animCurveTA -n "Character1_Ctrl_RightHandThumbEffector_rotateX";
 	rename -uid "30843A5D-4D19-AC4C-113E-2F8748000BBE";
 	setAttr ".tan" 2;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  0 -77.163696866167584 6 -44.868817971032229
-		 9 -39.807349255170344 15 -48.244673081921704 19 -38.043101136811636 22 -27.01250489982424
-		 27 -27.898243478206975 30 54.983758092331215 32 63.681962468707106 34 75.033101773491879
-		 40 102.83650844716074;
+	setAttr -s 11 ".ktv[0:10]"  0 -77.163696866167584 6 -44.868817765794823
+		 9 -39.807349825820594 15 -48.244673592692379 19 -38.043101187371612 22 -27.012504901809464
+		 27 -27.898243562389133 30 54.98375809249174 32 63.681962468725423 34 75.033101773263951
+		 40 102.83650844693329;
 	setAttr -s 11 ".kit[2:10]"  18 2 2 2 2 2 2 2 
 		2;
 	setAttr -s 11 ".kot[2:10]"  18 2 2 2 2 2 2 2 
@@ -6215,19 +6235,19 @@ createNode animCurveTA -n "Character1_Ctrl_RightHandThumbEffector_rotateY";
 	rename -uid "E9E588A4-4BBF-24AA-EAA0-AD860DBD3BE9";
 	setAttr ".tan" 2;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  0 -60.472258990387822 6 -3.7883682282272182
-		 9 -1.7185239793535705 15 45.859656090298465 19 197.84827133456801 22 200.39278083622332
-		 27 216.25198325031508 30 237.46600200929245 32 240.13348784006703 34 242.27312453684635
-		 40 240.47223542086741;
+	setAttr -s 11 ".ktv[0:10]"  0 -60.472258990387807 6 -3.7883681407824472
+		 9 -1.7185240938749817 15 45.859656302285927 19 197.84827143123135 22 200.39278084002814
+		 27 216.25198341676065 30 237.46600200912056 32 240.13348784004739 34 242.27312453763739
+		 40 240.47223542046817;
 	setAttr ".roti" 5;
 createNode animCurveTA -n "Character1_Ctrl_RightHandThumbEffector_rotateZ";
 	rename -uid "1A459CC7-4F63-EA1F-1948-85BF924F9B45";
 	setAttr ".tan" 2;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  0 -139.0641575810578 6 -37.085497705736806
-		 9 -17.961305288810127 15 -25.156633336574934 19 46.738066570203301 22 47.176274701142916
-		 27 35.080250766485896 30 85.185369726973278 32 89.399908740501701 34 65.036456620658811
-		 40 40.935842729520488;
+	setAttr -s 11 ".ktv[0:10]"  0 -139.0641575810578 6 -37.085497541369733
+		 9 -17.961305530918739 15 -25.156633725232552 19 46.738066613106703 22 47.176274702461576
+		 27 35.080250841023336 30 85.185369726977385 32 89.399908740503108 34 65.03645662015667
+		 40 40.935842730179807;
 	setAttr ".roti" 5;
 createNode animCurveTL -n "Character1_Ctrl_RightHandThumbEffector_translateZ";
 	rename -uid "D9D34541-48AF-36D8-190B-87B7BC51BF36";
@@ -6297,10 +6317,10 @@ createNode animCurveTA -n "Character1_Ctrl_RightHandIndexEffector_rotateX";
 	rename -uid "42052B55-404C-4064-C134-61B641A1A3CF";
 	setAttr ".tan" 2;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  0 82.853218403400575 6 90.1912172037798
-		 9 84.411810288845615 15 106.94576785314104 19 127.73477596053625 22 137.01316403440393
-		 27 126.83571484989677 30 249.72149119076704 32 261.59787134657097 34 254.80435651072213
-		 40 262.85343951716845;
+	setAttr -s 11 ".ktv[0:10]"  0 82.853218403400533 6 90.19121657785243
+		 9 84.411810274717723 15 106.94576838102539 19 127.73477595826445 22 137.01316403428171
+		 27 126.83571484981421 30 249.72149119075701 32 261.59787134671654 34 254.80435651061458
+		 40 262.85343951696598;
 	setAttr -s 11 ".kit[2:10]"  18 2 2 2 2 2 2 2 
 		2;
 	setAttr -s 11 ".kot[2:10]"  18 2 2 2 2 2 2 2 
@@ -6310,19 +6330,19 @@ createNode animCurveTA -n "Character1_Ctrl_RightHandIndexEffector_rotateY";
 	rename -uid "C23D9A11-4F16-5FF1-84F3-15835F5D769E";
 	setAttr ".tan" 2;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  0 1.6588421931246975 6 132.01991265836602
-		 9 151.25181880803848 15 155.2605229726426 19 168.93638354017628 22 174.68895516378737
-		 27 189.06166805909476 30 169.95136569983623 32 164.64814735219915 34 176.18756290050416
-		 40 178.34116407172644;
+	setAttr -s 11 ".ktv[0:10]"  0 1.6588421931249802 6 132.01991255237803
+		 9 151.25181880731691 15 155.2605232942677 19 168.93638354720161 22 174.68895516436282
+		 27 189.06166806250633 30 169.95136569975332 32 164.64814735324495 34 176.18756289945466
+		 40 178.34116407049223;
 	setAttr ".roti" 5;
 createNode animCurveTA -n "Character1_Ctrl_RightHandIndexEffector_rotateZ";
 	rename -uid "A54C345B-41BB-7C35-9F3D-BE834663A667";
 	setAttr ".tan" 2;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  0 163.25811297785845 6 160.26934790354315
-		 9 160.49866865201915 15 214.72392228179183 19 372.88075079148086 22 370.44197661778543
-		 27 380.73615392104739 30 360.84197777603868 32 362.45882528394583 34 353.3108320382791
-		 40 343.25821682224984;
+	setAttr -s 11 ".ktv[0:10]"  0 163.2581129778581 6 160.2693475437176
+		 9 160.4986686464203 15 214.7239221638176 19 372.88075077647721 22 370.44197661629931
+		 27 380.73615391438625 30 360.84197777591794 32 362.45882528519496 34 353.31083203689792
+		 40 343.25821682084461;
 	setAttr ".roti" 5;
 createNode animCurveTL -n "Character1_Ctrl_RightHandIndexEffector_translateZ";
 	rename -uid "8039795B-4202-55CA-AC26-809DE0433600";
@@ -6392,10 +6412,10 @@ createNode animCurveTA -n "Character1_Ctrl_RightHandMiddleEffector_rotateX";
 	rename -uid "E01CEDD7-435D-C0FB-5346-A0A2BF31C735";
 	setAttr ".tan" 2;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  0 63.777544059809237 6 73.48619071193778
-		 9 65.867500040258903 15 91.370716995845797 19 109.07576753777909 22 117.82572226756608
-		 27 105.94274476816994 30 230.18607156826613 32 241.81831688261582 34 235.39485408202643
-		 40 243.77777021794054;
+	setAttr -s 11 ".ktv[0:10]"  0 63.777544059809195 6 73.486191644880947
+		 9 65.867500033867955 15 91.370716372561517 19 109.07576753732484 22 117.8257222676576
+		 27 105.94274476822942 30 230.18607156808471 32 241.81831688278996 34 235.39485408242004
+		 40 243.77777021858455;
 	setAttr -s 11 ".kit[2:10]"  18 2 2 2 2 2 2 2 
 		2;
 	setAttr -s 11 ".kot[2:10]"  18 2 2 2 2 2 2 2 
@@ -6405,19 +6425,19 @@ createNode animCurveTA -n "Character1_Ctrl_RightHandMiddleEffector_rotateY";
 	rename -uid "7DFFBC84-41B8-F8D8-F25F-BAA5A5B89CEF";
 	setAttr ".tan" 2;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  0 -7.3449943495010048 6 123.23158052928075
-		 9 142.28261728385135 15 147.99812628037631 19 165.64520795674949 22 172.41180113232616
-		 27 185.44260606802823 30 178.90174287143927 32 173.60614121522934 34 185.2285329908905
-		 40 187.34489356145767;
+	setAttr -s 11 ".ktv[0:10]"  0 -7.3449943495007037 6 123.23158059424469
+		 9 142.28261728412272 15 147.998125976159 19 165.64520795866164 22 172.41180113170503
+		 27 185.44260606699299 30 178.90174286991885 32 173.60614121612352 34 185.22853299561734
+		 40 187.34489356532058;
 	setAttr ".roti" 5;
 createNode animCurveTA -n "Character1_Ctrl_RightHandMiddleEffector_rotateZ";
 	rename -uid "05241693-4BFE-B083-C332-58A6AA0F5662";
 	setAttr ".tan" 2;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  0 149.44328597556384 6 150.5452716460382
-		 9 148.90220408615843 15 207.10975865693669 19 365.86885778344475 22 364.06959343844113
-		 27 373.75985008886681 30 348.73841158000295 32 348.75621699223615 34 340.57652511024548
-		 40 329.44332836202329;
+	setAttr -s 11 ".ktv[0:10]"  0 149.44328597556338 6 150.54527226734274
+		 9 148.90220408301698 15 207.10975863021727 19 365.86885778063549 22 364.06959343948597
+		 27 373.75985009022907 30 348.73841157674752 32 348.75621699375796 34 340.57652511911823
+		 40 329.44332836804534;
 	setAttr ".roti" 5;
 createNode animCurveTL -n "Character1_Ctrl_RightHandMiddleEffector_translateZ";
 	rename -uid "EB015571-4912-9080-AB2A-A782BB2C1A9D";
@@ -6487,10 +6507,10 @@ createNode animCurveTA -n "Character1_Ctrl_RightHandRingEffector_rotateX";
 	rename -uid "C54F44CB-44E2-3D34-5F74-2EB6245780AD";
 	setAttr ".tan" 2;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  0 62.798807245964952 6 62.774033409768499
-		 9 59.732620469416922 15 87.952037424352056 19 106.78028356459025 22 116.14766027894056
-		 27 104.91207786124238 30 229.47823278210038 32 241.53938852245386 34 234.35328341860458
-		 40 242.79904170528258;
+	setAttr -s 11 ".ktv[0:10]"  0 62.798807245960617 6 62.774032369935206
+		 9 59.732620475590409 15 87.952037176902252 19 106.78028356459023 22 116.1476602789372
+		 27 104.91207786126408 30 229.47823278198095 32 241.5393885196863 34 234.35328341764995
+		 40 242.79904170194584;
 	setAttr -s 11 ".kit[2:10]"  18 2 2 2 2 2 2 2 
 		2;
 	setAttr -s 11 ".kot[2:10]"  18 2 2 2 2 2 2 2 
@@ -6500,19 +6520,19 @@ createNode animCurveTA -n "Character1_Ctrl_RightHandRingEffector_rotateY";
 	rename -uid "C6F0D8D4-4187-0E73-8FF2-76B8AD3633AC";
 	setAttr ".tan" 2;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  0 -8.0495749811046196 6 122.18667762487819
-		 9 141.7147798986752 15 144.9392483602702 19 164.20914359750776 22 170.36172508278406
-		 27 184.15509390305166 30 178.5940978795611 32 174.32455802736604 34 185.30478310590914
-		 40 188.04951131277602;
+	setAttr -s 11 ".ktv[0:10]"  0 -8.0495749810860016 6 122.18667770637606
+		 9 141.71477989740831 15 144.93924828249632 19 164.20914359750779 22 170.36172508295527
+		 27 184.15509390331206 30 178.5940978789767 32 174.32455801679669 34 185.30478309982834
+		 40 188.04951129842561;
 	setAttr ".roti" 5;
 createNode animCurveTA -n "Character1_Ctrl_RightHandRingEffector_rotateZ";
 	rename -uid "240E7B57-4B16-2CC1-AF23-1F9C8C87D2A5";
 	setAttr ".tan" 2;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  0 140.91842359206723 6 126.02425447946261
-		 9 128.15151725403462 15 188.11006310377149 19 347.93635369060308 22 346.80095665026334
-		 27 355.9028645413722 30 339.95524781180598 32 340.30916010802753 34 331.91923130762586
-		 40 320.91845168987487;
+	setAttr -s 11 ".ktv[0:10]"  0 140.91842359203807 6 126.02425371360573
+		 9 128.15151725755928 15 188.11006304118035 19 347.93635369060303 22 346.80095664999061
+		 27 355.90286454103159 30 339.95524781053001 32 340.30916008983434 34 331.91923129606272
+		 40 320.91845166741172;
 	setAttr ".roti" 5;
 createNode animCurveTL -n "Character1_Ctrl_RightHandRingEffector_translateZ";
 	rename -uid "3709D160-42DB-969C-99B0-088B85480C2C";
@@ -6582,10 +6602,10 @@ createNode animCurveTA -n "Character1_Ctrl_RightHandPinkyEffector_rotateX";
 	rename -uid "39C8F333-4DC9-E627-4AC6-FB9718A3737A";
 	setAttr ".tan" 2;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  0 28.887135139144057 6 -3.213352475278302
-		 9 12.71200235615116 15 55.006007696340006 19 77.988738785895976 22 87.315212689016917
-		 27 73.279062842279941 30 196.25617714253173 32 209.27481059727225 34 200.06495903062762
-		 40 208.88741876011323;
+	setAttr -s 11 ".ktv[0:10]"  0 28.887135139134443 6 -3.2133520279089103
+		 9 12.712002358325439 15 55.006007654887632 19 77.988738786059514 22 87.315212688985994
+		 27 73.279062842279487 30 196.25617714299077 32 209.27481059845883 34 200.06495902922686
+		 40 208.88741874410192;
 	setAttr -s 11 ".kit[2:10]"  18 2 2 2 2 2 2 2 
 		2;
 	setAttr -s 11 ".kot[2:10]"  18 2 2 2 2 2 2 2 
@@ -6595,19 +6615,19 @@ createNode animCurveTA -n "Character1_Ctrl_RightHandPinkyEffector_rotateY";
 	rename -uid "87300E3C-47D0-C16F-DDE2-259D04496D05";
 	setAttr ".tan" 2;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  0 -26.626443048056903 6 106.98161192907222
-		 9 125.33728535954337 15 123.83766436097052 19 147.44974630810546 22 154.91461418488981
-		 27 167.11551721220673 30 195.16292010450709 32 193.17340879347529 34 202.63400305840898
-		 40 206.62645538481053;
+	setAttr -s 11 ".ktv[0:10]"  0 -26.626443048079938 6 106.98161175610537
+		 9 125.33728535853514 15 123.83766435590627 19 147.44974630618515 22 154.91461418534399
+		 27 167.11551721218871 30 195.16292010380346 32 193.17340878777128 34 202.63400306038562
+		 40 206.62645542320487;
 	setAttr ".roti" 5;
 createNode animCurveTA -n "Character1_Ctrl_RightHandPinkyEffector_rotateZ";
 	rename -uid "C32F37E3-403C-E38D-E29F-1F9AA9DEF136";
 	setAttr ".tan" 2;
 	setAttr ".wgt" no;
-	setAttr -s 11 ".ktv[0:10]"  0 135.74213044685789 6 76.514347534682784
-		 9 95.970909349558852 15 173.70134858671804 19 341.61547098346074 22 343.09011744460446
-		 27 347.6719779373617 30 338.43269959928051 32 335.19922862847631 34 329.32827436733879
-		 40 315.74208883253567;
+	setAttr -s 11 ".ktv[0:10]"  0 135.74213044692894 6 76.514347858440985
+		 9 95.970909350834617 15 173.70134856376538 19 341.61547098513358 22 343.0901174441567
+		 27 347.67197793737506 30 338.43269959496121 32 335.19922860816911 34 329.32827437648825
+		 40 315.74208895092238;
 	setAttr ".roti" 5;
 createNode animCurveTL -n "Character1_Ctrl_RightHandPinkyEffector_translateZ";
 	rename -uid "C88DA68D-4321-449B-B4C3-C191817E3724";
@@ -6898,9 +6918,60 @@ createNode animCurveTU -n "Character1_Reference_scaleZ";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 2 ".ktv[0:1]"  0 1 40 1;
+createNode animCurveTL -n "Character1_Root_translateX";
+	rename -uid "787FFCAA-4DAB-7585-135F-79A74F017438";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  0 0 40 0;
+createNode animCurveTL -n "Character1_Root_translateY";
+	rename -uid "B9CE84E3-41C8-7DFD-0F7D-DEA2B7707961";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  0 0 40 0;
+createNode animCurveTL -n "Character1_Root_translateZ";
+	rename -uid "441E1935-4AB5-7567-FB1D-2887B9823D2A";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  0 0 40 162.27104187011719;
+createNode animCurveTU -n "Character1_Root_visibility";
+	rename -uid "FC48AAFA-4646-B924-FF43-3FB48DD4AF3A";
+	setAttr ".tan" 9;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  0 1 40 1;
+	setAttr -s 2 ".kot[0:1]"  5 5;
+createNode animCurveTA -n "Character1_Root_rotateX";
+	rename -uid "C6F1FF4E-4109-E303-5575-E6B16E42EB45";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  0 0 40 0;
+createNode animCurveTA -n "Character1_Root_rotateY";
+	rename -uid "8A0380AB-444B-0181-1427-F7844779FBCB";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  0 0 40 0;
+createNode animCurveTA -n "Character1_Root_rotateZ";
+	rename -uid "7502A1A4-406E-A85E-2008-6AACD89183DD";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  0 0 40 0;
+createNode animCurveTU -n "Character1_Root_scaleX";
+	rename -uid "7CDB1CB5-4616-13D5-0DA9-E2BFDA7A5A7B";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  0 1 40 1;
+createNode animCurveTU -n "Character1_Root_scaleY";
+	rename -uid "1F5DEB8B-4C53-F944-B677-9E832154D297";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  0 1 40 1;
+createNode animCurveTU -n "Character1_Root_scaleZ";
+	rename -uid "28D54271-4BFF-17D8-4702-D6B3B649BA29";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  0 1 40 1;
 select -ne :time1;
-	setAttr ".o" 17;
-	setAttr ".unw" 17;
+	setAttr ".o" 35;
+	setAttr ".unw" 35;
 select -ne :hardwareRenderingGlobals;
 	setAttr ".otfna" -type "stringArray" 22 "NURBS Curves" "NURBS Surfaces" "Polygons" "Subdiv Surface" "Particles" "Particle Instance" "Fluids" "Strokes" "Image Planes" "UI" "Lights" "Cameras" "Locators" "Joints" "IK Handles" "Deformers" "Motion Trails" "Components" "Hair Systems" "Follicles" "Misc. UI" "Ornaments"  ;
 	setAttr ".otfva" -type "Int32Array" 22 0 1 1 1 1 1
@@ -6946,734 +7017,734 @@ select -ne :hardwareRenderGlobals;
 	setAttr ".btrs" 512;
 select -ne :ikSystem;
 	setAttr -s 4 ".sol";
-connectAttr "Character1_Reference_translateX.o" "PunkBot_RiggedPipeRN.phl[1]";
-connectAttr "Character1_Reference_translateY.o" "PunkBot_RiggedPipeRN.phl[2]";
-connectAttr "Character1_Reference_translateZ.o" "PunkBot_RiggedPipeRN.phl[3]";
-connectAttr "Character1_Reference_rotateX.o" "PunkBot_RiggedPipeRN.phl[4]";
-connectAttr "Character1_Reference_rotateY.o" "PunkBot_RiggedPipeRN.phl[5]";
-connectAttr "Character1_Reference_rotateZ.o" "PunkBot_RiggedPipeRN.phl[6]";
-connectAttr "Character1_Reference_scaleX.o" "PunkBot_RiggedPipeRN.phl[7]";
-connectAttr "Character1_Reference_scaleY.o" "PunkBot_RiggedPipeRN.phl[8]";
-connectAttr "Character1_Reference_scaleZ.o" "PunkBot_RiggedPipeRN.phl[9]";
-connectAttr "Character1_Ctrl_HipsEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[10]"
+connectAttr "Character1_Ctrl_HipsEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[402]"
 		;
-connectAttr "Character1_Ctrl_HipsEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[11]"
+connectAttr "Character1_Ctrl_HipsEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[403]"
 		;
-connectAttr "Character1_Ctrl_HipsEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[12]"
+connectAttr "Character1_Ctrl_HipsEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[404]"
 		;
-connectAttr "Character1_Ctrl_HipsEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[13]"
+connectAttr "Character1_Ctrl_HipsEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[405]"
 		;
-connectAttr "Character1_Ctrl_HipsEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[14]"
+connectAttr "Character1_Ctrl_HipsEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[406]"
 		;
-connectAttr "Character1_Ctrl_HipsEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[15]"
+connectAttr "Character1_Ctrl_HipsEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[407]"
 		;
-connectAttr "Character1_Ctrl_LeftAnkleEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[16]"
+connectAttr "Character1_Ctrl_LeftAnkleEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[408]"
 		;
-connectAttr "Character1_Ctrl_LeftAnkleEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[17]"
+connectAttr "Character1_Ctrl_LeftAnkleEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[409]"
 		;
-connectAttr "Character1_Ctrl_LeftAnkleEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[18]"
+connectAttr "Character1_Ctrl_LeftAnkleEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[410]"
 		;
-connectAttr "Character1_Ctrl_LeftAnkleEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[19]"
+connectAttr "Character1_Ctrl_LeftAnkleEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[411]"
 		;
-connectAttr "Character1_Ctrl_LeftAnkleEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[20]"
+connectAttr "Character1_Ctrl_LeftAnkleEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[412]"
 		;
-connectAttr "Character1_Ctrl_LeftAnkleEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[21]"
+connectAttr "Character1_Ctrl_LeftAnkleEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[413]"
 		;
-connectAttr "Character1_Ctrl_RightAnkleEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[22]"
+connectAttr "Character1_Ctrl_RightAnkleEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[414]"
 		;
-connectAttr "Character1_Ctrl_RightAnkleEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[23]"
+connectAttr "Character1_Ctrl_RightAnkleEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[415]"
 		;
-connectAttr "Character1_Ctrl_RightAnkleEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[24]"
+connectAttr "Character1_Ctrl_RightAnkleEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[416]"
 		;
-connectAttr "Character1_Ctrl_RightAnkleEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[25]"
+connectAttr "Character1_Ctrl_RightAnkleEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[417]"
 		;
-connectAttr "Character1_Ctrl_RightAnkleEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[26]"
+connectAttr "Character1_Ctrl_RightAnkleEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[418]"
 		;
-connectAttr "Character1_Ctrl_RightAnkleEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[27]"
+connectAttr "Character1_Ctrl_RightAnkleEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[419]"
 		;
-connectAttr "PunkBot_RiggedPipeRN.phl[28]" "Character1_Ctrl_LeftWristEffector_parentConstraint1.cjo"
+connectAttr "PunkBot_RiggedPipeRN.phl[420]" "Character1_Ctrl_LeftWristEffector_parentConstraint1.cjo"
 		;
-connectAttr "pairBlend1.orz" "PunkBot_RiggedPipeRN.phl[29]";
-connectAttr "pairBlend1.ory" "PunkBot_RiggedPipeRN.phl[30]";
-connectAttr "pairBlend1.orx" "PunkBot_RiggedPipeRN.phl[31]";
-connectAttr "pairBlend1.otz" "PunkBot_RiggedPipeRN.phl[32]";
-connectAttr "pairBlend1.oty" "PunkBot_RiggedPipeRN.phl[33]";
-connectAttr "pairBlend1.otx" "PunkBot_RiggedPipeRN.phl[34]";
-connectAttr "PunkBot_RiggedPipeRN.phl[35]" "pairBlend1.w";
-connectAttr "Character1_Ctrl_LeftWristEffector_blendParent1.o" "PunkBot_RiggedPipeRN.phl[36]"
+connectAttr "pairBlend1.orz" "PunkBot_RiggedPipeRN.phl[421]";
+connectAttr "pairBlend1.ory" "PunkBot_RiggedPipeRN.phl[422]";
+connectAttr "pairBlend1.orx" "PunkBot_RiggedPipeRN.phl[423]";
+connectAttr "pairBlend1.otz" "PunkBot_RiggedPipeRN.phl[424]";
+connectAttr "pairBlend1.oty" "PunkBot_RiggedPipeRN.phl[425]";
+connectAttr "pairBlend1.otx" "PunkBot_RiggedPipeRN.phl[426]";
+connectAttr "PunkBot_RiggedPipeRN.phl[427]" "pairBlend1.w";
+connectAttr "Character1_Ctrl_LeftWristEffector_blendParent1.o" "PunkBot_RiggedPipeRN.phl[428]"
 		;
-connectAttr "PunkBot_RiggedPipeRN.phl[37]" "Character1_Ctrl_LeftWristEffector_parentConstraint1.cro"
+connectAttr "PunkBot_RiggedPipeRN.phl[429]" "pairBlend1.ro";
+connectAttr "PunkBot_RiggedPipeRN.phl[430]" "Character1_Ctrl_LeftWristEffector_parentConstraint1.cro"
 		;
-connectAttr "PunkBot_RiggedPipeRN.phl[38]" "pairBlend1.ro";
-connectAttr "PunkBot_RiggedPipeRN.phl[39]" "Character1_Ctrl_LeftWristEffector_parentConstraint1.cpim"
+connectAttr "PunkBot_RiggedPipeRN.phl[431]" "Character1_Ctrl_LeftWristEffector_parentConstraint1.cpim"
 		;
-connectAttr "PunkBot_RiggedPipeRN.phl[40]" "Character1_Ctrl_LeftWristEffector_parentConstraint1.crp"
+connectAttr "PunkBot_RiggedPipeRN.phl[432]" "Character1_Ctrl_LeftWristEffector_parentConstraint1.crp"
 		;
-connectAttr "PunkBot_RiggedPipeRN.phl[41]" "Character1_Ctrl_LeftWristEffector_parentConstraint1.crt"
+connectAttr "PunkBot_RiggedPipeRN.phl[433]" "Character1_Ctrl_LeftWristEffector_parentConstraint1.crt"
 		;
-connectAttr "Character1_Ctrl_RightWristEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[42]"
+connectAttr "Character1_Ctrl_RightWristEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[434]"
 		;
-connectAttr "Character1_Ctrl_RightWristEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[43]"
+connectAttr "Character1_Ctrl_RightWristEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[435]"
 		;
-connectAttr "Character1_Ctrl_RightWristEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[44]"
+connectAttr "Character1_Ctrl_RightWristEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[436]"
 		;
-connectAttr "Character1_Ctrl_RightWristEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[45]"
+connectAttr "Character1_Ctrl_RightWristEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[437]"
 		;
-connectAttr "Character1_Ctrl_RightWristEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[46]"
+connectAttr "Character1_Ctrl_RightWristEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[438]"
 		;
-connectAttr "Character1_Ctrl_RightWristEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[47]"
+connectAttr "Character1_Ctrl_RightWristEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[439]"
 		;
-connectAttr "Character1_Ctrl_LeftKneeEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[48]"
+connectAttr "Character1_Ctrl_LeftKneeEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[440]"
 		;
-connectAttr "Character1_Ctrl_LeftKneeEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[49]"
+connectAttr "Character1_Ctrl_LeftKneeEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[441]"
 		;
-connectAttr "Character1_Ctrl_LeftKneeEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[50]"
+connectAttr "Character1_Ctrl_LeftKneeEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[442]"
 		;
-connectAttr "Character1_Ctrl_LeftKneeEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[51]"
+connectAttr "Character1_Ctrl_LeftKneeEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[443]"
 		;
-connectAttr "Character1_Ctrl_LeftKneeEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[52]"
+connectAttr "Character1_Ctrl_LeftKneeEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[444]"
 		;
-connectAttr "Character1_Ctrl_LeftKneeEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[53]"
+connectAttr "Character1_Ctrl_LeftKneeEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[445]"
 		;
-connectAttr "Character1_Ctrl_RightKneeEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[54]"
+connectAttr "Character1_Ctrl_RightKneeEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[446]"
 		;
-connectAttr "Character1_Ctrl_RightKneeEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[55]"
+connectAttr "Character1_Ctrl_RightKneeEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[447]"
 		;
-connectAttr "Character1_Ctrl_RightKneeEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[56]"
+connectAttr "Character1_Ctrl_RightKneeEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[448]"
 		;
-connectAttr "Character1_Ctrl_RightKneeEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[57]"
+connectAttr "Character1_Ctrl_RightKneeEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[449]"
 		;
-connectAttr "Character1_Ctrl_RightKneeEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[58]"
+connectAttr "Character1_Ctrl_RightKneeEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[450]"
 		;
-connectAttr "Character1_Ctrl_RightKneeEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[59]"
+connectAttr "Character1_Ctrl_RightKneeEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[451]"
 		;
-connectAttr "Character1_Ctrl_LeftElbowEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[60]"
+connectAttr "Character1_Ctrl_LeftElbowEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[452]"
 		;
-connectAttr "Character1_Ctrl_LeftElbowEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[61]"
+connectAttr "Character1_Ctrl_LeftElbowEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[453]"
 		;
-connectAttr "Character1_Ctrl_LeftElbowEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[62]"
+connectAttr "Character1_Ctrl_LeftElbowEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[454]"
 		;
-connectAttr "Character1_Ctrl_LeftElbowEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[63]"
+connectAttr "Character1_Ctrl_LeftElbowEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[455]"
 		;
-connectAttr "Character1_Ctrl_LeftElbowEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[64]"
+connectAttr "Character1_Ctrl_LeftElbowEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[456]"
 		;
-connectAttr "Character1_Ctrl_LeftElbowEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[65]"
+connectAttr "Character1_Ctrl_LeftElbowEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[457]"
 		;
-connectAttr "Character1_Ctrl_RightElbowEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[66]"
+connectAttr "Character1_Ctrl_RightElbowEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[458]"
 		;
-connectAttr "Character1_Ctrl_RightElbowEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[67]"
+connectAttr "Character1_Ctrl_RightElbowEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[459]"
 		;
-connectAttr "Character1_Ctrl_RightElbowEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[68]"
+connectAttr "Character1_Ctrl_RightElbowEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[460]"
 		;
-connectAttr "Character1_Ctrl_RightElbowEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[69]"
+connectAttr "Character1_Ctrl_RightElbowEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[461]"
 		;
-connectAttr "Character1_Ctrl_RightElbowEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[70]"
+connectAttr "Character1_Ctrl_RightElbowEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[462]"
 		;
-connectAttr "Character1_Ctrl_RightElbowEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[71]"
+connectAttr "Character1_Ctrl_RightElbowEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[463]"
 		;
-connectAttr "Character1_Ctrl_ChestOriginEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[72]"
+connectAttr "Character1_Ctrl_ChestOriginEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[464]"
 		;
-connectAttr "Character1_Ctrl_ChestOriginEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[73]"
+connectAttr "Character1_Ctrl_ChestOriginEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[465]"
 		;
-connectAttr "Character1_Ctrl_ChestOriginEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[74]"
+connectAttr "Character1_Ctrl_ChestOriginEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[466]"
 		;
-connectAttr "Character1_Ctrl_ChestOriginEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[75]"
+connectAttr "Character1_Ctrl_ChestOriginEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[467]"
 		;
-connectAttr "Character1_Ctrl_ChestOriginEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[76]"
+connectAttr "Character1_Ctrl_ChestOriginEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[468]"
 		;
-connectAttr "Character1_Ctrl_ChestOriginEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[77]"
+connectAttr "Character1_Ctrl_ChestOriginEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[469]"
 		;
-connectAttr "Character1_Ctrl_ChestEndEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[78]"
+connectAttr "Character1_Ctrl_ChestEndEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[470]"
 		;
-connectAttr "Character1_Ctrl_ChestEndEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[79]"
+connectAttr "Character1_Ctrl_ChestEndEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[471]"
 		;
-connectAttr "Character1_Ctrl_ChestEndEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[80]"
+connectAttr "Character1_Ctrl_ChestEndEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[472]"
 		;
-connectAttr "Character1_Ctrl_ChestEndEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[81]"
+connectAttr "Character1_Ctrl_ChestEndEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[473]"
 		;
-connectAttr "Character1_Ctrl_ChestEndEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[82]"
+connectAttr "Character1_Ctrl_ChestEndEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[474]"
 		;
-connectAttr "Character1_Ctrl_ChestEndEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[83]"
+connectAttr "Character1_Ctrl_ChestEndEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[475]"
 		;
-connectAttr "Character1_Ctrl_LeftFootEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[84]"
+connectAttr "Character1_Ctrl_LeftFootEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[476]"
 		;
-connectAttr "Character1_Ctrl_LeftFootEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[85]"
+connectAttr "Character1_Ctrl_LeftFootEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[477]"
 		;
-connectAttr "Character1_Ctrl_LeftFootEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[86]"
+connectAttr "Character1_Ctrl_LeftFootEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[478]"
 		;
-connectAttr "Character1_Ctrl_LeftFootEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[87]"
+connectAttr "Character1_Ctrl_LeftFootEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[479]"
 		;
-connectAttr "Character1_Ctrl_LeftFootEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[88]"
+connectAttr "Character1_Ctrl_LeftFootEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[480]"
 		;
-connectAttr "Character1_Ctrl_LeftFootEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[89]"
+connectAttr "Character1_Ctrl_LeftFootEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[481]"
 		;
-connectAttr "Character1_Ctrl_RightFootEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[90]"
+connectAttr "Character1_Ctrl_RightFootEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[482]"
 		;
-connectAttr "Character1_Ctrl_RightFootEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[91]"
+connectAttr "Character1_Ctrl_RightFootEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[483]"
 		;
-connectAttr "Character1_Ctrl_RightFootEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[92]"
+connectAttr "Character1_Ctrl_RightFootEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[484]"
 		;
-connectAttr "Character1_Ctrl_RightFootEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[93]"
+connectAttr "Character1_Ctrl_RightFootEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[485]"
 		;
-connectAttr "Character1_Ctrl_RightFootEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[94]"
+connectAttr "Character1_Ctrl_RightFootEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[486]"
 		;
-connectAttr "Character1_Ctrl_RightFootEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[95]"
+connectAttr "Character1_Ctrl_RightFootEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[487]"
 		;
-connectAttr "Character1_Ctrl_LeftShoulderEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[96]"
+connectAttr "Character1_Ctrl_LeftShoulderEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[488]"
 		;
-connectAttr "Character1_Ctrl_LeftShoulderEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[97]"
+connectAttr "Character1_Ctrl_LeftShoulderEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[489]"
 		;
-connectAttr "Character1_Ctrl_LeftShoulderEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[98]"
+connectAttr "Character1_Ctrl_LeftShoulderEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[490]"
 		;
-connectAttr "Character1_Ctrl_LeftShoulderEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[99]"
+connectAttr "Character1_Ctrl_LeftShoulderEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[491]"
 		;
-connectAttr "Character1_Ctrl_LeftShoulderEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[100]"
+connectAttr "Character1_Ctrl_LeftShoulderEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[492]"
 		;
-connectAttr "Character1_Ctrl_LeftShoulderEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[101]"
+connectAttr "Character1_Ctrl_LeftShoulderEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[493]"
 		;
-connectAttr "Character1_Ctrl_RightShoulderEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[102]"
+connectAttr "Character1_Ctrl_RightShoulderEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[494]"
 		;
-connectAttr "Character1_Ctrl_RightShoulderEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[103]"
+connectAttr "Character1_Ctrl_RightShoulderEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[495]"
 		;
-connectAttr "Character1_Ctrl_RightShoulderEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[104]"
+connectAttr "Character1_Ctrl_RightShoulderEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[496]"
 		;
-connectAttr "Character1_Ctrl_RightShoulderEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[105]"
+connectAttr "Character1_Ctrl_RightShoulderEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[497]"
 		;
-connectAttr "Character1_Ctrl_RightShoulderEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[106]"
+connectAttr "Character1_Ctrl_RightShoulderEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[498]"
 		;
-connectAttr "Character1_Ctrl_RightShoulderEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[107]"
+connectAttr "Character1_Ctrl_RightShoulderEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[499]"
 		;
-connectAttr "Character1_Ctrl_HeadEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[108]"
+connectAttr "Character1_Ctrl_HeadEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[500]"
 		;
-connectAttr "Character1_Ctrl_HeadEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[109]"
+connectAttr "Character1_Ctrl_HeadEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[501]"
 		;
-connectAttr "Character1_Ctrl_HeadEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[110]"
+connectAttr "Character1_Ctrl_HeadEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[502]"
 		;
-connectAttr "Character1_Ctrl_HeadEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[111]"
+connectAttr "Character1_Ctrl_HeadEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[503]"
 		;
-connectAttr "Character1_Ctrl_HeadEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[112]"
+connectAttr "Character1_Ctrl_HeadEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[504]"
 		;
-connectAttr "Character1_Ctrl_HeadEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[113]"
+connectAttr "Character1_Ctrl_HeadEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[505]"
 		;
-connectAttr "Character1_Ctrl_LeftHipEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[114]"
+connectAttr "Character1_Ctrl_LeftHipEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[506]"
 		;
-connectAttr "Character1_Ctrl_LeftHipEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[115]"
+connectAttr "Character1_Ctrl_LeftHipEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[507]"
 		;
-connectAttr "Character1_Ctrl_LeftHipEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[116]"
+connectAttr "Character1_Ctrl_LeftHipEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[508]"
 		;
-connectAttr "Character1_Ctrl_LeftHipEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[117]"
+connectAttr "Character1_Ctrl_LeftHipEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[509]"
 		;
-connectAttr "Character1_Ctrl_LeftHipEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[118]"
+connectAttr "Character1_Ctrl_LeftHipEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[510]"
 		;
-connectAttr "Character1_Ctrl_LeftHipEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[119]"
+connectAttr "Character1_Ctrl_LeftHipEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[511]"
 		;
-connectAttr "Character1_Ctrl_RightHipEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[120]"
+connectAttr "Character1_Ctrl_RightHipEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[512]"
 		;
-connectAttr "Character1_Ctrl_RightHipEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[121]"
+connectAttr "Character1_Ctrl_RightHipEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[513]"
 		;
-connectAttr "Character1_Ctrl_RightHipEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[122]"
+connectAttr "Character1_Ctrl_RightHipEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[514]"
 		;
-connectAttr "Character1_Ctrl_RightHipEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[123]"
+connectAttr "Character1_Ctrl_RightHipEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[515]"
 		;
-connectAttr "Character1_Ctrl_RightHipEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[124]"
+connectAttr "Character1_Ctrl_RightHipEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[516]"
 		;
-connectAttr "Character1_Ctrl_RightHipEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[125]"
+connectAttr "Character1_Ctrl_RightHipEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[517]"
 		;
-connectAttr "Character1_Ctrl_LeftHandThumbEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[126]"
+connectAttr "Character1_Ctrl_LeftHandThumbEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[518]"
 		;
-connectAttr "Character1_Ctrl_LeftHandThumbEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[127]"
+connectAttr "Character1_Ctrl_LeftHandThumbEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[519]"
 		;
-connectAttr "Character1_Ctrl_LeftHandThumbEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[128]"
+connectAttr "Character1_Ctrl_LeftHandThumbEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[520]"
 		;
-connectAttr "Character1_Ctrl_LeftHandThumbEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[129]"
+connectAttr "Character1_Ctrl_LeftHandThumbEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[521]"
 		;
-connectAttr "Character1_Ctrl_LeftHandThumbEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[130]"
+connectAttr "Character1_Ctrl_LeftHandThumbEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[522]"
 		;
-connectAttr "Character1_Ctrl_LeftHandThumbEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[131]"
+connectAttr "Character1_Ctrl_LeftHandThumbEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[523]"
 		;
-connectAttr "Character1_Ctrl_LeftHandIndexEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[132]"
+connectAttr "Character1_Ctrl_LeftHandIndexEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[524]"
 		;
-connectAttr "Character1_Ctrl_LeftHandIndexEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[133]"
+connectAttr "Character1_Ctrl_LeftHandIndexEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[525]"
 		;
-connectAttr "Character1_Ctrl_LeftHandIndexEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[134]"
+connectAttr "Character1_Ctrl_LeftHandIndexEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[526]"
 		;
-connectAttr "Character1_Ctrl_LeftHandIndexEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[135]"
+connectAttr "Character1_Ctrl_LeftHandIndexEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[527]"
 		;
-connectAttr "Character1_Ctrl_LeftHandIndexEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[136]"
+connectAttr "Character1_Ctrl_LeftHandIndexEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[528]"
 		;
-connectAttr "Character1_Ctrl_LeftHandIndexEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[137]"
+connectAttr "Character1_Ctrl_LeftHandIndexEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[529]"
 		;
-connectAttr "Character1_Ctrl_LeftHandMiddleEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[138]"
+connectAttr "Character1_Ctrl_LeftHandMiddleEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[530]"
 		;
-connectAttr "Character1_Ctrl_LeftHandMiddleEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[139]"
+connectAttr "Character1_Ctrl_LeftHandMiddleEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[531]"
 		;
-connectAttr "Character1_Ctrl_LeftHandMiddleEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[140]"
+connectAttr "Character1_Ctrl_LeftHandMiddleEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[532]"
 		;
-connectAttr "Character1_Ctrl_LeftHandMiddleEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[141]"
+connectAttr "Character1_Ctrl_LeftHandMiddleEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[533]"
 		;
-connectAttr "Character1_Ctrl_LeftHandMiddleEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[142]"
+connectAttr "Character1_Ctrl_LeftHandMiddleEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[534]"
 		;
-connectAttr "Character1_Ctrl_LeftHandMiddleEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[143]"
+connectAttr "Character1_Ctrl_LeftHandMiddleEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[535]"
 		;
-connectAttr "Character1_Ctrl_LeftHandRingEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[144]"
+connectAttr "Character1_Ctrl_LeftHandRingEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[536]"
 		;
-connectAttr "Character1_Ctrl_LeftHandRingEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[145]"
+connectAttr "Character1_Ctrl_LeftHandRingEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[537]"
 		;
-connectAttr "Character1_Ctrl_LeftHandRingEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[146]"
+connectAttr "Character1_Ctrl_LeftHandRingEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[538]"
 		;
-connectAttr "Character1_Ctrl_LeftHandRingEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[147]"
+connectAttr "Character1_Ctrl_LeftHandRingEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[539]"
 		;
-connectAttr "Character1_Ctrl_LeftHandRingEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[148]"
+connectAttr "Character1_Ctrl_LeftHandRingEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[540]"
 		;
-connectAttr "Character1_Ctrl_LeftHandRingEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[149]"
+connectAttr "Character1_Ctrl_LeftHandRingEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[541]"
 		;
-connectAttr "Character1_Ctrl_LeftHandPinkyEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[150]"
+connectAttr "Character1_Ctrl_LeftHandPinkyEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[542]"
 		;
-connectAttr "Character1_Ctrl_LeftHandPinkyEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[151]"
+connectAttr "Character1_Ctrl_LeftHandPinkyEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[543]"
 		;
-connectAttr "Character1_Ctrl_LeftHandPinkyEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[152]"
+connectAttr "Character1_Ctrl_LeftHandPinkyEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[544]"
 		;
-connectAttr "Character1_Ctrl_LeftHandPinkyEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[153]"
+connectAttr "Character1_Ctrl_LeftHandPinkyEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[545]"
 		;
-connectAttr "Character1_Ctrl_LeftHandPinkyEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[154]"
+connectAttr "Character1_Ctrl_LeftHandPinkyEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[546]"
 		;
-connectAttr "Character1_Ctrl_LeftHandPinkyEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[155]"
+connectAttr "Character1_Ctrl_LeftHandPinkyEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[547]"
 		;
-connectAttr "Character1_Ctrl_RightHandThumbEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[156]"
+connectAttr "Character1_Ctrl_RightHandThumbEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[548]"
 		;
-connectAttr "Character1_Ctrl_RightHandThumbEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[157]"
+connectAttr "Character1_Ctrl_RightHandThumbEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[549]"
 		;
-connectAttr "Character1_Ctrl_RightHandThumbEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[158]"
+connectAttr "Character1_Ctrl_RightHandThumbEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[550]"
 		;
-connectAttr "Character1_Ctrl_RightHandThumbEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[159]"
+connectAttr "Character1_Ctrl_RightHandThumbEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[551]"
 		;
-connectAttr "Character1_Ctrl_RightHandThumbEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[160]"
+connectAttr "Character1_Ctrl_RightHandThumbEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[552]"
 		;
-connectAttr "Character1_Ctrl_RightHandThumbEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[161]"
+connectAttr "Character1_Ctrl_RightHandThumbEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[553]"
 		;
-connectAttr "Character1_Ctrl_RightHandIndexEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[162]"
+connectAttr "Character1_Ctrl_RightHandIndexEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[554]"
 		;
-connectAttr "Character1_Ctrl_RightHandIndexEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[163]"
+connectAttr "Character1_Ctrl_RightHandIndexEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[555]"
 		;
-connectAttr "Character1_Ctrl_RightHandIndexEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[164]"
+connectAttr "Character1_Ctrl_RightHandIndexEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[556]"
 		;
-connectAttr "Character1_Ctrl_RightHandIndexEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[165]"
+connectAttr "Character1_Ctrl_RightHandIndexEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[557]"
 		;
-connectAttr "Character1_Ctrl_RightHandIndexEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[166]"
+connectAttr "Character1_Ctrl_RightHandIndexEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[558]"
 		;
-connectAttr "Character1_Ctrl_RightHandIndexEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[167]"
+connectAttr "Character1_Ctrl_RightHandIndexEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[559]"
 		;
-connectAttr "Character1_Ctrl_RightHandMiddleEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[168]"
+connectAttr "Character1_Ctrl_RightHandMiddleEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[560]"
 		;
-connectAttr "Character1_Ctrl_RightHandMiddleEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[169]"
+connectAttr "Character1_Ctrl_RightHandMiddleEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[561]"
 		;
-connectAttr "Character1_Ctrl_RightHandMiddleEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[170]"
+connectAttr "Character1_Ctrl_RightHandMiddleEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[562]"
 		;
-connectAttr "Character1_Ctrl_RightHandMiddleEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[171]"
+connectAttr "Character1_Ctrl_RightHandMiddleEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[563]"
 		;
-connectAttr "Character1_Ctrl_RightHandMiddleEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[172]"
+connectAttr "Character1_Ctrl_RightHandMiddleEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[564]"
 		;
-connectAttr "Character1_Ctrl_RightHandMiddleEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[173]"
+connectAttr "Character1_Ctrl_RightHandMiddleEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[565]"
 		;
-connectAttr "Character1_Ctrl_RightHandRingEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[174]"
+connectAttr "Character1_Ctrl_RightHandRingEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[566]"
 		;
-connectAttr "Character1_Ctrl_RightHandRingEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[175]"
+connectAttr "Character1_Ctrl_RightHandRingEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[567]"
 		;
-connectAttr "Character1_Ctrl_RightHandRingEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[176]"
+connectAttr "Character1_Ctrl_RightHandRingEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[568]"
 		;
-connectAttr "Character1_Ctrl_RightHandRingEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[177]"
+connectAttr "Character1_Ctrl_RightHandRingEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[569]"
 		;
-connectAttr "Character1_Ctrl_RightHandRingEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[178]"
+connectAttr "Character1_Ctrl_RightHandRingEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[570]"
 		;
-connectAttr "Character1_Ctrl_RightHandRingEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[179]"
+connectAttr "Character1_Ctrl_RightHandRingEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[571]"
 		;
-connectAttr "Character1_Ctrl_RightHandPinkyEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[180]"
+connectAttr "Character1_Ctrl_RightHandPinkyEffector_rotateZ.o" "PunkBot_RiggedPipeRN.phl[572]"
 		;
-connectAttr "Character1_Ctrl_RightHandPinkyEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[181]"
+connectAttr "Character1_Ctrl_RightHandPinkyEffector_rotateY.o" "PunkBot_RiggedPipeRN.phl[573]"
 		;
-connectAttr "Character1_Ctrl_RightHandPinkyEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[182]"
+connectAttr "Character1_Ctrl_RightHandPinkyEffector_rotateX.o" "PunkBot_RiggedPipeRN.phl[574]"
 		;
-connectAttr "Character1_Ctrl_RightHandPinkyEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[183]"
+connectAttr "Character1_Ctrl_RightHandPinkyEffector_translateZ.o" "PunkBot_RiggedPipeRN.phl[575]"
 		;
-connectAttr "Character1_Ctrl_RightHandPinkyEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[184]"
+connectAttr "Character1_Ctrl_RightHandPinkyEffector_translateY.o" "PunkBot_RiggedPipeRN.phl[576]"
 		;
-connectAttr "Character1_Ctrl_RightHandPinkyEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[185]"
+connectAttr "Character1_Ctrl_RightHandPinkyEffector_translateX.o" "PunkBot_RiggedPipeRN.phl[577]"
 		;
-connectAttr "Character1_Ctrl_Hips_rotateZ.o" "PunkBot_RiggedPipeRN.phl[186]";
-connectAttr "Character1_Ctrl_Hips_rotateY.o" "PunkBot_RiggedPipeRN.phl[187]";
-connectAttr "Character1_Ctrl_Hips_rotateX.o" "PunkBot_RiggedPipeRN.phl[188]";
-connectAttr "Character1_Ctrl_Hips_translateZ.o" "PunkBot_RiggedPipeRN.phl[189]";
-connectAttr "Character1_Ctrl_Hips_translateY.o" "PunkBot_RiggedPipeRN.phl[190]";
-connectAttr "Character1_Ctrl_Hips_translateX.o" "PunkBot_RiggedPipeRN.phl[191]";
-connectAttr "Character1_Ctrl_LeftUpLeg_rotateZ.o" "PunkBot_RiggedPipeRN.phl[192]"
+connectAttr "Character1_Ctrl_Hips_rotateZ.o" "PunkBot_RiggedPipeRN.phl[578]";
+connectAttr "Character1_Ctrl_Hips_rotateY.o" "PunkBot_RiggedPipeRN.phl[579]";
+connectAttr "Character1_Ctrl_Hips_rotateX.o" "PunkBot_RiggedPipeRN.phl[580]";
+connectAttr "Character1_Ctrl_Hips_translateZ.o" "PunkBot_RiggedPipeRN.phl[581]";
+connectAttr "Character1_Ctrl_Hips_translateY.o" "PunkBot_RiggedPipeRN.phl[582]";
+connectAttr "Character1_Ctrl_Hips_translateX.o" "PunkBot_RiggedPipeRN.phl[583]";
+connectAttr "Character1_Ctrl_LeftUpLeg_rotateZ.o" "PunkBot_RiggedPipeRN.phl[584]"
 		;
-connectAttr "Character1_Ctrl_LeftUpLeg_rotateY.o" "PunkBot_RiggedPipeRN.phl[193]"
+connectAttr "Character1_Ctrl_LeftUpLeg_rotateY.o" "PunkBot_RiggedPipeRN.phl[585]"
 		;
-connectAttr "Character1_Ctrl_LeftUpLeg_rotateX.o" "PunkBot_RiggedPipeRN.phl[194]"
+connectAttr "Character1_Ctrl_LeftUpLeg_rotateX.o" "PunkBot_RiggedPipeRN.phl[586]"
 		;
-connectAttr "Character1_Ctrl_LeftLeg_rotateZ.o" "PunkBot_RiggedPipeRN.phl[195]";
-connectAttr "Character1_Ctrl_LeftLeg_rotateY.o" "PunkBot_RiggedPipeRN.phl[196]";
-connectAttr "Character1_Ctrl_LeftLeg_rotateX.o" "PunkBot_RiggedPipeRN.phl[197]";
-connectAttr "Character1_Ctrl_LeftFoot_rotateZ.o" "PunkBot_RiggedPipeRN.phl[198]"
+connectAttr "Character1_Ctrl_LeftLeg_rotateZ.o" "PunkBot_RiggedPipeRN.phl[587]";
+connectAttr "Character1_Ctrl_LeftLeg_rotateY.o" "PunkBot_RiggedPipeRN.phl[588]";
+connectAttr "Character1_Ctrl_LeftLeg_rotateX.o" "PunkBot_RiggedPipeRN.phl[589]";
+connectAttr "Character1_Ctrl_LeftFoot_rotateZ.o" "PunkBot_RiggedPipeRN.phl[590]"
 		;
-connectAttr "Character1_Ctrl_LeftFoot_rotateY.o" "PunkBot_RiggedPipeRN.phl[199]"
+connectAttr "Character1_Ctrl_LeftFoot_rotateY.o" "PunkBot_RiggedPipeRN.phl[591]"
 		;
-connectAttr "Character1_Ctrl_LeftFoot_rotateX.o" "PunkBot_RiggedPipeRN.phl[200]"
+connectAttr "Character1_Ctrl_LeftFoot_rotateX.o" "PunkBot_RiggedPipeRN.phl[592]"
 		;
-connectAttr "Character1_Ctrl_LeftToeBase_rotateZ.o" "PunkBot_RiggedPipeRN.phl[201]"
+connectAttr "Character1_Ctrl_LeftToeBase_rotateZ.o" "PunkBot_RiggedPipeRN.phl[593]"
 		;
-connectAttr "Character1_Ctrl_LeftToeBase_rotateY.o" "PunkBot_RiggedPipeRN.phl[202]"
+connectAttr "Character1_Ctrl_LeftToeBase_rotateY.o" "PunkBot_RiggedPipeRN.phl[594]"
 		;
-connectAttr "Character1_Ctrl_LeftToeBase_rotateX.o" "PunkBot_RiggedPipeRN.phl[203]"
+connectAttr "Character1_Ctrl_LeftToeBase_rotateX.o" "PunkBot_RiggedPipeRN.phl[595]"
 		;
-connectAttr "Character1_Ctrl_RightUpLeg_rotateZ.o" "PunkBot_RiggedPipeRN.phl[204]"
+connectAttr "Character1_Ctrl_RightUpLeg_rotateZ.o" "PunkBot_RiggedPipeRN.phl[596]"
 		;
-connectAttr "Character1_Ctrl_RightUpLeg_rotateY.o" "PunkBot_RiggedPipeRN.phl[205]"
+connectAttr "Character1_Ctrl_RightUpLeg_rotateY.o" "PunkBot_RiggedPipeRN.phl[597]"
 		;
-connectAttr "Character1_Ctrl_RightUpLeg_rotateX.o" "PunkBot_RiggedPipeRN.phl[206]"
+connectAttr "Character1_Ctrl_RightUpLeg_rotateX.o" "PunkBot_RiggedPipeRN.phl[598]"
 		;
-connectAttr "Character1_Ctrl_RightLeg_rotateZ.o" "PunkBot_RiggedPipeRN.phl[207]"
+connectAttr "Character1_Ctrl_RightLeg_rotateZ.o" "PunkBot_RiggedPipeRN.phl[599]"
 		;
-connectAttr "Character1_Ctrl_RightLeg_rotateY.o" "PunkBot_RiggedPipeRN.phl[208]"
+connectAttr "Character1_Ctrl_RightLeg_rotateY.o" "PunkBot_RiggedPipeRN.phl[600]"
 		;
-connectAttr "Character1_Ctrl_RightLeg_rotateX.o" "PunkBot_RiggedPipeRN.phl[209]"
+connectAttr "Character1_Ctrl_RightLeg_rotateX.o" "PunkBot_RiggedPipeRN.phl[601]"
 		;
-connectAttr "Character1_Ctrl_RightFoot_rotateZ.o" "PunkBot_RiggedPipeRN.phl[210]"
+connectAttr "Character1_Ctrl_RightFoot_rotateZ.o" "PunkBot_RiggedPipeRN.phl[602]"
 		;
-connectAttr "Character1_Ctrl_RightFoot_rotateY.o" "PunkBot_RiggedPipeRN.phl[211]"
+connectAttr "Character1_Ctrl_RightFoot_rotateY.o" "PunkBot_RiggedPipeRN.phl[603]"
 		;
-connectAttr "Character1_Ctrl_RightFoot_rotateX.o" "PunkBot_RiggedPipeRN.phl[212]"
+connectAttr "Character1_Ctrl_RightFoot_rotateX.o" "PunkBot_RiggedPipeRN.phl[604]"
 		;
-connectAttr "Character1_Ctrl_RightToeBase_rotateZ.o" "PunkBot_RiggedPipeRN.phl[213]"
+connectAttr "Character1_Ctrl_RightToeBase_rotateZ.o" "PunkBot_RiggedPipeRN.phl[605]"
 		;
-connectAttr "Character1_Ctrl_RightToeBase_rotateY.o" "PunkBot_RiggedPipeRN.phl[214]"
+connectAttr "Character1_Ctrl_RightToeBase_rotateY.o" "PunkBot_RiggedPipeRN.phl[606]"
 		;
-connectAttr "Character1_Ctrl_RightToeBase_rotateX.o" "PunkBot_RiggedPipeRN.phl[215]"
+connectAttr "Character1_Ctrl_RightToeBase_rotateX.o" "PunkBot_RiggedPipeRN.phl[607]"
 		;
-connectAttr "Character1_Ctrl_Spine_rotateZ.o" "PunkBot_RiggedPipeRN.phl[216]";
-connectAttr "Character1_Ctrl_Spine_rotateY.o" "PunkBot_RiggedPipeRN.phl[217]";
-connectAttr "Character1_Ctrl_Spine_rotateX.o" "PunkBot_RiggedPipeRN.phl[218]";
-connectAttr "Character1_Ctrl_Spine1_rotateZ.o" "PunkBot_RiggedPipeRN.phl[219]";
-connectAttr "Character1_Ctrl_Spine1_rotateY.o" "PunkBot_RiggedPipeRN.phl[220]";
-connectAttr "Character1_Ctrl_Spine1_rotateX.o" "PunkBot_RiggedPipeRN.phl[221]";
-connectAttr "Character1_Ctrl_Spine2_rotateZ.o" "PunkBot_RiggedPipeRN.phl[222]";
-connectAttr "Character1_Ctrl_Spine2_rotateY.o" "PunkBot_RiggedPipeRN.phl[223]";
-connectAttr "Character1_Ctrl_Spine2_rotateX.o" "PunkBot_RiggedPipeRN.phl[224]";
-connectAttr "Character1_Ctrl_LeftShoulder_rotateZ.o" "PunkBot_RiggedPipeRN.phl[225]"
+connectAttr "Character1_Ctrl_Spine_rotateZ.o" "PunkBot_RiggedPipeRN.phl[608]";
+connectAttr "Character1_Ctrl_Spine_rotateY.o" "PunkBot_RiggedPipeRN.phl[609]";
+connectAttr "Character1_Ctrl_Spine_rotateX.o" "PunkBot_RiggedPipeRN.phl[610]";
+connectAttr "Character1_Ctrl_Spine1_rotateZ.o" "PunkBot_RiggedPipeRN.phl[611]";
+connectAttr "Character1_Ctrl_Spine1_rotateY.o" "PunkBot_RiggedPipeRN.phl[612]";
+connectAttr "Character1_Ctrl_Spine1_rotateX.o" "PunkBot_RiggedPipeRN.phl[613]";
+connectAttr "Character1_Ctrl_Spine2_rotateZ.o" "PunkBot_RiggedPipeRN.phl[614]";
+connectAttr "Character1_Ctrl_Spine2_rotateY.o" "PunkBot_RiggedPipeRN.phl[615]";
+connectAttr "Character1_Ctrl_Spine2_rotateX.o" "PunkBot_RiggedPipeRN.phl[616]";
+connectAttr "Character1_Ctrl_LeftShoulder_rotateZ.o" "PunkBot_RiggedPipeRN.phl[617]"
 		;
-connectAttr "Character1_Ctrl_LeftShoulder_rotateY.o" "PunkBot_RiggedPipeRN.phl[226]"
+connectAttr "Character1_Ctrl_LeftShoulder_rotateY.o" "PunkBot_RiggedPipeRN.phl[618]"
 		;
-connectAttr "Character1_Ctrl_LeftShoulder_rotateX.o" "PunkBot_RiggedPipeRN.phl[227]"
+connectAttr "Character1_Ctrl_LeftShoulder_rotateX.o" "PunkBot_RiggedPipeRN.phl[619]"
 		;
-connectAttr "Character1_Ctrl_LeftArm_rotateZ.o" "PunkBot_RiggedPipeRN.phl[228]";
-connectAttr "Character1_Ctrl_LeftArm_rotateY.o" "PunkBot_RiggedPipeRN.phl[229]";
-connectAttr "Character1_Ctrl_LeftArm_rotateX.o" "PunkBot_RiggedPipeRN.phl[230]";
-connectAttr "Character1_Ctrl_LeftForeArm_rotateZ.o" "PunkBot_RiggedPipeRN.phl[231]"
+connectAttr "Character1_Ctrl_LeftArm_rotateZ.o" "PunkBot_RiggedPipeRN.phl[620]";
+connectAttr "Character1_Ctrl_LeftArm_rotateY.o" "PunkBot_RiggedPipeRN.phl[621]";
+connectAttr "Character1_Ctrl_LeftArm_rotateX.o" "PunkBot_RiggedPipeRN.phl[622]";
+connectAttr "Character1_Ctrl_LeftForeArm_rotateZ.o" "PunkBot_RiggedPipeRN.phl[623]"
 		;
-connectAttr "Character1_Ctrl_LeftForeArm_rotateY.o" "PunkBot_RiggedPipeRN.phl[232]"
+connectAttr "Character1_Ctrl_LeftForeArm_rotateY.o" "PunkBot_RiggedPipeRN.phl[624]"
 		;
-connectAttr "Character1_Ctrl_LeftForeArm_rotateX.o" "PunkBot_RiggedPipeRN.phl[233]"
+connectAttr "Character1_Ctrl_LeftForeArm_rotateX.o" "PunkBot_RiggedPipeRN.phl[625]"
 		;
-connectAttr "Character1_Ctrl_LeftHand_rotateZ.o" "PunkBot_RiggedPipeRN.phl[234]"
+connectAttr "Character1_Ctrl_LeftHand_rotateZ.o" "PunkBot_RiggedPipeRN.phl[626]"
 		;
-connectAttr "Character1_Ctrl_LeftHand_rotateY.o" "PunkBot_RiggedPipeRN.phl[235]"
+connectAttr "Character1_Ctrl_LeftHand_rotateY.o" "PunkBot_RiggedPipeRN.phl[627]"
 		;
-connectAttr "Character1_Ctrl_LeftHand_rotateX.o" "PunkBot_RiggedPipeRN.phl[236]"
+connectAttr "Character1_Ctrl_LeftHand_rotateX.o" "PunkBot_RiggedPipeRN.phl[628]"
 		;
-connectAttr "Character1_Ctrl_LeftHandThumb1_rotateZ.o" "PunkBot_RiggedPipeRN.phl[237]"
+connectAttr "Character1_Ctrl_LeftHandThumb1_rotateZ.o" "PunkBot_RiggedPipeRN.phl[629]"
 		;
-connectAttr "Character1_Ctrl_LeftHandThumb1_rotateY.o" "PunkBot_RiggedPipeRN.phl[238]"
+connectAttr "Character1_Ctrl_LeftHandThumb1_rotateY.o" "PunkBot_RiggedPipeRN.phl[630]"
 		;
-connectAttr "Character1_Ctrl_LeftHandThumb1_rotateX.o" "PunkBot_RiggedPipeRN.phl[239]"
+connectAttr "Character1_Ctrl_LeftHandThumb1_rotateX.o" "PunkBot_RiggedPipeRN.phl[631]"
 		;
-connectAttr "Character1_Ctrl_LeftHandThumb2_rotateZ.o" "PunkBot_RiggedPipeRN.phl[240]"
+connectAttr "Character1_Ctrl_LeftHandThumb2_rotateZ.o" "PunkBot_RiggedPipeRN.phl[632]"
 		;
-connectAttr "Character1_Ctrl_LeftHandThumb2_rotateY.o" "PunkBot_RiggedPipeRN.phl[241]"
+connectAttr "Character1_Ctrl_LeftHandThumb2_rotateY.o" "PunkBot_RiggedPipeRN.phl[633]"
 		;
-connectAttr "Character1_Ctrl_LeftHandThumb2_rotateX.o" "PunkBot_RiggedPipeRN.phl[242]"
+connectAttr "Character1_Ctrl_LeftHandThumb2_rotateX.o" "PunkBot_RiggedPipeRN.phl[634]"
 		;
-connectAttr "Character1_Ctrl_LeftHandThumb3_rotateZ.o" "PunkBot_RiggedPipeRN.phl[243]"
+connectAttr "Character1_Ctrl_LeftHandThumb3_rotateZ.o" "PunkBot_RiggedPipeRN.phl[635]"
 		;
-connectAttr "Character1_Ctrl_LeftHandThumb3_rotateY.o" "PunkBot_RiggedPipeRN.phl[244]"
+connectAttr "Character1_Ctrl_LeftHandThumb3_rotateY.o" "PunkBot_RiggedPipeRN.phl[636]"
 		;
-connectAttr "Character1_Ctrl_LeftHandThumb3_rotateX.o" "PunkBot_RiggedPipeRN.phl[245]"
+connectAttr "Character1_Ctrl_LeftHandThumb3_rotateX.o" "PunkBot_RiggedPipeRN.phl[637]"
 		;
-connectAttr "Character1_Ctrl_LeftHandThumb4_rotateZ.o" "PunkBot_RiggedPipeRN.phl[246]"
+connectAttr "Character1_Ctrl_LeftHandThumb4_rotateZ.o" "PunkBot_RiggedPipeRN.phl[638]"
 		;
-connectAttr "Character1_Ctrl_LeftHandThumb4_rotateY.o" "PunkBot_RiggedPipeRN.phl[247]"
+connectAttr "Character1_Ctrl_LeftHandThumb4_rotateY.o" "PunkBot_RiggedPipeRN.phl[639]"
 		;
-connectAttr "Character1_Ctrl_LeftHandThumb4_rotateX.o" "PunkBot_RiggedPipeRN.phl[248]"
+connectAttr "Character1_Ctrl_LeftHandThumb4_rotateX.o" "PunkBot_RiggedPipeRN.phl[640]"
 		;
-connectAttr "Character1_Ctrl_LeftHandIndex1_rotateZ.o" "PunkBot_RiggedPipeRN.phl[249]"
+connectAttr "Character1_Ctrl_LeftHandIndex1_rotateZ.o" "PunkBot_RiggedPipeRN.phl[641]"
 		;
-connectAttr "Character1_Ctrl_LeftHandIndex1_rotateY.o" "PunkBot_RiggedPipeRN.phl[250]"
+connectAttr "Character1_Ctrl_LeftHandIndex1_rotateY.o" "PunkBot_RiggedPipeRN.phl[642]"
 		;
-connectAttr "Character1_Ctrl_LeftHandIndex1_rotateX.o" "PunkBot_RiggedPipeRN.phl[251]"
+connectAttr "Character1_Ctrl_LeftHandIndex1_rotateX.o" "PunkBot_RiggedPipeRN.phl[643]"
 		;
-connectAttr "Character1_Ctrl_LeftHandIndex2_rotateZ.o" "PunkBot_RiggedPipeRN.phl[252]"
+connectAttr "Character1_Ctrl_LeftHandIndex2_rotateZ.o" "PunkBot_RiggedPipeRN.phl[644]"
 		;
-connectAttr "Character1_Ctrl_LeftHandIndex2_rotateY.o" "PunkBot_RiggedPipeRN.phl[253]"
+connectAttr "Character1_Ctrl_LeftHandIndex2_rotateY.o" "PunkBot_RiggedPipeRN.phl[645]"
 		;
-connectAttr "Character1_Ctrl_LeftHandIndex2_rotateX.o" "PunkBot_RiggedPipeRN.phl[254]"
+connectAttr "Character1_Ctrl_LeftHandIndex2_rotateX.o" "PunkBot_RiggedPipeRN.phl[646]"
 		;
-connectAttr "Character1_Ctrl_LeftHandIndex3_rotateZ.o" "PunkBot_RiggedPipeRN.phl[255]"
+connectAttr "Character1_Ctrl_LeftHandIndex3_rotateZ.o" "PunkBot_RiggedPipeRN.phl[647]"
 		;
-connectAttr "Character1_Ctrl_LeftHandIndex3_rotateY.o" "PunkBot_RiggedPipeRN.phl[256]"
+connectAttr "Character1_Ctrl_LeftHandIndex3_rotateY.o" "PunkBot_RiggedPipeRN.phl[648]"
 		;
-connectAttr "Character1_Ctrl_LeftHandIndex3_rotateX.o" "PunkBot_RiggedPipeRN.phl[257]"
+connectAttr "Character1_Ctrl_LeftHandIndex3_rotateX.o" "PunkBot_RiggedPipeRN.phl[649]"
 		;
-connectAttr "Character1_Ctrl_LeftHandIndex4_rotateZ.o" "PunkBot_RiggedPipeRN.phl[258]"
+connectAttr "Character1_Ctrl_LeftHandIndex4_rotateZ.o" "PunkBot_RiggedPipeRN.phl[650]"
 		;
-connectAttr "Character1_Ctrl_LeftHandIndex4_rotateY.o" "PunkBot_RiggedPipeRN.phl[259]"
+connectAttr "Character1_Ctrl_LeftHandIndex4_rotateY.o" "PunkBot_RiggedPipeRN.phl[651]"
 		;
-connectAttr "Character1_Ctrl_LeftHandIndex4_rotateX.o" "PunkBot_RiggedPipeRN.phl[260]"
+connectAttr "Character1_Ctrl_LeftHandIndex4_rotateX.o" "PunkBot_RiggedPipeRN.phl[652]"
 		;
-connectAttr "Character1_Ctrl_LeftHandMiddle1_rotateZ.o" "PunkBot_RiggedPipeRN.phl[261]"
+connectAttr "Character1_Ctrl_LeftHandMiddle1_rotateZ.o" "PunkBot_RiggedPipeRN.phl[653]"
 		;
-connectAttr "Character1_Ctrl_LeftHandMiddle1_rotateY.o" "PunkBot_RiggedPipeRN.phl[262]"
+connectAttr "Character1_Ctrl_LeftHandMiddle1_rotateY.o" "PunkBot_RiggedPipeRN.phl[654]"
 		;
-connectAttr "Character1_Ctrl_LeftHandMiddle1_rotateX.o" "PunkBot_RiggedPipeRN.phl[263]"
+connectAttr "Character1_Ctrl_LeftHandMiddle1_rotateX.o" "PunkBot_RiggedPipeRN.phl[655]"
 		;
-connectAttr "Character1_Ctrl_LeftHandMiddle2_rotateZ.o" "PunkBot_RiggedPipeRN.phl[264]"
+connectAttr "Character1_Ctrl_LeftHandMiddle2_rotateZ.o" "PunkBot_RiggedPipeRN.phl[656]"
 		;
-connectAttr "Character1_Ctrl_LeftHandMiddle2_rotateY.o" "PunkBot_RiggedPipeRN.phl[265]"
+connectAttr "Character1_Ctrl_LeftHandMiddle2_rotateY.o" "PunkBot_RiggedPipeRN.phl[657]"
 		;
-connectAttr "Character1_Ctrl_LeftHandMiddle2_rotateX.o" "PunkBot_RiggedPipeRN.phl[266]"
+connectAttr "Character1_Ctrl_LeftHandMiddle2_rotateX.o" "PunkBot_RiggedPipeRN.phl[658]"
 		;
-connectAttr "Character1_Ctrl_LeftHandMiddle3_rotateZ.o" "PunkBot_RiggedPipeRN.phl[267]"
+connectAttr "Character1_Ctrl_LeftHandMiddle3_rotateZ.o" "PunkBot_RiggedPipeRN.phl[659]"
 		;
-connectAttr "Character1_Ctrl_LeftHandMiddle3_rotateY.o" "PunkBot_RiggedPipeRN.phl[268]"
+connectAttr "Character1_Ctrl_LeftHandMiddle3_rotateY.o" "PunkBot_RiggedPipeRN.phl[660]"
 		;
-connectAttr "Character1_Ctrl_LeftHandMiddle3_rotateX.o" "PunkBot_RiggedPipeRN.phl[269]"
+connectAttr "Character1_Ctrl_LeftHandMiddle3_rotateX.o" "PunkBot_RiggedPipeRN.phl[661]"
 		;
-connectAttr "Character1_Ctrl_LeftHandMiddle4_rotateZ.o" "PunkBot_RiggedPipeRN.phl[270]"
+connectAttr "Character1_Ctrl_LeftHandMiddle4_rotateZ.o" "PunkBot_RiggedPipeRN.phl[662]"
 		;
-connectAttr "Character1_Ctrl_LeftHandMiddle4_rotateY.o" "PunkBot_RiggedPipeRN.phl[271]"
+connectAttr "Character1_Ctrl_LeftHandMiddle4_rotateY.o" "PunkBot_RiggedPipeRN.phl[663]"
 		;
-connectAttr "Character1_Ctrl_LeftHandMiddle4_rotateX.o" "PunkBot_RiggedPipeRN.phl[272]"
+connectAttr "Character1_Ctrl_LeftHandMiddle4_rotateX.o" "PunkBot_RiggedPipeRN.phl[664]"
 		;
-connectAttr "Character1_Ctrl_LeftHandRing1_rotateZ.o" "PunkBot_RiggedPipeRN.phl[273]"
+connectAttr "Character1_Ctrl_LeftHandRing1_rotateZ.o" "PunkBot_RiggedPipeRN.phl[665]"
 		;
-connectAttr "Character1_Ctrl_LeftHandRing1_rotateY.o" "PunkBot_RiggedPipeRN.phl[274]"
+connectAttr "Character1_Ctrl_LeftHandRing1_rotateY.o" "PunkBot_RiggedPipeRN.phl[666]"
 		;
-connectAttr "Character1_Ctrl_LeftHandRing1_rotateX.o" "PunkBot_RiggedPipeRN.phl[275]"
+connectAttr "Character1_Ctrl_LeftHandRing1_rotateX.o" "PunkBot_RiggedPipeRN.phl[667]"
 		;
-connectAttr "Character1_Ctrl_LeftHandRing2_rotateZ.o" "PunkBot_RiggedPipeRN.phl[276]"
+connectAttr "Character1_Ctrl_LeftHandRing2_rotateZ.o" "PunkBot_RiggedPipeRN.phl[668]"
 		;
-connectAttr "Character1_Ctrl_LeftHandRing2_rotateY.o" "PunkBot_RiggedPipeRN.phl[277]"
+connectAttr "Character1_Ctrl_LeftHandRing2_rotateY.o" "PunkBot_RiggedPipeRN.phl[669]"
 		;
-connectAttr "Character1_Ctrl_LeftHandRing2_rotateX.o" "PunkBot_RiggedPipeRN.phl[278]"
+connectAttr "Character1_Ctrl_LeftHandRing2_rotateX.o" "PunkBot_RiggedPipeRN.phl[670]"
 		;
-connectAttr "Character1_Ctrl_LeftHandRing3_rotateZ.o" "PunkBot_RiggedPipeRN.phl[279]"
+connectAttr "Character1_Ctrl_LeftHandRing3_rotateZ.o" "PunkBot_RiggedPipeRN.phl[671]"
 		;
-connectAttr "Character1_Ctrl_LeftHandRing3_rotateY.o" "PunkBot_RiggedPipeRN.phl[280]"
+connectAttr "Character1_Ctrl_LeftHandRing3_rotateY.o" "PunkBot_RiggedPipeRN.phl[672]"
 		;
-connectAttr "Character1_Ctrl_LeftHandRing3_rotateX.o" "PunkBot_RiggedPipeRN.phl[281]"
+connectAttr "Character1_Ctrl_LeftHandRing3_rotateX.o" "PunkBot_RiggedPipeRN.phl[673]"
 		;
-connectAttr "Character1_Ctrl_LeftHandRing4_rotateZ.o" "PunkBot_RiggedPipeRN.phl[282]"
+connectAttr "Character1_Ctrl_LeftHandRing4_rotateZ.o" "PunkBot_RiggedPipeRN.phl[674]"
 		;
-connectAttr "Character1_Ctrl_LeftHandRing4_rotateY.o" "PunkBot_RiggedPipeRN.phl[283]"
+connectAttr "Character1_Ctrl_LeftHandRing4_rotateY.o" "PunkBot_RiggedPipeRN.phl[675]"
 		;
-connectAttr "Character1_Ctrl_LeftHandRing4_rotateX.o" "PunkBot_RiggedPipeRN.phl[284]"
+connectAttr "Character1_Ctrl_LeftHandRing4_rotateX.o" "PunkBot_RiggedPipeRN.phl[676]"
 		;
-connectAttr "Character1_Ctrl_LeftHandPinky1_rotateZ.o" "PunkBot_RiggedPipeRN.phl[285]"
+connectAttr "Character1_Ctrl_LeftHandPinky1_rotateZ.o" "PunkBot_RiggedPipeRN.phl[677]"
 		;
-connectAttr "Character1_Ctrl_LeftHandPinky1_rotateY.o" "PunkBot_RiggedPipeRN.phl[286]"
+connectAttr "Character1_Ctrl_LeftHandPinky1_rotateY.o" "PunkBot_RiggedPipeRN.phl[678]"
 		;
-connectAttr "Character1_Ctrl_LeftHandPinky1_rotateX.o" "PunkBot_RiggedPipeRN.phl[287]"
+connectAttr "Character1_Ctrl_LeftHandPinky1_rotateX.o" "PunkBot_RiggedPipeRN.phl[679]"
 		;
-connectAttr "Character1_Ctrl_LeftHandPinky2_rotateZ.o" "PunkBot_RiggedPipeRN.phl[288]"
+connectAttr "Character1_Ctrl_LeftHandPinky2_rotateZ.o" "PunkBot_RiggedPipeRN.phl[680]"
 		;
-connectAttr "Character1_Ctrl_LeftHandPinky2_rotateY.o" "PunkBot_RiggedPipeRN.phl[289]"
+connectAttr "Character1_Ctrl_LeftHandPinky2_rotateY.o" "PunkBot_RiggedPipeRN.phl[681]"
 		;
-connectAttr "Character1_Ctrl_LeftHandPinky2_rotateX.o" "PunkBot_RiggedPipeRN.phl[290]"
+connectAttr "Character1_Ctrl_LeftHandPinky2_rotateX.o" "PunkBot_RiggedPipeRN.phl[682]"
 		;
-connectAttr "Character1_Ctrl_LeftHandPinky3_rotateZ.o" "PunkBot_RiggedPipeRN.phl[291]"
+connectAttr "Character1_Ctrl_LeftHandPinky3_rotateZ.o" "PunkBot_RiggedPipeRN.phl[683]"
 		;
-connectAttr "Character1_Ctrl_LeftHandPinky3_rotateY.o" "PunkBot_RiggedPipeRN.phl[292]"
+connectAttr "Character1_Ctrl_LeftHandPinky3_rotateY.o" "PunkBot_RiggedPipeRN.phl[684]"
 		;
-connectAttr "Character1_Ctrl_LeftHandPinky3_rotateX.o" "PunkBot_RiggedPipeRN.phl[293]"
+connectAttr "Character1_Ctrl_LeftHandPinky3_rotateX.o" "PunkBot_RiggedPipeRN.phl[685]"
 		;
-connectAttr "Character1_Ctrl_LeftHandPinky4_rotateZ.o" "PunkBot_RiggedPipeRN.phl[294]"
+connectAttr "Character1_Ctrl_LeftHandPinky4_rotateZ.o" "PunkBot_RiggedPipeRN.phl[686]"
 		;
-connectAttr "Character1_Ctrl_LeftHandPinky4_rotateY.o" "PunkBot_RiggedPipeRN.phl[295]"
+connectAttr "Character1_Ctrl_LeftHandPinky4_rotateY.o" "PunkBot_RiggedPipeRN.phl[687]"
 		;
-connectAttr "Character1_Ctrl_LeftHandPinky4_rotateX.o" "PunkBot_RiggedPipeRN.phl[296]"
+connectAttr "Character1_Ctrl_LeftHandPinky4_rotateX.o" "PunkBot_RiggedPipeRN.phl[688]"
 		;
-connectAttr "Character1_Ctrl_RightShoulder_rotateZ.o" "PunkBot_RiggedPipeRN.phl[297]"
+connectAttr "Character1_Ctrl_RightShoulder_rotateZ.o" "PunkBot_RiggedPipeRN.phl[689]"
 		;
-connectAttr "Character1_Ctrl_RightShoulder_rotateY.o" "PunkBot_RiggedPipeRN.phl[298]"
+connectAttr "Character1_Ctrl_RightShoulder_rotateY.o" "PunkBot_RiggedPipeRN.phl[690]"
 		;
-connectAttr "Character1_Ctrl_RightShoulder_rotateX.o" "PunkBot_RiggedPipeRN.phl[299]"
+connectAttr "Character1_Ctrl_RightShoulder_rotateX.o" "PunkBot_RiggedPipeRN.phl[691]"
 		;
-connectAttr "Character1_Ctrl_RightArm_rotateZ.o" "PunkBot_RiggedPipeRN.phl[300]"
+connectAttr "Character1_Ctrl_RightArm_rotateZ.o" "PunkBot_RiggedPipeRN.phl[692]"
 		;
-connectAttr "Character1_Ctrl_RightArm_rotateY.o" "PunkBot_RiggedPipeRN.phl[301]"
+connectAttr "Character1_Ctrl_RightArm_rotateY.o" "PunkBot_RiggedPipeRN.phl[693]"
 		;
-connectAttr "Character1_Ctrl_RightArm_rotateX.o" "PunkBot_RiggedPipeRN.phl[302]"
+connectAttr "Character1_Ctrl_RightArm_rotateX.o" "PunkBot_RiggedPipeRN.phl[694]"
 		;
-connectAttr "Character1_Ctrl_RightForeArm_rotateZ.o" "PunkBot_RiggedPipeRN.phl[303]"
+connectAttr "Character1_Ctrl_RightForeArm_rotateZ.o" "PunkBot_RiggedPipeRN.phl[695]"
 		;
-connectAttr "Character1_Ctrl_RightForeArm_rotateY.o" "PunkBot_RiggedPipeRN.phl[304]"
+connectAttr "Character1_Ctrl_RightForeArm_rotateY.o" "PunkBot_RiggedPipeRN.phl[696]"
 		;
-connectAttr "Character1_Ctrl_RightForeArm_rotateX.o" "PunkBot_RiggedPipeRN.phl[305]"
+connectAttr "Character1_Ctrl_RightForeArm_rotateX.o" "PunkBot_RiggedPipeRN.phl[697]"
 		;
-connectAttr "Character1_Ctrl_RightHand_rotateZ.o" "PunkBot_RiggedPipeRN.phl[306]"
+connectAttr "Character1_Ctrl_RightHand_rotateZ.o" "PunkBot_RiggedPipeRN.phl[698]"
 		;
-connectAttr "Character1_Ctrl_RightHand_rotateY.o" "PunkBot_RiggedPipeRN.phl[307]"
+connectAttr "Character1_Ctrl_RightHand_rotateY.o" "PunkBot_RiggedPipeRN.phl[699]"
 		;
-connectAttr "Character1_Ctrl_RightHand_rotateX.o" "PunkBot_RiggedPipeRN.phl[308]"
+connectAttr "Character1_Ctrl_RightHand_rotateX.o" "PunkBot_RiggedPipeRN.phl[700]"
 		;
-connectAttr "Character1_Ctrl_RightHandThumb1_rotateZ.o" "PunkBot_RiggedPipeRN.phl[309]"
+connectAttr "Character1_Ctrl_RightHandThumb1_rotateZ.o" "PunkBot_RiggedPipeRN.phl[701]"
 		;
-connectAttr "Character1_Ctrl_RightHandThumb1_rotateY.o" "PunkBot_RiggedPipeRN.phl[310]"
+connectAttr "Character1_Ctrl_RightHandThumb1_rotateY.o" "PunkBot_RiggedPipeRN.phl[702]"
 		;
-connectAttr "Character1_Ctrl_RightHandThumb1_rotateX.o" "PunkBot_RiggedPipeRN.phl[311]"
+connectAttr "Character1_Ctrl_RightHandThumb1_rotateX.o" "PunkBot_RiggedPipeRN.phl[703]"
 		;
-connectAttr "Character1_Ctrl_RightHandThumb2_rotateZ.o" "PunkBot_RiggedPipeRN.phl[312]"
+connectAttr "Character1_Ctrl_RightHandThumb2_rotateZ.o" "PunkBot_RiggedPipeRN.phl[704]"
 		;
-connectAttr "Character1_Ctrl_RightHandThumb2_rotateY.o" "PunkBot_RiggedPipeRN.phl[313]"
+connectAttr "Character1_Ctrl_RightHandThumb2_rotateY.o" "PunkBot_RiggedPipeRN.phl[705]"
 		;
-connectAttr "Character1_Ctrl_RightHandThumb2_rotateX.o" "PunkBot_RiggedPipeRN.phl[314]"
+connectAttr "Character1_Ctrl_RightHandThumb2_rotateX.o" "PunkBot_RiggedPipeRN.phl[706]"
 		;
-connectAttr "Character1_Ctrl_RightHandThumb3_rotateZ.o" "PunkBot_RiggedPipeRN.phl[315]"
+connectAttr "Character1_Ctrl_RightHandThumb3_rotateZ.o" "PunkBot_RiggedPipeRN.phl[707]"
 		;
-connectAttr "Character1_Ctrl_RightHandThumb3_rotateY.o" "PunkBot_RiggedPipeRN.phl[316]"
+connectAttr "Character1_Ctrl_RightHandThumb3_rotateY.o" "PunkBot_RiggedPipeRN.phl[708]"
 		;
-connectAttr "Character1_Ctrl_RightHandThumb3_rotateX.o" "PunkBot_RiggedPipeRN.phl[317]"
+connectAttr "Character1_Ctrl_RightHandThumb3_rotateX.o" "PunkBot_RiggedPipeRN.phl[709]"
 		;
-connectAttr "Character1_Ctrl_RightHandThumb4_rotateZ.o" "PunkBot_RiggedPipeRN.phl[318]"
+connectAttr "Character1_Ctrl_RightHandThumb4_rotateZ.o" "PunkBot_RiggedPipeRN.phl[710]"
 		;
-connectAttr "Character1_Ctrl_RightHandThumb4_rotateY.o" "PunkBot_RiggedPipeRN.phl[319]"
+connectAttr "Character1_Ctrl_RightHandThumb4_rotateY.o" "PunkBot_RiggedPipeRN.phl[711]"
 		;
-connectAttr "Character1_Ctrl_RightHandThumb4_rotateX.o" "PunkBot_RiggedPipeRN.phl[320]"
+connectAttr "Character1_Ctrl_RightHandThumb4_rotateX.o" "PunkBot_RiggedPipeRN.phl[712]"
 		;
-connectAttr "Character1_Ctrl_RightHandIndex1_rotateZ.o" "PunkBot_RiggedPipeRN.phl[321]"
+connectAttr "Character1_Ctrl_RightHandIndex1_rotateZ.o" "PunkBot_RiggedPipeRN.phl[713]"
 		;
-connectAttr "Character1_Ctrl_RightHandIndex1_rotateY.o" "PunkBot_RiggedPipeRN.phl[322]"
+connectAttr "Character1_Ctrl_RightHandIndex1_rotateY.o" "PunkBot_RiggedPipeRN.phl[714]"
 		;
-connectAttr "Character1_Ctrl_RightHandIndex1_rotateX.o" "PunkBot_RiggedPipeRN.phl[323]"
+connectAttr "Character1_Ctrl_RightHandIndex1_rotateX.o" "PunkBot_RiggedPipeRN.phl[715]"
 		;
-connectAttr "Character1_Ctrl_RightHandIndex2_rotateZ.o" "PunkBot_RiggedPipeRN.phl[324]"
+connectAttr "Character1_Ctrl_RightHandIndex2_rotateZ.o" "PunkBot_RiggedPipeRN.phl[716]"
 		;
-connectAttr "Character1_Ctrl_RightHandIndex2_rotateY.o" "PunkBot_RiggedPipeRN.phl[325]"
+connectAttr "Character1_Ctrl_RightHandIndex2_rotateY.o" "PunkBot_RiggedPipeRN.phl[717]"
 		;
-connectAttr "Character1_Ctrl_RightHandIndex2_rotateX.o" "PunkBot_RiggedPipeRN.phl[326]"
+connectAttr "Character1_Ctrl_RightHandIndex2_rotateX.o" "PunkBot_RiggedPipeRN.phl[718]"
 		;
-connectAttr "Character1_Ctrl_RightHandIndex3_rotateZ.o" "PunkBot_RiggedPipeRN.phl[327]"
+connectAttr "Character1_Ctrl_RightHandIndex3_rotateZ.o" "PunkBot_RiggedPipeRN.phl[719]"
 		;
-connectAttr "Character1_Ctrl_RightHandIndex3_rotateY.o" "PunkBot_RiggedPipeRN.phl[328]"
+connectAttr "Character1_Ctrl_RightHandIndex3_rotateY.o" "PunkBot_RiggedPipeRN.phl[720]"
 		;
-connectAttr "Character1_Ctrl_RightHandIndex3_rotateX.o" "PunkBot_RiggedPipeRN.phl[329]"
+connectAttr "Character1_Ctrl_RightHandIndex3_rotateX.o" "PunkBot_RiggedPipeRN.phl[721]"
 		;
-connectAttr "Character1_Ctrl_RightHandIndex4_rotateZ.o" "PunkBot_RiggedPipeRN.phl[330]"
+connectAttr "Character1_Ctrl_RightHandIndex4_rotateZ.o" "PunkBot_RiggedPipeRN.phl[722]"
 		;
-connectAttr "Character1_Ctrl_RightHandIndex4_rotateY.o" "PunkBot_RiggedPipeRN.phl[331]"
+connectAttr "Character1_Ctrl_RightHandIndex4_rotateY.o" "PunkBot_RiggedPipeRN.phl[723]"
 		;
-connectAttr "Character1_Ctrl_RightHandIndex4_rotateX.o" "PunkBot_RiggedPipeRN.phl[332]"
+connectAttr "Character1_Ctrl_RightHandIndex4_rotateX.o" "PunkBot_RiggedPipeRN.phl[724]"
 		;
-connectAttr "Character1_Ctrl_RightHandMiddle1_rotateZ.o" "PunkBot_RiggedPipeRN.phl[333]"
+connectAttr "Character1_Ctrl_RightHandMiddle1_rotateZ.o" "PunkBot_RiggedPipeRN.phl[725]"
 		;
-connectAttr "Character1_Ctrl_RightHandMiddle1_rotateY.o" "PunkBot_RiggedPipeRN.phl[334]"
+connectAttr "Character1_Ctrl_RightHandMiddle1_rotateY.o" "PunkBot_RiggedPipeRN.phl[726]"
 		;
-connectAttr "Character1_Ctrl_RightHandMiddle1_rotateX.o" "PunkBot_RiggedPipeRN.phl[335]"
+connectAttr "Character1_Ctrl_RightHandMiddle1_rotateX.o" "PunkBot_RiggedPipeRN.phl[727]"
 		;
-connectAttr "Character1_Ctrl_RightHandMiddle2_rotateZ.o" "PunkBot_RiggedPipeRN.phl[336]"
+connectAttr "Character1_Ctrl_RightHandMiddle2_rotateZ.o" "PunkBot_RiggedPipeRN.phl[728]"
 		;
-connectAttr "Character1_Ctrl_RightHandMiddle2_rotateY.o" "PunkBot_RiggedPipeRN.phl[337]"
+connectAttr "Character1_Ctrl_RightHandMiddle2_rotateY.o" "PunkBot_RiggedPipeRN.phl[729]"
 		;
-connectAttr "Character1_Ctrl_RightHandMiddle2_rotateX.o" "PunkBot_RiggedPipeRN.phl[338]"
+connectAttr "Character1_Ctrl_RightHandMiddle2_rotateX.o" "PunkBot_RiggedPipeRN.phl[730]"
 		;
-connectAttr "Character1_Ctrl_RightHandMiddle3_rotateZ.o" "PunkBot_RiggedPipeRN.phl[339]"
+connectAttr "Character1_Ctrl_RightHandMiddle3_rotateZ.o" "PunkBot_RiggedPipeRN.phl[731]"
 		;
-connectAttr "Character1_Ctrl_RightHandMiddle3_rotateY.o" "PunkBot_RiggedPipeRN.phl[340]"
+connectAttr "Character1_Ctrl_RightHandMiddle3_rotateY.o" "PunkBot_RiggedPipeRN.phl[732]"
 		;
-connectAttr "Character1_Ctrl_RightHandMiddle3_rotateX.o" "PunkBot_RiggedPipeRN.phl[341]"
+connectAttr "Character1_Ctrl_RightHandMiddle3_rotateX.o" "PunkBot_RiggedPipeRN.phl[733]"
 		;
-connectAttr "Character1_Ctrl_RightHandMiddle4_rotateZ.o" "PunkBot_RiggedPipeRN.phl[342]"
+connectAttr "Character1_Ctrl_RightHandMiddle4_rotateZ.o" "PunkBot_RiggedPipeRN.phl[734]"
 		;
-connectAttr "Character1_Ctrl_RightHandMiddle4_rotateY.o" "PunkBot_RiggedPipeRN.phl[343]"
+connectAttr "Character1_Ctrl_RightHandMiddle4_rotateY.o" "PunkBot_RiggedPipeRN.phl[735]"
 		;
-connectAttr "Character1_Ctrl_RightHandMiddle4_rotateX.o" "PunkBot_RiggedPipeRN.phl[344]"
+connectAttr "Character1_Ctrl_RightHandMiddle4_rotateX.o" "PunkBot_RiggedPipeRN.phl[736]"
 		;
-connectAttr "Character1_Ctrl_RightHandRing1_rotateZ.o" "PunkBot_RiggedPipeRN.phl[345]"
+connectAttr "Character1_Ctrl_RightHandRing1_rotateZ.o" "PunkBot_RiggedPipeRN.phl[737]"
 		;
-connectAttr "Character1_Ctrl_RightHandRing1_rotateY.o" "PunkBot_RiggedPipeRN.phl[346]"
+connectAttr "Character1_Ctrl_RightHandRing1_rotateY.o" "PunkBot_RiggedPipeRN.phl[738]"
 		;
-connectAttr "Character1_Ctrl_RightHandRing1_rotateX.o" "PunkBot_RiggedPipeRN.phl[347]"
+connectAttr "Character1_Ctrl_RightHandRing1_rotateX.o" "PunkBot_RiggedPipeRN.phl[739]"
 		;
-connectAttr "Character1_Ctrl_RightHandRing2_rotateZ.o" "PunkBot_RiggedPipeRN.phl[348]"
+connectAttr "Character1_Ctrl_RightHandRing2_rotateZ.o" "PunkBot_RiggedPipeRN.phl[740]"
 		;
-connectAttr "Character1_Ctrl_RightHandRing2_rotateY.o" "PunkBot_RiggedPipeRN.phl[349]"
+connectAttr "Character1_Ctrl_RightHandRing2_rotateY.o" "PunkBot_RiggedPipeRN.phl[741]"
 		;
-connectAttr "Character1_Ctrl_RightHandRing2_rotateX.o" "PunkBot_RiggedPipeRN.phl[350]"
+connectAttr "Character1_Ctrl_RightHandRing2_rotateX.o" "PunkBot_RiggedPipeRN.phl[742]"
 		;
-connectAttr "Character1_Ctrl_RightHandRing3_rotateZ.o" "PunkBot_RiggedPipeRN.phl[351]"
+connectAttr "Character1_Ctrl_RightHandRing3_rotateZ.o" "PunkBot_RiggedPipeRN.phl[743]"
 		;
-connectAttr "Character1_Ctrl_RightHandRing3_rotateY.o" "PunkBot_RiggedPipeRN.phl[352]"
+connectAttr "Character1_Ctrl_RightHandRing3_rotateY.o" "PunkBot_RiggedPipeRN.phl[744]"
 		;
-connectAttr "Character1_Ctrl_RightHandRing3_rotateX.o" "PunkBot_RiggedPipeRN.phl[353]"
+connectAttr "Character1_Ctrl_RightHandRing3_rotateX.o" "PunkBot_RiggedPipeRN.phl[745]"
 		;
-connectAttr "Character1_Ctrl_RightHandRing4_rotateZ.o" "PunkBot_RiggedPipeRN.phl[354]"
+connectAttr "Character1_Ctrl_RightHandRing4_rotateZ.o" "PunkBot_RiggedPipeRN.phl[746]"
 		;
-connectAttr "Character1_Ctrl_RightHandRing4_rotateY.o" "PunkBot_RiggedPipeRN.phl[355]"
+connectAttr "Character1_Ctrl_RightHandRing4_rotateY.o" "PunkBot_RiggedPipeRN.phl[747]"
 		;
-connectAttr "Character1_Ctrl_RightHandRing4_rotateX.o" "PunkBot_RiggedPipeRN.phl[356]"
+connectAttr "Character1_Ctrl_RightHandRing4_rotateX.o" "PunkBot_RiggedPipeRN.phl[748]"
 		;
-connectAttr "Character1_Ctrl_RightHandPinky1_rotateZ.o" "PunkBot_RiggedPipeRN.phl[357]"
+connectAttr "Character1_Ctrl_RightHandPinky1_rotateZ.o" "PunkBot_RiggedPipeRN.phl[749]"
 		;
-connectAttr "Character1_Ctrl_RightHandPinky1_rotateY.o" "PunkBot_RiggedPipeRN.phl[358]"
+connectAttr "Character1_Ctrl_RightHandPinky1_rotateY.o" "PunkBot_RiggedPipeRN.phl[750]"
 		;
-connectAttr "Character1_Ctrl_RightHandPinky1_rotateX.o" "PunkBot_RiggedPipeRN.phl[359]"
+connectAttr "Character1_Ctrl_RightHandPinky1_rotateX.o" "PunkBot_RiggedPipeRN.phl[751]"
 		;
-connectAttr "Character1_Ctrl_RightHandPinky2_rotateZ.o" "PunkBot_RiggedPipeRN.phl[360]"
+connectAttr "Character1_Ctrl_RightHandPinky2_rotateZ.o" "PunkBot_RiggedPipeRN.phl[752]"
 		;
-connectAttr "Character1_Ctrl_RightHandPinky2_rotateY.o" "PunkBot_RiggedPipeRN.phl[361]"
+connectAttr "Character1_Ctrl_RightHandPinky2_rotateY.o" "PunkBot_RiggedPipeRN.phl[753]"
 		;
-connectAttr "Character1_Ctrl_RightHandPinky2_rotateX.o" "PunkBot_RiggedPipeRN.phl[362]"
+connectAttr "Character1_Ctrl_RightHandPinky2_rotateX.o" "PunkBot_RiggedPipeRN.phl[754]"
 		;
-connectAttr "Character1_Ctrl_RightHandPinky3_rotateZ.o" "PunkBot_RiggedPipeRN.phl[363]"
+connectAttr "Character1_Ctrl_RightHandPinky3_rotateZ.o" "PunkBot_RiggedPipeRN.phl[755]"
 		;
-connectAttr "Character1_Ctrl_RightHandPinky3_rotateY.o" "PunkBot_RiggedPipeRN.phl[364]"
+connectAttr "Character1_Ctrl_RightHandPinky3_rotateY.o" "PunkBot_RiggedPipeRN.phl[756]"
 		;
-connectAttr "Character1_Ctrl_RightHandPinky3_rotateX.o" "PunkBot_RiggedPipeRN.phl[365]"
+connectAttr "Character1_Ctrl_RightHandPinky3_rotateX.o" "PunkBot_RiggedPipeRN.phl[757]"
 		;
-connectAttr "Character1_Ctrl_RightHandPinky4_rotateZ.o" "PunkBot_RiggedPipeRN.phl[366]"
+connectAttr "Character1_Ctrl_RightHandPinky4_rotateZ.o" "PunkBot_RiggedPipeRN.phl[758]"
 		;
-connectAttr "Character1_Ctrl_RightHandPinky4_rotateY.o" "PunkBot_RiggedPipeRN.phl[367]"
+connectAttr "Character1_Ctrl_RightHandPinky4_rotateY.o" "PunkBot_RiggedPipeRN.phl[759]"
 		;
-connectAttr "Character1_Ctrl_RightHandPinky4_rotateX.o" "PunkBot_RiggedPipeRN.phl[368]"
+connectAttr "Character1_Ctrl_RightHandPinky4_rotateX.o" "PunkBot_RiggedPipeRN.phl[760]"
 		;
-connectAttr "Character1_Ctrl_Neck_rotateZ.o" "PunkBot_RiggedPipeRN.phl[369]";
-connectAttr "Character1_Ctrl_Neck_rotateY.o" "PunkBot_RiggedPipeRN.phl[370]";
-connectAttr "Character1_Ctrl_Neck_rotateX.o" "PunkBot_RiggedPipeRN.phl[371]";
-connectAttr "Character1_Ctrl_Head_rotateZ.o" "PunkBot_RiggedPipeRN.phl[372]";
-connectAttr "Character1_Ctrl_Head_rotateY.o" "PunkBot_RiggedPipeRN.phl[373]";
-connectAttr "Character1_Ctrl_Head_rotateX.o" "PunkBot_RiggedPipeRN.phl[374]";
-connectAttr "PunkBot_RiggedPipeRN.phl[375]" "Character1_Ctrl_LeftWristEffector_parentConstraint1.tg[0].tt"
+connectAttr "Character1_Ctrl_Neck_rotateZ.o" "PunkBot_RiggedPipeRN.phl[761]";
+connectAttr "Character1_Ctrl_Neck_rotateY.o" "PunkBot_RiggedPipeRN.phl[762]";
+connectAttr "Character1_Ctrl_Neck_rotateX.o" "PunkBot_RiggedPipeRN.phl[763]";
+connectAttr "Character1_Ctrl_Head_rotateZ.o" "PunkBot_RiggedPipeRN.phl[764]";
+connectAttr "Character1_Ctrl_Head_rotateY.o" "PunkBot_RiggedPipeRN.phl[765]";
+connectAttr "Character1_Ctrl_Head_rotateX.o" "PunkBot_RiggedPipeRN.phl[766]";
+connectAttr "PunkBot_RiggedPipeRN.phl[767]" "Character1_Ctrl_LeftWristEffector_parentConstraint1.tg[0].tt"
 		;
-connectAttr "SlavePipe_translateX.o" "PunkBot_RiggedPipeRN.phl[376]";
-connectAttr "SlavePipe_translateY.o" "PunkBot_RiggedPipeRN.phl[377]";
-connectAttr "SlavePipe_translateZ.o" "PunkBot_RiggedPipeRN.phl[378]";
-connectAttr "PunkBot_RiggedPipeRN.phl[379]" "Character1_Ctrl_LeftWristEffector_parentConstraint1.tg[0].trp"
+connectAttr "SlavePipe_translateX.o" "PunkBot_RiggedPipeRN.phl[768]";
+connectAttr "SlavePipe_translateY.o" "PunkBot_RiggedPipeRN.phl[769]";
+connectAttr "SlavePipe_translateZ.o" "PunkBot_RiggedPipeRN.phl[770]";
+connectAttr "PunkBot_RiggedPipeRN.phl[771]" "Character1_Ctrl_LeftWristEffector_parentConstraint1.tg[0].trp"
 		;
-connectAttr "PunkBot_RiggedPipeRN.phl[380]" "Character1_Ctrl_LeftWristEffector_parentConstraint1.tg[0].trt"
+connectAttr "PunkBot_RiggedPipeRN.phl[772]" "Character1_Ctrl_LeftWristEffector_parentConstraint1.tg[0].trt"
 		;
-connectAttr "PunkBot_RiggedPipeRN.phl[381]" "Character1_Ctrl_LeftWristEffector_parentConstraint1.tg[0].tr"
+connectAttr "PunkBot_RiggedPipeRN.phl[773]" "Character1_Ctrl_LeftWristEffector_parentConstraint1.tg[0].tr"
 		;
-connectAttr "SlavePipe_rotateX.o" "PunkBot_RiggedPipeRN.phl[382]";
-connectAttr "SlavePipe_rotateY.o" "PunkBot_RiggedPipeRN.phl[383]";
-connectAttr "SlavePipe_rotateZ.o" "PunkBot_RiggedPipeRN.phl[384]";
-connectAttr "PunkBot_RiggedPipeRN.phl[385]" "Character1_Ctrl_LeftWristEffector_parentConstraint1.tg[0].tro"
+connectAttr "SlavePipe_rotateX.o" "PunkBot_RiggedPipeRN.phl[774]";
+connectAttr "SlavePipe_rotateY.o" "PunkBot_RiggedPipeRN.phl[775]";
+connectAttr "SlavePipe_rotateZ.o" "PunkBot_RiggedPipeRN.phl[776]";
+connectAttr "PunkBot_RiggedPipeRN.phl[777]" "Character1_Ctrl_LeftWristEffector_parentConstraint1.tg[0].tro"
 		;
-connectAttr "PunkBot_RiggedPipeRN.phl[386]" "Character1_Ctrl_LeftWristEffector_parentConstraint1.tg[0].ts"
+connectAttr "PunkBot_RiggedPipeRN.phl[778]" "Character1_Ctrl_LeftWristEffector_parentConstraint1.tg[0].ts"
 		;
-connectAttr "SlavePipe_scaleX.o" "PunkBot_RiggedPipeRN.phl[387]";
-connectAttr "SlavePipe_scaleY.o" "PunkBot_RiggedPipeRN.phl[388]";
-connectAttr "SlavePipe_scaleZ.o" "PunkBot_RiggedPipeRN.phl[389]";
-connectAttr "PunkBot_RiggedPipeRN.phl[390]" "Character1_Ctrl_LeftWristEffector_parentConstraint1.tg[0].tpm"
+connectAttr "SlavePipe_scaleX.o" "PunkBot_RiggedPipeRN.phl[779]";
+connectAttr "SlavePipe_scaleY.o" "PunkBot_RiggedPipeRN.phl[780]";
+connectAttr "SlavePipe_scaleZ.o" "PunkBot_RiggedPipeRN.phl[781]";
+connectAttr "PunkBot_RiggedPipeRN.phl[782]" "Character1_Ctrl_LeftWristEffector_parentConstraint1.tg[0].tpm"
 		;
-connectAttr "SlavePipe_visibility.o" "PunkBot_RiggedPipeRN.phl[391]";
+connectAttr "SlavePipe_visibility.o" "PunkBot_RiggedPipeRN.phl[783]";
+connectAttr "Character1_Reference_scaleX.o" "PunkBot_RiggedPipeRN.phl[784]";
+connectAttr "Character1_Reference_scaleY.o" "PunkBot_RiggedPipeRN.phl[785]";
+connectAttr "Character1_Reference_scaleZ.o" "PunkBot_RiggedPipeRN.phl[786]";
+connectAttr "Character1_Reference_translateX.o" "PunkBot_RiggedPipeRN.phl[787]";
+connectAttr "Character1_Reference_translateY.o" "PunkBot_RiggedPipeRN.phl[788]";
+connectAttr "Character1_Reference_translateZ.o" "PunkBot_RiggedPipeRN.phl[789]";
+connectAttr "Character1_Reference_rotateX.o" "PunkBot_RiggedPipeRN.phl[790]";
+connectAttr "Character1_Reference_rotateY.o" "PunkBot_RiggedPipeRN.phl[791]";
+connectAttr "Character1_Reference_rotateZ.o" "PunkBot_RiggedPipeRN.phl[792]";
 connectAttr "Character1_Ctrl_LeftWristEffector_parentConstraint1.w0" "Character1_Ctrl_LeftWristEffector_parentConstraint1.tg[0].tw"
 		;
 connectAttr "Character1_Ctrl_LeftWristEffector_parentConstraint1_SlavePipeW0.o" "Character1_Ctrl_LeftWristEffector_parentConstraint1.w0"
@@ -7684,6 +7755,16 @@ relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defau
 relationship "shadowLink" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 connectAttr "layerManager.dli[0]" "defaultLayer.id";
 connectAttr "renderLayerManager.rlmi[0]" "defaultRenderLayer.rlid";
+connectAttr "Character1_Root_scaleX.o" "PunkBot_RiggedPipeRN.phl[392]";
+connectAttr "Character1_Root_scaleY.o" "PunkBot_RiggedPipeRN.phl[393]";
+connectAttr "Character1_Root_scaleZ.o" "PunkBot_RiggedPipeRN.phl[394]";
+connectAttr "Character1_Root_translateZ.o" "PunkBot_RiggedPipeRN.phl[395]";
+connectAttr "Character1_Root_translateX.o" "PunkBot_RiggedPipeRN.phl[396]";
+connectAttr "Character1_Root_translateY.o" "PunkBot_RiggedPipeRN.phl[397]";
+connectAttr "Character1_Root_visibility.o" "PunkBot_RiggedPipeRN.phl[398]";
+connectAttr "Character1_Root_rotateX.o" "PunkBot_RiggedPipeRN.phl[399]";
+connectAttr "Character1_Root_rotateY.o" "PunkBot_RiggedPipeRN.phl[400]";
+connectAttr "Character1_Root_rotateZ.o" "PunkBot_RiggedPipeRN.phl[401]";
 connectAttr "sharedReferenceNode.sr" "PunkBot_RiggedPipeRN.sr";
 connectAttr "PunkBot_RiggedPipeRNfosterParent1.msg" "PunkBot_RiggedPipeRN.fp";
 connectAttr "Character1_Ctrl_LeftWristEffector_translateX.o" "pairBlend1.itx1";
