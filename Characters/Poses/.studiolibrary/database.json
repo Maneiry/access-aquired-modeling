@@ -1,0 +1,83 @@
+{
+    "../../PunkBot": {
+        "name": "PunkBot",
+        "path": "../../PunkBot",
+        "type": "Folder",
+        "folder": "../..",
+        "category": "Poses",
+        "modified": 1746165084.3174863,
+        "__class__": "studiolibrary.folderitem.FolderItem"
+    },
+    "../../PunkBot/Body": {
+        "name": "Body",
+        "path": "../../PunkBot/Body",
+        "type": "Folder",
+        "folder": "../../PunkBot",
+        "category": "PunkBot",
+        "modified": 1746165154.931504,
+        "__class__": "studiolibrary.folderitem.FolderItem"
+    },
+    "../../PunkBot/Hands": {
+        "name": "Hands",
+        "path": "../../PunkBot/Hands",
+        "type": "Folder",
+        "folder": "../../PunkBot",
+        "category": "PunkBot",
+        "modified": 1746165175.45326,
+        "__class__": "studiolibrary.folderitem.FolderItem"
+    },
+    "../../PunkBot/Skeleton": {
+        "name": "Skeleton",
+        "path": "../../PunkBot/Skeleton",
+        "type": "Folder",
+        "folder": "../../PunkBot",
+        "category": "PunkBot",
+        "modified": 1746165093.7091403,
+        "__class__": "studiolibrary.folderitem.FolderItem"
+    },
+    "../../PunkBot/Skeleton/TPose-All.pose": {
+        "name": "TPose-All.pose",
+        "path": "../../PunkBot/Skeleton/TPose-All.pose",
+        "type": ".pose",
+        "folder": "../../PunkBot/Skeleton",
+        "category": "PunkBot",
+        "modified": 1746163896.215367,
+        "__class__": "studiolibrarymaya.poseitem.PoseItem"
+    },
+    "../../PunkBot/Skeleton/TPose-Controls.pose": {
+        "name": "TPose-Controls.pose",
+        "path": "../../PunkBot/Skeleton/TPose-Controls.pose",
+        "type": ".pose",
+        "folder": "../../PunkBot/Skeleton",
+        "category": "PunkBot",
+        "modified": 1746164052.6678412,
+        "__class__": "studiolibrarymaya.poseitem.PoseItem"
+    },
+    "../../PunkBot/Skeleton/TPose-Everything.pose": {
+        "name": "TPose-Everything.pose",
+        "path": "../../PunkBot/Skeleton/TPose-Everything.pose",
+        "type": ".pose",
+        "folder": "../../PunkBot/Skeleton",
+        "category": "PunkBot",
+        "modified": 1746164117.763531,
+        "__class__": "studiolibrarymaya.poseitem.PoseItem"
+    },
+    "../../PunkBot/Skeleton/TPose-Hip.pose": {
+        "name": "TPose-Hip.pose",
+        "path": "../../PunkBot/Skeleton/TPose-Hip.pose",
+        "type": ".pose",
+        "folder": "../../PunkBot/Skeleton",
+        "category": "PunkBot",
+        "modified": 1746163934.0566554,
+        "__class__": "studiolibrarymaya.poseitem.PoseItem"
+    },
+    "../../Trash/PunkBotBody": {
+        "name": "PunkBotBody",
+        "path": "../../Trash/PunkBotBody",
+        "type": "Folder",
+        "folder": "../../Trash",
+        "category": "Trash",
+        "modified": 1746165064.6647842,
+        "__class__": "studiolibrary.folderitem.FolderItem"
+    }
+}
