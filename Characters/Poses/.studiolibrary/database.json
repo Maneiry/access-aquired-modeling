@@ -35,6 +35,15 @@
         "modified": 1746165093.7091403,
         "__class__": "studiolibrary.folderitem.FolderItem"
     },
+    "../../PunkBot/Skeleton/APose-Broad.pose": {
+        "name": "APose-Broad.pose",
+        "path": "../../PunkBot/Skeleton/APose-Broad.pose",
+        "type": ".pose",
+        "folder": "../../PunkBot/Skeleton",
+        "category": "Skeleton",
+        "modified": 1746601740.3835123,
+        "__class__": "studiolibrarymaya.poseitem.PoseItem"
+    },
     "../../PunkBot/Skeleton/APose-Tight.pose": {
         "name": "APose-Tight.pose",
         "path": "../../PunkBot/Skeleton/APose-Tight.pose",
@@ -88,6 +97,15 @@
         "category": "PunkBot",
         "modified": 1746163934.0566554,
         "__class__": "studiolibrarymaya.poseitem.PoseItem"
+    },
+    "../../Trash/APose-Broad.pose": {
+        "name": "APose-Broad.pose",
+        "path": "../../Trash/APose-Broad.pose",
+        "type": ".pose",
+        "folder": "../../Trash",
+        "category": "Trash",
+        "modified": 1746597524.0452423,
+        "__class__": "studiolibrary.libraryitem.LibraryItem"
     },
     "../../Trash/PunkBotBody": {
         "name": "PunkBotBody",
