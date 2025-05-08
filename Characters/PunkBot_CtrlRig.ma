@@ -1,12 +1,14 @@
 //Maya ASCII 2025ff03 scene
 //Name: PunkBot_CtrlRig.ma
-//Last modified: Thu, May 08, 2025 09:43:52 AM
+//Last modified: Thu, May 08, 2025 02:08:02 PM
 //Codeset: 1252
 requires maya "2025ff03";
-requires -nodeType "HIKSolverNode" -nodeType "HIKRetargeterNode" -nodeType "HIKCharacterNode"
-		 -nodeType "HIKSkeletonGeneratorNode" -nodeType "HIKFK2State" -nodeType "HIKState2SK"
-		 -nodeType "HIKProperty2State" -dataType "HIKCharacter" -dataType "HIKCharacterState"
-		 -dataType "HIKEffectorState" -dataType "HIKPropertySetState" "mayaHIK" "1.0_HIK_2018.11";
+requires -nodeType "HIKSolverNode" -nodeType "HIKCharacterNode" -nodeType "HIKSkeletonGeneratorNode"
+		 -nodeType "HIKControlSetNode" -nodeType "HIKEffectorFromCharacter" -nodeType "HIKFK2State"
+		 -nodeType "HIKState2FK" -nodeType "HIKState2SK" -nodeType "HIKEffector2State" -nodeType "HIKState2Effector"
+		 -nodeType "HIKProperty2State" -nodeType "HIKPinning2State" -dataType "HIKCharacter"
+		 -dataType "HIKCharacterState" -dataType "HIKEffectorState" -dataType "HIKPropertySetState"
+		 "mayaHIK" "1.0_HIK_2018.11";
 requires -nodeType "gameFbxExporter" "gameFbxExporter" "1.0";
 requires "stereoCamera" "10.0";
 requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" -nodeType "aiImagerDenoiserOidn"
@@ -18,19 +20,19 @@ fileInfo "product" "Maya 2025";
 fileInfo "version" "2025";
 fileInfo "cutIdentifier" "202409190603-cbdc5a7e54";
 fileInfo "osv" "Windows 10 Home v2009 (Build: 19045)";
-fileInfo "UUID" "00AC9845-4FC2-789F-414C-4BBAB28E7915";
+fileInfo "UUID" "05EE3417-4683-D146-0DB4-3AB8F808BB27";
 fileInfo "exportedFrom" "E:/Studium/GameDesign UU/Graphics3D/PunkBot_Skinning.ma";
 createNode transform -s -n "persp";
 	rename -uid "A5020B8C-425D-0A5B-0414-CB8C0BD879B3";
-	setAttr ".t" -type "double3" 77.032359986687965 223.50726303037237 348.49031710371753 ;
-	setAttr ".r" -type "double3" 2138.6616755103801 -62626.199306527138 0.0001340389194754475 ;
+	setAttr ".t" -type "double3" 80.281913452948231 185.93804910968376 241.69247473462667 ;
+	setAttr ".r" -type "double3" 2148.8616745481013 -62626.599306492448 0.0001338138836449638 ;
 	setAttr ".rp" -type "double3" 0 0 1.5543122344752192e-15 ;
 	setAttr ".rpt" -type "double3" 3.6592218168576601e-16 -2.5015595558336037e-16 -3.0440804973523192e-15 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "DD8E2808-44E7-F1EB-B7AA-8EAA140DAB06";
 	setAttr -k off ".v";
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 359.73106714329089;
+	setAttr ".coi" 244.57074839165378;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -142,8 +144,8 @@ createNode joint -n "Character1_Hips" -p "Character1_Reference";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 1;
-	setAttr ".t" -type "double3" 0 112.84286351195637 -0.8626850574987619 ;
 	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -6.6757197600963991e-06 112.84285736083984 -0.86268377304077148 1;
+	setAttr ".ds" 2;
 	setAttr ".typ" 1;
 	setAttr ".radi" 1.5174249187814872;
 	setAttr -k on ".liw";
@@ -157,10 +159,10 @@ createNode joint -n "Character1_LeftUpLeg" -p "Character1_Hips";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 2;
-	setAttr ".t" -type "double3" 8.4372573588421069 -5.5608852967631464 1.9715801717334269 ;
 	setAttr ".bps" -type "matrix" 0.99999979276014994 -6.7123895775607391e-05 0.00064029215189014314 0
 		 9.1871360000871848e-05 0.99924975085158363 -0.038728890801329484 0 -0.0006372121392187966 0.038728941599670753 0.99924954993397863 0
 		 8.437251091003418 107.28196716308594 1.1088963747024536 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 1;
 	setAttr ".typ" 2;
 	setAttr ".radi" 1.5174249187814872;
@@ -175,10 +177,10 @@ createNode joint -n "Character1_LeftLeg" -p "Character1_LeftUpLeg";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 3;
-	setAttr ".t" -type "double3" 3.0728323740263725 -44.878644939999994 -1.1088951142346652 ;
 	setAttr ".bps" -type "matrix" 0.99999954353702158 1.1737421286124643e-05 0.00095539938315611394 0
 		 -4.5293225767638445e-05 0.99938275560567946 0.035129841253876387 0 -0.00095439733449601222 -0.035129868491524399 0.99938229995607586 0
 		 11.508217811584474 64.191658020019531 -0.34894883632659912 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 1;
 	setAttr ".typ" 3;
 	setAttr ".radi" 1.5174249187814872;
@@ -193,10 +195,10 @@ createNode joint -n "Character1_LeftFoot" -p "Character1_LeftLeg";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 4;
-	setAttr ".t" -type "double3" -1.5758114738596767 -45.696546605971875 -2.6494158064159823 ;
 	setAttr ".bps" -type "matrix" 1 3.6382460290459127e-12 -3.4711431136109222e-10 0
 		 -3.6382447212270422e-12 1 3.7252898613115981e-09 0 3.47114311252672e-10 -3.7252898613115981e-09 0.99999999999999989 0
 		 9.9350824356079084 16.669334411621094 -2.6536498069763179 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 1;
 	setAttr ".typ" 4;
 	setAttr ".radi" 1.5174249187814872;
@@ -211,10 +213,10 @@ createNode joint -n "Character1_LeftToeBase" -p "Character1_LeftFoot";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 5;
-	setAttr ".t" -type "double3" 8.4269999973685117e-06 -11.795995928995966 13.919973612851987 ;
 	setAttr ".bps" -type "matrix" 1 3.6382460290459127e-12 -3.4711431136109222e-10 0
 		 -3.6382447212270422e-12 1 3.7252898613115981e-09 0 3.47114311252672e-10 -3.7252898613115981e-09 0.99999999999999989 0
 		 9.9350910186767596 4.8733386993408203 11.266323089599608 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 1;
 	setAttr ".typ" 5;
 	setAttr ".radi" 1.5174249187814872;
@@ -229,10 +231,10 @@ createNode joint -n "Character1_RightUpLeg" -p "Character1_Hips";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 2;
-	setAttr ".t" -type "double3" -8.4372573588421069 -5.5608852967631464 1.9715801717334269 ;
 	setAttr ".bps" -type "matrix" 0.99999979109204962 6.9712806276118949e-05 -0.00064261651225368461 0
 		 -9.4652887438342079e-05 0.99924340552604718 -0.038892255701341687 0 0.00063941902386429369 0.038892308401948662 0.99924320337467376 0
 		 -8.4372644424438477 107.28196716308594 1.1088963747024536 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 2;
 	setAttr ".typ" 2;
 	setAttr ".radi" 1.5174249187814872;
@@ -247,10 +249,10 @@ createNode joint -n "Character1_RightLeg" -p "Character1_RightUpLeg";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 3;
-	setAttr ".t" -type "double3" -3.0728323740263725 -44.878644939999994 -1.1088951142346652 ;
 	setAttr ".bps" -type "matrix" 0.99999954084475284 -9.7089160571067241e-06 -0.00095823588983551256 0
 		 4.3439992865852998e-05 0.99938002335454856 0.035207485465864628 0 0.00095729997944201111 -0.035207510925923162 0.999379564905722 0
 		 -11.508100509643553 64.191459655761747 -0.34143912792205899 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 2;
 	setAttr ".typ" 3;
 	setAttr ".radi" 1.5174249187814872;
@@ -265,9 +267,9 @@ createNode joint -n "Character1_RightFoot" -p "Character1_RightLeg";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 4;
-	setAttr ".t" -type "double3" 1.5758114738596767 -45.696546605971875 -2.6494158064159823 ;
 	setAttr ".bps" -type "matrix" 1 7.2754473547597363e-12 -2.183355719527838e-10 0 -7.2754473750885271e-12 1 0 0
 		 2.1833557162752315e-10 0 0.99999999999999989 0 -9.9348669052124041 16.669288635253906 -2.6498532295227051 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 2;
 	setAttr ".typ" 4;
 	setAttr ".radi" 1.5174249187814872;
@@ -282,9 +284,9 @@ createNode joint -n "Character1_RightToeBase" -p "Character1_RightFoot";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 5;
-	setAttr ".t" -type "double3" -8.4269999973685117e-06 -11.795995928995966 13.919973612851987 ;
 	setAttr ".bps" -type "matrix" 1 7.2754473547597363e-12 -2.183355719527838e-10 0 -7.2754473750885271e-12 1 0 0
 		 2.1833557162752315e-10 0 0.99999999999999989 0 -9.9348754882812518 4.8732929229736346 11.270120620727539 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 2;
 	setAttr ".typ" 5;
 	setAttr ".radi" 1.5174249187814872;
@@ -299,8 +301,8 @@ createNode joint -n "Character1_Spine" -p "Character1_Hips";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 2;
-	setAttr ".t" -type "double3" 0 14.012361058675538 0.8626850574987619 ;
 	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -6.6757197600963991e-06 126.85521697998047 1.1920928955078125e-06 1;
+	setAttr ".ds" 2;
 	setAttr ".typ" 6;
 	setAttr ".radi" 1.5174249187814872;
 	setAttr -k on ".liw";
@@ -314,8 +316,8 @@ createNode joint -n "Character1_Spine1" -p "Character1_Spine";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 3;
-	setAttr ".t" -type "double3" 0 13.165673633388892 0 ;
 	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -6.6757197600963991e-06 140.02088928222656 1.5437212823599111e-06 1;
+	setAttr ".ds" 2;
 	setAttr ".typ" 6;
 	setAttr ".radi" 1.5174249187814872;
 	setAttr -k on ".liw";
@@ -329,8 +331,8 @@ createNode joint -n "Character1_Spine2" -p "Character1_Spine1";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 4;
-	setAttr ".t" -type "double3" 0 13.165673633388877 -2.3566996715128425 ;
 	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -6.6757197600963991e-06 153.18655395507812 -2.3566970825195312 1;
+	setAttr ".ds" 2;
 	setAttr ".typ" 6;
 	setAttr ".radi" 1.5174249187814872;
 	setAttr -k on ".liw";
@@ -360,9 +362,8 @@ createNode joint -n "Character1_LeftShoulder" -p "Character1_Spine2";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 5;
-	setAttr ".t" -type "double3" 10.624366866877258 7.1521864424273929 6.9180538744409255 ;
-	setAttr ".r" -type "double3" -2.0285258454407304e-16 -11.493752533688797 17.349397708155777 ;
 	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 10.624360191157498 160.33874039750552 4.5613567919213942 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 1;
 	setAttr ".typ" 9;
 	setAttr ".radi" 1.5174249187814872;
@@ -377,11 +378,10 @@ createNode joint -n "Character1_LeftArm" -p "Character1_LeftShoulder";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 6;
-	setAttr ".t" -type "double3" 11.666273998916454 -5.3262686810813022 -9.404594240547377 ;
-	setAttr ".r" -type "double3" 13.628701663937569 0 62.585893034864036 ;
-	setAttr ".jo" -type "double3" 0 0 -0.00073528200000000322 ;
+	setAttr ".jo" -type "double3" 0 0 -0.00073528200000000333 ;
 	setAttr ".bps" -type "matrix" 0.78881313752595772 0.61463308897785063 0 0 -0.61463308897785063 0.78881313752595772 0 0
 		 0 0 1 0 22.290634190073952 155.01247171642422 -4.8432374486259828 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 1;
 	setAttr ".typ" 10;
 	setAttr ".radi" 1.5174249187814872;
@@ -396,11 +396,10 @@ createNode joint -n "Character1_LeftForeArm" -p "Character1_LeftArm";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 7;
-	setAttr ".t" -type "double3" 4.7941558165341469 -26.383179461824284 0.20463897381636187 ;
-	setAttr ".r" -type "double3" 0 0 -10.956114388341989 ;
-	setAttr ".jo" -type "double3" 0 0 0.016176204000000059 ;
+	setAttr ".jo" -type "double3" 0 0 0.016911486000000066 ;
 	setAttr ".bps" -type "matrix" 0.78160381996007966 0.62377517474151789 0 0 -0.62377517474151789 0.78160381996007966 0 0
 		 0 0 1 0 42.28830237118062 137.1477199457897 -4.638598474809621 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 1;
 	setAttr ".typ" 11;
 	setAttr ".radi" 1.5174249187814872;
@@ -414,11 +413,10 @@ createNode joint -n "Character1_LeftHand" -p "Character1_LeftForeArm";
 	addAttr -s false -ci true -sn "ch" -ln "Character" -at "message";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
-	setAttr ".t" -type "double3" 8.6439282211564219 -23.066012227288965 1.6071003412607716 ;
-	setAttr ".r" -type "double3" -77.212347205369866 -101.97681374782832 94.548732091549681 ;
-	setAttr ".jo" -type "double3" 0 0 -0.1698501420000004 ;
+	setAttr ".jo" -type "double3" 0 0 -0.18602634600000045 ;
 	setAttr ".bps" -type "matrix" 0 0 1 0 -0.62205847687256222 0.78297078575831147 0 0
 		 -0.78297078575831147 -0.62205847687256222 0 0 64.122554840693397 123.89040487132579 -3.0314981335488493 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 1;
 	setAttr ".typ" 12;
 	setAttr ".radi" 1.5174249187814872;
@@ -433,11 +431,11 @@ createNode joint -n "Character1_LeftHandThumb1" -p "Character1_LeftHand";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 1;
-	setAttr ".t" -type "double3" 5.2750258013901785 -1.6169669282715518 0.11312166214749952 ;
-	setAttr ".jo" -type "double3" 0 0 1.1323342800000022 ;
+	setAttr ".jo" -type "double3" 0 0 1.3021844220000027 ;
 	setAttr ".bps" -type "matrix" -0.0077352632556973496 0.0097361990464467345 0.99992268307629317 0
 		 -0.62201038122476471 0.78291024886580429 -0.012434945496743116 0 -0.78297078575831147 -0.62205847687256222 0 0
 		 65.215914860092994 122.07784920217917 1.5016466314321546 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 1;
 	setAttr ".typ" 14;
 	setAttr ".radi" 1.0116166125209916;
@@ -452,11 +450,11 @@ createNode joint -n "Character1_LeftHandThumb2" -p "Character1_LeftHandThumb1";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 2;
-	setAttr ".t" -type "double3" 2.1779875857096798 -1.5229541125899431 0.19489289688389455 ;
-	setAttr ".jo" -type "double3" 0 0 -5.3785878300000078 ;
+	setAttr ".jo" -type "double3" 0 0 -6.5109221100000081 ;
 	setAttr ".bps" -type "matrix" 0.023201005417982815 -0.029202575188477589 0.99930421941967007 0
 		 -0.62162566066452474 0.78242600989061517 0.037297145333710931 0 -0.78297078575831147 -0.62205847687256222 0 0
 		 66.339402790532716 121.20261891683677 3.8042167558834459 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 1;
 	setAttr ".typ" 14;
 	setAttr ".radi" 1.0116166125209916;
@@ -471,11 +469,11 @@ createNode joint -n "Character1_LeftHandThumb3" -p "Character1_LeftHandThumb2";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 3;
-	setAttr ".t" -type "double3" 3.0227077302485341 -0.96332699598305283 0.082583857106909964 ;
-	setAttr ".jo" -type "double3" 0 0 19.363214050000035 ;
+	setAttr ".jo" -type "double3" 0 0 24.741801880000047 ;
 	setAttr ".bps" -type "matrix" -0.069477132354834048 0.087449278379085491 0.99374320213560519 0
 		 -0.61816638272293734 0.77807189581809533 -0.1116890693365914 0 -0.78297078575831147 -0.62205847687256222 0 0
 		 66.560156079717856 121.07198067774139 6.5584485931589782 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 1;
 	setAttr ".typ" 14;
 	setAttr ".radi" 1.0116166125209916;
@@ -490,11 +488,11 @@ createNode joint -n "Character1_LeftHandThumb4" -p "Character1_LeftHandThumb3";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 4;
-	setAttr ".t" -type "double3" 3.0306648572538819 -1.2919559467682973 0.11752500452264325 ;
-	setAttr ".jo" -type "double3" 0 0 -54.868148830000123 ;
+	setAttr ".jo" -type "double3" 0 0 -74.231362880000148 ;
 	setAttr ".bps" -type "matrix" 0.1456667605585239 -0.18334742184815636 0.97219592560862955 0
 		 -0.60476271670581494 0.76120100778481758 0.2341689181552073 0 -0.78297078575831147 -0.62205847687256222 0 0
 		 67.583296109480628 119.59524851875663 9.3225647958879847 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 1;
 	setAttr ".typ" 14;
 	setAttr ".radi" 1.0116166125209916;
@@ -508,11 +506,11 @@ createNode joint -n "Character1_LeftHandIndex1" -p "Character1_LeftHand";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 1;
-	setAttr ".t" -type "double3" 7.0907799566800875 -8.2267295804784482 0.1878718029972255 ;
-	setAttr ".jo" -type "double3" 0 0 1.1323342800000022 ;
+	setAttr ".jo" -type "double3" 0 0 1.3021844220000027 ;
 	setAttr ".bps" -type "matrix" -0.065304651774000883 0.082197472447011519 0.99447417160024787 0
 		 -0.61862108847475328 0.77864422355419194 -0.10498153180441186 0 -0.78297078575831147 -0.62205847687256222 0 0
 		 68.300215989630829 117.66559981013967 2.9905362612113997 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 1;
 	setAttr ".typ" 19;
 	setAttr ".radi" 1.0116166125209916;
@@ -527,11 +525,11 @@ createNode joint -n "Character1_LeftHandIndex2" -p "Character1_LeftHandIndex1";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 2;
-	setAttr ".t" -type "double3" 2.1336904647991375 -3.6428940915225212 0.17323856926018477 ;
-	setAttr ".jo" -type "double3" 1.0453217981911853e-05 1.9999999849726871 -5.3782883065384182 ;
+	setAttr ".jo" -type "double3" 1.0453217981911858e-05 1.9999999849726871 -6.5106225865384211 ;
 	setAttr ".bps" -type "matrix" -0.0071226601956075296 0.065068370250215446 0.99785538777155414 0
 		 -0.6211029046513783 0.78176773573548475 -0.055411092721888648 0 -0.78369665658681897 -0.62016555415146501 0.034845887829806792 0
 		 70.292596828674405 114.87934317225928 5.464504026479073 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 1;
 	setAttr ".typ" 19;
 	setAttr ".radi" 1.0116166125209916;
@@ -546,11 +544,11 @@ createNode joint -n "Character1_LeftHandIndex3" -p "Character1_LeftHandIndex2";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 3;
-	setAttr ".t" -type "double3" 1.5440038081810386 -2.1524237643930491 0.16279613000581272 ;
-	setAttr ".jo" -type "double3" -3.4068763800691673 -41.691458798588229 21.36997584296029 ;
+	setAttr ".jo" -type "double3" -4.6470716835664998 -43.470883998212067 27.587541632066451 ;
 	setAttr ".bps" -type "matrix" -0.54592877637674941 -0.21117847049170221 0.81078075009497486 0
 		 -0.59973562069887765 0.77423972735468272 -0.20216337415733374 0 -0.58504611475397117 -0.59662089989081957 -0.54933099805559071 0
 		 71.426944318017689 113.27664408003442 7.2499982982000502 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 1;
 	setAttr ".typ" 19;
 	setAttr ".radi" 1.0116166125209916;
@@ -565,11 +563,11 @@ createNode joint -n "Character1_LeftHandIndex4" -p "Character1_LeftHandIndex3";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 4;
-	setAttr ".t" -type "double3" 0.43997868424020936 -1.8770408485032561 -0.3431810109507083 ;
-	setAttr ".jo" -type "double3" -48.686038818609354 56.569612543278026 -43.519378727620477 ;
+	setAttr ".jo" -type "double3" 54.091353887230611 126.19966398087945 49.890340969573771 ;
 	setAttr ".bps" -type "matrix" -0.87031650558870965 -0.49137570707287564 0.033152595652361116 0
 		 -0.49228890681626913 0.86991976775668034 -0.029853473697473598 0 -0.014170826563755567 -0.042302625979892317 -0.9990043420875131 0
 		 72.657058764312566 111.80660906676223 7.6505632799237286 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 1;
 	setAttr ".typ" 19;
 	setAttr ".radi" 1.0116166125209916;
@@ -584,11 +582,11 @@ createNode joint -n "Character1_LeftHandMiddle1" -p "Character1_LeftHand";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 1;
-	setAttr ".t" -type "double3" 4.4181473649068508 -9.2654451625019902 0.022638348513189133 ;
-	setAttr ".jo" -type "double3" 0 0 1.1323342800000022 ;
+	setAttr ".jo" -type "double3" 0 0 1.3021844220000027 ;
 	setAttr ".bps" -type "matrix" -0.0077352632556973487 0.0097361990464467328 0.99992268307629317 0
 		 -0.55041891403789411 0.83479674031959894 -0.012386340101787342 0 -0.83485279227640496 -0.55047216894217255 -0.0010983844453681241 0
 		 69.174517392669202 117.24342366567873 1.1564431081716542 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 1;
 	setAttr ".typ" 20;
 	setAttr ".radi" 1.0116166125209916;
@@ -603,11 +601,11 @@ createNode joint -n "Character1_LeftHandMiddle2" -p "Character1_LeftHandMiddle1"
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 2;
-	setAttr ".t" -type "double3" 1.4502429187149133 -4.6373999226537563 0.20623876597270918 ;
-	setAttr ".jo" -type "double3" 0 0.0035633340000000252 -5.3785878300000132 ;
+	setAttr ".jo" -type "double3" 0 0.0035633340000000269 -6.5109221100000125 ;
 	setAttr ".bps" -type "matrix" 0.019693358978671333 -0.031748165370248528 0.99930186911051089 0
 		 -0.55012274007213324 0.83424832648812819 0.037345690611974527 0 -0.83485156912331726 -0.55047414448580645 -0.0010362359548578214 0
 		 71.550960862054666 113.26169716075019 2.6225902601542321 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 1;
 	setAttr ".typ" 20;
 	setAttr ".radi" 1.0116166125209916;
@@ -622,11 +620,11 @@ createNode joint -n "Character1_LeftHandMiddle3" -p "Character1_LeftHandMiddle2"
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 3;
-	setAttr ".t" -type "double3" 1.068132900152591 -2.5479125789920971 0.11733344032983872 ;
-	setAttr ".jo" -type "double3" -0.0045736780355406133 -0.074354830329009261 19.362921312004826 ;
+	setAttr ".jo" -type "double3" -0.006065024306544391 -0.077591068794664222 24.741511119496764 ;
 	setAttr ".bps" -type "matrix" -0.063245597797596378 0.092016885722013303 0.99374689287627294 0
 		 -0.54691120255780601 0.82971419726860052 -0.111635511230504 0 -0.83479825759041859 -0.550551762864259 -0.0021507047815549612 0
 		 72.84118468386923 111.08965473886256 3.7469068285356832 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 1;
 	setAttr ".typ" 20;
 	setAttr ".radi" 1.0116166125209916;
@@ -641,11 +639,11 @@ createNode joint -n "Character1_LeftHandMiddle4" -p "Character1_LeftHandMiddle3"
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 4;
-	setAttr ".t" -type "double3" 0.11830055992737698 -2.000344012219216 0.084789072418526956 ;
-	setAttr ".jo" -type "double3" -0.17702295902024398 0.6937406021436151 -54.863380895214753 ;
+	setAttr ".jo" -type "double3" -0.24734002309918071 0.71835402700769668 -74.227165724358301 ;
 	setAttr ".bps" -type "matrix" 0.13501198243235496 -0.19141099156927094 0.97217981716663615 0
 		 -0.53493633590630207 0.81180583230382652 0.23412476837069446 0 -0.83403529968870338 -0.55166395835142223 0.0072108202872296356 0
 		 73.866411195713809 109.38085346090702 3.5200386545435016 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 1;
 	setAttr ".typ" 20;
 	setAttr ".radi" 1.0116166125209916;
@@ -660,11 +658,11 @@ createNode joint -n "Character1_LeftHandRing1" -p "Character1_LeftHand";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 1;
-	setAttr ".t" -type "double3" 1.9882264411581829 -9.9237300813596931 0.11069017023847927 ;
-	setAttr ".jo" -type "double3" 0 0 1.1323342800000022 ;
+	setAttr ".jo" -type "double3" 0 0 1.3021844220000027 ;
 	setAttr ".bps" -type "matrix" -0.007735263255697347 0.0097361990464467311 0.99992268307629317 0
 		 -0.57108052969884759 0.82080023341548469 -0.012409892182013821 0 -0.82085759684688808 -0.57113236929210509 -0.00078895217710838958 0
 		 69.516347216785064 116.67162117293373 -1.0348671653517041 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 1;
 	setAttr ".typ" 21;
 	setAttr ".radi" 1.0116166125209916;
@@ -679,11 +677,11 @@ createNode joint -n "Character1_LeftHandRing2" -p "Character1_LeftHandRing1";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 2;
-	setAttr ".t" -type "double3" 0.29086476561321462 -4.5244782522867126 0.18907520184301818 ;
-	setAttr ".jo" -type "double3" 0 0.0035635289999999733 -5.3785878300000078 ;
+	setAttr ".jo" -type "double3" 0 0.0035635289999999724 -6.5109221100000099 ;
 	setAttr ".bps" -type "matrix" 0.020719798383113198 -0.03105096443722519 0.99930302089130163 0
 		 -0.57075880079232211 0.82026913090713194 0.037322167661706908 0 -0.82085630976016322 -0.57113430162123546 -0.00072680021334842909 0
 		 71.675657131679912 113.31913021748264 -0.71917420429867196 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 1;
 	setAttr ".typ" 21;
 	setAttr ".radi" 1.0116166125209916;
@@ -698,11 +696,11 @@ createNode joint -n "Character1_LeftHandRing3" -p "Character1_LeftHandRing2";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 3;
-	setAttr ".t" -type "double3" 0.36244615633075483 -2.2738178245709548 0.096045425885193492 ;
-	setAttr ".jo" -type "double3" -0.0045739283260465514 -0.074358899325021724 19.362921312565618 ;
+	setAttr ".jo" -type "double3" -0.0060653562097110316 -0.077595314890673131 24.741511120273998 ;
 	setAttr ".bps" -type "matrix" -0.065282931195666138 0.090604918696623737 0.9937448805415201 0
 		 -0.56747096314381607 0.81578733998576392 -0.11165895354865696 0 -0.82080134312946351 -0.57121078826202998 -0.0018413283082459064 0
 		 73.157662049577809 110.9378989571758 -0.25493922125961349 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 1;
 	setAttr ".typ" 21;
 	setAttr ".radi" 1.0116166125209916;
@@ -717,11 +715,11 @@ createNode joint -n "Character1_LeftHandRing4" -p "Character1_LeftHandRing3";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 4;
-	setAttr ".t" -type "double3" -0.34370018465322261 -1.890677751053488 0.080454284906683604 ;
-	setAttr ".jo" -type "double3" -0.1770326477777068 0.69377856615334943 -54.863381090598409 ;
+	setAttr ".jo" -type "double3" -0.24735356057855229 0.71839333766544122 -74.227166014821208 ;
 	setAttr ".bps" -type "matrix" 0.13998030541546 -0.18779168223440984 0.97218300652673673 0
 		 -0.55496977606264375 0.79825115549983683 0.23410177359463552 0 -0.82000857419466855 -0.5723018231901289 0.0075207327090534614 0
 		 74.122351617175426 109.41182272479396 -0.91806095845929181 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 1;
 	setAttr ".typ" 21;
 	setAttr ".radi" 1.0116166125209916;
@@ -736,11 +734,11 @@ createNode joint -n "Character1_LeftHandPinky1" -p "Character1_LeftHand";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 1;
-	setAttr ".t" -type "double3" -0.3714246848938032 -9.8589457103449973 0.30412128011223505 ;
-	setAttr ".jo" -type "double3" 0 0 1.1323342800000022 ;
+	setAttr ".jo" -type "double3" 0 0 1.3021844220000027 ;
 	setAttr ".bps" -type "matrix" -0.0077352632556973496 0.0097361990464467345 0.99992268307629317 0
 		 -0.62201038122476471 0.78291024886580429 -0.012434945496743116 0 -0.78297078575831147 -0.62205847687256222 0 0
 		 69.325839893763501 116.60045512806698 -3.3945723163411952 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 1;
 	setAttr ".typ" 22;
 	setAttr ".radi" 1.0116166125209916;
@@ -755,11 +753,11 @@ createNode joint -n "Character1_LeftHandPinky2" -p "Character1_LeftHandPinky1";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 2;
-	setAttr ".t" -type "double3" -0.5433318095051618 -2.9929139798753681 0.11746142516195057 ;
-	setAttr ".jo" -type "double3" 0 0 -5.3793508560000109 ;
+	setAttr ".jo" -type "double3" 0 0 -6.511685136000013 ;
 	setAttr ".bps" -type "matrix" 0.023209283801268518 -0.029212995000291106 0.99930372263318679 0
 		 -0.62162535163428156 0.78242562092131196 0.037310453380451684 0 -0.78297078575831147 -0.62205847687256222 0 0
 		 71.09681972491633 114.1825363132898 -3.9273384708135515 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 1;
 	setAttr ".typ" 22;
 	setAttr ".radi" 1.0116166125209916;
@@ -774,11 +772,11 @@ createNode joint -n "Character1_LeftHandPinky3" -p "Character1_LeftHandPinky2";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 3;
-	setAttr ".t" -type "double3" -0.16887461001834936 -1.9657906013593589 0.07618931947751939 ;
-	setAttr ".jo" -type "double3" 0 0 19.378939734000053 ;
+	setAttr ".jo" -type "double3" 0 0 24.758290590000062 ;
 	setAttr ".bps" -type "matrix" -0.069613866399180505 0.087621382395222547 0.99371847268333857 0
 		 -0.61815099955752639 0.77805253337942271 -0.11190887832470117 0 -0.78297078575831147 -0.62205847687256222 0 0
 		 72.262036074606257 112.5934257760578 -4.052457188747832 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 1;
 	setAttr ".typ" 22;
 	setAttr ".radi" 1.0116166125209916;
@@ -793,11 +791,11 @@ createNode joint -n "Character1_LeftHandPinky4" -p "Character1_LeftHandPinky3";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 4;
-	setAttr ".t" -type "double3" -0.68503223137099667 -1.517959019018619 0.064309024643685486 ;
-	setAttr ".jo" -type "double3" 0 0 -55.021831326000161 ;
+	setAttr ".jo" -type "double3" 0 0 -74.400771060000224 ;
 	setAttr ".bps" -type "matrix" 0.14670527284489437 -0.18465457352458262 0.97179228819535268 0
 		 -0.60451163063130309 0.7608849714821827 0.23583839510147714 0 -0.78297078575831147 -0.62205847687256222 0 0
 		 73.068952605771685 111.47439738729386 -4.9874788831272063 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 1;
 	setAttr ".typ" 22;
 	setAttr ".radi" 1.0116166125209916;
@@ -811,9 +809,8 @@ createNode joint -n "Character1_RightShoulder" -p "Character1_Spine2";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 5;
-	setAttr ".t" -type "double3" -10.624366866877258 7.1521864424273929 6.9180538744409255 ;
-	setAttr ".r" -type "double3" 0 11.494 -17.349 ;
 	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -10.624373542597018 160.33874039750552 4.5613567919213942 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 2;
 	setAttr ".typ" 9;
 	setAttr ".radi" 1.5174249187814872;
@@ -828,11 +825,10 @@ createNode joint -n "Character1_RightArm" -p "Character1_RightShoulder";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 6;
-	setAttr ".t" -type "double3" -11.666273998916454 -5.3262686810813022 -9.404594240547377 ;
-	setAttr ".r" -type "double3" 13.629 0 -62.586 ;
-	setAttr ".jo" -type "double3" 0 0 0.0023183610000000123 ;
+	setAttr ".jo" -type "double3" 0 0 0.0023183610000000127 ;
 	setAttr ".bps" -type "matrix" 0.78882935115461494 -0.61461228002456092 0 0 0.61461228002456092 0.78882935115461494 0 0
 		 0 0 1 0 -22.290647541513472 155.01247171642422 -4.8432374486259828 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 2;
 	setAttr ".typ" 10;
 	setAttr ".radi" 1.5174249187814872;
@@ -847,11 +843,10 @@ createNode joint -n "Character1_RightForeArm" -p "Character1_RightArm";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 7;
-	setAttr ".t" -type "double3" -4.7948847803925609 -26.383046989511939 0.20463897381636187 ;
-	setAttr ".r" -type "double3" 0 0 10.956 ;
-	setAttr ".jo" -type "double3" 0 0 -0.051003942000000163 ;
+	setAttr ".jo" -type "double3" 0 0 -0.053322303000000175 ;
 	setAttr ".bps" -type "matrix" 0.78835660562356202 -0.61521854846037904 0 0 0.61521854846037904 0.78835660562356202 0 0
 		 0 0 1 0 -42.288338055910735 137.14774494553794 -4.638598474809621 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 2;
 	setAttr ".typ" 11;
 	setAttr ".radi" 1.5174249187814872;
@@ -865,12 +860,11 @@ createNode joint -n "Character1_RightHand" -p "Character1_RightForeArm";
 	addAttr -s false -ci true -sn "ch" -ln "Character" -at "message";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
-	setAttr ".t" -type "double3" -8.6305432032191227 -23.071023799981546 1.6071003412607725 ;
-	setAttr ".r" -type "double3" -77.212 101.977 -94.549 ;
-	setAttr ".jo" -type "double3" 0 0 0.53554139100000131 ;
+	setAttr ".jo" -type "double3" 0 0 0.58654533300000145 ;
 	setAttr ".bps" -type "matrix" 3.5223513018918627e-16 -2.7047675764843902e-16 -1 0
 		 0.60974908509146009 0.7925945074438302 0 0 0.79259450744383009 -0.60974908509145997 4.4408920985006262e-16 0
 		 -63.28444210692502 124.26667240320171 -3.0314981335488493 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 2;
 	setAttr ".typ" 12;
 	setAttr ".radi" 1.5174249187814872;
@@ -899,11 +893,11 @@ createNode joint -n "Character1_RightHandThumb1" -p "Character1_RightHand";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 1;
-	setAttr ".t" -type "double3" -5.2843190601880892 -1.5863326645407625 0.11312166214749819 ;
-	setAttr ".jo" -type "double3" 0 0 -3.5702759400000073 ;
+	setAttr ".jo" -type "double3" 0 0 -4.1058173310000079 ;
 	setAttr ".bps" -type "matrix" -0.023901330857050703 -0.031068621538079103 -0.99923143822589244 0
 		 0.60928045525286179 0.79198534960304123 -0.039198633407487513 0 0.79259450744383009 -0.60974908509145997 4.4408920985006262e-16 0
 		 -64.153439115552075 122.9515676531058 2.2570384748311643 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 2;
 	setAttr ".typ" 14;
 	setAttr ".radi" 1.0116166125209916;
@@ -918,11 +912,11 @@ createNode joint -n "Character1_RightHandThumb2" -p "Character1_RightHandThumb1"
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 2;
-	setAttr ".t" -type "double3" -2.1205645208083084 -1.6019442142749796 0.19489289688389455 ;
-	setAttr ".jo" -type "double3" 0 0 16.958810715000016 ;
+	setAttr ".jo" -type "double3" 0 0 20.529086655000022 ;
 	setAttr ".bps" -type "matrix" 0.071557091850018115 0.093014912782477435 -0.99309003046352062 0
 		 0.60553573748858192 0.78711770354261246 0.11735498026911259 0 0.79259450744383009 -0.60974908509145997 4.4408920985006262e-16 0
 		 -64.96130414153177 121.58182016245382 4.3952967158926253 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 2;
 	setAttr ".typ" 14;
 	setAttr ".radi" 1.0116166125209916;
@@ -937,11 +931,11 @@ createNode joint -n "Character1_RightHandThumb3" -p "Character1_RightHandThumb2"
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 3;
-	setAttr ".t" -type "double3" -3.1400485933331552 -0.45260993714293818 0.082583857106910408 ;
-	setAttr ".jo" -type "double3" 0 0 -61.051116488000027 ;
+	setAttr ".jo" -type "double3" 0 0 -78.009927203000046 ;
 	setAttr ".bps" -type "matrix" -0.21072327101962002 -0.27391284593021858 -0.93838555822497616 0
 		 0.57217973559071844 0.74375923931372856 -0.34559013891429224 0 0.79259450744383009 -0.60974908509145997 4.4408920985006262e-16 0
 		 -65.036921482592277 121.34808837050271 7.5593498893255404 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 2;
 	setAttr ".typ" 14;
 	setAttr ".radi" 1.0116166125209916;
@@ -956,11 +950,11 @@ createNode joint -n "Character1_RightHandThumb4" -p "Character1_RightHandThumb3"
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 4;
-	setAttr ".t" -type "double3" -1.8754524395345271 -2.7086450104116011 0.11752500452264281 ;
-	setAttr ".jo" -type "double3" 0 0 172.96701489500009 ;
+	setAttr ".jo" -type "double3" 0 0 -125.98186861699988 ;
 	setAttr ".bps" -type "matrix" 0.4132952282151221 0.53723004403838459 -0.73523529167003787 0
 		 0.44830904642275826 0.5827434538565347 0.67781196941546717 0 0.79259450744383009 -0.60974908509145997 4.4408920985006262e-16 0
 		 -66.948761131094287 118.67020225478389 7.7635235451380407 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 2;
 	setAttr ".typ" 14;
 	setAttr ".radi" 1.0116166125209916;
@@ -974,11 +968,11 @@ createNode joint -n "Character1_RightHandIndex1" -p "Character1_RightHand";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 1;
-	setAttr ".t" -type "double3" -7.1383941790483405 -8.1854485844640408 0.18787180299722417 ;
-	setAttr ".jo" -type "double3" 0 0 -3.5702759400000073 ;
+	setAttr ".jo" -type "double3" 0 0 -4.1058173310000079 ;
 	setAttr ".bps" -type "matrix" -0.023901330857050703 -0.031068621538079103 -0.99923143822589244 0
 		 0.60928045525286179 0.79198534960304123 -0.039198633407487513 0 0.79259450744383009 -0.60974908509145997 4.4408920985006262e-16 0
 		 -68.114963990704581 117.67950890534149 4.128730297271078 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 2;
 	setAttr ".typ" 19;
 	setAttr ".radi" 1.0116166125209916;
@@ -993,11 +987,11 @@ createNode joint -n "Character1_RightHandIndex2" -p "Character1_RightHandIndex1"
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 2;
-	setAttr ".t" -type "double3" -1.9984116626245125 -3.718825511947415 0.17323856926018522 ;
-	setAttr ".jo" -type "double3" 0 2.0000646580000057 16.95881071500003 ;
+	setAttr ".jo" -type "double3" 0 2.0000646580000052 20.529086655000036 ;
 	setAttr ".bps" -type "matrix" 0.043851455091827946 0.11423887081154345 -0.99248502773695935 0
 		 0.60553573748858192 0.78711770354261246 0.11735498026911276 0 0.79460903626279566 -0.60613133986414858 -0.034659462257849168 0
 		 -70.231507418963986 114.64416320246551 6.1683980015376711 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 2;
 	setAttr ".typ" 19;
 	setAttr ".radi" 1.0116166125209916;
@@ -1012,11 +1006,11 @@ createNode joint -n "Character1_RightHandIndex3" -p "Character1_RightHandIndex2"
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 3;
-	setAttr ".t" -type "double3" -1.8845940680131008 -1.8681084183938594 0.043064336545167947 ;
-	setAttr ".jo" -type "double3" 9.5939341886671361 -39.154942660268759 -66.553294660737549 ;
+	setAttr ".jo" -type "double3" 12.164255941441324 -39.352746685467174 -85.138661189082185 ;
 	setAttr ".bps" -type "matrix" 0.25448503242215814 -0.58012386002327443 -0.7737529808051079 0
 		 0.6023041682260738 0.72105052415964599 -0.34251398591385701 0 0.75661552799991549 -0.3788699627059352 0.53290758499819901 0
 		 -71.201091942342273 113.20537633041805 8.1766750217705209 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 2;
 	setAttr ".typ" 19;
 	setAttr ".radi" 1.0116166125209916;
@@ -1031,11 +1025,11 @@ createNode joint -n "Character1_RightHandIndex4" -p "Character1_RightHandIndex3"
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 4;
-	setAttr ".t" -type "double3" 0.57162275079167557 -1.8694306510670238 -0.11451317584127452 ;
-	setAttr ".jo" -type "double3" 115.54323006380224 25.208122123026879 117.52196356176964 ;
+	setAttr ".jo" -type "double3" 122.7757683909188 -14.296644605323564 -178.61212031518451 ;
 	setAttr ".bps" -type "matrix" 0.42380531667068805 -0.89224540037775335 -0.1558435082587688 0
 		 0.90132431497243415 0.39844892898263484 0.16986150309020637 0 -0.0894624658788854 -0.21245375143153974 0.9730672488073655 0
 		 -71.994400252261627 112.14732727078976 6.7324344224777768 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 2;
 	setAttr ".typ" 19;
 	setAttr ".radi" 1.0116166125209916;
@@ -1050,11 +1044,11 @@ createNode joint -n "Character1_RightHandMiddle1" -p "Character1_RightHand";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 1;
-	setAttr ".t" -type "double3" -4.4718334690022843 -9.2396539774428987 0.0226383485131878 ;
-	setAttr ".jo" -type "double3" 0 0 -3.5702759400000073 ;
+	setAttr ".jo" -type "double3" 0 0 -4.1058173310000079 ;
 	setAttr ".bps" -type "matrix" -0.023901330857050703 -0.031068621538079103 -0.99923143822589244 0
 		 0.60928045525286179 0.79198534960304123 -0.039198633407487513 0 0.79259450744383009 -0.60974908509145997 4.4408920985006262e-16 0
 		 -68.893067747454253 116.93906120254677 1.4649944116048861 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 2;
 	setAttr ".typ" 20;
 	setAttr ".radi" 1.0116166125209916;
@@ -1069,11 +1063,11 @@ createNode joint -n "Character1_RightHandMiddle2" -p "Character1_RightHandMiddle
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 2;
-	setAttr ".t" -type "double3" -1.2788878313150818 -4.6875503710175082 0.20623876597270874 ;
-	setAttr ".jo" -type "double3" 0 2.0000646580000057 16.95881071500003 ;
+	setAttr ".jo" -type "double3" 0 2.0000646580000052 20.529086655000036 ;
 	setAttr ".bps" -type "matrix" 0.043851455091827946 0.11423887081154345 -0.99248502773695935 0
 		 0.60553573748858192 0.78711770354261246 0.11735498026911276 0 0.79460903626279566 -0.60613133986414858 -0.034659462257849168 0
 		 -71.578979713080599 113.10948950740341 2.7959619315557251 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 2;
 	setAttr ".typ" 20;
 	setAttr ".radi" 1.0116166125209916;
@@ -1088,11 +1082,11 @@ createNode joint -n "Character1_RightHandMiddle3" -p "Character1_RightHandMiddle
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 3;
-	setAttr ".t" -type "double3" -1.4761826851153934 -2.3373254454705261 0.065787391768235448 ;
-	setAttr ".jo" -type "double3" 9.5939341886671361 -39.154942660268759 -66.553294660737549 ;
+	setAttr ".jo" -type "double3" 12.164255941441324 -39.352746685467174 -85.138661189082185 ;
 	setAttr ".bps" -type "matrix" 0.25448503242215814 -0.58012386002327443 -0.7737529808051079 0
 		 0.6023041682260738 0.72105052415964599 -0.34251398591385701 0 0.75661552799991549 -0.3788699627059352 0.53290758499819901 0
 		 -72.844744743586546 111.27183948189744 4.4291841485550858 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 2;
 	setAttr ".typ" 20;
 	setAttr ".radi" 1.0116166125209916;
@@ -1107,11 +1101,11 @@ createNode joint -n "Character1_RightHandMiddle4" -p "Character1_RightHandMiddle
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 4;
-	setAttr ".t" -type "double3" 0.905813011597985 -1.7463122528236035 -0.3904570144842836 ;
-	setAttr ".jo" -type "double3" 115.54323006380224 25.208122123026879 117.52196356176964 ;
+	setAttr ".jo" -type "double3" 122.7757683909188 -14.296644605323564 -178.61212031518451 ;
 	setAttr ".bps" -type "matrix" 0.42380531667068805 -0.89224540037775335 -0.1558435082587688 0
 		 0.90132431497243415 0.39844892898263484 0.16986150309020637 0 -0.0894624658788854 -0.21245375143153974 0.9730672488073655 0
 		 -73.50018681254393 110.52312860895096 2.6878088014588224 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 2;
 	setAttr ".typ" 20;
 	setAttr ".radi" 1.0116166125209916;
@@ -1126,11 +1120,11 @@ createNode joint -n "Character1_RightHandRing1" -p "Character1_RightHand";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 1;
-	setAttr ".t" -type "double3" -2.0457729856339029 -9.9120268361347144 0.11069017023847794 ;
-	setAttr ".jo" -type "double3" 0 0 -3.5702759400000073 ;
+	setAttr ".jo" -type "double3" 0 0 -4.1058173310000079 ;
 	setAttr ".bps" -type "matrix" -0.023901330857050703 -0.031068621538079103 -0.99923143822589244 0
 		 0.60928045525286179 0.79198534960304123 -0.039198633407487513 0 0.79259450744383009 -0.60974908509145997 4.4408920985006262e-16 0
 		 -69.237206153978036 116.34731938388967 -0.95926181053497395 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 2;
 	setAttr ".typ" 21;
 	setAttr ".radi" 1.0116166125209916;
@@ -1145,11 +1139,11 @@ createNode joint -n "Character1_RightHandRing2" -p "Character1_RightHandRing1";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 2;
-	setAttr ".t" -type "double3" -0.12444109511891099 -4.5321099039119161 0.18907520184301863 ;
-	setAttr ".jo" -type "double3" 0 2.0000646580000057 16.95881071500003 ;
+	setAttr ".jo" -type "double3" 0 2.0000646580000052 20.529086655000036 ;
 	setAttr ".bps" -type "matrix" 0.043851455091827946 0.11423887081154345 -0.99248502773695935 0
 		 0.60553573748858192 0.78711770354261246 0.11735498026911276 0 0.79460903626279566 -0.60613133986414858 -0.034659462257849168 0
 		 -71.849780674212326 112.64122539847688 -0.78439915942810723 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 2;
 	setAttr ".typ" 21;
 	setAttr ".radi" 1.0116166125209916;
@@ -1164,11 +1158,11 @@ createNode joint -n "Character1_RightHandRing3" -p "Character1_RightHandRing2";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 3;
-	setAttr ".t" -type "double3" -0.73471206520566312 -2.1831349244328351 0.070423876432550436 ;
-	setAttr ".jo" -type "double3" 9.5939341886671361 -39.154942660268759 -66.553294660737549 ;
+	setAttr ".jo" -type "double3" 12.164255941441324 -39.352746685467174 -85.138661189082185 ;
 	setAttr ".bps" -type "matrix" 0.25448503242215814 -0.58012386002327443 -0.7737529808051079 0
 		 0.6023041682260738 0.72105052415964599 -0.34251398591385701 0 0.75661552799991549 -0.3788699627059352 0.53290758499819901 0
 		 -73.070280484096841 110.89725504264086 0.098656360596621417 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 2;
 	setAttr ".typ" 21;
 	setAttr ".radi" 1.0116166125209916;
@@ -1183,11 +1177,11 @@ createNode joint -n "Character1_RightHandRing4" -p "Character1_RightHandRing3";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 4;
-	setAttr ".t" -type "double3" 1.1441368700172916 -1.4121671089727599 -0.62928526617244529 ;
-	setAttr ".jo" -type "double3" 115.54323006380224 25.208122123026879 117.52196356176964 ;
+	setAttr ".jo" -type "double3" 122.7757683909188 -14.296644605323564 -178.61212031518451 ;
 	setAttr ".bps" -type "matrix" 0.42380531667068805 -0.89224540037775335 -0.1558435082587688 0
 		 0.90132431497243415 0.39844892898263484 0.16986150309020637 0 -0.0894624658788854 -0.21245375143153974 0.9730672488073655 0
 		 -73.505368640022311 110.55688967032964 -1.7436559845620416 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 2;
 	setAttr ".typ" 21;
 	setAttr ".radi" 1.0116166125209916;
@@ -1201,11 +1195,11 @@ createNode joint -n "Character1_RightHandPinky1" -p "Character1_RightHand";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 1;
-	setAttr ".t" -type "double3" 0.3142143153259056 -9.8609348532541929 0.30412128011223372 ;
-	setAttr ".jo" -type "double3" 0 0 -3.5702759400000073 ;
+	setAttr ".jo" -type "double3" 0 0 -4.1058173310000079 ;
 	setAttr ".bps" -type "matrix" -0.023901330857050703 -0.031068621538079103 -0.99923143822589244 0
 		 0.60928045525286179 0.79198534960304123 -0.039198633407487513 0 0.79259450744383009 -0.60974908509145997 4.4408920985006262e-16 0
 		 -69.056583471757662 116.26487471073601 -3.3193771399647201 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 2;
 	setAttr ".typ" 22;
 	setAttr ".radi" 1.0116166125209916;
@@ -1220,11 +1214,11 @@ createNode joint -n "Character1_RightHandPinky2" -p "Character1_RightHandPinky1"
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 2;
-	setAttr ".t" -type "double3" 0.65292330887592698 -2.9709316213740351 0.11746142516195102 ;
-	setAttr ".jo" -type "double3" -4.3345585314349742e-05 2.0000646575304999 16.957568743375553 ;
+	setAttr ".jo" -type "double3" -4.3345585314399453e-05 2.0000646575305003 20.527844683375562 ;
 	setAttr ".bps" -type "matrix" 0.043838337186176038 0.11422181922686295 -0.9924875697988651 0
 		 0.60553668731321519 0.78712017814752933 0.117333479752114 0 0.79460903626279566 -0.60613133986414858 -0.03465946225784914 0
 		 -70.779324797332237 113.83289609229095 -3.9392021613524824 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 2;
 	setAttr ".typ" 22;
 	setAttr ".radi" 1.0116166125209916;
@@ -1239,11 +1233,11 @@ createNode joint -n "Character1_RightHandPinky3" -p "Character1_RightHandPinky2"
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 3;
-	setAttr ".t" -type "double3" -0.1595175531143358 -1.9667783143623438 0.070663619398621424 ;
-	setAttr ".jo" -type "double3" 9.5842746520590811 -39.15832180241631 -66.523048418927473 ;
+	setAttr ".jo" -type "double3" 12.154604631288134 -39.35717421978849 -85.107314550605054 ;
 	setAttr ".bps" -type "matrix" 0.25469118608826774 -0.57987402651997233 -0.7738724139652905 0
 		 0.60230101133777625 0.72120831468529112 -0.34218716891533851 0 0.75654867091975231 -0.37895208166246652 0.53294411370540506 0
 		 -71.908515027275797 112.24014373343445 -3.6447102554176816 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 2;
 	setAttr ".typ" 22;
 	setAttr ".radi" 1.0116166125209916;
@@ -1258,11 +1252,11 @@ createNode joint -n "Character1_RightHandPinky4" -p "Character1_RightHandPinky3"
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 4;
-	setAttr ".t" -type "double3" 1.1767585064060739 -0.92064352564332808 -0.73841675792176176 ;
-	setAttr ".jo" -type "double3" 115.54005397081656 25.242702479673234 117.43613079489053 ;
+	setAttr ".jo" -type "double3" 122.83740772504717 -14.252168174377578 -178.7131792169059 ;
 	setAttr ".bps" -type "matrix" 0.42430372445872222 -0.89208145092306079 -0.15542533361541611 0
 		 0.9010176802561336 0.39883365036314899 0.17058387732684985 0 -0.090185859625070974 -0.21242034802959001 0.97300776279877388 0
 		 -72.092427386423836 112.29601556157773 -5.3002038298722098 1;
+	setAttr ".ds" 2;
 	setAttr ".sd" 2;
 	setAttr ".typ" 22;
 	setAttr ".radi" 1.0116166125209916;
@@ -1276,8 +1270,8 @@ createNode joint -n "Character1_Neck" -p "Character1_Spine2";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 5;
-	setAttr ".t" -type "double3" 0 13.165673633388877 0.22806771014640503 ;
 	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -6.6757197600963991e-06 166.35223388671875 -2.128629207611084 1;
+	setAttr ".ds" 2;
 	setAttr ".typ" 7;
 	setAttr ".radi" 1.5174249187814872;
 	setAttr -k on ".liw";
@@ -1291,8 +1285,8 @@ createNode joint -n "Character1_Head" -p "Character1_Neck";
 	setAttr -k off -cb on ".v";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 6;
-	setAttr ".t" -type "double3" 0 12.245697855022257 2.5087448116104429 ;
 	setAttr ".bps" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -6.6757197600963991e-06 178.59793090820312 0.38011360168457031 1;
+	setAttr ".ds" 2;
 	setAttr ".typ" 8;
 	setAttr ".radi" 1.5174249187814872;
 	setAttr -k on ".liw";
@@ -1316,7 +1310,7 @@ createNode mesh -n "PunkBotShape" -p "PunkBot";
 	setAttr -s 16 ".iog[0].og";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.32664585113525391 0.56484469771385193 ;
+	setAttr ".pv" -type "double2" 0.52865305542945862 1.0646052807569504 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -53375,21 +53369,2092 @@ createNode mesh -n "PunkBotShapeOrig" -p "PunkBot";
 		17065 0 
 		17358 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode transform -n "Character1_Ctrl_Reference";
+	rename -uid "0AE91E60-41D7-ABD3-D5FF-A19833903EDD";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr -l on ".ra";
+createNode locator -n "Character1_Ctrl_ReferenceShape" -p "Character1_Ctrl_Reference";
+	rename -uid "7015B37D-4CED-04BA-B75C-7DB14F3F1056";
+	setAttr -k off ".v";
+createNode hikIKEffector -n "Character1_Ctrl_HipsEffector" -p "Character1_Ctrl_Reference";
+	rename -uid "84B02CB9-44E6-4E84-41E0-1089ACF97B71";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	addAttr -ci true -sn "pull" -ln "pull" -min 0 -max 1 -at "double";
+	addAttr -ci true -sn "stiffness" -ln "stiffness" -min 0 -max 1 -at "double";
+	setAttr -k off -cb on ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 4;
+	setAttr ".t" -type "double3" 0 107.28197479248047 1.1088950634002686 ;
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" -90 -90 0 ;
+	setAttr -l on ".ra";
+	setAttr ".rt" 1;
+	setAttr ".rr" 1;
+	setAttr ".radi" 15.174249187814869;
+	setAttr -l on ".jo" -type "double3" 90 0 90 ;
+	setAttr -l on ".jo";
+	setAttr ".lk" 2;
+	setAttr -cb on ".pull";
+	setAttr -cb on ".stiffness";
+instanceable -a 0;
+createNode hikIKEffector -n "Character1_Ctrl_LeftAnkleEffector" -p "Character1_Ctrl_Reference";
+	rename -uid "566FB711-4F7B-D4DD-74AB-B7B5739C5621";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	addAttr -ci true -sn "pull" -ln "pull" -min 0 -max 1 -at "double";
+	addAttr -ci true -sn "stiffness" -ln "stiffness" -min 0 -max 1 -at "double";
+	setAttr -k off -cb on ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 4;
+	setAttr ".t" -type "double3" 9.9342784881591797 16.706787109375 -2.6494157314300537 ;
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 139.72155327207815 -89.999973047376812 0 ;
+	setAttr -l on ".ra";
+	setAttr ".pin" 3;
+	setAttr ".ei" 1;
+	setAttr ".rt" 1;
+	setAttr ".rr" 1;
+	setAttr ".radi" 8.0929329001679307;
+	setAttr -l on ".jo" -type "double3" -90.000031805689403 -49.721553272070672 -89.999958310123844 ;
+	setAttr -l on ".jo";
+	setAttr ".lk" 1;
+	setAttr -cb on ".pull";
+	setAttr -cb on ".stiffness";
+instanceable -a 0;
+createNode hikIKEffector -n "Character1_Ctrl_RightAnkleEffector" -p "Character1_Ctrl_Reference";
+	rename -uid "BB22DD7C-46F1-FFBE-45DF-BC9356FB4E5F";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	addAttr -ci true -sn "pull" -ln "pull" -min 0 -max 1 -at "double";
+	addAttr -ci true -sn "stiffness" -ln "stiffness" -min 0 -max 1 -at "double";
+	setAttr -k off -cb on ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 4;
+	setAttr ".t" -type "double3" -9.9342784881591797 16.706787109375 -2.6494157314300537 ;
+	setAttr ".r" -type "double3" 2.5444437451708134e-14 -5.3905246400667895e-05 2.5444437451708134e-14 ;
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 139.72155327207813 -89.999973047376812 0 ;
+	setAttr -l on ".ra";
+	setAttr ".pin" 3;
+	setAttr ".ei" 2;
+	setAttr ".rt" 1;
+	setAttr ".rr" 1;
+	setAttr ".radi" 8.0929329001679307;
+	setAttr -l on ".jo" -type "double3" -89.99996819431064 -49.721553272070672 -90.00004168987617 ;
+	setAttr -l on ".jo";
+	setAttr ".lk" 1;
+	setAttr -cb on ".pull";
+	setAttr -cb on ".stiffness";
+instanceable -a 0;
+createNode hikIKEffector -n "Character1_Ctrl_LeftWristEffector" -p "Character1_Ctrl_Reference";
+	rename -uid "6248F409-4AA2-0ADE-7037-159541B39C5E";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	addAttr -ci true -sn "pull" -ln "pull" -min 0 -max 1 -at "double";
+	addAttr -ci true -sn "stiffness" -ln "stiffness" -min 0 -max 1 -at "double";
+	setAttr -k off -cb on ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 4;
+	setAttr ".t" -type "double3" 76.3892822265625 159.62507629394531 -2.7017943859100342 ;
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" -89.999999999999986 0 0 ;
+	setAttr -l on ".ra";
+	setAttr ".ei" 3;
+	setAttr ".radi" 5.0580830626049567;
+	setAttr -l on ".jo" -type "double3" 89.999999999999986 0 0 ;
+	setAttr -l on ".jo";
+	setAttr ".rof" -type "double3" 0 0 90 ;
+	setAttr ".lk" 1;
+	setAttr -cb on ".pull";
+	setAttr -cb on ".stiffness";
+instanceable -a 0;
+createNode hikIKEffector -n "Character1_Ctrl_RightWristEffector" -p "Character1_Ctrl_Reference";
+	rename -uid "88852444-44E7-5AF5-352C-40802A7AE6FB";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	addAttr -ci true -sn "pull" -ln "pull" -min 0 -max 1 -at "double";
+	addAttr -ci true -sn "stiffness" -ln "stiffness" -min 0 -max 1 -at "double";
+	setAttr -k off -cb on ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 4;
+	setAttr ".t" -type "double3" -76.389305114746094 159.62550354003906 -2.7016475200653076 ;
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 90.000000000000014 0 180 ;
+	setAttr -l on ".ra";
+	setAttr ".ei" 4;
+	setAttr ".radi" 5.0580830626049567;
+	setAttr -l on ".jo" -type "double3" 90.000000000000014 0 180 ;
+	setAttr -l on ".jo";
+	setAttr ".rof" -type "double3" 0 0 90 ;
+	setAttr ".lk" 1;
+	setAttr -cb on ".pull";
+	setAttr -cb on ".stiffness";
+instanceable -a 0;
+createNode hikIKEffector -n "Character1_Ctrl_LeftKneeEffector" -p "Character1_Ctrl_Reference";
+	rename -uid "A8BD330C-4EBC-6C23-22D0-1EA79C8A81EB";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	addAttr -ci true -sn "pull" -ln "pull" -min 0 -max 1 -at "double";
+	addAttr -ci true -sn "stiffness" -ln "stiffness" -min 0 -max 1 -at "double";
+	setAttr -k off -cb on ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 6;
+	setAttr ".t" -type "double3" 11.510089874267578 62.403331756591797 -2.2204460492503131e-16 ;
+	setAttr ".r" -type "double3" 1.2722218725854064e-14 0 2.4172215579122736e-13 ;
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 86.681793107875251 268.02828880076834 1.7811106216195694e-13 ;
+	setAttr -l on ".ra";
+	setAttr ".ei" 5;
+	setAttr ".radi" 2.0232332250419827;
+	setAttr -l on ".jo" -type "double3" -90.1142940846794 3.3162401046434722 -91.975019755321583 ;
+	setAttr -l on ".jo";
+	setAttr ".tof" -type "double3" 0 0 10.116166125209913 ;
+	setAttr ".lk" 6;
+	setAttr -cb on ".pull";
+	setAttr -cb on ".stiffness" 0.5;
+instanceable -a 0;
+createNode hikIKEffector -n "Character1_Ctrl_RightKneeEffector" -p "Character1_Ctrl_Reference";
+	rename -uid "B9848FA7-4F1D-D3B1-8E7B-44AD2265408B";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	addAttr -ci true -sn "pull" -ln "pull" -min 0 -max 1 -at "double";
+	addAttr -ci true -sn "stiffness" -ln "stiffness" -min 0 -max 1 -at "double";
+	setAttr -k off -cb on ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 6;
+	setAttr ".t" -type "double3" -11.510089874267578 62.403331756591797 -2.2204460492503131e-16 ;
+	setAttr ".r" -type "double3" 3.1805546814635302e-15 -1.5902773407317581e-14 -9.8597195125369017e-14 ;
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 86.681793107875592 -88.028288800768351 0 ;
+	setAttr -l on ".ra";
+	setAttr ".ei" 6;
+	setAttr ".radi" 2.0232332250419827;
+	setAttr -l on ".jo" -type "double3" -89.885705915320614 3.3162401046434788 -88.024980244678446 ;
+	setAttr -l on ".jo";
+	setAttr ".tof" -type "double3" 0 0 10.116166125209913 ;
+	setAttr ".lk" 6;
+	setAttr -cb on ".pull";
+	setAttr -cb on ".stiffness" 0.5;
+instanceable -a 0;
+createNode hikIKEffector -n "Character1_Ctrl_LeftElbowEffector" -p "Character1_Ctrl_Reference";
+	rename -uid "56C14E15-4500-4664-D1A9-8197C993960B";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	addAttr -ci true -sn "pull" -ln "pull" -min 0 -max 1 -at "double";
+	addAttr -ci true -sn "stiffness" -ln "stiffness" -min 0 -max 1 -at "double";
+	setAttr -k off -cb on ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 6;
+	setAttr ".t" -type "double3" 51.710411071777344 159.66143798828125 -3.2433819770812988 ;
+	setAttr ".r" -type "double3" -1.5530052155583578e-18 -9.9392333795734899e-17 9.9392333795734899e-17 ;
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" -90.001851721896088 0.08437854520301144 -1.2571781197664127 ;
+	setAttr -l on ".ra";
+	setAttr ".ei" 7;
+	setAttr ".radi" 2.0232332250419827;
+	setAttr -l on ".jo" -type "double3" 90.001852165727954 -1.2571753921105804 -0.084419181928521284 ;
+	setAttr -l on ".jo";
+	setAttr ".tof" -type "double3" 0 0 -10.116166125209913 ;
+	setAttr ".lk" 6;
+	setAttr -cb on ".pull";
+	setAttr -cb on ".stiffness" 0.5;
+instanceable -a 0;
+createNode hikIKEffector -n "Character1_Ctrl_RightElbowEffector" -p "Character1_Ctrl_Reference";
+	rename -uid "538392ED-4A5C-5643-0931-8AAB6AACF505";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	addAttr -ci true -sn "pull" -ln "pull" -min 0 -max 1 -at "double";
+	addAttr -ci true -sn "stiffness" -ln "stiffness" -min 0 -max 1 -at "double";
+	setAttr -k off -cb on ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 6;
+	setAttr ".t" -type "double3" -51.710433959960938 159.66123962402344 -3.243314266204834 ;
+	setAttr ".r" -type "double3" 1.9084104591388881e-14 -9.9392333795734924e-17 9.9392333795734874e-17 ;
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 89.998179871632658 0.082926785537034142 -1.2573617553525542 ;
+	setAttr -l on ".ra";
+	setAttr ".ei" 8;
+	setAttr ".radi" 2.0232332250419827;
+	setAttr -l on ".jo" -type "double3" -89.99817943517786 1.257359120364433 0.082966734770157868 ;
+	setAttr -l on ".jo";
+	setAttr ".tof" -type "double3" 0 0 -10.116166125209913 ;
+	setAttr ".lk" 6;
+	setAttr -cb on ".pull";
+	setAttr -cb on ".stiffness" 0.5;
+instanceable -a 0;
+createNode hikIKEffector -n "Character1_Ctrl_ChestOriginEffector" -p "Character1_Ctrl_Reference";
+	rename -uid "B36C42AF-4898-48A2-4356-9BA35D448BD2";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	addAttr -ci true -sn "pull" -ln "pull" -min 0 -max 1 -at "double";
+	addAttr -ci true -sn "stiffness" -ln "stiffness" -min 0 -max 1 -at "double";
+	setAttr -k off -cb on ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 4;
+	setAttr ".t" -type "double3" 0 126.855224609375 0 ;
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" -90 -90 0 ;
+	setAttr -l on ".ra";
+	setAttr ".ei" 9;
+	setAttr ".radi" 2.0232332250419827;
+	setAttr -l on ".jo" -type "double3" 90 0 90 ;
+	setAttr -l on ".jo";
+	setAttr ".lk" 1;
+	setAttr -cb on ".pull";
+	setAttr -cb on ".stiffness";
+instanceable -a 0;
+createNode hikIKEffector -n "Character1_Ctrl_ChestEndEffector" -p "Character1_Ctrl_Reference";
+	rename -uid "9772310F-4072-A3BB-20CD-3CB6E3809D6D";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	addAttr -ci true -sn "pull" -ln "pull" -min 0 -max 1 -at "double";
+	addAttr -ci true -sn "stiffness" -ln "stiffness" -min 0 -max 1 -at "double";
+	setAttr -k off -cb on ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 4;
+	setAttr ".t" -type "double3" 0 160.33876037597656 4.5613541603088379 ;
+	setAttr ".r" -type "double3" 2.2263882770244605e-14 -2.5444437451708122e-14 9.5416640443905424e-15 ;
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" -90.99242927267457 -89.999999999999986 0 ;
+	setAttr -l on ".ra";
+	setAttr ".ei" 10;
+	setAttr ".radi" 15.174249187814869;
+	setAttr -l on ".jo" -type "double3" 89.999999999999986 -0.99242927267456338 90 ;
+	setAttr -l on ".jo";
+	setAttr ".lk" 1;
+	setAttr -cb on ".pull";
+	setAttr -cb on ".stiffness";
+instanceable -a 0;
+createNode hikIKEffector -n "Character1_Ctrl_LeftFootEffector" -p "Character1_Ctrl_Reference";
+	rename -uid "ABCA7C0D-43FB-16D3-B2C1-6E8B76772CFC";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	addAttr -ci true -sn "pull" -ln "pull" -min 0 -max 1 -at "double";
+	addAttr -ci true -sn "stiffness" -ln "stiffness" -min 0 -max 1 -at "double";
+	setAttr -k off -cb on ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 6;
+	setAttr ".t" -type "double3" 9.9342870712280273 4.9107909202575684 11.270557403564453 ;
+	setAttr ".r" -type "double3" 0 -1.7297523902859107e-46 -1.4124500153760508e-30 ;
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" -180 -89.999999999999986 0 ;
+	setAttr -l on ".ra";
+	setAttr ".ei" 11;
+	setAttr ".radi" 6.069699675125948;
+	setAttr -l on ".jo" -type "double3" -180 -89.999999999999986 0 ;
+	setAttr -l on ".jo";
+	setAttr ".rof" -type "double3" 90 0 0 ;
+	setAttr ".lk" 1;
+	setAttr -cb on ".pull";
+	setAttr -cb on ".stiffness";
+instanceable -a 0;
+createNode hikIKEffector -n "Character1_Ctrl_RightFootEffector" -p "Character1_Ctrl_Reference";
+	rename -uid "D525F65C-40BA-B8FC-DAB1-25BD4FB374C0";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	addAttr -ci true -sn "pull" -ln "pull" -min 0 -max 1 -at "double";
+	addAttr -ci true -sn "stiffness" -ln "stiffness" -min 0 -max 1 -at "double";
+	setAttr -k off -cb on ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 6;
+	setAttr ".t" -type "double3" -9.9342870712280273 4.9107909202575684 11.270557403564453 ;
+	setAttr ".r" -type "double3" 0 -1.7297523902859107e-46 -1.4124500153760508e-30 ;
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" -180 -89.999999999999986 0 ;
+	setAttr -l on ".ra";
+	setAttr ".ei" 12;
+	setAttr ".radi" 6.069699675125948;
+	setAttr -l on ".jo" -type "double3" -180 -89.999999999999986 0 ;
+	setAttr -l on ".jo";
+	setAttr ".rof" -type "double3" 90 0 0 ;
+	setAttr ".lk" 1;
+	setAttr -cb on ".pull";
+	setAttr -cb on ".stiffness";
+instanceable -a 0;
+createNode hikIKEffector -n "Character1_Ctrl_LeftShoulderEffector" -p "Character1_Ctrl_Reference";
+	rename -uid "60EA600A-4A9F-A71D-E245-5D8EB944F5B7";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	addAttr -ci true -sn "pull" -ln "pull" -min 0 -max 1 -at "double";
+	addAttr -ci true -sn "stiffness" -ln "stiffness" -min 0 -max 1 -at "double";
+	setAttr -k off -cb on ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 4;
+	setAttr ".t" -type "double3" 24.91356086730957 159.22271728515625 -2.330009937286377 ;
+	setAttr ".r" -type "double3" -6.2120208622334304e-18 -1.987846675914698e-16 -2.981770013872047e-16 ;
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 89.968063548029491 0.93688000440797514 -1.9524349800733991 ;
+	setAttr -l on ".ra";
+	setAttr ".ei" 13;
+	setAttr ".radi" 8.0929329001679307;
+	setAttr -l on ".jo" -type "double3" -89.968049278550296 1.951912486643373 0.93796841430314015 ;
+	setAttr -l on ".jo";
+	setAttr ".rof" -type "double3" 0 0 90 ;
+	setAttr ".lk" 1;
+	setAttr -cb on ".pull";
+	setAttr -cb on ".stiffness" 0.5;
+instanceable -a 0;
+createNode hikIKEffector -n "Character1_Ctrl_RightShoulderEffector" -p "Character1_Ctrl_Reference";
+	rename -uid "40F967BD-488B-E00E-7842-31909A4547D6";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	addAttr -ci true -sn "pull" -ln "pull" -min 0 -max 1 -at "double";
+	addAttr -ci true -sn "stiffness" -ln "stiffness" -min 0 -max 1 -at "double";
+	setAttr -k off -cb on ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 4;
+	setAttr ".t" -type "double3" -24.913579940795898 159.22262573242188 -2.3299524784088135 ;
+	setAttr ".r" -type "double3" 3.1811758835497401e-14 -4.9696166897867459e-16 1.9878466759146967e-16 ;
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" -90.031928310054894 0.93665184246701616 -1.9524126773323993 ;
+	setAttr -l on ".ra";
+	setAttr ".ei" 14;
+	setAttr ".radi" 8.0929329001679307;
+	setAttr -l on ".jo" -type "double3" 90.031942577557288 -1.9518904443153577 -0.93773996258420311 ;
+	setAttr -l on ".jo";
+	setAttr ".rof" -type "double3" 0 0 90 ;
+	setAttr ".lk" 1;
+	setAttr -cb on ".pull";
+	setAttr -cb on ".stiffness" 0.5;
+instanceable -a 0;
+createNode hikIKEffector -n "Character1_Ctrl_HeadEffector" -p "Character1_Ctrl_Reference";
+	rename -uid "0D7CAB86-4558-A6B3-CD5C-15B7A74529B0";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	addAttr -ci true -sn "pull" -ln "pull" -min 0 -max 1 -at "double";
+	addAttr -ci true -sn "stiffness" -ln "stiffness" -min 0 -max 1 -at "double";
+	setAttr -k off -cb on ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 4;
+	setAttr ".t" -type "double3" 0 178.59794616699219 0.38011285662651062 ;
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" -90 -90 0 ;
+	setAttr -l on ".ra";
+	setAttr ".ei" 15;
+	setAttr ".radi" 10.116166125209913;
+	setAttr -l on ".jo" -type "double3" 90 0 90 ;
+	setAttr -l on ".jo";
+	setAttr ".lk" 1;
+	setAttr -cb on ".pull";
+	setAttr -cb on ".stiffness";
+instanceable -a 0;
+createNode hikIKEffector -n "Character1_Ctrl_LeftHipEffector" -p "Character1_Ctrl_Reference";
+	rename -uid "1B77F21D-4603-784B-7B0B-9DA7AE71BFD8";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	addAttr -ci true -sn "pull" -ln "pull" -min 0 -max 1 -at "double";
+	addAttr -ci true -sn "stiffness" -ln "stiffness" -min 0 -max 1 -at "double";
+	setAttr -k off -cb on ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 6;
+	setAttr ".t" -type "double3" 8.4372577667236328 107.28197479248047 1.1088950634002686 ;
+	setAttr ".r" -type "double3" -1.2722218725854081e-14 2.8624992133171641e-14 -6.361109362927031e-14 ;
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 88.584581046825036 -86.084273702065232 -4.6574832140247054e-14 ;
+	setAttr -l on ".ra";
+	setAttr ".ei" 16;
+	setAttr ".radi" 8.0929329001679307;
+	setAttr -l on ".jo" -type "double3" -89.903322698083088 1.4121140905812319 -86.083082285134424 ;
+	setAttr -l on ".jo";
+	setAttr ".lk" 1;
+	setAttr -cb on ".pull";
+	setAttr -cb on ".stiffness";
+instanceable -a 0;
+createNode hikIKEffector -n "Character1_Ctrl_RightHipEffector" -p "Character1_Ctrl_Reference";
+	rename -uid "152239C6-49B3-78E1-84B3-8B88C31DE96C";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	addAttr -ci true -sn "pull" -ln "pull" -min 0 -max 1 -at "double";
+	addAttr -ci true -sn "stiffness" -ln "stiffness" -min 0 -max 1 -at "double";
+	setAttr -k off -cb on ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 6;
+	setAttr ".t" -type "double3" -8.4372577667236328 107.28197479248047 1.1088950634002686 ;
+	setAttr ".r" -type "double3" -3.1805546814635193e-14 0 1.4312496066585825e-13 ;
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 88.584581046824852 266.08427370206522 -5.0888874903416268e-14 ;
+	setAttr -l on ".ra";
+	setAttr ".ei" 17;
+	setAttr ".radi" 8.0929329001679307;
+	setAttr -l on ".jo" -type "double3" -90.096677301916927 1.4121140905812322 -93.916917714865576 ;
+	setAttr -l on ".jo";
+	setAttr ".lk" 1;
+	setAttr -cb on ".pull";
+	setAttr -cb on ".stiffness";
+instanceable -a 0;
+createNode hikIKEffector -n "Character1_Ctrl_LeftHandThumbEffector" -p "Character1_Ctrl_Reference";
+	rename -uid "E2908E03-4323-DAED-BCEF-2EA8DC39F8F6";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	addAttr -ci true -sn "pull" -ln "pull" -min 0 -max 1 -at "double";
+	addAttr -ci true -sn "stiffness" -ln "stiffness" -min 0 -max 1 -at "double";
+	setAttr -k off -cb on ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 4;
+	setAttr ".t" -type "double3" 84.046905517578125 156.88076782226562 9.2241325378417969 ;
+	setAttr ".r" -type "double3" -3.8166656177562195e-14 -3.1805546814635168e-15 -3.1805546814635152e-15 ;
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 79.494991901162862 -3.330152188646943 -107.39418469964282 ;
+	setAttr -l on ".ra";
+	setAttr ".ei" 20;
+	setAttr ".radi" 2.0232332250419827;
+	setAttr -l on ".jo" -type "double3" 59.093141299292974 69.245926982333032 147.37294060911194 ;
+	setAttr -l on ".jo";
+	setAttr ".lk" 6;
+	setAttr -cb on ".pull";
+	setAttr -cb on ".stiffness";
+instanceable -a 0;
+createNode hikIKEffector -n "Character1_Ctrl_LeftHandIndexEffector" -p "Character1_Ctrl_Reference";
+	rename -uid "A1316635-4C19-C3AE-BED2-A79D36A8B113";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	addAttr -ci true -sn "pull" -ln "pull" -min 0 -max 1 -at "double";
+	addAttr -ci true -sn "stiffness" -ln "stiffness" -min 0 -max 1 -at "double";
+	setAttr -k off -cb on ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 4;
+	setAttr ".t" -type "double3" 94.389579772949219 156.78349304199219 4.6190690994262695 ;
+	setAttr ".r" -type "double3" -5.168401357378212e-15 1.080891630028617e-14 0 ;
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" -176.047238058619 -20.109690054487764 168.63645204958726 ;
+	setAttr -l on ".ra";
+	setAttr ".ei" 21;
+	setAttr ".radi" 2.0232332250419827;
+	setAttr -l on ".jo" -type "double3" -180 20.478692795867634 169.33760198071926 ;
+	setAttr -l on ".jo";
+	setAttr ".lk" 6;
+	setAttr -cb on ".pull";
+	setAttr -cb on ".stiffness";
+instanceable -a 0;
+createNode hikIKEffector -n "Character1_Ctrl_LeftHandMiddleEffector" -p "Character1_Ctrl_Reference";
+	rename -uid "C3230FAD-4BFB-A75C-1852-B9BC66D60BF3";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	addAttr -ci true -sn "pull" -ln "pull" -min 0 -max 1 -at "double";
+	addAttr -ci true -sn "stiffness" -ln "stiffness" -min 0 -max 1 -at "double";
+	setAttr -k off -cb on ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 4;
+	setAttr ".t" -type "double3" 95.958541870117188 157.51722717285156 -0.053878355771303177 ;
+	setAttr ".r" -type "double3" 0 -4.0937217482118301e-15 -5.0888874903416268e-14 ;
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" -178.97168930712422 -7.865934464083387 172.52800535806315 ;
+	setAttr -l on ".ra";
+	setAttr ".ei" 22;
+	setAttr ".radi" 2.0232332250419827;
+	setAttr -l on ".jo" -type "double3" 180 7.9324457820817695 172.5987048865511 ;
+	setAttr -l on ".jo";
+	setAttr ".lk" 6;
+	setAttr -cb on ".pull";
+	setAttr -cb on ".stiffness";
+instanceable -a 0;
+createNode hikIKEffector -n "Character1_Ctrl_LeftHandRingEffector" -p "Character1_Ctrl_Reference";
+	rename -uid "154EFBA8-4D43-8F61-AE50-C499D59713E4";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	addAttr -ci true -sn "pull" -ln "pull" -min 0 -max 1 -at "double";
+	addAttr -ci true -sn "stiffness" -ln "stiffness" -min 0 -max 1 -at "double";
+	setAttr -k off -cb on ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 4;
+	setAttr ".t" -type "double3" 95.087913513183594 158.19783020019531 -4.6738986968994141 ;
+	setAttr ".r" -type "double3" 1.1529510720305247e-14 -3.8452409137224965e-15 5.0888874903416268e-14 ;
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 179.47388948024073 5.5688771027002657 174.59448605604254 ;
+	setAttr -l on ".ra";
+	setAttr ".ei" 23;
+	setAttr ".radi" 2.0232332250419827;
+	setAttr -l on ".jo" -type "double3" 180 -5.5935956502616664 174.62007410184748 ;
+	setAttr -l on ".jo";
+	setAttr ".lk" 6;
+	setAttr -cb on ".pull";
+	setAttr -cb on ".stiffness";
+instanceable -a 0;
+createNode hikIKEffector -n "Character1_Ctrl_LeftHandPinkyEffector" -p "Character1_Ctrl_Reference";
+	rename -uid "9CAA5585-4377-B5D6-AA08-6DBB5131313D";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	addAttr -ci true -sn "pull" -ln "pull" -min 0 -max 1 -at "double";
+	addAttr -ci true -sn "stiffness" -ln "stiffness" -min 0 -max 1 -at "double";
+	setAttr -k off -cb on ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 4;
+	setAttr ".t" -type "double3" 91.974235534667969 158.81822204589844 -8.1475687026977539 ;
+	setAttr ".r" -type "double3" 0 1.2734642767578536e-14 0 ;
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 178.86679859247701 19.359142583621043 176.58507893204435 ;
+	setAttr -l on ".ra";
+	setAttr ".ei" 24;
+	setAttr ".radi" 2.0232332250419827;
+	setAttr -l on ".jo" -type "double3" 180 -19.391010862333928 176.77837089261192 ;
+	setAttr -l on ".jo";
+	setAttr ".lk" 6;
+	setAttr -cb on ".pull";
+	setAttr -cb on ".stiffness";
+instanceable -a 0;
+createNode hikIKEffector -n "Character1_Ctrl_RightHandThumbEffector" -p "Character1_Ctrl_Reference";
+	rename -uid "59782C7C-4520-1934-4784-8DA7CEA98A82";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	addAttr -ci true -sn "pull" -ln "pull" -min 0 -max 1 -at "double";
+	addAttr -ci true -sn "stiffness" -ln "stiffness" -min 0 -max 1 -at "double";
+	setAttr -k off -cb on ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 4;
+	setAttr ".t" -type "double3" -83.513618469238281 156.85794067382812 9.3290872573852539 ;
+	setAttr ".r" -type "double3" 9.5416640443905484e-14 3.180554681463516e-15 2.6483437788300939e-30 ;
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" -100.64011875423172 -1.4225201551970192 82.472544924166144 ;
+	setAttr -l on ".ra";
+	setAttr ".ei" 26;
+	setAttr ".radi" 2.0232332250419827;
+	setAttr -l on ".jo" -type "double3" 144.16574117276116 76.839527784031645 54.886410690959053 ;
+	setAttr -l on ".jo";
+	setAttr ".lk" 6;
+	setAttr -cb on ".pull";
+	setAttr -cb on ".stiffness";
+instanceable -a 0;
+createNode hikIKEffector -n "Character1_Ctrl_RightHandIndexEffector" -p "Character1_Ctrl_Reference";
+	rename -uid "1A2E609A-4420-AEFD-EBB4-90AAC6E321BF";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	addAttr -ci true -sn "pull" -ln "pull" -min 0 -max 1 -at "double";
+	addAttr -ci true -sn "stiffness" -ln "stiffness" -min 0 -max 1 -at "double";
+	setAttr -k off -cb on ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 4;
+	setAttr ".t" -type "double3" -94.209678649902344 156.7237548828125 4.9517397880554199 ;
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 5.9674579616418715 -30.1718283408843 -11.748921836641816 ;
+	setAttr -l on ".ra";
+	setAttr ".ei" 27;
+	setAttr ".radi" 2.0232332250419827;
+	setAttr -l on ".jo" -type "double3" 9.2475483105132243e-16 30.70168339228896 10.139002130840574 ;
+	setAttr -l on ".jo";
+	setAttr ".lk" 6;
+	setAttr -cb on ".pull";
+	setAttr -cb on ".stiffness";
+instanceable -a 0;
+createNode hikIKEffector -n "Character1_Ctrl_RightHandMiddleEffector" -p "Character1_Ctrl_Reference";
+	rename -uid "4D3A87B7-4505-820D-77E6-4A942C42EFFB";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	addAttr -ci true -sn "pull" -ln "pull" -min 0 -max 1 -at "double";
+	addAttr -ci true -sn "stiffness" -ln "stiffness" -min 0 -max 1 -at "double";
+	setAttr -k off -cb on ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 4;
+	setAttr ".t" -type "double3" -95.854339599609375 157.38519287109375 0.30631241202354431 ;
+	setAttr ".r" -type "double3" 5.963540027744093e-16 3.2054027649124497e-15 -1.5405811738338905e-15 ;
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 2.640261913609927 -17.645436151837714 -8.6499715205138354 ;
+	setAttr -l on ".ra";
+	setAttr ".ei" 28;
+	setAttr ".radi" 2.0232332250419827;
+	setAttr -l on ".jo" -type "double3" 0 17.835654540055831 8.2400945632951288 ;
+	setAttr -l on ".jo";
+	setAttr ".lk" 6;
+	setAttr -cb on ".pull";
+	setAttr -cb on ".stiffness";
+instanceable -a 0;
+createNode hikIKEffector -n "Character1_Ctrl_RightHandRingEffector" -p "Character1_Ctrl_Reference";
+	rename -uid "0E801272-4C9D-5B2E-8392-06B807B16CAA";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	addAttr -ci true -sn "pull" -ln "pull" -min 0 -max 1 -at "double";
+	addAttr -ci true -sn "stiffness" -ln "stiffness" -min 0 -max 1 -at "double";
+	setAttr -k off -cb on ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 4;
+	setAttr ".t" -type "double3" -95.075912475585938 158.0467529296875 -4.3094706535339355 ;
+	setAttr ".r" -type "double3" -9.9392333795734899e-17 1.5530052155583586e-18 7.9203265993476257e-16 ;
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 0.48530318524030475 -4.2361442610583078 -6.5415156589172154 ;
+	setAttr -l on ".ra";
+	setAttr ".ei" 29;
+	setAttr ".radi" 2.0232332250419827;
+	setAttr -l on ".jo" -type "double3" -4.9834092513564245e-17 4.2638020687359894 6.5235670107512913 ;
+	setAttr -l on ".jo";
+	setAttr ".lk" 6;
+	setAttr -cb on ".pull";
+	setAttr -cb on ".stiffness";
+instanceable -a 0;
+createNode hikIKEffector -n "Character1_Ctrl_RightHandPinkyEffector" -p "Character1_Ctrl_Reference";
+	rename -uid "A9AC53C7-4348-13CE-0F78-D5BB2A7A080E";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	addAttr -ci true -sn "pull" -ln "pull" -min 0 -max 1 -at "double";
+	addAttr -ci true -sn "stiffness" -ln "stiffness" -min 0 -max 1 -at "double";
+	setAttr -k off -cb on ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 4;
+	setAttr ".t" -type "double3" -92.038841247558594 158.67295837402344 -7.8460817337036133 ;
+	setAttr ".r" -type "double3" 0 -3.1867667023257502e-15 0 ;
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" -0.81697879768157533 9.5590727205711588 -4.9079446100542334 ;
+	setAttr -l on ".ra";
+	setAttr ".ei" 30;
+	setAttr ".radi" 2.0232332250419827;
+	setAttr -l on ".jo" -type "double3" 0 -9.5935979295610796 4.8396336734662686 ;
+	setAttr -l on ".jo";
+	setAttr ".lk" 6;
+	setAttr -cb on ".pull";
+	setAttr -cb on ".stiffness";
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_Hips" -p "Character1_Ctrl_Reference";
+	rename -uid "BFB1FCA3-47B0-EF13-BE11-C3A0C5C073D6";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr ".t" -type "double3" 0 112.84286499023438 -0.86268508434295654 ;
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" -90 -90 0 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" 90 0 90 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 4.0464664500839653;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_LeftUpLeg" -p "Character1_Ctrl_Hips";
+	rename -uid "C44DC00F-4105-3E75-9A91-689239A9011B";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" 8.4372577667236328 -5.5608901977539062 1.9715801477432251 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" -1.2722218725854081e-14 2.8624992133171641e-14 -6.361109362927031e-14 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 88.584581046825036 -86.084273702065232 -4.6574832140247054e-14 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" -89.903322698083088 1.4121140905812319 -86.083082285134424 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 4.0464664500839653;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_LeftLeg" -p "Character1_Ctrl_LeftUpLeg";
+	rename -uid "A62205CB-46A5-0059-9CB6-96A1C5F2BC7E";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" 3.0728321075439435 -44.878643035888672 -1.1088950634002688 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" 1.2722218725854064e-14 0 2.4172215579122736e-13 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 86.681793107875251 268.02828880076834 1.7811106216195694e-13 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" -90.1142940846794 3.3162401046434722 -91.975019755321583 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 4.0464664500839653;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_LeftFoot" -p "Character1_Ctrl_LeftLeg";
+	rename -uid "DD130777-4D05-E8A4-83A8-A59A49FB1C65";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" -1.5758113861083967 -45.696544647216797 -2.6494157314300537 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 139.72155327207815 -89.999973047376812 0 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" -90.000031805689403 -49.721553272070672 -89.999958310123844 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 4.0464664500839653;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_LeftToeBase" -p "Character1_Ctrl_LeftFoot";
+	rename -uid "302A15F1-4977-846C-62F0-5BA0230FCFE1";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr -l on ".t" -type "double3" 8.5830688458798932e-06 -11.795996189117435 13.919973134994507 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" 0 -1.7297523902859107e-46 -1.4124500153760508e-30 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" -180 -89.999999999999986 0 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" -180 -89.999999999999986 0 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 0;
+	setAttr ".lk" 0;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_RightUpLeg" -p "Character1_Ctrl_Hips";
+	rename -uid "A879A4E8-4995-CAD9-7515-F2B55D305F81";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" -8.4372577667236328 -5.5608901977539062 1.9715801477432251 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" -3.1805546814635193e-14 0 1.4312496066585825e-13 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 88.584581046824852 266.08427370206522 -5.0888874903416268e-14 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" -90.096677301916927 1.4121140905812322 -93.916917714865576 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 4.0464664500839653;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_RightLeg" -p "Character1_Ctrl_RightUpLeg";
+	rename -uid "065EC3DD-4928-041A-2DEB-47AC5BB5C766";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" -3.0728321075439435 -44.878643035888672 -1.1088950634002688 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" 3.1805546814635302e-15 -1.5902773407317581e-14 -9.8597195125369017e-14 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 86.681793107875592 -88.028288800768351 0 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" -89.885705915320614 3.3162401046434788 -88.024980244678446 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 4.0464664500839653;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_RightFoot" -p "Character1_Ctrl_RightLeg";
+	rename -uid "59473F4D-4888-A74C-0AE9-BF820F0BEAD1";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" 1.5758113861083967 -45.696544647216797 -2.6494157314300537 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" 2.5444437451708134e-14 -5.3905246400667895e-05 2.5444437451708134e-14 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 139.72155327207813 -89.999973047376812 0 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" -89.99996819431064 -49.721553272070672 -90.00004168987617 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 4.0464664500839653;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_RightToeBase" -p "Character1_Ctrl_RightFoot";
+	rename -uid "C26CDE07-4B88-5CF0-D476-058D06BEBBD4";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr -l on ".t" -type "double3" -8.5830688458798932e-06 -11.795996189117435 13.919973134994507 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" 0 -1.7297523902859107e-46 -1.4124500153760508e-30 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" -180 -89.999999999999986 0 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" -180 -89.999999999999986 0 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 0;
+	setAttr ".lk" 0;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_Spine" -p "Character1_Ctrl_Hips";
+	rename -uid "99E48E05-44EA-0AC4-98F4-C2A4E6790324";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" 0 14.012359619140625 0.86268508434295654 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" -90 -90 0 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" 90 0 90 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 4.0464664500839653;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_Spine1" -p "Character1_Ctrl_Spine";
+	rename -uid "038F057B-4D37-23E0-DC58-0A898673B669";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" 0 13.165679931640611 0 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" -6.3611093629270335e-15 -6.3611093629270327e-15 1.2722218725854067e-14 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" -79.851340765592226 -90 0 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" 90.000000000000014 10.148659234407786 90.000000000000014 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 4.0464664500839653;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_Spine2" -p "Character1_Ctrl_Spine1";
+	rename -uid "035BCDE6-4540-9248-F329-869403468832";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" 0 13.165664672851562 -2.3566997051239014 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" 2.2263882770244605e-14 -2.5444437451708122e-14 9.5416640443905424e-15 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" -90.99242927267457 -89.999999999999986 0 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" 89.999999999999986 -0.99242927267456338 90 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 4.0464664500839653;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_LeftShoulder" -p "Character1_Ctrl_Spine2";
+	rename -uid "A56993A1-47F1-2EFE-A3F3-86A53BA318A1";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" 10.624366760253906 7.152191162109375 6.9180538654327393 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" -1.1927080055488188e-15 -3.1929787231879836e-15 2.2363275104040351e-15 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" -2.1441209224851856 -25.595270639809435 4.9530558222663448 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" 0 25.678885275404387 -4.4659626463025468 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 4.0464664500839653;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_LeftArm" -p "Character1_Ctrl_LeftShoulder";
+	rename -uid "22E74A49-4B92-D4F6-7118-1DAD944034F1";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" 14.289194107055662 -1.1160430908203125 -6.8913640975952148 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" -6.2120208622334304e-18 -1.987846675914698e-16 -2.981770013872047e-16 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 89.968063548029491 0.93688000440797514 -1.9524349800733991 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" -89.968049278550296 1.951912486643373 0.93796841430314015 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 4.0464664500839653;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_LeftForeArm" -p "Character1_Ctrl_LeftArm";
+	rename -uid "81EBDEDB-4681-41BA-16CE-209376EE60EF";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" 26.796850204467777 0.438720703125 -0.91337203979492188 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" -1.5530052155583578e-18 -9.9392333795734899e-17 9.9392333795734899e-17 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" -90.001851721896088 0.08437854520301144 -1.2571781197664127 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" 90.001852165727954 -1.2571753921105804 -0.084419181928521284 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 4.0464664500839653;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_LeftHand" -p "Character1_Ctrl_LeftForeArm";
+	rename -uid "66A23AC9-4BC8-6192-B881-4C8DAEA074F8";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" 24.678871154785163 -0.0363616943359375 0.54158759117126509 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" -89.999999999999986 0 0 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" 89.999999999999986 0 0 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 4.0464664500839653;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_LeftHandThumb1" -p "Character1_Ctrl_LeftHand";
+	rename -uid "50A1DE4B-4662-DB87-B125-10B5EA4F04A1";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" 2.831520080566392 -0.9717559814453125 4.6358861923217773 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" -3.1805546814635183e-15 1.2722218725854067e-14 -1.2722218725854067e-14 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 81.659688964877574 -9.2982131899719178 42.218937393289259 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" -79.17321198760223 -40.353525868054128 -16.454919571807441 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 2.0232332250419827;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_LeftHandThumb2" -p "Character1_Ctrl_LeftHandThumb1";
+	rename -uid "AC46F252-419D-BDC0-0614-6B85B706CAAC";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" 1.9475555419922017 -0.575225830078125 1.7254469394683838 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" 1.7493050748049341e-14 -4.8552969278551749e-31 3.1805546814635168e-15 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 81.780054160914318 -6.2290853313654653 53.08929863356397 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" -76.81746400572068 -51.4478617921731 -16.673290765059402 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 2.0232332250419827;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_LeftHandThumb3" -p "Character1_Ctrl_LeftHandThumb2";
+	rename -uid "38AB2EB3-4A4B-CB0C-94FA-A1BD9D93E498";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" 1.8946990966796875 -0.567474365234375 2.481865882873536 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" 9.5416640443905519e-15 -9.5416640443905487e-15 -1.9083328088781101e-14 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 79.494991901162862 -3.330152188646943 72.605815300357193 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" -59.093141299292974 -69.245926982333032 -32.627059390888093 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 2.0232332250419827;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_LeftHandThumb4" -p "Character1_Ctrl_LeftHandThumb3";
+	rename -uid "75AC20FB-487E-1844-41F6-CAB457CC3786";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" 0.98384857177734375 -0.629852294921875 3.0827279090881348 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" -3.8166656177562195e-14 -3.1805546814635168e-15 -3.1805546814635152e-15 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 79.494991901162862 -3.330152188646943 -107.39418469964282 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" 59.093141299292974 69.245926982333032 147.37294060911194 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 2.0232332250419827;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_LeftHandIndex1" -p "Character1_Ctrl_LeftHand";
+	rename -uid "6B4A79AE-48DC-43C5-F6C9-EE82F94FB164";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" 9.6648559570312358 -1.5097808837890625 4.7227754592895508 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" -177.41864195096309 -16.380587620118217 -9.0825666120964943 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" 180 -16.577228116066678 -8.710972044649866 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 2.0232332250419827;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_LeftHandIndex2" -p "Character1_Ctrl_LeftHandIndex1";
+	rename -uid "02471291-454B-12BA-14B6-3AB847BE5573";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" 4.0029830932617188 -0.6133270263671875 1.205514669418335 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" -177.65293051498372 -15.285599307942938 -8.8371064418161112 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" 180 -15.460496440826279 -8.5221126139686341 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 2.0232332250419827;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_LeftHandIndex3" -p "Character1_Ctrl_LeftHandIndex2";
+	rename -uid "7D6D62C6-4AA1-A04F-597C-5A8C21A5770E";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" 2.5296630859374858 -0.37905883789065342 0.70747113227844194 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" 0 9.0485079110028201e-31 -6.361109362927032e-15 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" -176.047238058619 -20.109690054487771 -11.363547950412721 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" 180 -20.478692795867637 -10.662398019280763 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 2.0232332250419827;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_LeftHandIndex4" -p "Character1_Ctrl_LeftHandIndex3";
+	rename -uid "4E52DE5E-40CF-DC58-A902-E1BAFFE15199";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" 1.80279541015625 -0.33941650390625 0.68510222434997603 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" -5.168401357378212e-15 1.080891630028617e-14 0 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" -176.047238058619 -20.109690054487764 168.63645204958726 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" -180 20.478692795867634 169.33760198071926 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 2.0232332250419827;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_LeftHandMiddle1" -p "Character1_Ctrl_LeftHand";
+	rename -uid "59A3F032-4697-F6E4-2C1B-97B769CF433B";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" 10.036239624023423 -0.96246337890625 1.92783123254776 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" -1.4088863315545422e-14 7.9513867036587909e-16 -7.9513867036587939e-16 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" -179.55897522341556 -3.7111506385084883 -6.7819471170909749 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" -180 -3.7372275597355165 -6.7676590671705341 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 2.0232332250419827;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_LeftHandMiddle2" -p "Character1_Ctrl_LeftHandMiddle1";
+	rename -uid "73C4104F-45CA-6D4A-0454-7895C20D7AD0";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" 4.8190994262695455 -0.5718841552734375 0.31699031591415394 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" 0 -1.1927080055488192e-15 2.3854160110976376e-15 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" -179.69878108547567 -2.600600383884887 -6.6092485709523112 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" 180 -2.6179749567663131 -6.6024113627967562 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 2.0232332250419827;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_LeftHandMiddle3" -p "Character1_Ctrl_LeftHandMiddle2";
+	rename -uid "8C0DDEBE-42E8-243D-543C-6C922A5B428A";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" 2.7440261840820312 -0.3176116943359375 0.12630581855773931 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" -1.361674973001568e-14 6.3611093629270335e-15 -3.1805546814635183e-15 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" -178.97168930712422 -7.865934464083387 -7.4719946419368517 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" -180 -7.9324457820817695 -7.4012951134488834 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 2.0232332250419827;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_LeftHandMiddle4" -p "Character1_Ctrl_LeftHandMiddle3";
+	rename -uid "718A70ED-46F0-0359-7A59-59A80A263C09";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" 1.9698944091796875 -0.25588989257809658 0.27678866311907768 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" 0 -4.0937217482118301e-15 -5.0888874903416268e-14 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" -178.97168930712422 -7.865934464083387 172.52800535806315 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" 180 7.9324457820817695 172.5987048865511 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 2.0232332250419827;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_LeftHandRing1" -p "Character1_Ctrl_LeftHand";
+	rename -uid "6AEC6D7C-495E-3E0E-9FD5-3E938DD2EA53";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" 10.081390380859361 -0.692230224609375 -0.57627344131469727 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" 0 -4.7708320221952752e-15 0 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 179.17492345856112 9.7604350651042289 -4.8555547240932677 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" -180 9.7949091892159572 -4.7851064629388551 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 2.0232332250419827;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_LeftHandRing2" -p "Character1_Ctrl_LeftHandRing1";
+	rename -uid "F6035A48-4553-5DED-4805-E592960297BA";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" 4.4560241699218892 -0.373016357421875 -0.77197194099426225 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" 0 -9.310583597449553e-33 2.3854160110976376e-15 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 179.10879097786056 10.87948738584879 -4.7115225828535143 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" 180 10.915490386842011 -4.6266530718207717 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 2.0232332250419827;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_LeftHandRing3" -p "Character1_Ctrl_LeftHandRing2";
+	rename -uid "FDB5A062-45B2-14E0-4E33-D1BEE85DC2DE";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" 2.2554550170898438 -0.182525634765625 -0.43638658523559481 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" 0 3.9756933518293944e-15 1.5902773407317576e-15 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 179.47388948024073 5.5688771027002657 -5.4055139439574518 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" -180 5.5935956502616664 -5.3799258981525337 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 2.0232332250419827;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_LeftHandRing4" -p "Character1_Ctrl_LeftHandRing3";
+	rename -uid "861C87B3-4BF8-C8CB-412C-FB90F2C5991E";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" 1.90576171875 -0.179473876953125 -0.18747234344482422 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" 1.1529510720305247e-14 -3.8452409137224965e-15 5.0888874903416268e-14 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 179.47388948024073 5.5688771027002657 174.59448605604254 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" 180 -5.5935956502616664 174.62007410184748 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 2.0232332250419827;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_LeftHandPinky1" -p "Character1_Ctrl_LeftHand";
+	rename -uid "BA36E613-4259-0135-0153-2AB8FB7F9D4F";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" 9.4365386962890483 -0.5168304443359375 -2.8484899997711177 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" 0 3.1805546814635168e-15 2.7829853462805772e-15 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 178.86950228626122 23.568512253042954 -2.8254117541153669 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" 180 23.594064569408907 -2.5895553380816336 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 2.0232332250419827;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_LeftHandPinky2" -p "Character1_Ctrl_LeftHandPinky1";
+	rename -uid "00722F98-4F90-EA00-7E63-2DA3664E9196";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" 2.786773681640625 -0.12603759765625 -1.218411922454834 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" 0 -6.3611093629270351e-15 4.3732626870123367e-15 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 178.88808808989251 24.691048284991076 -2.660247686517963 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" 180 24.714504106715481 -2.4168787861776977 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 2.0232332250419827;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_LeftHandPinky3" -p "Character1_Ctrl_LeftHandPinky2";
+	rename -uid "97B2C404-48D7-216D-B172-199130C31C88";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" 1.792045593261733 -0.0756378173828125 -0.8255329132080087 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" 1.3219180394832744e-14 -6.3611093629270351e-15 -2.7829853462805787e-15 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 178.86679859247701 19.359142583621043 -3.4149210679556496 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" 180 19.391010862333932 -3.2216291073880741 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 2.0232332250419827;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_LeftHandPinky4" -p "Character1_Ctrl_LeftHandPinky3";
+	rename -uid "CCB11183-4962-C13B-A45A-539EEA24C75F";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" 1.5695953369140625 -0.088348388671875 -0.55333948135375977 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" 0 1.2734642767578536e-14 0 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 178.86679859247701 19.359142583621043 176.58507893204435 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" 180 -19.391010862333928 176.77837089261192 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 2.0232332250419827;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_RightShoulder" -p "Character1_Ctrl_Spine2";
+	rename -uid "6BF57DF6-40F5-30D8-3C43-1789C657E294";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" -10.624366760253906 7.152191162109375 6.9180538654327393 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" 1.987846675914698e-16 3.1805546814635168e-15 -2.4848083448933719e-17 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" -2.1442709700615925 25.595030678535938 -4.9534441326039866 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" 0 -25.678657894471538 4.466321584233711 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 4.0464664500839653;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_RightArm" -p "Character1_Ctrl_RightShoulder";
+	rename -uid "D3BD13D8-4697-C2AD-59FB-7DBEAC74077C";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" -14.28921318054199 -1.1161346435546875 -6.8913066387176514 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" 3.1811758835497401e-14 -4.9696166897867459e-16 1.9878466759146967e-16 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" -90.031928310054894 0.93665184246701616 -1.9524126773323993 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" 90.031942577557288 -1.9518904443153577 -0.93773996258420311 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 4.0464664500839653;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_RightForeArm" -p "Character1_Ctrl_RightArm";
+	rename -uid "9EE037FE-4497-8E5F-0137-5E92DD24EBF8";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" -26.796854019165039 0.4386138916015625 -0.91336178779602095 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" 1.9084104591388881e-14 -9.9392333795734924e-17 9.9392333795734874e-17 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 89.998179871632658 0.082926785537034142 -1.2573617553525542 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" -89.99817943517786 1.257359120364433 0.082966734770157868 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 4.0464664500839653;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_RightHand" -p "Character1_Ctrl_RightForeArm";
+	rename -uid "A96412C5-476B-A76D-43D0-8BA11DD98DA7";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" -24.678871154785156 -0.035736083984375 0.54166674613952548 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 90.000000000000014 0 180 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" 90.000000000000014 0 180 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 4.0464664500839653;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_RightHandThumb1" -p "Character1_Ctrl_RightHand";
+	rename -uid "7FB95FC4-46FD-2D2B-710D-ECB1B8342D91";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" -2.8008651733398438 -0.98887634277346592 4.6508636474609375 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" 3.1805546814635155e-14 -7.9513867036587951e-15 2.0673605429512854e-14 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 81.333018873544972 9.4124120061291094 137.01339142104194 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" 78.640208861537758 -40.996593108269515 -162.97272642295135 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 2.0232332250419827;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_RightHandThumb2" -p "Character1_Ctrl_RightHandThumb1";
+	rename -uid "15864E03-48E8-7EB9-B46C-3485172869F8";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" -1.9230728149414062 -0.5889434814453125 1.7481293678283691 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" 5.0888874903416268e-14 -1.9083328088781101e-14 -8.4747000922563073e-30 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 81.853379694411629 6.5713450390546395 128.64009857523141 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" 77.419288522507486 -49.736055223366257 -163.697631687231 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 2.0232332250419827;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_RightHandThumb3" -p "Character1_Ctrl_RightHandThumb2";
+	rename -uid "8BB9DA4E-4B64-530A-F998-849964176415";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" -1.9686431884765625 -0.5757598876953125 2.4216744899749756 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" -3.5311250384401269e-31 1.2722218725854067e-14 -3.1805546814635168e-15 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 79.359881245768307 1.4225201551970357 97.527455075833885 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" 35.83425882723887 -76.839527784031645 -125.113589309041 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 2.0232332250419827;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_RightHandThumb4" -p "Character1_Ctrl_RightHandThumb3";
+	rename -uid "8CA8A0D3-41BE-3F9D-B889-19AA9F6C82A5";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" -0.43173217773436079 -0.61398315429690342 3.2100672721862775 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" 9.5416640443905484e-14 3.180554681463516e-15 2.6483437788300939e-30 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" -100.64011875423172 -1.4225201551970192 82.472544924166144 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" 144.16574117276116 76.839527784031645 54.886410690959053 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 2.0232332250419827;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_RightHandIndex1" -p "Character1_Ctrl_RightHand";
+	rename -uid "92C277C3-40F1-490F-08FB-D1AB9C853519";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" -9.6296463012695312 -1.5757751464844034 4.7728846073150635 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" 0 3.1805546814635168e-15 0 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 2.8344876383683917 -17.003944529653271 170.39058462359375 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" 0 -17.231689997468838 -170.81438589518112 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 2.0232332250419827;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_RightHandIndex2" -p "Character1_Ctrl_RightHandIndex1";
+	rename -uid "1AE23F45-4792-7E20-20F9-A48E479A0EA4";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" -3.9839096069335938 -0.64422607421875 1.2516922950744629 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" -1.987846675914698e-16 -1.5902773407317584e-15 2.7586914362813498e-33 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 2.0881490134242728 -13.553110706296348 171.1564420445051 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" -2.0461463949526314e-16 -13.710052409013169 
+		-171.40459927096308 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 2.0232332250419827;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_RightHandIndex3" -p "Character1_Ctrl_RightHandIndex2";
+	rename -uid "CCA94F9E-4E8B-A719-7655-95B2520C97F8";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" -2.5493621826171733 -0.385345458984375 0.62900614738464355 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 5.9674579616418715 -30.1718283408843 168.25107816335819 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" -9.2475483105132243e-16 -30.70168339228896 -169.86099786915943 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 2.0232332250419827;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_RightHandIndex4" -p "Character1_Ctrl_RightHandIndex3";
+	rename -uid "248A8CB9-4C08-CF41-AC5A-C6A84236F80D";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" -1.6574554443359375 -0.2964019775390625 0.99980425834655762 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 5.9674579616418715 -30.1718283408843 -11.748921836641816 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" 9.2475483105132243e-16 30.70168339228896 10.139002130840574 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 2.0232332250419827;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_RightHandMiddle1" -p "Character1_Ctrl_RightHand";
+	rename -uid "E4D7F5D8-4467-9037-1D30-CA8740B6A148";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" -10.019149780273438 -1.0330200195312784 1.9795165657997131 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 0.55401068303676138 -4.357644150751395 172.74741125217824 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" -9.9685150755038614e-17 -4.3926527693135649 
+		-172.76848928457281 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 2.0232332250419827;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_RightHandMiddle2" -p "Character1_Ctrl_RightHandMiddle1";
+	rename -uid "812BC557-41EF-8071-8244-BDBA0ABC1B26";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" -4.8103942871093608 -0.610382080078125 0.37248203158378618 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" 0 1.9878466759146975e-16 0 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 0.10093362413586988 -0.85729015172820966 173.2849007695585 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" 1.863817779875516e-17 -0.86321100575819421 -173.28565589532371 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 2.0232332250419827;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_RightHandMiddle3" -p "Character1_Ctrl_RightHandMiddle2";
+	rename -uid "BB98C646-4BCC-5641-2FD1-29B79E27E22A";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" -2.7459564208984375 -0.323272705078125 0.041659086942672674 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" 0 -3.180554681463516e-15 0 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 2.640261913609927 -17.645436151837714 171.35002847948616 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" 0 -17.835654540055831 -171.75990543670488 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 2.0232332250419827;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_RightHandMiddle4" -p "Character1_Ctrl_RightHandMiddle3";
+	rename -uid "B35CFEF5-4846-90FB-67C5-4E8DA188F3EB";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" -1.8895339965820312 -0.2736358642578125 0.61430224776268005 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" 5.963540027744093e-16 3.2054027649124497e-15 -1.5405811738338905e-15 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 2.640261913609927 -17.645436151837714 -8.6499715205138354 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" 0 17.835654540055831 8.2400945632951288 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 2.0232332250419827;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_RightHandRing1" -p "Character1_Ctrl_RightHand";
+	rename -uid "54DE28E6-48B0-7750-7880-B7BF4B63276D";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" -10.078971862792969 -0.76481628417971592 -0.52449893951416016 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" 0 -1.5902773407317584e-15 0 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" -0.84314755972152144 9.1006376680787913 174.68424665969619 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" 0 9.1392841742098661 -174.75135013012621 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 2.0232332250419827;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_RightHandRing2" -p "Character1_Ctrl_RightHandRing1";
+	rename -uid "0B300DDB-49AD-067C-2EB4-F19CA00475A0";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" -4.4613647460937358 -0.40983581542971592 -0.72075462341308549 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" -1.0667493597032995 12.628421351504429 175.13187933515187 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" 1.0187405607462483e-16 12.672667145289788 -175.24992073956923 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 2.0232332250419827;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_RightHandRing3" -p "Character1_Ctrl_RightHandRing2";
+	rename -uid "9E5219CC-42C5-0F99-0E41-669C5A8D5CAB";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" -2.24066162109375 -0.186187744140625 -0.50556826591491699 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" 0 -7.9513867036587919e-16 0 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 0.48530318524030475 -4.2361442610583078 173.45848434108279 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" 4.9834092513564245e-17 -4.2638020687359885 -173.47643298924874 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 2.0232332250419827;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_RightHandRing4" -p "Character1_Ctrl_RightHandRing3";
+	rename -uid "F49353B9-4AFC-A0E6-8A27-A0802291FE9A";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" -1.9056091308593892 -0.2179107666015625 0.14299869537353427 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" -9.9392333795734899e-17 1.5530052155583586e-18 7.9203265993476257e-16 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" 0.48530318524030475 -4.2361442610583078 -6.5415156589172154 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" -4.9834092513564245e-17 4.2638020687359894 6.5235670107512913 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 2.0232332250419827;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_RightHandPinky1" -p "Character1_Ctrl_RightHand";
+	rename -uid "869698C9-40F4-9EE9-C7DD-3E9E69677437";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" -9.4469528198242188 -0.58634948730471592 -2.8000805377960205 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" -1.2964121041662566 22.904405046823936 176.67216751122891 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" -1.0792725383525235e-16 22.939092301759455 -176.93481020775303 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 2.0232332250419827;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_RightHandPinky2" -p "Character1_Ctrl_RightHandPinky1";
+	rename -uid "FE13E6F8-4D3A-B61A-AF26-9DB0E833A8DE";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" -2.7993621826171733 -0.14990234375 -1.186445713043212 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" -1.2533030875010744 26.444419325947493 177.18748440448684 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" 1.1103395766637523e-16 26.471964910913613 -177.48196767671831 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 2.0232332250419827;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_RightHandPinky3" -p "Character1_Ctrl_RightHandPinky2";
+	rename -uid "AF61FD03-4215-FF08-003E-EDACACFEA2B1";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" -1.7657699584960795 -0.0776519775390625 -0.88015174865722745 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" 4.9696166897867449e-17 1.5902773407317584e-15 6.8967285907033728e-34 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" -0.81697879768157533 9.5590727205711588 175.09205538994578 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" 0 9.5935979295610778 -175.16036632653376 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 2.0232332250419827;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_RightHandPinky4" -p "Character1_Ctrl_RightHandPinky3";
+	rename -uid "7E78C2D7-45A3-3465-038D-6FB2299F7126";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" -1.6374511718749858 -0.13864135742190342 -0.27775621414184481 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" 0 -3.1867667023257502e-15 0 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" -0.81697879768157533 9.5590727205711588 -4.9079446100542334 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" 0 -9.5935979295610796 4.8396336734662686 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 2.0232332250419827;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_Neck" -p "Character1_Ctrl_Spine2";
+	rename -uid "16C4723C-4F38-D508-1777-A59A2AC2BEDB";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" 0 13.165679931640625 0.22806763648986816 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr ".r" -type "double3" 9.5416640443905471e-15 -1.2722218725854061e-14 -1.2722218725854061e-14 ;
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" -101.57783868017862 -89.999999999999986 0 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" 89.999999999999986 -11.577838680178623 89.999999999999986 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 4.0464664500839653;
+instanceable -a 0;
+createNode hikFKJoint -n "Character1_Ctrl_Head" -p "Character1_Ctrl_Neck";
+	rename -uid "09A1F33B-4393-33D7-3A8E-26807D9C3B95";
+	addAttr -s false -ci true -sn "ch" -ln "ControlSet" -at "message";
+	setAttr -k off -cb on ".v";
+	setAttr ".uoc" 1;
+	setAttr ".oc" 1;
+	setAttr ".ovc" 25;
+	setAttr -l on ".t" -type "double3" 0 12.245697021484347 2.5087449252605438 ;
+	setAttr -l on ".t";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -l on ".s";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr -l on ".ra" -type "double3" -90 -90 0 ;
+	setAttr -l on ".ra";
+	setAttr -l on ".jo" -type "double3" 90 0 90 ;
+	setAttr -l on ".jo";
+	setAttr ".radi" 4.0464664500839653;
+instanceable -a 0;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "D1417DAA-4782-1711-5997-58B31FD74DEA";
+	rename -uid "02891FDA-49FC-F44B-516D-91B4EA9E6CE9";
 	setAttr -s 27 ".lnk";
 	setAttr -s 27 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "52175AE1-4713-F15E-0924-9FA776B9E7B8";
+	rename -uid "C15847C7-4452-D4F1-828F-80B7BF974A55";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "2103A32A-4603-7469-0ACB-A5A98F83F518";
+	rename -uid "6F9D7057-4F90-6D56-6203-27A1E010A455";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "9DC3C911-40C9-E173-5B88-7D93DA0AA89D";
+	rename -uid "7B48BC0E-4AC5-9658-39FD-A0B0E31115E5";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "0EF9927E-4DC3-07B5-45F8-4896E9031471";
 	setAttr ".ufem" -type "stringArray" 0  ;
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "5C1C4A92-4B30-6A6F-D05B-B781BD3A6304";
+	rename -uid "C8FE5F26-4502-7F1E-D578-2892C0778830";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "D5F3863E-4C25-C79A-81B0-2395C01B538F";
 	setAttr ".g" yes;
@@ -53409,7 +55474,7 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1\n            -height 1\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 1\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n"
 		+ "            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 1\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n"
 		+ "            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n"
-		+ "            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1292\n            -height 802\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"ToggledOutliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"ToggledOutliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 1\n"
+		+ "            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1310\n            -height 802\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"ToggledOutliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"ToggledOutliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 1\n"
 		+ "            -showReferenceMembers 1\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -organizeByClip 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showParentContainers 0\n            -showContainerContents 1\n            -ignoreDagHierarchy 0\n            -expandConnections 0\n            -showUpstreamCurves 1\n            -showUnitlessCurves 1\n            -showCompounds 1\n            -showLeafs 1\n            -showNumericAttrsOnly 0\n            -highlightActive 1\n            -autoSelectNewObjects 0\n            -doNotSelectNewObjects 0\n            -dropIsParent 1\n            -transmitFilters 0\n            -setFilter \"defaultSetFilter\" \n            -showSetMembers 1\n            -allowMultiSelection 1\n            -alwaysToggleSelect 0\n"
 		+ "            -directSelect 0\n            -isSet 0\n            -isSetMember 0\n            -showUfeItems 1\n            -displayMode \"DAG\" \n            -expandObjects 0\n            -setsIgnoreFilters 1\n            -containersIgnoreFilters 0\n            -editAttrName 0\n            -showAttrValues 0\n            -highlightSecondary 0\n            -showUVAttrsOnly 0\n            -showTextureNodesOnly 0\n            -attrAlphaOrder \"default\" \n            -animLayerFilterOptions \"allAffecting\" \n            -sortOrder \"none\" \n            -longNames 0\n            -niceNames 1\n            -showNamespace 1\n            -showPinIcons 0\n            -mapMotionTrails 0\n            -ignoreHiddenAttribute 0\n            -ignoreOutlinerColor 0\n            -renderFilterVisible 0\n            -renderFilterIndex 0\n            -selectionOrder \"chronological\" \n            -expandAttribute 0\n            -ufeFilter \"USD\" \"InactivePrims\" -ufeFilterValue 1\n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n"
 		+ "\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 0\n            -showReferenceMembers 0\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -organizeByClip 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showParentContainers 0\n            -showContainerContents 1\n            -ignoreDagHierarchy 0\n            -expandConnections 0\n            -showUpstreamCurves 1\n"
@@ -53439,8 +55504,8 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n"
 		+ "            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 832\n            -height 931\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n"
 		+ "\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-userCreated false\n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
-		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 1\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 1\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -bluePencil 1\\n    -greasePencils 0\\n    -excludeObjectPreset \\\"All\\\" \\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1292\\n    -height 802\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
-		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 1\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 1\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -bluePencil 1\\n    -greasePencils 0\\n    -excludeObjectPreset \\\"All\\\" \\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1292\\n    -height 802\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
+		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 1\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 1\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -bluePencil 1\\n    -greasePencils 0\\n    -excludeObjectPreset \\\"All\\\" \\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1310\\n    -height 802\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
+		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 1\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 1\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -bluePencil 1\\n    -greasePencils 0\\n    -excludeObjectPreset \\\"All\\\" \\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1310\\n    -height 802\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName\"\n"
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 50 -size 200 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
@@ -70770,8 +72835,9 @@ createNode keyingGroup -n "Character1_RightFootBPKG2";
 	setAttr ".cat" -type "string" "BodyPart";
 	setAttr ".mr" yes;
 createNode HIKCharacterNode -n "Character1";
-	rename -uid "2617E4AE-4097-7866-A67D-05B4B506C0E4";
+	rename -uid "0F45E4C4-4E2A-6FC3-31BD-9EAC5B0C519E";
 	setAttr ".OutputCharacterDefinition" -type "HIKCharacter" ;
+	setAttr ".InputCharacterizationLock" yes;
 	setAttr ".ReferenceMinRLimitx" -45;
 	setAttr ".ReferenceMinRLimity" -45;
 	setAttr ".ReferenceMinRLimitz" -45;
@@ -70847,66 +72913,88 @@ createNode HIKCharacterNode -n "Character1";
 	setAttr ".SpineMaxRLimitx" 45;
 	setAttr ".SpineMaxRLimity" 45;
 	setAttr ".SpineMaxRLimitz" 45;
-	setAttr ".LeftArmTx" 22.290640865793712;
-	setAttr ".LeftArmTy" 155.01248959875576;
-	setAttr ".LeftArmTz" -4.8432400376192941;
-	setAttr ".LeftArmRz" -0.00073528200000000333;
-	setAttr ".LeftArmJointOrientz" -0.00073528200000000322;
+	setAttr ".LeftArmTx" 24.913560062414238;
+	setAttr ".LeftArmTy" 159.22272207441705;
+	setAttr ".LeftArmTz" -2.3300100247854676;
+	setAttr ".LeftArmRx" 3.3968137581689462;
+	setAttr ".LeftArmRy" -5.2640457261606155;
+	setAttr ".LeftArmRz" 80.406164703850138;
+	setAttr ".LeftArmSy" 0.99999999999999989;
+	setAttr ".LeftArmSz" 0.99999999999999989;
+	setAttr ".LeftArmJointOrientz" -0.00073528200000000333;
 	setAttr ".LeftArmMinRLimitx" -45;
 	setAttr ".LeftArmMinRLimity" -45;
 	setAttr ".LeftArmMinRLimitz" -45;
 	setAttr ".LeftArmMaxRLimitx" 45;
 	setAttr ".LeftArmMaxRLimity" 45;
 	setAttr ".LeftArmMaxRLimitz" 45;
-	setAttr ".LeftForeArmTx" 27.084458104168281;
-	setAttr ".LeftForeArmTy" 128.62924861526213;
-	setAttr ".LeftForeArmTz" -4.6386010638029322;
-	setAttr ".LeftForeArmRz" 0.015440922000000058;
-	setAttr ".LeftForeArmJointOrientz" 0.016176204000000059;
+	setAttr ".LeftForeArmTx" 51.710411487386594;
+	setAttr ".LeftForeArmTy" 159.66143732806808;
+	setAttr ".LeftForeArmTz" -3.2433819379787185;
+	setAttr ".LeftForeArmRx" 4.3342439101228587;
+	setAttr ".LeftForeArmRy" -4.5243160897476367;
+	setAttr ".LeftForeArmRz" 69.451862706701391;
+	setAttr ".LeftForeArmSy" 0.99999999999999978;
+	setAttr ".LeftForeArmSz" 0.99999999999999989;
+	setAttr ".LeftForeArmJointOrientz" 0.016911486000000066;
 	setAttr ".LeftForeArmMinRLimitx" -45;
 	setAttr ".LeftForeArmMinRLimity" -45;
 	setAttr ".LeftForeArmMinRLimitz" -45;
 	setAttr ".LeftForeArmMaxRLimitx" 45;
 	setAttr ".LeftForeArmMaxRLimity" 45;
 	setAttr ".LeftForeArmMaxRLimitz" 45;
-	setAttr ".LeftHandTx" 35.734602184670614;
-	setAttr ".LeftHandTy" 105.56556672037598;
-	setAttr ".LeftHandTz" -3.0315007225421606;
-	setAttr ".LeftHandRz" -0.15440922000000035;
-	setAttr ".LeftHandJointOrientz" -0.1698501420000004;
+	setAttr ".LeftHandTx" 76.389279925795975;
+	setAttr ".LeftHandTy" 159.62507631507549;
+	setAttr ".LeftHandTz" -2.7017943224960321;
+	setAttr ".LeftHandRx" 119.91136341367894;
+	setAttr ".LeftHandRy" -73.345618300055349;
+	setAttr ".LeftHandRz" -32.627297905398748;
+	setAttr ".LeftHandSy" 0.99999999999999989;
+	setAttr ".LeftHandSz" 1.0000000000000002;
+	setAttr ".LeftHandJointOrientz" -0.18602634600000045;
 	setAttr ".LeftHandMinRLimitx" -45;
 	setAttr ".LeftHandMinRLimity" -45;
 	setAttr ".LeftHandMinRLimitz" -45;
 	setAttr ".LeftHandMaxRLimitx" 45;
 	setAttr ".LeftHandMaxRLimity" 45;
 	setAttr ".LeftHandMaxRLimitz" 45;
-	setAttr ".RightArmTx" -22.290640865793712;
-	setAttr ".RightArmTy" 155.01248959875576;
-	setAttr ".RightArmTz" -4.8432400376192941;
-	setAttr ".RightArmRz" 0.0023183610000000127;
-	setAttr ".RightArmJointOrientz" 0.0023183610000000123;
+	setAttr ".RightArmTx" -24.913580725592709;
+	setAttr ".RightArmTy" 159.22263176410632;
+	setAttr ".RightArmTz" -2.3299525534843486;
+	setAttr ".RightArmRx" 3.397024398595196;
+	setAttr ".RightArmRy" 5.264420064627215;
+	setAttr ".RightArmRz" -80.404328529792494;
+	setAttr ".RightArmSx" 0.99999999999999989;
+	setAttr ".RightArmSy" 0.99999999999999989;
+	setAttr ".RightArmJointOrientz" 0.0023183610000000127;
 	setAttr ".RightArmMinRLimitx" -45;
 	setAttr ".RightArmMinRLimity" -45;
 	setAttr ".RightArmMinRLimitz" -45;
 	setAttr ".RightArmMaxRLimitx" 45;
 	setAttr ".RightArmMaxRLimity" 45;
 	setAttr ".RightArmMaxRLimitz" 45;
-	setAttr ".RightForeArmTx" -27.084458104168277;
-	setAttr ".RightForeArmTy" 128.62924861526213;
-	setAttr ".RightForeArmTz" -4.6386010638029322;
-	setAttr ".RightForeArmRz" -0.048685581000000144;
-	setAttr ".RightForeArmJointOrientz" -0.051003942000000163;
+	setAttr ".RightForeArmTx" -51.710434238593706;
+	setAttr ".RightForeArmTy" 159.66124079773834;
+	setAttr ".RightForeArmTz" -3.2433142211836263;
+	setAttr ".RightForeArmRx" 4.3316388155285974;
+	setAttr ".RightForeArmRy" 4.5274033909617941;
+	setAttr ".RightForeArmRz" -69.486558668779494;
+	setAttr ".RightForeArmSy" 0.99999999999999989;
+	setAttr ".RightForeArmJointOrientz" -0.053322303000000175;
 	setAttr ".RightForeArmMinRLimitx" -45;
 	setAttr ".RightForeArmMinRLimity" -45;
 	setAttr ".RightForeArmMinRLimitz" -45;
 	setAttr ".RightForeArmMaxRLimitx" 45;
 	setAttr ".RightForeArmMaxRLimity" 45;
 	setAttr ".RightForeArmMaxRLimitz" 45;
-	setAttr ".RightHandTx" -35.734602184670621;
-	setAttr ".RightHandTy" 105.56556672037603;
-	setAttr ".RightHandTz" -3.0315007225421597;
-	setAttr ".RightHandRz" 0.48685581000000111;
-	setAttr ".RightHandJointOrientz" 0.53554139100000131;
+	setAttr ".RightHandTx" -76.389301844133968;
+	setAttr ".RightHandTy" 159.62549664971607;
+	setAttr ".RightHandTz" -2.7016475959201367;
+	setAttr ".RightHandRx" 119.79766333967143;
+	setAttr ".RightHandRy" 73.322948103674292;
+	setAttr ".RightHandRz" 32.881397819457128;
+	setAttr ".RightHandSy" 0.99999999999999978;
+	setAttr ".RightHandJointOrientz" 0.58654533300000145;
 	setAttr ".RightHandMinRLimitx" -45;
 	setAttr ".RightHandMinRLimity" -45;
 	setAttr ".RightHandMinRLimitz" -45;
@@ -70942,6 +73030,9 @@ createNode HIKCharacterNode -n "Character1";
 	setAttr ".LeftShoulderTx" 10.624366866877258;
 	setAttr ".LeftShoulderTy" 160.33875827983707;
 	setAttr ".LeftShoulderTz" 4.5613542029280829;
+	setAttr ".LeftShoulderRy" -11.493752533688797;
+	setAttr ".LeftShoulderRz" 17.349397708155777;
+	setAttr ".LeftShoulderSz" 0.99999999999999989;
 	setAttr ".LeftShoulderMinRLimitx" -45;
 	setAttr ".LeftShoulderMinRLimity" -45;
 	setAttr ".LeftShoulderMinRLimitz" -45;
@@ -70951,6 +73042,9 @@ createNode HIKCharacterNode -n "Character1";
 	setAttr ".RightShoulderTx" -10.624366866877258;
 	setAttr ".RightShoulderTy" 160.33875827983707;
 	setAttr ".RightShoulderTz" 4.5613542029280829;
+	setAttr ".RightShoulderRy" 11.494000000000002;
+	setAttr ".RightShoulderRz" -17.349000000000004;
+	setAttr ".RightShoulderSx" 0.99999999999999989;
 	setAttr ".RightShoulderMinRLimitx" -45;
 	setAttr ".RightShoulderMinRLimity" -45;
 	setAttr ".RightShoulderMinRLimitz" -45;
@@ -70965,14 +73059,6 @@ createNode HIKCharacterNode -n "Character1";
 	setAttr ".NeckMaxRLimitx" 45;
 	setAttr ".NeckMaxRLimity" 45;
 	setAttr ".NeckMaxRLimitz" 45;
-	setAttr ".LeftFingerBaseTx" 80.519743439999999;
-	setAttr ".LeftFingerBaseTy" 147.08957459999999;
-	setAttr ".LeftFingerBaseTz" 1.304684401;
-	setAttr ".LeftFingerBaseRy" -0.0035633340000000005;
-	setAttr ".RightFingerBaseTx" -80.519743439999999;
-	setAttr ".RightFingerBaseTy" 147.08957459999999;
-	setAttr ".RightFingerBaseTz" 1.304684401;
-	setAttr ".RightFingerBaseRy" -2.0000646359999998;
 	setAttr ".Spine1Ty" 140.0208982040208;
 	setAttr ".Spine1MinRLimitx" -45;
 	setAttr ".Spine1MinRLimity" -45;
@@ -70980,1627 +73066,685 @@ createNode HIKCharacterNode -n "Character1";
 	setAttr ".Spine1MaxRLimitx" 45;
 	setAttr ".Spine1MaxRLimity" 45;
 	setAttr ".Spine1MaxRLimitz" 45;
-	setAttr ".Spine2Ty" 153.18656287687236;
-	setAttr ".Spine2Tz" -2.3566986262408136;
+	setAttr ".Spine2Ty" 153.18657183740967;
+	setAttr ".Spine2Tz" -2.3566996715128425;
 	setAttr ".Spine2MinRLimitx" -45;
 	setAttr ".Spine2MinRLimity" -45;
 	setAttr ".Spine2MinRLimitz" -45;
 	setAttr ".Spine2MaxRLimitx" 45;
 	setAttr ".Spine2MaxRLimity" 45;
 	setAttr ".Spine2MaxRLimitz" 45;
-	setAttr ".Spine3Ty" 140.0208982040208;
-	setAttr ".Spine3MinRLimitx" -45;
-	setAttr ".Spine3MinRLimity" -45;
-	setAttr ".Spine3MinRLimitz" -45;
-	setAttr ".Spine3MaxRLimitx" 45;
-	setAttr ".Spine3MaxRLimity" 45;
-	setAttr ".Spine3MaxRLimitz" 45;
-	setAttr ".Spine4Ty" 123;
-	setAttr ".Spine5Ty" 127;
-	setAttr ".Spine6Ty" 131;
-	setAttr ".Spine7Ty" 135;
-	setAttr ".Spine8Ty" 139;
-	setAttr ".Spine9Ty" 143;
-	setAttr ".Neck1Ty" 147;
-	setAttr ".Neck2Ty" 149;
-	setAttr ".Neck3Ty" 151;
-	setAttr ".Neck4Ty" 153;
-	setAttr ".Neck5Ty" 155;
-	setAttr ".Neck6Ty" 157;
-	setAttr ".Neck7Ty" 159;
-	setAttr ".Neck8Ty" 161;
-	setAttr ".Neck9Ty" 163;
-	setAttr ".LeftUpLegRollTx" 9.9736735458552932;
-	setAttr ".LeftUpLegRollTy" 84.842655745193227;
-	setAttr ".LeftUpLegRollTz" 0.5544475571173324;
-	setAttr ".LeftLegRollTx" 10.722183995938641;
-	setAttr ".LeftLegRollTy" 39.555059972207289;
-	setAttr ".LeftLegRollTz" -1.3247079032079911;
-	setAttr ".RightUpLegRollTx" -9.9736735458552932;
-	setAttr ".RightUpLegRollTy" 84.842655745193227;
-	setAttr ".RightUpLegRollTz" 0.5544475571173324;
-	setAttr ".RightLegRollTx" -10.722183995938641;
-	setAttr ".RightLegRollTy" 39.555059972207289;
-	setAttr ".RightLegRollTz" -1.3247079032079911;
-	setAttr ".LeftArmRollTx" 24.687549484980995;
-	setAttr ".LeftArmRollTy" 141.82086910700895;
-	setAttr ".LeftArmRollTz" -4.7409205507111132;
-	setAttr ".LeftForeArmRollTx" 31.409530144419445;
-	setAttr ".LeftForeArmRollTy" 117.09740766781906;
-	setAttr ".LeftForeArmRollTz" -3.8350508931725464;
-	setAttr ".RightArmRollTx" -24.687549484980995;
-	setAttr ".RightArmRollTy" 141.82086910700895;
-	setAttr ".RightArmRollTz" -4.7409205507111132;
-	setAttr ".RightForeArmRollTx" -31.409530144419445;
-	setAttr ".RightForeArmRollTy" 117.09740766781906;
-	setAttr ".RightForeArmRollTz" -3.8350508931725464;
-	setAttr ".HipsTranslationTy" 100;
-	setAttr ".HipsTranslationMinRLimitx" -45;
-	setAttr ".HipsTranslationMinRLimity" -45;
-	setAttr ".HipsTranslationMinRLimitz" -45;
-	setAttr ".HipsTranslationMaxRLimitx" 45;
-	setAttr ".HipsTranslationMaxRLimity" 45;
-	setAttr ".HipsTranslationMaxRLimitz" 45;
-	setAttr ".LeftHandThumb1Tx" 41.005251191879665;
-	setAttr ".LeftHandThumb1Ty" 103.93438975411443;
-	setAttr ".LeftHandThumb1Tz" -2.9183790603946611;
-	setAttr ".LeftHandThumb1Rz" 0.97792506000000212;
-	setAttr ".LeftHandThumb1JointOrientz" 1.1323342800000022;
+	setAttr ".LeftHandThumb1Tx" 79.220801062679314;
+	setAttr ".LeftHandThumb1Ty" 158.65331319439326;
+	setAttr ".LeftHandThumb1Tz" 1.9340918119520367;
+	setAttr ".LeftHandThumb1Rx" 122.2408835454289;
+	setAttr ".LeftHandThumb1Ry" -74.461159434410177;
+	setAttr ".LeftHandThumb1Rz" -35.051729463562928;
+	setAttr ".LeftHandThumb1Sy" 0.99999999999999989;
+	setAttr ".LeftHandThumb1Sz" 1.0000000000000002;
+	setAttr ".LeftHandThumb1JointOrientz" 1.3021844220000027;
 	setAttr ".LeftHandThumb1MinRLimitx" -45;
 	setAttr ".LeftHandThumb1MinRLimity" -45;
 	setAttr ".LeftHandThumb1MinRLimitz" -45;
 	setAttr ".LeftHandThumb1MaxRLimitx" 45;
 	setAttr ".LeftHandThumb1MaxRLimity" 45;
 	setAttr ".LeftHandThumb1MaxRLimitz" 45;
-	setAttr ".LeftHandThumb2Tx" 43.208914080064382;
-	setAttr ".LeftHandThumb2Ty" 102.44882958104924;
-	setAttr ".LeftHandThumb2Tz" -2.7234861635107666;
-	setAttr ".LeftHandThumb2Rz" -4.4006627700000038;
-	setAttr ".LeftHandThumb2JointOrientz" -5.3785878300000078;
+	setAttr ".LeftHandThumb2Tx" 81.168354988053537;
+	setAttr ".LeftHandThumb2Ty" 158.0781007827988;
+	setAttr ".LeftHandThumb2Tz" 3.6595386477377705;
+	setAttr ".LeftHandThumb2Rx" 113.14242740746832;
+	setAttr ".LeftHandThumb2Ry" -68.676456688304668;
+	setAttr ".LeftHandThumb2Rz" -25.47571624167951;
+	setAttr ".LeftHandThumb2Sy" 0.99999999999999989;
+	setAttr ".LeftHandThumb2Sz" 1.0000000000000002;
+	setAttr ".LeftHandThumb2JointOrientz" -6.5109221100000081;
 	setAttr ".LeftHandThumb2MinRLimitx" -45;
 	setAttr ".LeftHandThumb2MinRLimity" -45;
 	setAttr ".LeftHandThumb2MinRLimitz" -45;
 	setAttr ".LeftHandThumb2MaxRLimitx" 45;
 	setAttr ".LeftHandThumb2MaxRLimity" 45;
 	setAttr ".LeftHandThumb2MaxRLimitz" 45;
-	setAttr ".LeftHandThumb3Tx" 46.148793837630166;
-	setAttr ".LeftHandThumb3Ty" 101.25640854183996;
-	setAttr ".LeftHandThumb3Tz" -2.6409023064038566;
-	setAttr ".LeftHandThumb3Rz" 14.962551280000032;
-	setAttr ".LeftHandThumb3Sx" 1.0000000000000002;
-	setAttr ".LeftHandThumb3Sy" 1.0000000000000002;
-	setAttr ".LeftHandThumb3JointOrientz" 19.363214050000035;
+	setAttr ".LeftHandThumb3Tx" 83.063056257999108;
+	setAttr ".LeftHandThumb3Ty" 157.51062536846075;
+	setAttr ".LeftHandThumb3Tz" 6.1414048344886076;
+	setAttr ".LeftHandThumb3Rx" 31.096485733522059;
+	setAttr ".LeftHandThumb3Ry" 260.39247408832415;
+	setAttr ".LeftHandThumb3Rz" 54.778763158339409;
+	setAttr ".LeftHandThumb3Sy" 0.99999999999999989;
+	setAttr ".LeftHandThumb3Sz" 1.0000000000000002;
+	setAttr ".LeftHandThumb3JointOrientz" 24.741801880000047;
 	setAttr ".LeftHandThumb3MinRLimitx" -45;
 	setAttr ".LeftHandThumb3MinRLimity" -45;
 	setAttr ".LeftHandThumb3MinRLimitz" -45;
 	setAttr ".LeftHandThumb3MaxRLimitx" 45;
 	setAttr ".LeftHandThumb3MaxRLimity" 45;
 	setAttr ".LeftHandThumb3MaxRLimitz" 45;
-	setAttr ".LeftHandThumb4Tx" 49.410270430605316;
-	setAttr ".LeftHandThumb4Ty" 100.79073689909276;
-	setAttr ".LeftHandThumb4Tz" -2.5233773018812133;
-	setAttr ".LeftHandThumb4Rz" -39.905597550000088;
-	setAttr ".LeftHandThumb4Sx" 1.0000000000000002;
-	setAttr ".LeftHandThumb4Sy" 1.0000000000000002;
-	setAttr ".LeftHandThumb4JointOrientz" -54.868148830000123;
+	setAttr ".LeftHandThumb4Tx" 84.046908828447528;
+	setAttr ".LeftHandThumb4Ty" 156.88076980770998;
+	setAttr ".LeftHandThumb4Tz" 9.224132176354102;
+	setAttr ".LeftHandThumb4Rx" 98.778746592807238;
+	setAttr ".LeftHandThumb4Ry" -20.542232502046787;
+	setAttr ".LeftHandThumb4Rz" -6.8673927346133787;
+	setAttr ".LeftHandThumb4Sx" 0.99999999999999989;
+	setAttr ".LeftHandThumb4Sz" 1.0000000000000002;
+	setAttr ".LeftHandThumb4JointOrientz" -74.231362880000148;
 	setAttr ".LeftHandThumb4MinRLimitx" -45;
 	setAttr ".LeftHandThumb4MinRLimity" -45;
 	setAttr ".LeftHandThumb4MinRLimitz" -45;
 	setAttr ".LeftHandThumb4MaxRLimitx" 45;
 	setAttr ".LeftHandThumb4MaxRLimity" 45;
 	setAttr ".LeftHandThumb4MaxRLimitz" 45;
-	setAttr ".LeftHandIndex1Tx" 42.803185799919831;
-	setAttr ".LeftHandIndex1Ty" 97.319757744987001;
-	setAttr ".LeftHandIndex1Tz" -2.8436289195449351;
-	setAttr ".LeftHandIndex1Rz" 0.97792506000000212;
-	setAttr ".LeftHandIndex1JointOrientz" 1.1323342800000022;
+	setAttr ".LeftHandIndex1Tx" 86.054138480913196;
+	setAttr ".LeftHandIndex1Ty" 158.11529548858627;
+	setAttr ".LeftHandIndex1Tz" 2.0209810018529337;
+	setAttr ".LeftHandIndex1Rx" 122.2408835454289;
+	setAttr ".LeftHandIndex1Ry" -74.461159434410177;
+	setAttr ".LeftHandIndex1Rz" -35.051729463562928;
+	setAttr ".LeftHandIndex1Sy" 0.99999999999999989;
+	setAttr ".LeftHandIndex1Sz" 1.0000000000000002;
+	setAttr ".LeftHandIndex1JointOrientz" 1.3021844220000027;
 	setAttr ".LeftHandIndex1MinRLimitx" -45;
 	setAttr ".LeftHandIndex1MinRLimity" -45;
 	setAttr ".LeftHandIndex1MinRLimitz" -45;
 	setAttr ".LeftHandIndex1MaxRLimitx" 45;
 	setAttr ".LeftHandIndex1MaxRLimity" 45;
 	setAttr ".LeftHandIndex1MaxRLimitz" 45;
-	setAttr ".LeftHandIndex2Tx" 44.99873942380615;
-	setAttr ".LeftHandIndex2Ty" 93.713810345722266;
-	setAttr ".LeftHandIndex2Tz" -2.6703903502847504;
-	setAttr ".LeftHandIndex2Ry" 1.9999999849726875;
-	setAttr ".LeftHandIndex2Rz" -4.4003632465384168;
-	setAttr ".LeftHandIndex2Sy" 0.99999999999998335;
-	setAttr ".LeftHandIndex2JointOrientx" 1.0453217981911853e-05;
+	setAttr ".LeftHandIndex2Tx" 90.057122810754436;
+	setAttr ".LeftHandIndex2Ty" 157.50196452591277;
+	setAttr ".LeftHandIndex2Tz" 3.2264956424837266;
+	setAttr ".LeftHandIndex2Rx" 108.25918149982985;
+	setAttr ".LeftHandIndex2Ry" -69.3844181761078;
+	setAttr ".LeftHandIndex2Rz" -20.246676323891563;
+	setAttr ".LeftHandIndex2Sy" 0.99999999999999989;
+	setAttr ".LeftHandIndex2Sz" 1.0000000000000002;
+	setAttr ".LeftHandIndex2JointOrientx" 1.0453217981911858e-05;
 	setAttr ".LeftHandIndex2JointOrienty" 1.9999999849726871;
-	setAttr ".LeftHandIndex2JointOrientz" -5.3782883065384182;
+	setAttr ".LeftHandIndex2JointOrientz" -6.5106225865384211;
 	setAttr ".LeftHandIndex2MinRLimitx" -45;
 	setAttr ".LeftHandIndex2MinRLimity" -45;
 	setAttr ".LeftHandIndex2MinRLimitz" -45;
 	setAttr ".LeftHandIndex2MaxRLimitx" 45;
 	setAttr ".LeftHandIndex2MaxRLimity" 45;
 	setAttr ".LeftHandIndex2MaxRLimitz" 45;
-	setAttr ".LeftHandIndex3Tx" 46.377773400652615;
-	setAttr ".LeftHandIndex3Ty" 91.448903344291423;
-	setAttr ".LeftHandIndex3Tz" -2.5615787391443829;
-	setAttr ".LeftHandIndex3Rx" -2.458088845327282;
-	setAttr ".LeftHandIndex3Ry" -39.825004241267195;
-	setAttr ".LeftHandIndex3Rz" 16.350088544077334;
-	setAttr ".LeftHandIndex3Sx" 0.99999999999999989;
-	setAttr ".LeftHandIndex3JointOrientx" -3.4068763800691677;
-	setAttr ".LeftHandIndex3JointOrienty" -41.691458798588229;
-	setAttr ".LeftHandIndex3JointOrientz" 21.36997584296029;
+	setAttr ".LeftHandIndex3Tx" 92.586783260873759;
+	setAttr ".LeftHandIndex3Ty" 157.12291206438235;
+	setAttr ".LeftHandIndex3Tz" 3.9339669420119998;
+	setAttr ".LeftHandIndex3Rx" 5.6140900712587722;
+	setAttr ".LeftHandIndex3Ry" 219.68026645820706;
+	setAttr ".LeftHandIndex3Rz" 79.440366605495811;
+	setAttr ".LeftHandIndex3Sy" 0.99999999999999989;
+	setAttr ".LeftHandIndex3Sz" 1.0000000000000002;
+	setAttr ".LeftHandIndex3JointOrientx" -4.6470716835664998;
+	setAttr ".LeftHandIndex3JointOrienty" -43.470883998212067;
+	setAttr ".LeftHandIndex3JointOrientz" 27.587541632066451;
 	setAttr ".LeftHandIndex3MinRLimitx" -45;
 	setAttr ".LeftHandIndex3MinRLimity" -45;
 	setAttr ".LeftHandIndex3MinRLimitz" -45;
 	setAttr ".LeftHandIndex3MaxRLimitx" 45;
 	setAttr ".LeftHandIndex3MaxRLimity" 45;
 	setAttr ".LeftHandIndex3MaxRLimitz" 45;
-	setAttr ".LeftHandIndex4Tx" 47.395301624820668;
-	setAttr ".LeftHandIndex4Ty" 89.777727992895862;
-	setAttr ".LeftHandIndex4Tz" -2.4812914193357321;
-	setAttr ".LeftHandIndex4Rx" -21.982400901305017;
-	setAttr ".LeftHandIndex4Ry" 21.839053722819184;
-	setAttr ".LeftHandIndex4Rz" -10.193672463465338;
-	setAttr ".LeftHandIndex4Sx" 1.0000000000000002;
-	setAttr ".LeftHandIndex4Sz" 0.99999999999999989;
-	setAttr ".LeftHandIndex4JointOrientx" -48.686038818609362;
-	setAttr ".LeftHandIndex4JointOrienty" 56.569612543278033;
-	setAttr ".LeftHandIndex4JointOrientz" -43.519378727620477;
+	setAttr ".LeftHandIndex4Tx" 94.38957624826439;
+	setAttr ".LeftHandIndex4Ty" 156.78348694863649;
+	setAttr ".LeftHandIndex4Tz" 4.6190690009994162;
+	setAttr ".LeftHandIndex4Rx" 18.05232831290861;
+	setAttr ".LeftHandIndex4Ry" -24.150614410128334;
+	setAttr ".LeftHandIndex4Rz" 55.477964692028131;
+	setAttr ".LeftHandIndex4Sy" 0.99999999999999989;
+	setAttr ".LeftHandIndex4JointOrientx" 54.091353887230611;
+	setAttr ".LeftHandIndex4JointOrienty" 126.19966398087945;
+	setAttr ".LeftHandIndex4JointOrientz" 49.890340969573771;
 	setAttr ".LeftHandIndex4MinRLimitx" -45;
 	setAttr ".LeftHandIndex4MinRLimity" -45;
 	setAttr ".LeftHandIndex4MinRLimitz" -45;
 	setAttr ".LeftHandIndex4MaxRLimitx" 45;
 	setAttr ".LeftHandIndex4MaxRLimity" 45;
 	setAttr ".LeftHandIndex4MaxRLimitz" 45;
-	setAttr ".LeftHandMiddle1Tx" 40.127763631048012;
-	setAttr ".LeftHandMiddle1Ty" 96.288248535500131;
-	setAttr ".LeftHandMiddle1Tz" -3.0088623740289715;
-	setAttr ".LeftHandMiddle1Rz" 0.97792506000000212;
-	setAttr ".LeftHandMiddle1JointOrientz" 1.1323342800000022;
+	setAttr ".LeftHandMiddle1Tx" 86.425521655670394;
+	setAttr ".LeftHandMiddle1Ty" 158.66261503475837;
+	setAttr ".LeftHandMiddle1Tz" -0.77396317957770244;
+	setAttr ".LeftHandMiddle1Rx" 122.2408835454289;
+	setAttr ".LeftHandMiddle1Ry" -74.461159434410177;
+	setAttr ".LeftHandMiddle1Rz" -35.051729463562928;
+	setAttr ".LeftHandMiddle1Sy" 0.99999999999999989;
+	setAttr ".LeftHandMiddle1Sz" 1.0000000000000002;
+	setAttr ".LeftHandMiddle1JointOrientz" 1.3021844220000027;
 	setAttr ".LeftHandMiddle1MinRLimitx" -45;
 	setAttr ".LeftHandMiddle1MinRLimity" -45;
 	setAttr ".LeftHandMiddle1MinRLimitz" -45;
 	setAttr ".LeftHandMiddle1MaxRLimitx" 45;
 	setAttr ".LeftHandMiddle1MaxRLimity" 45;
 	setAttr ".LeftHandMiddle1MaxRLimitz" 45;
-	setAttr ".LeftHandMiddle2Tx" 41.656942669849279;
-	setAttr ".LeftHandMiddle2Ty" 91.676275635189171;
-	setAttr ".LeftHandMiddle2Tz" -2.8026236080562623;
-	setAttr ".LeftHandMiddle2Ry" 0.0035633340000000269;
-	setAttr ".LeftHandMiddle2Rz" -4.4006627700000109;
-	setAttr ".LeftHandMiddle2Sz" 0.99999999999999989;
-	setAttr ".LeftHandMiddle2JointOrienty" 0.0035633340000000252;
-	setAttr ".LeftHandMiddle2JointOrientz" -5.3785878300000132;
+	setAttr ".LeftHandMiddle2Tx" 91.244617490990294;
+	setAttr ".LeftHandMiddle2Ty" 158.09073266096996;
+	setAttr ".LeftHandMiddle2Tz" -0.45697284052253567;
+	setAttr ".LeftHandMiddle2Rx" 113.13403300292445;
+	setAttr ".LeftHandMiddle2Ry" -68.677856903160816;
+	setAttr ".LeftHandMiddle2Rz" -25.466704983433328;
+	setAttr ".LeftHandMiddle2Sy" 0.99999999999999989;
+	setAttr ".LeftHandMiddle2JointOrienty" 0.0035633340000000269;
+	setAttr ".LeftHandMiddle2JointOrientz" -6.5109221100000125;
 	setAttr ".LeftHandMiddle2MinRLimitx" -45;
 	setAttr ".LeftHandMiddle2MinRLimity" -45;
 	setAttr ".LeftHandMiddle2MinRLimitz" -45;
 	setAttr ".LeftHandMiddle2MaxRLimitx" 45;
 	setAttr ".LeftHandMiddle2MaxRLimity" 45;
 	setAttr ".LeftHandMiddle2MaxRLimitz" 45;
-	setAttr ".LeftHandMiddle3Tx" 42.526431080362833;
-	setAttr ".LeftHandMiddle3Ty" 89.053915650187733;
-	setAttr ".LeftHandMiddle3Tz" -2.6853565971791808;
-	setAttr ".LeftHandMiddle3Rx" -0.0033922513884985426;
-	setAttr ".LeftHandMiddle3Ry" -0.070993047688923852;
-	setAttr ".LeftHandMiddle3Rz" 14.96225704348422;
+	setAttr ".LeftHandMiddle3Tx" 93.988646625681994;
+	setAttr ".LeftHandMiddle3Ty" 157.77310947417953;
+	setAttr ".LeftHandMiddle3Tz" -0.33066702921373292;
+	setAttr ".LeftHandMiddle3Rx" 30.865069180533634;
+	setAttr ".LeftHandMiddle3Ry" 260.32887881236587;
+	setAttr ".LeftHandMiddle3Rz" 55.008854377898153;
+	setAttr ".LeftHandMiddle3Sx" 1.0000000000000002;
 	setAttr ".LeftHandMiddle3Sy" 0.99999999999999989;
-	setAttr ".LeftHandMiddle3JointOrientx" -0.0045736780355406133;
-	setAttr ".LeftHandMiddle3JointOrienty" -0.074354830329009261;
-	setAttr ".LeftHandMiddle3JointOrientz" 19.362921312004826;
+	setAttr ".LeftHandMiddle3JointOrientx" -0.006065024306544391;
+	setAttr ".LeftHandMiddle3JointOrienty" -0.077591068794664222;
+	setAttr ".LeftHandMiddle3JointOrientz" 24.741511119496764;
 	setAttr ".LeftHandMiddle3MinRLimitx" -45;
 	setAttr ".LeftHandMiddle3MinRLimity" -45;
 	setAttr ".LeftHandMiddle3MinRLimitz" -45;
 	setAttr ".LeftHandMiddle3MaxRLimitx" 45;
 	setAttr ".LeftHandMiddle3MaxRLimity" 45;
 	setAttr ".LeftHandMiddle3MaxRLimitz" 45;
-	setAttr ".LeftHandMiddle4Tx" 43.15707197794292;
-	setAttr ".LeftHandMiddle4Ty" 87.151911904583116;
-	setAttr ".LeftHandMiddle4Tz" -2.6003025760668614;
-	setAttr ".LeftHandMiddle4Rx" -0.12091484731527408;
-	setAttr ".LeftHandMiddle4Ry" 0.65010766646675111;
-	setAttr ".LeftHandMiddle4Rz" -39.900467972307027;
-	setAttr ".LeftHandMiddle4JointOrientx" -0.17702295902024398;
-	setAttr ".LeftHandMiddle4JointOrienty" 0.69374060214361521;
-	setAttr ".LeftHandMiddle4JointOrientz" -54.86338089521476;
+	setAttr ".LeftHandMiddle4Tx" 95.958538619538459;
+	setAttr ".LeftHandMiddle4Ty" 157.51723071693797;
+	setAttr ".LeftHandMiddle4Tz" -0.053878354165903308;
+	setAttr ".LeftHandMiddle4Rx" 98.344211227490931;
+	setAttr ".LeftHandMiddle4Ry" -20.651284901769902;
+	setAttr ".LeftHandMiddle4Rz" -6.1354750789098746;
+	setAttr ".LeftHandMiddle4Sx" 0.99999999999999989;
+	setAttr ".LeftHandMiddle4JointOrientx" -0.24734002309918071;
+	setAttr ".LeftHandMiddle4JointOrienty" 0.71835402700769668;
+	setAttr ".LeftHandMiddle4JointOrientz" -74.227165724358301;
 	setAttr ".LeftHandMiddle4MinRLimitx" -45;
 	setAttr ".LeftHandMiddle4MinRLimity" -45;
 	setAttr ".LeftHandMiddle4MinRLimitz" -45;
 	setAttr ".LeftHandMiddle4MaxRLimitx" 45;
 	setAttr ".LeftHandMiddle4MaxRLimity" 45;
 	setAttr ".LeftHandMiddle4MaxRLimitz" 45;
-	setAttr ".LeftHandRing1Tx" 37.69607748892647;
-	setAttr ".LeftHandRing1Ty" 95.636514512848919;
-	setAttr ".LeftHandRing1Tz" -2.9208105523036814;
-	setAttr ".LeftHandRing1Rz" 0.97792506000000212;
-	setAttr ".LeftHandRing1JointOrientz" 1.1323342800000022;
+	setAttr ".LeftHandRing1Tx" 86.47067127952532;
+	setAttr ".LeftHandRing1Ty" 158.93285342435649;
+	setAttr ".LeftHandRing1Tz" -3.2780679253160647;
+	setAttr ".LeftHandRing1Rx" 122.2408835454289;
+	setAttr ".LeftHandRing1Ry" -74.461159434410177;
+	setAttr ".LeftHandRing1Rz" -35.051729463562928;
+	setAttr ".LeftHandRing1Sy" 0.99999999999999989;
+	setAttr ".LeftHandRing1Sz" 1.0000000000000002;
+	setAttr ".LeftHandRing1JointOrientz" 1.3021844220000027;
 	setAttr ".LeftHandRing1MinRLimitx" -45;
 	setAttr ".LeftHandRing1MinRLimity" -45;
 	setAttr ".LeftHandRing1MinRLimitz" -45;
 	setAttr ".LeftHandRing1MaxRLimitx" 45;
 	setAttr ".LeftHandRing1MaxRLimity" 45;
 	setAttr ".LeftHandRing1MaxRLimitz" 45;
-	setAttr ".LeftHandRing2Tx" 38.064119988968088;
-	setAttr ".LeftHandRing2Ty" 91.117659515678312;
-	setAttr ".LeftHandRing2Tz" -2.7317353504606632;
-	setAttr ".LeftHandRing2Ry" 0.0035635289999999733;
-	setAttr ".LeftHandRing2Rz" -4.4006627700000065;
-	setAttr ".LeftHandRing2Sx" 0.99999999999999989;
-	setAttr ".LeftHandRing2JointOrienty" 0.0035635289999999733;
-	setAttr ".LeftHandRing2JointOrientz" -5.3785878300000078;
+	setAttr ".LeftHandRing2Tx" 90.926697273948477;
+	setAttr ".LeftHandRing2Ty" 158.55982973383107;
+	setAttr ".LeftHandRing2Tz" -4.0500399860634548;
+	setAttr ".LeftHandRing2Rx" 113.13403254351785;
+	setAttr ".LeftHandRing2Ry" -68.677856979773082;
+	setAttr ".LeftHandRing2Rz" -25.466704490270086;
+	setAttr ".LeftHandRing2Sy" 0.99999999999999989;
+	setAttr ".LeftHandRing2Sz" 1.0000000000000002;
+	setAttr ".LeftHandRing2JointOrienty" 0.0035635289999999724;
+	setAttr ".LeftHandRing2JointOrientz" -6.5109221100000099;
 	setAttr ".LeftHandRing2MinRLimitx" -45;
 	setAttr ".LeftHandRing2MinRLimity" -45;
 	setAttr ".LeftHandRing2MinRLimitz" -45;
 	setAttr ".LeftHandRing2MaxRLimitx" 45;
 	setAttr ".LeftHandRing2MaxRLimity" 45;
 	setAttr ".LeftHandRing2MaxRLimitz" 45;
-	setAttr ".LeftHandRing3Tx" 38.251032241723479;
-	setAttr ".LeftHandRing3Ty" 88.822734058267585;
-	setAttr ".LeftHandRing3Tz" -2.6357124672137351;
-	setAttr ".LeftHandRing3Rx" -0.0033924370264440365;
-	setAttr ".LeftHandRing3Ry" -0.070996932714649102;
-	setAttr ".LeftHandRing3Rz" 14.962257043881014;
-	setAttr ".LeftHandRing3JointOrientx" -0.0045739283260465514;
-	setAttr ".LeftHandRing3JointOrienty" -0.074358899325021724;
-	setAttr ".LeftHandRing3JointOrientz" 19.362921312565618;
+	setAttr ".LeftHandRing3Tx" 93.182155034053153;
+	setAttr ".LeftHandRing3Ty" 158.37730099333388;
+	setAttr ".LeftHandRing3Tz" -4.4864262721508066;
+	setAttr ".LeftHandRing3Rx" 30.86505668207235;
+	setAttr ".LeftHandRing3Ry" 260.32887531950854;
+	setAttr ".LeftHandRing3Rz" 55.008866802646928;
+	setAttr ".LeftHandRing3Sz" 1.0000000000000002;
+	setAttr ".LeftHandRing3JointOrientx" -0.0060653562097110324;
+	setAttr ".LeftHandRing3JointOrienty" -0.077595314890673131;
+	setAttr ".LeftHandRing3JointOrientz" 24.741511120273998;
 	setAttr ".LeftHandRing3MinRLimitx" -45;
 	setAttr ".LeftHandRing3MinRLimity" -45;
 	setAttr ".LeftHandRing3MinRLimitz" -45;
 	setAttr ".LeftHandRing3MaxRLimitx" 45;
 	setAttr ".LeftHandRing3MaxRLimity" 45;
 	setAttr ".LeftHandRing3MaxRLimitz" 45;
-	setAttr ".LeftHandRing4Tx" 38.407027686135351;
-	setAttr ".LeftHandRing4Ty" 86.907399094303017;
-	setAttr ".LeftHandRing4Tz" -2.5555721879729596;
-	setAttr ".LeftHandRing4Rx" -0.12092146506718647;
-	setAttr ".LeftHandRing4Ry" 0.65014324286198355;
-	setAttr ".LeftHandRing4Rz" -39.900468095502632;
-	setAttr ".LeftHandRing4Sx" 1.0000000000000002;
-	setAttr ".LeftHandRing4Sy" 0.99999999999999978;
-	setAttr ".LeftHandRing4JointOrientx" -0.1770326477777068;
-	setAttr ".LeftHandRing4JointOrienty" 0.69377856615334943;
-	setAttr ".LeftHandRing4JointOrientz" -54.863381090598416;
+	setAttr ".LeftHandRing4Tx" 95.087912063115382;
+	setAttr ".LeftHandRing4Ty" 158.1978316189392;
+	setAttr ".LeftHandRing4Tz" -4.6738988222841042;
+	setAttr ".LeftHandRing4Rx" 98.344187379609366;
+	setAttr ".LeftHandRing4Ry" -20.651290333905283;
+	setAttr ".LeftHandRing4Rz" -6.1354349249075355;
+	setAttr ".LeftHandRing4Sy" 1.0000000000000002;
+	setAttr ".LeftHandRing4Sz" 1.0000000000000002;
+	setAttr ".LeftHandRing4JointOrientx" -0.24735356057855229;
+	setAttr ".LeftHandRing4JointOrienty" 0.71839333766544122;
+	setAttr ".LeftHandRing4JointOrientz" -74.227166014821208;
 	setAttr ".LeftHandRing4MinRLimitx" -45;
 	setAttr ".LeftHandRing4MinRLimity" -45;
 	setAttr ".LeftHandRing4MinRLimitz" -45;
 	setAttr ".LeftHandRing4MaxRLimitx" 45;
 	setAttr ".LeftHandRing4MaxRLimity" 45;
 	setAttr ".LeftHandRing4MaxRLimitz" 45;
-	setAttr ".LeftHandPinky1Tx" 35.336609522032319;
-	setAttr ".LeftHandPinky1Ty" 95.707657781023556;
-	setAttr ".LeftHandPinky1Tz" -2.7273794424299256;
-	setAttr ".LeftHandPinky1Rz" 0.97792506000000212;
-	setAttr ".LeftHandPinky1JointOrientz" 1.1323342800000022;
+	setAttr ".LeftHandPinky1Tx" 85.825817915226963;
+	setAttr ".LeftHandPinky1Ty" 159.10824725818549;
+	setAttr ".LeftHandPinky1Tz" -5.5502842854545626;
+	setAttr ".LeftHandPinky1Rx" 122.2408835454289;
+	setAttr ".LeftHandPinky1Ry" -74.461159434410177;
+	setAttr ".LeftHandPinky1Rz" -35.051729463562928;
+	setAttr ".LeftHandPinky1Sy" 0.99999999999999989;
+	setAttr ".LeftHandPinky1Sz" 1.0000000000000002;
+	setAttr ".LeftHandPinky1JointOrientz" 1.3021844220000027;
 	setAttr ".LeftHandPinky1MinRLimitx" -45;
 	setAttr ".LeftHandPinky1MinRLimity" -45;
 	setAttr ".LeftHandPinky1MinRLimitz" -45;
 	setAttr ".LeftHandPinky1MaxRLimitx" 45;
 	setAttr ".LeftHandPinky1MaxRLimity" 45;
 	setAttr ".LeftHandPinky1MaxRLimitz" 45;
-	setAttr ".LeftHandPinky2Tx" 34.84443746344644;
-	setAttr ".LeftHandPinky2Ty" 92.705906590318222;
-	setAttr ".LeftHandPinky2Tz" -2.609918017267975;
-	setAttr ".LeftHandPinky2Rz" -4.4014257960000078;
-	setAttr ".LeftHandPinky2JointOrientz" -5.3793508560000109;
+	setAttr ".LeftHandPinky2Tx" 88.612594978384976;
+	setAttr ".LeftHandPinky2Ty" 158.982207015169;
+	setAttr ".LeftHandPinky2Tz" -6.7686964447632896;
+	setAttr ".LeftHandPinky2Rx" 113.14165920601889;
+	setAttr ".LeftHandPinky2Ry" -68.675755060446889;
+	setAttr ".LeftHandPinky2Rz" -25.474891583876079;
+	setAttr ".LeftHandPinky2Sy" 0.99999999999999989;
+	setAttr ".LeftHandPinky2Sz" 1.0000000000000002;
+	setAttr ".LeftHandPinky2JointOrientz" -6.511685136000013;
 	setAttr ".LeftHandPinky2MinRLimitx" -45;
 	setAttr ".LeftHandPinky2MinRLimity" -45;
 	setAttr ".LeftHandPinky2MinRLimitz" -45;
 	setAttr ".LeftHandPinky2MaxRLimitx" 45;
 	setAttr ".LeftHandPinky2MaxRLimity" 45;
 	setAttr ".LeftHandPinky2MaxRLimitz" 45;
-	setAttr ".LeftHandPinky3Tx" 34.52519857261391;
-	setAttr ".LeftHandPinky3Ty" 90.75887350049112;
-	setAttr ".LeftHandPinky3Tz" -2.5337286977904556;
-	setAttr ".LeftHandPinky3Rz" 14.977513938000049;
-	setAttr ".LeftHandPinky3JointOrientz" 19.378939734000053;
+	setAttr ".LeftHandPinky3Tx" 90.404641784223415;
+	setAttr ".LeftHandPinky3Ty" 158.9065747344043;
+	setAttr ".LeftHandPinky3Tz" -7.5942290840300162;
+	setAttr ".LeftHandPinky3Rx" 31.175969701811358;
+	setAttr ".LeftHandPinky3Ry" 260.38434273398127;
+	setAttr ".LeftHandPinky3Rz" 54.698147530821686;
+	setAttr ".LeftHandPinky3Sy" 0.99999999999999989;
+	setAttr ".LeftHandPinky3Sz" 1.0000000000000002;
+	setAttr ".LeftHandPinky3JointOrientz" 24.758290590000062;
 	setAttr ".LeftHandPinky3MinRLimitx" -45;
 	setAttr ".LeftHandPinky3MinRLimity" -45;
 	setAttr ".LeftHandPinky3MinRLimitz" -45;
 	setAttr ".LeftHandPinky3MaxRLimitx" 45;
 	setAttr ".LeftHandPinky3MaxRLimity" 45;
 	setAttr ".LeftHandPinky3MaxRLimitz" 45;
-	setAttr ".LeftHandPinky4Tx" 34.255739958063629;
-	setAttr ".LeftHandPinky4Ty" 89.115443916821121;
-	setAttr ".LeftHandPinky4Tz" -2.4694196731467701;
-	setAttr ".LeftHandPinky4Rz" -40.044317388000117;
+	setAttr ".LeftHandPinky4Tx" 91.974231995852293;
+	setAttr ".LeftHandPinky4Ty" 158.81822470618869;
+	setAttr ".LeftHandPinky4Tz" -8.1475691532106556;
+	setAttr ".LeftHandPinky4Rx" 98.769997210139053;
+	setAttr ".LeftHandPinky4Ry" -20.390348593944136;
+	setAttr ".LeftHandPinky4Rz" -6.842369943919377;
 	setAttr ".LeftHandPinky4Sx" 0.99999999999999989;
-	setAttr ".LeftHandPinky4Sy" 0.99999999999999989;
-	setAttr ".LeftHandPinky4JointOrientz" -55.021831326000161;
+	setAttr ".LeftHandPinky4Sz" 1.0000000000000002;
+	setAttr ".LeftHandPinky4JointOrientz" -74.400771060000224;
 	setAttr ".LeftHandPinky4MinRLimitx" -45;
 	setAttr ".LeftHandPinky4MinRLimity" -45;
 	setAttr ".LeftHandPinky4MinRLimitz" -45;
 	setAttr ".LeftHandPinky4MaxRLimitx" 45;
 	setAttr ".LeftHandPinky4MaxRLimity" 45;
 	setAttr ".LeftHandPinky4MaxRLimitz" 45;
-	setAttr ".LeftHandExtraFinger1Tx" 80.592138829999996;
-	setAttr ".LeftHandExtraFinger1Ty" 146.7884134;
-	setAttr ".LeftHandExtraFinger1Tz" -4.4903564649999996;
-	setAttr ".LeftHandExtraFinger1Ry" -1.9999999850000001;
-	setAttr ".LeftHandExtraFinger1Rz" -0.00029934100000000001;
-	setAttr ".LeftHandExtraFinger2Tx" 82.636238160000005;
-	setAttr ".LeftHandExtraFinger2Ty" 146.7883913;
-	setAttr ".LeftHandExtraFinger2Tz" -4.4903564649999996;
-	setAttr ".LeftHandExtraFinger2Ry" -1.9999999850000001;
-	setAttr ".LeftHandExtraFinger2Rz" -0.00029934100000000001;
-	setAttr ".LeftHandExtraFinger3Tx" 84.610739649999999;
-	setAttr ".LeftHandExtraFinger3Ty" 146.7883775;
-	setAttr ".LeftHandExtraFinger3Tz" -4.4903566079999999;
-	setAttr ".LeftHandExtraFinger3Ry" -1.9999999850000001;
-	setAttr ".LeftHandExtraFinger3Rz" -0.00029934100000000001;
-	setAttr ".LeftHandExtraFinger4Tx" 86.277354299999999;
-	setAttr ".LeftHandExtraFinger4Ty" 146.7883673;
-	setAttr ".LeftHandExtraFinger4Tz" -4.4903558170000002;
-	setAttr ".LeftHandExtraFinger4Ry" -1.9999999850000001;
-	setAttr ".LeftHandExtraFinger4Rz" -0.00029934100000000001;
-	setAttr ".RightHandThumb1Tx" -41.005251191879665;
-	setAttr ".RightHandThumb1Ty" 103.93438975411442;
-	setAttr ".RightHandThumb1Tz" -2.9183790603946616;
-	setAttr ".RightHandThumb1Rz" -3.0834201300000061;
-	setAttr ".RightHandThumb1JointOrientz" -3.5702759400000073;
+	setAttr ".RightHandThumb1Tx" -79.190171411865904;
+	setAttr ".RightHandThumb1Ty" 158.63662256821866;
+	setAttr ".RightHandThumb1Tz" 1.9492161387423685;
+	setAttr ".RightHandThumb1Rx" 128.41871621798481;
+	setAttr ".RightHandThumb1Ry" 76.732579972768036;
+	setAttr ".RightHandThumb1Rz" 41.800274748206803;
+	setAttr ".RightHandThumb1Sy" 0.99999999999999978;
+	setAttr ".RightHandThumb1JointOrientz" -4.1058173310000079;
 	setAttr ".RightHandThumb1MinRLimitx" -45;
 	setAttr ".RightHandThumb1MinRLimity" -45;
 	setAttr ".RightHandThumb1MinRLimitz" -45;
 	setAttr ".RightHandThumb1MaxRLimitx" 45;
 	setAttr ".RightHandThumb1MaxRLimity" 45;
 	setAttr ".RightHandThumb1MaxRLimitz" 45;
-	setAttr ".RightHandThumb2Tx" -43.208914080064375;
-	setAttr ".RightHandThumb2Ty" 102.44882958104924;
-	setAttr ".RightHandThumb2Tz" -2.723486163510767;
-	setAttr ".RightHandThumb2Rz" 13.875390585000009;
-	setAttr ".RightHandThumb2JointOrientz" 16.95881071500002;
+	setAttr ".RightHandThumb2Tx" -81.113241176535112;
+	setAttr ".RightHandThumb2Ty" 158.04768369672729;
+	setAttr ".RightHandThumb2Tz" 3.6973454473684377;
+	setAttr ".RightHandThumb2Rx" 105.63082490010015;
+	setAttr ".RightHandThumb2Ry" 58.042740535657977;
+	setAttr ".RightHandThumb2Rz" 17.487608292313766;
+	setAttr ".RightHandThumb2Sx" 0.99999999999999989;
+	setAttr ".RightHandThumb2Sy" 0.99999999999999978;
+	setAttr ".RightHandThumb2JointOrientz" 20.529086655000022;
 	setAttr ".RightHandThumb2MinRLimitx" -45;
 	setAttr ".RightHandThumb2MinRLimity" -45;
 	setAttr ".RightHandThumb2MinRLimitz" -45;
 	setAttr ".RightHandThumb2MaxRLimitx" 45;
 	setAttr ".RightHandThumb2MaxRLimity" 45;
 	setAttr ".RightHandThumb2MaxRLimitz" 45;
-	setAttr ".RightHandThumb3Tx" -46.148793837630173;
-	setAttr ".RightHandThumb3Ty" 101.25640854183996;
-	setAttr ".RightHandThumb3Tz" -2.6409023064038566;
-	setAttr ".RightHandThumb3Rz" -47.175725903000021;
-	setAttr ".RightHandThumb3Sx" 1.0000000000000002;
-	setAttr ".RightHandThumb3Sy" 1.0000000000000002;
-	setAttr ".RightHandThumb3JointOrientz" -61.051116488000027;
+	setAttr ".RightHandThumb3Tx" -83.081886660761256;
+	setAttr ".RightHandThumb3Ty" 157.47191640542493;
+	setAttr ".RightHandThumb3Tz" 6.1190200747391454;
+	setAttr ".RightHandThumb3Rx" -101.14251377422046;
+	setAttr ".RightHandThumb3Ry" 42.442477625246354;
+	setAttr ".RightHandThumb3Rz" 176.56241367832584;
+	setAttr ".RightHandThumb3Sx" 0.99999999999999978;
+	setAttr ".RightHandThumb3Sy" 0.99999999999999978;
+	setAttr ".RightHandThumb3JointOrientz" -78.009927203000046;
 	setAttr ".RightHandThumb3MinRLimitx" -45;
 	setAttr ".RightHandThumb3MinRLimity" -45;
 	setAttr ".RightHandThumb3MinRLimitz" -45;
 	setAttr ".RightHandThumb3MaxRLimitx" 45;
 	setAttr ".RightHandThumb3MaxRLimity" 45;
 	setAttr ".RightHandThumb3MaxRLimitz" 45;
-	setAttr ".RightHandThumb4Tx" -49.410270430605323;
-	setAttr ".RightHandThumb4Ty" 100.79073689909275;
-	setAttr ".RightHandThumb4Tz" -2.5233773018812138;
-	setAttr ".RightHandThumb4Rz" 125.79128899200009;
+	setAttr ".RightHandThumb4Tx" -83.513622020975731;
+	setAttr ".RightHandThumb4Ty" 156.85794370916503;
+	setAttr ".RightHandThumb4Tz" 9.3290876564357568;
+	setAttr ".RightHandThumb4Rx" -139.75820856997001;
+	setAttr ".RightHandThumb4Ry" -79.232319368768927;
+	setAttr ".RightHandThumb4Rz" -126.61059679133855;
 	setAttr ".RightHandThumb4Sx" 0.99999999999999989;
-	setAttr ".RightHandThumb4Sy" 0.99999999999999989;
-	setAttr ".RightHandThumb4JointOrientz" 172.96701489500009;
+	setAttr ".RightHandThumb4Sy" 0.99999999999999956;
+	setAttr ".RightHandThumb4JointOrientz" -125.98186861699988;
 	setAttr ".RightHandThumb4MinRLimitx" -45;
 	setAttr ".RightHandThumb4MinRLimity" -45;
 	setAttr ".RightHandThumb4MinRLimitz" -45;
 	setAttr ".RightHandThumb4MaxRLimitx" 45;
 	setAttr ".RightHandThumb4MaxRLimity" 45;
 	setAttr ".RightHandThumb4MaxRLimitz" 45;
-	setAttr ".RightHandIndex1Tx" -42.803185799919831;
-	setAttr ".RightHandIndex1Ty" 97.319757744987015;
-	setAttr ".RightHandIndex1Tz" -2.8436289195449356;
-	setAttr ".RightHandIndex1Rz" -3.0834201300000061;
-	setAttr ".RightHandIndex1JointOrientz" -3.5702759400000073;
+	setAttr ".RightHandIndex1Tx" -86.018947692990452;
+	setAttr ".RightHandIndex1Ty" 158.04973377975239;
+	setAttr ".RightHandIndex1Tz" 2.071237066627428;
+	setAttr ".RightHandIndex1Rx" 128.41871621798481;
+	setAttr ".RightHandIndex1Ry" 76.732579972768036;
+	setAttr ".RightHandIndex1Rz" 41.800274748206803;
+	setAttr ".RightHandIndex1Sy" 0.99999999999999978;
+	setAttr ".RightHandIndex1JointOrientz" -4.1058173310000079;
 	setAttr ".RightHandIndex1MinRLimitx" -45;
 	setAttr ".RightHandIndex1MinRLimity" -45;
 	setAttr ".RightHandIndex1MinRLimitz" -45;
 	setAttr ".RightHandIndex1MaxRLimitx" 45;
 	setAttr ".RightHandIndex1MaxRLimity" 45;
 	setAttr ".RightHandIndex1MaxRLimitz" 45;
-	setAttr ".RightHandIndex2Tx" -44.998739423806143;
-	setAttr ".RightHandIndex2Ty" 93.713810345722251;
-	setAttr ".RightHandIndex2Tz" -2.6703903502847504;
-	setAttr ".RightHandIndex2Ry" 2.0000646580000052;
-	setAttr ".RightHandIndex2Rz" 13.875390585000021;
-	setAttr ".RightHandIndex2JointOrienty" 2.0000646580000057;
-	setAttr ".RightHandIndex2JointOrientz" 16.95881071500003;
+	setAttr ".RightHandIndex2Tx" -90.002859355133651;
+	setAttr ".RightHandIndex2Ty" 157.40549916236074;
+	setAttr ".RightHandIndex2Tz" 3.3229293568879092;
+	setAttr ".RightHandIndex2Rx" 108.66026430201872;
+	setAttr ".RightHandIndex2Ry" 57.452860688484535;
+	setAttr ".RightHandIndex2Rz" 21.069365517143005;
+	setAttr ".RightHandIndex2Sy" 0.99999999999999978;
+	setAttr ".RightHandIndex2JointOrienty" 2.0000646580000052;
+	setAttr ".RightHandIndex2JointOrientz" 20.529086655000036;
 	setAttr ".RightHandIndex2MinRLimitx" -45;
 	setAttr ".RightHandIndex2MinRLimity" -45;
 	setAttr ".RightHandIndex2MinRLimitz" -45;
 	setAttr ".RightHandIndex2MaxRLimitx" 45;
 	setAttr ".RightHandIndex2MaxRLimity" 45;
 	setAttr ".RightHandIndex2MaxRLimitz" 45;
-	setAttr ".RightHandIndex3Tx" -46.377773400652607;
-	setAttr ".RightHandIndex3Ty" 91.448903344291438;
-	setAttr ".RightHandIndex3Tz" -2.5615787391443829;
-	setAttr ".RightHandIndex3Rx" 7.2544662727679068;
-	setAttr ".RightHandIndex3Ry" -38.335606644458345;
-	setAttr ".RightHandIndex3Rz" -51.213565494873983;
-	setAttr ".RightHandIndex3JointOrientx" 9.5939341886671361;
-	setAttr ".RightHandIndex3JointOrienty" -39.154942660268759;
-	setAttr ".RightHandIndex3JointOrientz" -66.553294660737549;
+	setAttr ".RightHandIndex3Tx" -92.552220632029162;
+	setAttr ".RightHandIndex3Ty" 157.02015946955277;
+	setAttr ".RightHandIndex3Tz" 3.9519355588911971;
+	setAttr ".RightHandIndex3Rx" -61.452474485633694;
+	setAttr ".RightHandIndex3Ry" 33.856007481647417;
+	setAttr ".RightHandIndex3Rz" -133.68046378011147;
+	setAttr ".RightHandIndex3Sx" 0.99999999999999989;
+	setAttr ".RightHandIndex3Sy" 0.99999999999999967;
+	setAttr ".RightHandIndex3Sz" 0.99999999999999989;
+	setAttr ".RightHandIndex3JointOrientx" 12.164255941441324;
+	setAttr ".RightHandIndex3JointOrienty" -39.352746685467174;
+	setAttr ".RightHandIndex3JointOrientz" -85.138661189082185;
 	setAttr ".RightHandIndex3MinRLimitx" -45;
 	setAttr ".RightHandIndex3MinRLimity" -45;
 	setAttr ".RightHandIndex3MinRLimitz" -45;
 	setAttr ".RightHandIndex3MaxRLimitx" 45;
 	setAttr ".RightHandIndex3MaxRLimity" 45;
 	setAttr ".RightHandIndex3MaxRLimitz" 45;
-	setAttr ".RightHandIndex4Tx" -47.395301624820675;
-	setAttr ".RightHandIndex4Ty" 89.777727992895862;
-	setAttr ".RightHandIndex4Tz" -2.4812914193357476;
-	setAttr ".RightHandIndex4Rx" 71.65138524273776;
-	setAttr ".RightHandIndex4Ry" 30.747184302028092;
-	setAttr ".RightHandIndex4Rz" 47.400550625474793;
-	setAttr ".RightHandIndex4Sx" 0.99999999999999989;
+	setAttr ".RightHandIndex4Tx" -94.209679532534253;
+	setAttr ".RightHandIndex4Ty" 156.72375104356283;
+	setAttr ".RightHandIndex4Tz" 4.9517399567367892;
+	setAttr ".RightHandIndex4Rx" -165.95266875128584;
+	setAttr ".RightHandIndex4Ry" -40.905834712486268;
+	setAttr ".RightHandIndex4Rz" 30.526062916994803;
+	setAttr ".RightHandIndex4Sx" 1.0000000000000002;
+	setAttr ".RightHandIndex4Sy" 0.99999999999999989;
 	setAttr ".RightHandIndex4Sz" 1.0000000000000002;
-	setAttr ".RightHandIndex4JointOrientx" 115.54323006380224;
-	setAttr ".RightHandIndex4JointOrienty" 25.208122123026882;
-	setAttr ".RightHandIndex4JointOrientz" 117.52196356176964;
+	setAttr ".RightHandIndex4JointOrientx" 122.7757683909188;
+	setAttr ".RightHandIndex4JointOrienty" -14.296644605323566;
+	setAttr ".RightHandIndex4JointOrientz" -178.61212031518451;
 	setAttr ".RightHandIndex4MinRLimitx" -45;
 	setAttr ".RightHandIndex4MinRLimity" -45;
 	setAttr ".RightHandIndex4MinRLimitz" -45;
 	setAttr ".RightHandIndex4MaxRLimitx" 45;
 	setAttr ".RightHandIndex4MaxRLimity" 45;
 	setAttr ".RightHandIndex4MaxRLimitz" 45;
-	setAttr ".RightHandMiddle1Tx" -40.127763631048005;
-	setAttr ".RightHandMiddle1Ty" 96.288248535500145;
-	setAttr ".RightHandMiddle1Tz" -3.0088623740289719;
-	setAttr ".RightHandMiddle1Rz" -3.0834201300000061;
-	setAttr ".RightHandMiddle1JointOrientz" -3.5702759400000073;
+	setAttr ".RightHandMiddle1Tx" -86.408453996032677;
+	setAttr ".RightHandMiddle1Ty" 158.59248318384786;
+	setAttr ".RightHandMiddle1Tz" -0.72213098102976625;
+	setAttr ".RightHandMiddle1Rx" 128.41871621798481;
+	setAttr ".RightHandMiddle1Ry" 76.732579972768036;
+	setAttr ".RightHandMiddle1Rz" 41.800274748206803;
+	setAttr ".RightHandMiddle1Sy" 0.99999999999999978;
+	setAttr ".RightHandMiddle1JointOrientz" -4.1058173310000079;
 	setAttr ".RightHandMiddle1MinRLimitx" -45;
 	setAttr ".RightHandMiddle1MinRLimity" -45;
 	setAttr ".RightHandMiddle1MinRLimitz" -45;
 	setAttr ".RightHandMiddle1MaxRLimitx" 45;
 	setAttr ".RightHandMiddle1MaxRLimity" 45;
 	setAttr ".RightHandMiddle1MaxRLimitz" 45;
-	setAttr ".RightHandMiddle2Tx" -41.656942669849272;
-	setAttr ".RightHandMiddle2Ty" 91.676275635189157;
-	setAttr ".RightHandMiddle2Tz" -2.8026236080562632;
-	setAttr ".RightHandMiddle2Ry" 2.0000646580000052;
-	setAttr ".RightHandMiddle2Rz" 13.875390585000021;
-	setAttr ".RightHandMiddle2JointOrienty" 2.0000646580000057;
-	setAttr ".RightHandMiddle2JointOrientz" 16.95881071500003;
+	setAttr ".RightHandMiddle2Tx" -91.218849236983985;
+	setAttr ".RightHandMiddle2Ty" 157.98209664428583;
+	setAttr ".RightHandMiddle2Tz" -0.34964891078121907;
+	setAttr ".RightHandMiddle2Rx" 108.66026430201872;
+	setAttr ".RightHandMiddle2Ry" 57.452860688484535;
+	setAttr ".RightHandMiddle2Rz" 21.069365517143005;
+	setAttr ".RightHandMiddle2Sy" 0.99999999999999978;
+	setAttr ".RightHandMiddle2JointOrienty" 2.0000646580000052;
+	setAttr ".RightHandMiddle2JointOrientz" 20.529086655000036;
 	setAttr ".RightHandMiddle2MinRLimitx" -45;
 	setAttr ".RightHandMiddle2MinRLimity" -45;
 	setAttr ".RightHandMiddle2MinRLimitz" -45;
 	setAttr ".RightHandMiddle2MaxRLimitx" 45;
 	setAttr ".RightHandMiddle2MaxRLimity" 45;
 	setAttr ".RightHandMiddle2MaxRLimitz" 45;
-	setAttr ".RightHandMiddle3Tx" -42.52643108036284;
-	setAttr ".RightHandMiddle3Ty" 89.053915650187733;
-	setAttr ".RightHandMiddle3Tz" -2.6853565971791813;
-	setAttr ".RightHandMiddle3Rx" 7.2544662727679068;
-	setAttr ".RightHandMiddle3Ry" -38.335606644458345;
-	setAttr ".RightHandMiddle3Rz" -51.213565494873983;
-	setAttr ".RightHandMiddle3JointOrientx" 9.5939341886671361;
-	setAttr ".RightHandMiddle3JointOrienty" -39.154942660268759;
-	setAttr ".RightHandMiddle3JointOrientz" -66.553294660737549;
+	setAttr ".RightHandMiddle3Tx" -93.964809333624842;
+	setAttr ".RightHandMiddle3Ty" 157.65883018020781;
+	setAttr ".RightHandMiddle3Tz" -0.30798982230410543;
+	setAttr ".RightHandMiddle3Rx" -61.452474485633694;
+	setAttr ".RightHandMiddle3Ry" 33.856007481647417;
+	setAttr ".RightHandMiddle3Rz" -133.68046378011147;
+	setAttr ".RightHandMiddle3Sx" 0.99999999999999989;
+	setAttr ".RightHandMiddle3Sy" 0.99999999999999967;
+	setAttr ".RightHandMiddle3Sz" 0.99999999999999989;
+	setAttr ".RightHandMiddle3JointOrientx" 12.164255941441324;
+	setAttr ".RightHandMiddle3JointOrienty" -39.352746685467174;
+	setAttr ".RightHandMiddle3JointOrientz" -85.138661189082185;
 	setAttr ".RightHandMiddle3MinRLimitx" -45;
 	setAttr ".RightHandMiddle3MinRLimity" -45;
 	setAttr ".RightHandMiddle3MinRLimitz" -45;
 	setAttr ".RightHandMiddle3MaxRLimitx" 45;
 	setAttr ".RightHandMiddle3MaxRLimity" 45;
 	setAttr ".RightHandMiddle3MaxRLimitz" 45;
-	setAttr ".RightHandMiddle4Tx" -43.15707197794292;
-	setAttr ".RightHandMiddle4Ty" 87.151911904583102;
-	setAttr ".RightHandMiddle4Tz" -2.600302576066865;
-	setAttr ".RightHandMiddle4Rx" 71.65138524273776;
-	setAttr ".RightHandMiddle4Ry" 30.747184302028092;
-	setAttr ".RightHandMiddle4Rz" 47.400550625474793;
-	setAttr ".RightHandMiddle4Sx" 0.99999999999999989;
+	setAttr ".RightHandMiddle4Tx" -95.854337003673294;
+	setAttr ".RightHandMiddle4Ty" 157.3851911519601;
+	setAttr ".RightHandMiddle4Tz" 0.30631241832581046;
+	setAttr ".RightHandMiddle4Rx" -165.95266875128584;
+	setAttr ".RightHandMiddle4Ry" -40.905834712486268;
+	setAttr ".RightHandMiddle4Rz" 30.526062916994803;
+	setAttr ".RightHandMiddle4Sx" 1.0000000000000002;
+	setAttr ".RightHandMiddle4Sy" 0.99999999999999989;
 	setAttr ".RightHandMiddle4Sz" 1.0000000000000002;
-	setAttr ".RightHandMiddle4JointOrientx" 115.54323006380224;
-	setAttr ".RightHandMiddle4JointOrienty" 25.208122123026882;
-	setAttr ".RightHandMiddle4JointOrientz" 117.52196356176964;
+	setAttr ".RightHandMiddle4JointOrientx" 122.7757683909188;
+	setAttr ".RightHandMiddle4JointOrienty" -14.296644605323566;
+	setAttr ".RightHandMiddle4JointOrientz" -178.61212031518451;
 	setAttr ".RightHandMiddle4MinRLimitx" -45;
 	setAttr ".RightHandMiddle4MinRLimity" -45;
 	setAttr ".RightHandMiddle4MinRLimitz" -45;
 	setAttr ".RightHandMiddle4MaxRLimitx" 45;
 	setAttr ".RightHandMiddle4MaxRLimity" 45;
 	setAttr ".RightHandMiddle4MaxRLimitz" 45;
-	setAttr ".RightHandRing1Tx" -37.69607748892647;
-	setAttr ".RightHandRing1Ty" 95.636514512848933;
-	setAttr ".RightHandRing1Tz" -2.9208105523036818;
-	setAttr ".RightHandRing1Rz" -3.0834201300000061;
-	setAttr ".RightHandRing1JointOrientz" -3.5702759400000073;
+	setAttr ".RightHandRing1Tx" -86.468274566590452;
+	setAttr ".RightHandRing1Ty" 158.8606925478453;
+	setAttr ".RightHandRing1Tz" -3.2261463743088097;
+	setAttr ".RightHandRing1Rx" 128.41871621798481;
+	setAttr ".RightHandRing1Ry" 76.732579972768036;
+	setAttr ".RightHandRing1Rz" 41.800274748206803;
+	setAttr ".RightHandRing1Sy" 0.99999999999999978;
+	setAttr ".RightHandRing1JointOrientz" -4.1058173310000079;
 	setAttr ".RightHandRing1MinRLimitx" -45;
 	setAttr ".RightHandRing1MinRLimity" -45;
 	setAttr ".RightHandRing1MinRLimitz" -45;
 	setAttr ".RightHandRing1MaxRLimitx" 45;
 	setAttr ".RightHandRing1MaxRLimity" 45;
 	setAttr ".RightHandRing1MaxRLimitz" 45;
-	setAttr ".RightHandRing2Tx" -38.064119988968088;
-	setAttr ".RightHandRing2Ty" 91.117659515678298;
-	setAttr ".RightHandRing2Tz" -2.7317353504606632;
-	setAttr ".RightHandRing2Ry" 2.0000646580000052;
-	setAttr ".RightHandRing2Rz" 13.875390585000021;
-	setAttr ".RightHandRing2JointOrienty" 2.0000646580000057;
-	setAttr ".RightHandRing2JointOrientz" 16.95881071500003;
+	setAttr ".RightHandRing2Tx" -90.929641250362849;
+	setAttr ".RightHandRing2Ty" 158.45084493359704;
+	setAttr ".RightHandRing2Tz" -3.9469011490162167;
+	setAttr ".RightHandRing2Rx" 108.66026430201872;
+	setAttr ".RightHandRing2Ry" 57.452860688484535;
+	setAttr ".RightHandRing2Rz" 21.069365517143005;
+	setAttr ".RightHandRing2Sy" 0.99999999999999978;
+	setAttr ".RightHandRing2JointOrienty" 2.0000646580000052;
+	setAttr ".RightHandRing2JointOrientz" 20.529086655000036;
 	setAttr ".RightHandRing2MinRLimitx" -45;
 	setAttr ".RightHandRing2MinRLimity" -45;
 	setAttr ".RightHandRing2MinRLimitz" -45;
 	setAttr ".RightHandRing2MaxRLimitx" 45;
 	setAttr ".RightHandRing2MaxRLimity" 45;
 	setAttr ".RightHandRing2MaxRLimitz" 45;
-	setAttr ".RightHandRing3Tx" -38.251032241723479;
-	setAttr ".RightHandRing3Ty" 88.822734058267585;
-	setAttr ".RightHandRing3Tz" -2.6357124672137355;
-	setAttr ".RightHandRing3Rx" 7.2544662727679068;
-	setAttr ".RightHandRing3Ry" -38.335606644458345;
-	setAttr ".RightHandRing3Rz" -51.213565494873983;
-	setAttr ".RightHandRing3JointOrientx" 9.5939341886671361;
-	setAttr ".RightHandRing3JointOrienty" -39.154942660268759;
-	setAttr ".RightHandRing3JointOrientz" -66.553294660737549;
+	setAttr ".RightHandRing3Tx" -93.170306070970014;
+	setAttr ".RightHandRing3Ty" 158.26466921843891;
+	setAttr ".RightHandRing3Tz" -4.4524693483600295;
+	setAttr ".RightHandRing3Rx" -61.452474485633694;
+	setAttr ".RightHandRing3Ry" 33.856007481647417;
+	setAttr ".RightHandRing3Rz" -133.68046378011147;
+	setAttr ".RightHandRing3Sx" 0.99999999999999989;
+	setAttr ".RightHandRing3Sy" 0.99999999999999967;
+	setAttr ".RightHandRing3Sz" 0.99999999999999989;
+	setAttr ".RightHandRing3JointOrientx" 12.164255941441324;
+	setAttr ".RightHandRing3JointOrienty" -39.352746685467174;
+	setAttr ".RightHandRing3JointOrientz" -85.138661189082185;
 	setAttr ".RightHandRing3MinRLimitx" -45;
 	setAttr ".RightHandRing3MinRLimity" -45;
 	setAttr ".RightHandRing3MinRLimitz" -45;
 	setAttr ".RightHandRing3MaxRLimitx" 45;
 	setAttr ".RightHandRing3MaxRLimity" 45;
 	setAttr ".RightHandRing3MaxRLimitz" 45;
-	setAttr ".RightHandRing4Tx" -38.407027686135351;
-	setAttr ".RightHandRing4Ty" 86.907399094303031;
-	setAttr ".RightHandRing4Tz" -2.555572187972968;
-	setAttr ".RightHandRing4Rx" 71.65138524273776;
-	setAttr ".RightHandRing4Ry" 30.747184302028092;
-	setAttr ".RightHandRing4Rz" 47.400550625474793;
-	setAttr ".RightHandRing4Sx" 0.99999999999999989;
+	setAttr ".RightHandRing4Tx" -95.075910236696885;
+	setAttr ".RightHandRing4Ty" 158.04674896764644;
+	setAttr ".RightHandRing4Tz" -4.3094707641778296;
+	setAttr ".RightHandRing4Rx" -165.95266875128584;
+	setAttr ".RightHandRing4Ry" -40.905834712486268;
+	setAttr ".RightHandRing4Rz" 30.526062916994803;
+	setAttr ".RightHandRing4Sx" 1.0000000000000002;
+	setAttr ".RightHandRing4Sy" 0.99999999999999989;
 	setAttr ".RightHandRing4Sz" 1.0000000000000002;
-	setAttr ".RightHandRing4JointOrientx" 115.54323006380224;
-	setAttr ".RightHandRing4JointOrienty" 25.208122123026882;
-	setAttr ".RightHandRing4JointOrientz" 117.52196356176964;
+	setAttr ".RightHandRing4JointOrientx" 122.7757683909188;
+	setAttr ".RightHandRing4JointOrienty" -14.296644605323566;
+	setAttr ".RightHandRing4JointOrientz" -178.61212031518451;
 	setAttr ".RightHandRing4MinRLimitx" -45;
 	setAttr ".RightHandRing4MinRLimity" -45;
 	setAttr ".RightHandRing4MinRLimitz" -45;
 	setAttr ".RightHandRing4MaxRLimitx" 45;
 	setAttr ".RightHandRing4MaxRLimity" 45;
 	setAttr ".RightHandRing4MaxRLimitz" 45;
-	setAttr ".RightHandPinky1Tx" -35.336609522032312;
-	setAttr ".RightHandPinky1Ty" 95.70765778102357;
-	setAttr ".RightHandPinky1Tz" -2.727379442429926;
-	setAttr ".RightHandPinky1Rz" -3.0834201300000061;
-	setAttr ".RightHandPinky1JointOrientz" -3.5702759400000073;
+	setAttr ".RightHandPinky1Tx" -85.836259731348932;
+	setAttr ".RightHandPinky1Ty" 159.03915927447977;
+	setAttr ".RightHandPinky1Tz" -5.5017282605946498;
+	setAttr ".RightHandPinky1Rx" 128.41871621798481;
+	setAttr ".RightHandPinky1Ry" 76.732579972768036;
+	setAttr ".RightHandPinky1Rz" 41.800274748206803;
+	setAttr ".RightHandPinky1Sy" 0.99999999999999978;
+	setAttr ".RightHandPinky1JointOrientz" -4.1058173310000079;
 	setAttr ".RightHandPinky1MinRLimitx" -45;
 	setAttr ".RightHandPinky1MinRLimity" -45;
 	setAttr ".RightHandPinky1MinRLimitz" -45;
 	setAttr ".RightHandPinky1MaxRLimitx" 45;
 	setAttr ".RightHandPinky1MaxRLimity" 45;
 	setAttr ".RightHandPinky1MaxRLimitz" 45;
-	setAttr ".RightHandPinky2Tx" -34.844437463446425;
-	setAttr ".RightHandPinky2Ty" 92.705906590318222;
-	setAttr ".RightHandPinky2Tz" -2.609918017267975;
-	setAttr ".RightHandPinky2Ry" 2.0000646575304999;
-	setAttr ".RightHandPinky2Rz" 13.874148613375546;
-	setAttr ".RightHandPinky2Sy" 0.99999999999971412;
-	setAttr ".RightHandPinky2JointOrientx" -4.3345585314349742e-05;
-	setAttr ".RightHandPinky2JointOrienty" 2.0000646575304999;
-	setAttr ".RightHandPinky2JointOrientz" 16.957568743375553;
+	setAttr ".RightHandPinky2Tx" -88.635619301801128;
+	setAttr ".RightHandPinky2Ty" 158.88924646321405;
+	setAttr ".RightHandPinky2Tz" -6.6881737405433999;
+	setAttr ".RightHandPinky2Rx" 108.66088657159311;
+	setAttr ".RightHandPinky2Ry" 57.454036653635661;
+	setAttr ".RightHandPinky2Rz" 21.070103717700292;
+	setAttr ".RightHandPinky2Sx" 0.99999999999999989;
+	setAttr ".RightHandPinky2Sy" 0.99999999999999978;
+	setAttr ".RightHandPinky2JointOrientx" -4.3345585314399453e-05;
+	setAttr ".RightHandPinky2JointOrienty" 2.0000646575305003;
+	setAttr ".RightHandPinky2JointOrientz" 20.527844683375562;
 	setAttr ".RightHandPinky2MinRLimitx" -45;
 	setAttr ".RightHandPinky2MinRLimity" -45;
 	setAttr ".RightHandPinky2MinRLimitz" -45;
 	setAttr ".RightHandPinky2MaxRLimitx" 45;
 	setAttr ".RightHandPinky2MaxRLimity" 45;
 	setAttr ".RightHandPinky2MaxRLimitz" 45;
-	setAttr ".RightHandPinky3Tx" -34.52519857261391;
-	setAttr ".RightHandPinky3Ty" 90.75887350049112;
-	setAttr ".RightHandPinky3Tz" -2.5337286977904552;
-	setAttr ".RightHandPinky3Rx" 7.245241562067144;
-	setAttr ".RightHandPinky3Ry" -38.33806496532366;
-	setAttr ".RightHandPinky3Rz" -51.184739669063575;
-	setAttr ".RightHandPinky3Sy" 1.0000000000000002;
-	setAttr ".RightHandPinky3JointOrientx" 9.5842746520590811;
-	setAttr ".RightHandPinky3JointOrienty" -39.15832180241631;
-	setAttr ".RightHandPinky3JointOrientz" -66.523048418927473;
+	setAttr ".RightHandPinky3Tx" -90.401393674749599;
+	setAttr ".RightHandPinky3Ty" 158.81159535610831;
+	setAttr ".RightHandPinky3Tz" -7.568325604773535;
+	setAttr ".RightHandPinky3Rx" -61.435774645753398;
+	setAttr ".RightHandPinky3Ry" 33.877089452917339;
+	setAttr ".RightHandPinky3Rz" -133.66743466211969;
+	setAttr ".RightHandPinky3Sy" 0.99999999999999989;
+	setAttr ".RightHandPinky3JointOrientx" 12.154604631288134;
+	setAttr ".RightHandPinky3JointOrienty" -39.35717421978849;
+	setAttr ".RightHandPinky3JointOrientz" -85.107314550605054;
 	setAttr ".RightHandPinky3MinRLimitx" -45;
 	setAttr ".RightHandPinky3MinRLimity" -45;
 	setAttr ".RightHandPinky3MinRLimitz" -45;
 	setAttr ".RightHandPinky3MaxRLimitx" 45;
 	setAttr ".RightHandPinky3MaxRLimity" 45;
 	setAttr ".RightHandPinky3MaxRLimitz" 45;
-	setAttr ".RightHandPinky4Tx" -34.255739958063629;
-	setAttr ".RightHandPinky4Ty" 89.115443916821121;
-	setAttr ".RightHandPinky4Tz" -2.4694196731467835;
-	setAttr ".RightHandPinky4Rx" 71.635688154558935;
-	setAttr ".RightHandPinky4Ry" 30.725783935201228;
-	setAttr ".RightHandPinky4Rz" 47.329858985583485;
-	setAttr ".RightHandPinky4Sy" 0.99999999999999989;
-	setAttr ".RightHandPinky4JointOrientx" 115.54005397081656;
-	setAttr ".RightHandPinky4JointOrienty" 25.242702479673234;
-	setAttr ".RightHandPinky4JointOrientz" 117.43613079489053;
+	setAttr ".RightHandPinky4Tx" -92.038841480226978;
+	setAttr ".RightHandPinky4Ty" 158.67295663688364;
+	setAttr ".RightHandPinky4Tz" -7.8460815803289821;
+	setAttr ".RightHandPinky4Rx" -165.93520613056421;
+	setAttr ".RightHandPinky4Ry" -40.822856338961252;
+	setAttr ".RightHandPinky4Rz" 30.550428298894911;
+	setAttr ".RightHandPinky4Sx" 1.0000000000000002;
+	setAttr ".RightHandPinky4Sz" 1.0000000000000002;
+	setAttr ".RightHandPinky4JointOrientx" 122.83740772504717;
+	setAttr ".RightHandPinky4JointOrienty" -14.25216817437758;
+	setAttr ".RightHandPinky4JointOrientz" -178.7131792169059;
 	setAttr ".RightHandPinky4MinRLimitx" -45;
 	setAttr ".RightHandPinky4MinRLimity" -45;
 	setAttr ".RightHandPinky4MinRLimitz" -45;
 	setAttr ".RightHandPinky4MaxRLimitx" 45;
 	setAttr ".RightHandPinky4MaxRLimity" 45;
 	setAttr ".RightHandPinky4MaxRLimitz" 45;
-	setAttr ".RightHandExtraFinger1Tx" -80.592138829999996;
-	setAttr ".RightHandExtraFinger1Ty" 146.7884134;
-	setAttr ".RightHandExtraFinger1Tz" -4.4903564649999996;
-	setAttr ".RightHandExtraFinger1Ry" -2.0000646579999999;
-	setAttr ".RightHandExtraFinger2Tx" -82.636238160000005;
-	setAttr ".RightHandExtraFinger2Ty" 146.7883913;
-	setAttr ".RightHandExtraFinger2Tz" -4.4903564649999996;
-	setAttr ".RightHandExtraFinger2Ry" -2.0000646359999998;
-	setAttr ".RightHandExtraFinger3Tx" -84.610739649999999;
-	setAttr ".RightHandExtraFinger3Ty" 146.7883775;
-	setAttr ".RightHandExtraFinger3Tz" -4.4903566079999999;
-	setAttr ".RightHandExtraFinger3Ry" -2.0000646359999998;
-	setAttr ".RightHandExtraFinger4Tx" -86.277354299999999;
-	setAttr ".RightHandExtraFinger4Ty" 146.7883673;
-	setAttr ".RightHandExtraFinger4Tz" -4.4903558170000002;
-	setAttr ".RightHandExtraFinger4Ry" -2.0000646359999998;
-	setAttr ".LeftFootThumb1Tx" 6.18422217;
-	setAttr ".LeftFootThumb1Ty" 4.9992492679999998;
-	setAttr ".LeftFootThumb1Tz" 1.930123209;
-	setAttr ".LeftFootThumb2Tx" 4.551409713;
-	setAttr ".LeftFootThumb2Ty" 2.6643834059999998;
-	setAttr ".LeftFootThumb2Tz" 3.591937658;
-	setAttr ".LeftFootThumb3Tx" 3.4619466889999999;
-	setAttr ".LeftFootThumb3Ty" 1.8880788850000001;
-	setAttr ".LeftFootThumb3Tz" 6.4001420700000002;
-	setAttr ".LeftFootThumb4Tx" 3.4619466999999999;
-	setAttr ".LeftFootThumb4Ty" 1.8880788550000001;
-	setAttr ".LeftFootThumb4Tz" 9.6971958839999992;
-	setAttr ".LeftFootIndex1Tx" 7.1105199680000002;
-	setAttr ".LeftFootIndex1Ty" 1.888079117;
-	setAttr ".LeftFootIndex1Tz" 12.9547209;
-	setAttr ".LeftFootIndex1MinRLimitx" -45;
-	setAttr ".LeftFootIndex1MinRLimity" -45;
-	setAttr ".LeftFootIndex1MinRLimitz" -45;
-	setAttr ".LeftFootIndex1MaxRLimitx" 45;
-	setAttr ".LeftFootIndex1MaxRLimity" 45;
-	setAttr ".LeftFootIndex1MaxRLimitz" 45;
-	setAttr ".LeftFootIndex2Tx" 7.1105199749999999;
-	setAttr ".LeftFootIndex2Ty" 1.8880790999999999;
-	setAttr ".LeftFootIndex2Tz" 14.82972745;
-	setAttr ".LeftFootIndex2MinRLimitx" -45;
-	setAttr ".LeftFootIndex2MinRLimity" -45;
-	setAttr ".LeftFootIndex2MinRLimitz" -45;
-	setAttr ".LeftFootIndex2MaxRLimitx" 45;
-	setAttr ".LeftFootIndex2MaxRLimity" 45;
-	setAttr ".LeftFootIndex2MaxRLimitz" 45;
-	setAttr ".LeftFootIndex3Tx" 7.1105199810000004;
-	setAttr ".LeftFootIndex3Ty" 1.888079083;
-	setAttr ".LeftFootIndex3Tz" 16.76314442;
-	setAttr ".LeftFootIndex3MinRLimitx" -45;
-	setAttr ".LeftFootIndex3MinRLimity" -45;
-	setAttr ".LeftFootIndex3MinRLimitz" -45;
-	setAttr ".LeftFootIndex3MaxRLimitx" 45;
-	setAttr ".LeftFootIndex3MaxRLimity" 45;
-	setAttr ".LeftFootIndex3MaxRLimitz" 45;
-	setAttr ".LeftFootIndex4Tx" 7.1105199880000001;
-	setAttr ".LeftFootIndex4Ty" 1.8880790649999999;
-	setAttr ".LeftFootIndex4Tz" 18.850666449999999;
-	setAttr ".LeftFootIndex4MinRLimitx" -45;
-	setAttr ".LeftFootIndex4MinRLimity" -45;
-	setAttr ".LeftFootIndex4MinRLimitz" -45;
-	setAttr ".LeftFootIndex4MaxRLimitx" 45;
-	setAttr ".LeftFootIndex4MaxRLimity" 45;
-	setAttr ".LeftFootIndex4MaxRLimitz" 45;
-	setAttr ".LeftFootMiddle1Tx" 8.9167242489999996;
-	setAttr ".LeftFootMiddle1Ty" 1.888079163;
-	setAttr ".LeftFootMiddle1Tz" 12.9547209;
-	setAttr ".LeftFootMiddle2Tx" 8.9167242550000001;
-	setAttr ".LeftFootMiddle2Ty" 1.888079147;
-	setAttr ".LeftFootMiddle2Tz" 14.82860045;
-	setAttr ".LeftFootMiddle3Tx" 8.9167242610000006;
-	setAttr ".LeftFootMiddle3Ty" 1.888079131;
-	setAttr ".LeftFootMiddle3Tz" 16.64971237;
-	setAttr ".LeftFootMiddle4Tx" 8.9167242669999993;
-	setAttr ".LeftFootMiddle4Ty" 1.8880791139999999;
-	setAttr ".LeftFootMiddle4Tz" 18.565581959999999;
-	setAttr ".LeftFootRing1Tx" 10.723903740000001;
-	setAttr ".LeftFootRing1Ty" 1.888079211;
-	setAttr ".LeftFootRing1Tz" 12.9547209;
-	setAttr ".LeftFootRing1MinRLimitx" -45;
-	setAttr ".LeftFootRing1MinRLimity" -45;
-	setAttr ".LeftFootRing1MinRLimitz" -45;
-	setAttr ".LeftFootRing1MaxRLimitx" 45;
-	setAttr ".LeftFootRing1MaxRLimity" 45;
-	setAttr ".LeftFootRing1MaxRLimitz" 45;
-	setAttr ".LeftFootRing2Tx" 10.723903740000001;
-	setAttr ".LeftFootRing2Ty" 1.888079195;
-	setAttr ".LeftFootRing2Tz" 14.71345226;
-	setAttr ".LeftFootRing2MinRLimitx" -45;
-	setAttr ".LeftFootRing2MinRLimity" -45;
-	setAttr ".LeftFootRing2MinRLimitz" -45;
-	setAttr ".LeftFootRing2MaxRLimitx" 45;
-	setAttr ".LeftFootRing2MaxRLimity" 45;
-	setAttr ".LeftFootRing2MaxRLimitz" 45;
-	setAttr ".LeftFootRing3Tx" 10.72390375;
-	setAttr ".LeftFootRing3Ty" 1.8880791800000001;
-	setAttr ".LeftFootRing3Tz" 16.472174209999999;
-	setAttr ".LeftFootRing3MinRLimitx" -45;
-	setAttr ".LeftFootRing3MinRLimity" -45;
-	setAttr ".LeftFootRing3MinRLimitz" -45;
-	setAttr ".LeftFootRing3MaxRLimitx" 45;
-	setAttr ".LeftFootRing3MaxRLimity" 45;
-	setAttr ".LeftFootRing3MaxRLimitz" 45;
-	setAttr ".LeftFootRing4Tx" 10.723903760000001;
-	setAttr ".LeftFootRing4Ty" 1.8880791640000001;
-	setAttr ".LeftFootRing4Tz" 18.27484922;
-	setAttr ".LeftFootRing4MinRLimitx" -45;
-	setAttr ".LeftFootRing4MinRLimity" -45;
-	setAttr ".LeftFootRing4MinRLimitz" -45;
-	setAttr ".LeftFootRing4MaxRLimitx" 45;
-	setAttr ".LeftFootRing4MaxRLimity" 45;
-	setAttr ".LeftFootRing4MaxRLimitz" 45;
-	setAttr ".LeftFootPinky1Tx" 12.52979668;
-	setAttr ".LeftFootPinky1Ty" 1.888079257;
-	setAttr ".LeftFootPinky1Tz" 12.9547209;
-	setAttr ".LeftFootPinky2Tx" 12.52979669;
-	setAttr ".LeftFootPinky2Ty" 1.8880792420000001;
-	setAttr ".LeftFootPinky2Tz" 14.5796458;
-	setAttr ".LeftFootPinky3Tx" 12.52979669;
-	setAttr ".LeftFootPinky3Ty" 1.8880792289999999;
-	setAttr ".LeftFootPinky3Tz" 16.143599309999999;
-	setAttr ".LeftFootPinky4Tx" 12.5297967;
-	setAttr ".LeftFootPinky4Ty" 1.8880792129999999;
-	setAttr ".LeftFootPinky4Tz" 17.861196199999998;
-	setAttr ".LeftFootExtraFinger1Tx" 5.0860939849999998;
-	setAttr ".LeftFootExtraFinger1Ty" 1.888079254;
-	setAttr ".LeftFootExtraFinger1Tz" 12.9547209;
-	setAttr ".LeftFootExtraFinger1MinRLimitx" -45;
-	setAttr ".LeftFootExtraFinger1MinRLimity" -45;
-	setAttr ".LeftFootExtraFinger1MinRLimitz" -45;
-	setAttr ".LeftFootExtraFinger1MaxRLimitx" 45;
-	setAttr ".LeftFootExtraFinger1MaxRLimity" 45;
-	setAttr ".LeftFootExtraFinger1MaxRLimitz" 45;
-	setAttr ".LeftFootExtraFinger2Tx" 5.0860939910000003;
-	setAttr ".LeftFootExtraFinger2Ty" 1.888079236;
-	setAttr ".LeftFootExtraFinger2Tz" 14.94401483;
-	setAttr ".LeftFootExtraFinger2MinRLimitx" -45;
-	setAttr ".LeftFootExtraFinger2MinRLimity" -45;
-	setAttr ".LeftFootExtraFinger2MinRLimitz" -45;
-	setAttr ".LeftFootExtraFinger2MaxRLimitx" 45;
-	setAttr ".LeftFootExtraFinger2MaxRLimity" 45;
-	setAttr ".LeftFootExtraFinger2MaxRLimitz" 45;
-	setAttr ".LeftFootExtraFinger3Tx" 5.0860939979999999;
-	setAttr ".LeftFootExtraFinger3Ty" 1.8880792179999999;
-	setAttr ".LeftFootExtraFinger3Tz" 16.99182682;
-	setAttr ".LeftFootExtraFinger3MinRLimitx" -45;
-	setAttr ".LeftFootExtraFinger3MinRLimity" -45;
-	setAttr ".LeftFootExtraFinger3MinRLimitz" -45;
-	setAttr ".LeftFootExtraFinger3MaxRLimitx" 45;
-	setAttr ".LeftFootExtraFinger3MaxRLimity" 45;
-	setAttr ".LeftFootExtraFinger3MaxRLimitz" 45;
-	setAttr ".LeftFootExtraFinger4Tx" 5.0860940049999996;
-	setAttr ".LeftFootExtraFinger4Ty" 1.8880791990000001;
-	setAttr ".LeftFootExtraFinger4Tz" 19.0793827;
-	setAttr ".LeftFootExtraFinger4MinRLimitx" -45;
-	setAttr ".LeftFootExtraFinger4MinRLimity" -45;
-	setAttr ".LeftFootExtraFinger4MinRLimitz" -45;
-	setAttr ".LeftFootExtraFinger4MaxRLimitx" 45;
-	setAttr ".LeftFootExtraFinger4MaxRLimity" 45;
-	setAttr ".LeftFootExtraFinger4MaxRLimitz" 45;
-	setAttr ".RightFootThumb1Tx" -6.18422217;
-	setAttr ".RightFootThumb1Ty" 4.9992492679999998;
-	setAttr ".RightFootThumb1Tz" 1.930123209;
-	setAttr ".RightFootThumb2Tx" -4.551409713;
-	setAttr ".RightFootThumb2Ty" 2.6643834059999998;
-	setAttr ".RightFootThumb2Tz" 3.591937658;
-	setAttr ".RightFootThumb3Tx" -3.4619466889999999;
-	setAttr ".RightFootThumb3Ty" 1.8880788850000001;
-	setAttr ".RightFootThumb3Tz" 6.4001420700000002;
-	setAttr ".RightFootThumb4Tx" -3.4619466999999999;
-	setAttr ".RightFootThumb4Ty" 1.8880788550000001;
-	setAttr ".RightFootThumb4Tz" 9.6971958839999992;
-	setAttr ".RightFootIndex1Tx" -7.1105199680000002;
-	setAttr ".RightFootIndex1Ty" 1.888079117;
-	setAttr ".RightFootIndex1Tz" 12.9547209;
-	setAttr ".RightFootIndex1MinRLimitx" -45;
-	setAttr ".RightFootIndex1MinRLimity" -45;
-	setAttr ".RightFootIndex1MinRLimitz" -45;
-	setAttr ".RightFootIndex1MaxRLimitx" 45;
-	setAttr ".RightFootIndex1MaxRLimity" 45;
-	setAttr ".RightFootIndex1MaxRLimitz" 45;
-	setAttr ".RightFootIndex2Tx" -7.1105199749999999;
-	setAttr ".RightFootIndex2Ty" 1.8880790999999999;
-	setAttr ".RightFootIndex2Tz" 14.82972745;
-	setAttr ".RightFootIndex2MinRLimitx" -45;
-	setAttr ".RightFootIndex2MinRLimity" -45;
-	setAttr ".RightFootIndex2MinRLimitz" -45;
-	setAttr ".RightFootIndex2MaxRLimitx" 45;
-	setAttr ".RightFootIndex2MaxRLimity" 45;
-	setAttr ".RightFootIndex2MaxRLimitz" 45;
-	setAttr ".RightFootIndex3Tx" -7.1105199810000004;
-	setAttr ".RightFootIndex3Ty" 1.888079083;
-	setAttr ".RightFootIndex3Tz" 16.76314442;
-	setAttr ".RightFootIndex3MinRLimitx" -45;
-	setAttr ".RightFootIndex3MinRLimity" -45;
-	setAttr ".RightFootIndex3MinRLimitz" -45;
-	setAttr ".RightFootIndex3MaxRLimitx" 45;
-	setAttr ".RightFootIndex3MaxRLimity" 45;
-	setAttr ".RightFootIndex3MaxRLimitz" 45;
-	setAttr ".RightFootIndex4Tx" -7.1105199880000001;
-	setAttr ".RightFootIndex4Ty" 1.8880790649999999;
-	setAttr ".RightFootIndex4Tz" 18.850666449999999;
-	setAttr ".RightFootIndex4MinRLimitx" -45;
-	setAttr ".RightFootIndex4MinRLimity" -45;
-	setAttr ".RightFootIndex4MinRLimitz" -45;
-	setAttr ".RightFootIndex4MaxRLimitx" 45;
-	setAttr ".RightFootIndex4MaxRLimity" 45;
-	setAttr ".RightFootIndex4MaxRLimitz" 45;
-	setAttr ".RightFootMiddle1Tx" -8.9167242489999996;
-	setAttr ".RightFootMiddle1Ty" 1.888079163;
-	setAttr ".RightFootMiddle1Tz" 12.9547209;
-	setAttr ".RightFootMiddle2Tx" -8.9167242550000001;
-	setAttr ".RightFootMiddle2Ty" 1.888079147;
-	setAttr ".RightFootMiddle2Tz" 14.82860045;
-	setAttr ".RightFootMiddle3Tx" -8.9167242610000006;
-	setAttr ".RightFootMiddle3Ty" 1.888079131;
-	setAttr ".RightFootMiddle3Tz" 16.64971237;
-	setAttr ".RightFootMiddle4Tx" -8.9167242669999993;
-	setAttr ".RightFootMiddle4Ty" 1.8880791139999999;
-	setAttr ".RightFootMiddle4Tz" 18.565581959999999;
-	setAttr ".RightFootRing1Tx" -10.723903740000001;
-	setAttr ".RightFootRing1Ty" 1.888079211;
-	setAttr ".RightFootRing1Tz" 12.9547209;
-	setAttr ".RightFootRing1MinRLimitx" -45;
-	setAttr ".RightFootRing1MinRLimity" -45;
-	setAttr ".RightFootRing1MinRLimitz" -45;
-	setAttr ".RightFootRing1MaxRLimitx" 45;
-	setAttr ".RightFootRing1MaxRLimity" 45;
-	setAttr ".RightFootRing1MaxRLimitz" 45;
-	setAttr ".RightFootRing2Tx" -10.723903740000001;
-	setAttr ".RightFootRing2Ty" 1.888079195;
-	setAttr ".RightFootRing2Tz" 14.71345226;
-	setAttr ".RightFootRing2MinRLimitx" -45;
-	setAttr ".RightFootRing2MinRLimity" -45;
-	setAttr ".RightFootRing2MinRLimitz" -45;
-	setAttr ".RightFootRing2MaxRLimitx" 45;
-	setAttr ".RightFootRing2MaxRLimity" 45;
-	setAttr ".RightFootRing2MaxRLimitz" 45;
-	setAttr ".RightFootRing3Tx" -10.72390375;
-	setAttr ".RightFootRing3Ty" 1.8880791800000001;
-	setAttr ".RightFootRing3Tz" 16.472174209999999;
-	setAttr ".RightFootRing3MinRLimitx" -45;
-	setAttr ".RightFootRing3MinRLimity" -45;
-	setAttr ".RightFootRing3MinRLimitz" -45;
-	setAttr ".RightFootRing3MaxRLimitx" 45;
-	setAttr ".RightFootRing3MaxRLimity" 45;
-	setAttr ".RightFootRing3MaxRLimitz" 45;
-	setAttr ".RightFootRing4Tx" -10.723903760000001;
-	setAttr ".RightFootRing4Ty" 1.8880791640000001;
-	setAttr ".RightFootRing4Tz" 18.27484922;
-	setAttr ".RightFootRing4MinRLimitx" -45;
-	setAttr ".RightFootRing4MinRLimity" -45;
-	setAttr ".RightFootRing4MinRLimitz" -45;
-	setAttr ".RightFootRing4MaxRLimitx" 45;
-	setAttr ".RightFootRing4MaxRLimity" 45;
-	setAttr ".RightFootRing4MaxRLimitz" 45;
-	setAttr ".RightFootPinky1Tx" -12.52979668;
-	setAttr ".RightFootPinky1Ty" 1.888079257;
-	setAttr ".RightFootPinky1Tz" 12.9547209;
-	setAttr ".RightFootPinky2Tx" -12.52979669;
-	setAttr ".RightFootPinky2Ty" 1.8880792420000001;
-	setAttr ".RightFootPinky2Tz" 14.5796458;
-	setAttr ".RightFootPinky3Tx" -12.52979669;
-	setAttr ".RightFootPinky3Ty" 1.8880792289999999;
-	setAttr ".RightFootPinky3Tz" 16.143599309999999;
-	setAttr ".RightFootPinky4Tx" -12.5297967;
-	setAttr ".RightFootPinky4Ty" 1.8880792129999999;
-	setAttr ".RightFootPinky4Tz" 17.861196199999998;
-	setAttr ".RightFootExtraFinger1Tx" -5.0860939849999998;
-	setAttr ".RightFootExtraFinger1Ty" 1.888079254;
-	setAttr ".RightFootExtraFinger1Tz" 12.9547209;
-	setAttr ".RightFootExtraFinger1MinRLimitx" -45;
-	setAttr ".RightFootExtraFinger1MinRLimity" -45;
-	setAttr ".RightFootExtraFinger1MinRLimitz" -45;
-	setAttr ".RightFootExtraFinger1MaxRLimitx" 45;
-	setAttr ".RightFootExtraFinger1MaxRLimity" 45;
-	setAttr ".RightFootExtraFinger1MaxRLimitz" 45;
-	setAttr ".RightFootExtraFinger2Tx" -5.0860939910000003;
-	setAttr ".RightFootExtraFinger2Ty" 1.888079236;
-	setAttr ".RightFootExtraFinger2Tz" 14.94401483;
-	setAttr ".RightFootExtraFinger2MinRLimitx" -45;
-	setAttr ".RightFootExtraFinger2MinRLimity" -45;
-	setAttr ".RightFootExtraFinger2MinRLimitz" -45;
-	setAttr ".RightFootExtraFinger2MaxRLimitx" 45;
-	setAttr ".RightFootExtraFinger2MaxRLimity" 45;
-	setAttr ".RightFootExtraFinger2MaxRLimitz" 45;
-	setAttr ".RightFootExtraFinger3Tx" -5.0860939979999999;
-	setAttr ".RightFootExtraFinger3Ty" 1.8880792179999999;
-	setAttr ".RightFootExtraFinger3Tz" 16.99182682;
-	setAttr ".RightFootExtraFinger3MinRLimitx" -45;
-	setAttr ".RightFootExtraFinger3MinRLimity" -45;
-	setAttr ".RightFootExtraFinger3MinRLimitz" -45;
-	setAttr ".RightFootExtraFinger3MaxRLimitx" 45;
-	setAttr ".RightFootExtraFinger3MaxRLimity" 45;
-	setAttr ".RightFootExtraFinger3MaxRLimitz" 45;
-	setAttr ".RightFootExtraFinger4Tx" -5.0860940049999996;
-	setAttr ".RightFootExtraFinger4Ty" 1.8880791990000001;
-	setAttr ".RightFootExtraFinger4Tz" 19.0793827;
-	setAttr ".RightFootExtraFinger4MinRLimitx" -45;
-	setAttr ".RightFootExtraFinger4MinRLimity" -45;
-	setAttr ".RightFootExtraFinger4MinRLimitz" -45;
-	setAttr ".RightFootExtraFinger4MaxRLimitx" 45;
-	setAttr ".RightFootExtraFinger4MaxRLimity" 45;
-	setAttr ".RightFootExtraFinger4MaxRLimitz" 45;
-	setAttr ".LeftInHandThumbTx" 71.709864199999998;
-	setAttr ".LeftInHandThumbTy" 146.58868419999999;
-	setAttr ".LeftInHandIndexTx" 71.709864199999998;
-	setAttr ".LeftInHandIndexTy" 146.58868419999999;
-	setAttr ".LeftInHandMiddleTx" 71.709864199999998;
-	setAttr ".LeftInHandMiddleTy" 146.58868419999999;
-	setAttr ".LeftInHandRingTx" 71.709864199999998;
-	setAttr ".LeftInHandRingTy" 146.58868419999999;
-	setAttr ".LeftInHandPinkyTx" 71.709864199999998;
-	setAttr ".LeftInHandPinkyTy" 146.58868419999999;
-	setAttr ".LeftInHandExtraFingerTx" 71.709864199999998;
-	setAttr ".LeftInHandExtraFingerTy" 146.58868419999999;
-	setAttr ".RightInHandThumbTx" -71.709864199999998;
-	setAttr ".RightInHandThumbTy" 146.58868419999999;
-	setAttr ".RightInHandIndexTx" -71.709864199999998;
-	setAttr ".RightInHandIndexTy" 146.58868419999999;
-	setAttr ".RightInHandMiddleTx" -71.709864199999998;
-	setAttr ".RightInHandMiddleTy" 146.58868419999999;
-	setAttr ".RightInHandRingTx" -71.709864199999998;
-	setAttr ".RightInHandRingTy" 146.58868419999999;
-	setAttr ".RightInHandPinkyTx" -71.709864199999998;
-	setAttr ".RightInHandPinkyTy" 146.58868419999999;
-	setAttr ".RightInHandExtraFingerTx" -71.709864199999998;
-	setAttr ".RightInHandExtraFingerTy" 146.58868419999999;
-	setAttr ".LeftInFootThumbTx" 8.9100008010000007;
-	setAttr ".LeftInFootThumbTy" 8.15039625;
-	setAttr ".LeftInFootIndexTx" 8.9100008010000007;
-	setAttr ".LeftInFootIndexTy" 8.1503963469999992;
-	setAttr ".LeftInFootMiddleTx" 8.9100008010000007;
-	setAttr ".LeftInFootMiddleTy" 8.1503963469999992;
-	setAttr ".LeftInFootRingTx" 8.9100008010000007;
-	setAttr ".LeftInFootRingTy" 8.1503963469999992;
-	setAttr ".LeftInFootPinkyTx" 8.9100008010000007;
-	setAttr ".LeftInFootPinkyTy" 8.1503963469999992;
-	setAttr ".LeftInFootExtraFingerTx" 8.9100008010000007;
-	setAttr ".LeftInFootExtraFingerTy" 8.1503963469999992;
-	setAttr ".RightInFootThumbTx" -8.9100008010000007;
-	setAttr ".RightInFootThumbTy" 8.15039625;
-	setAttr ".RightInFootIndexTx" -8.9100008010000007;
-	setAttr ".RightInFootIndexTy" 8.1503963469999992;
-	setAttr ".RightInFootMiddleTx" -8.9100008010000007;
-	setAttr ".RightInFootMiddleTy" 8.1503963469999992;
-	setAttr ".RightInFootRingTx" -8.9100008010000007;
-	setAttr ".RightInFootRingTy" 8.1503963469999992;
-	setAttr ".RightInFootPinkyTx" -8.9100008010000007;
-	setAttr ".RightInFootPinkyTy" 8.1503963469999992;
-	setAttr ".RightInFootExtraFingerTx" -8.9100008010000007;
-	setAttr ".RightInFootExtraFingerTy" 8.1503963469999992;
-	setAttr ".LeftShoulderExtraTx" 12.353625535000001;
-	setAttr ".LeftShoulderExtraTy" 146.58868419999999;
-	setAttr ".RightShoulderExtraTx" -12.353625535000001;
-	setAttr ".RightShoulderExtraTy" 146.58868419999999;
-createNode HIKRetargeterNode -n "HIKRetargeterNode1";
-	rename -uid "49A76089-439B-5C16-1B07-09B29883AE92";
-	setAttr ".ihi" 0;
-	setAttr ".InputCharacterDefinitionSrc" -type "HIKCharacter" ;
-	setAttr ".InputCharacterState" -type "HIKCharacterState" ;
-createNode HIKProperty2State -n "PunkBot_Skinning_0003:HIKproperties1";
-	rename -uid "13726ED0-4BF6-9F87-3875-2CA571362C72";
-	setAttr ".ParamLeafLeftUpLegRoll1Mode" 0;
-	setAttr ".ParamLeafLeftUpLegRoll1" 0;
-	setAttr ".ParamLeafLeftLegRoll1Mode" 0;
-	setAttr ".ParamLeafLeftLegRoll1" 0;
-	setAttr ".ParamLeafRightUpLegRoll1Mode" 0;
-	setAttr ".ParamLeafRightUpLegRoll1" 0;
-	setAttr ".ParamLeafRightLegRoll1Mode" 0;
-	setAttr ".ParamLeafRightLegRoll1" 0;
-	setAttr ".ParamLeafLeftArmRoll1Mode" 0;
-	setAttr ".ParamLeafLeftArmRoll1" 0;
-	setAttr ".ParamLeafLeftForeArmRoll1Mode" 0;
-	setAttr ".ParamLeafLeftForeArmRoll1" 0;
-	setAttr ".ParamLeafRightArmRoll1Mode" 0;
-	setAttr ".ParamLeafRightArmRoll1" 0;
-	setAttr ".ParamLeafRightForeArmRoll1Mode" 0;
-	setAttr ".ParamLeafRightForeArmRoll1" 0;
-	setAttr ".ParamLeafLeftUpLegRoll2Mode" 0;
-	setAttr ".ParamLeafLeftUpLegRoll2" 0;
-	setAttr ".ParamLeafLeftLegRoll2Mode" 0;
-	setAttr ".ParamLeafLeftLegRoll2" 0;
-	setAttr ".ParamLeafRightUpLegRoll2Mode" 0;
-	setAttr ".ParamLeafRightUpLegRoll2" 0;
-	setAttr ".ParamLeafRightLegRoll2Mode" 0;
-	setAttr ".ParamLeafRightLegRoll2" 0;
-	setAttr ".ParamLeafLeftArmRoll2Mode" 0;
-	setAttr ".ParamLeafLeftArmRoll2" 0;
-	setAttr ".ParamLeafLeftForeArmRoll2Mode" 0;
-	setAttr ".ParamLeafLeftForeArmRoll2" 0;
-	setAttr ".ParamLeafRightArmRoll2Mode" 0;
-	setAttr ".ParamLeafRightArmRoll2" 0;
-	setAttr ".ParamLeafRightForeArmRoll2Mode" 0;
-	setAttr ".ParamLeafRightForeArmRoll2" 0;
-	setAttr ".ParamLeafLeftUpLegRoll3Mode" 0;
-	setAttr ".ParamLeafLeftUpLegRoll3" 0;
-	setAttr ".ParamLeafLeftLegRoll3Mode" 0;
-	setAttr ".ParamLeafLeftLegRoll3" 0;
-	setAttr ".ParamLeafRightUpLegRoll3Mode" 0;
-	setAttr ".ParamLeafRightUpLegRoll3" 0;
-	setAttr ".ParamLeafRightLegRoll3Mode" 0;
-	setAttr ".ParamLeafRightLegRoll3" 0;
-	setAttr ".ParamLeafLeftArmRoll3Mode" 0;
-	setAttr ".ParamLeafLeftArmRoll3" 0;
-	setAttr ".ParamLeafLeftForeArmRoll3Mode" 0;
-	setAttr ".ParamLeafLeftForeArmRoll3" 0;
-	setAttr ".ParamLeafRightArmRoll3Mode" 0;
-	setAttr ".ParamLeafRightArmRoll3" 0;
-	setAttr ".ParamLeafRightForeArmRoll3Mode" 0;
-	setAttr ".ParamLeafRightForeArmRoll3" 0;
-	setAttr ".ParamLeafLeftUpLegRoll4Mode" 0;
-	setAttr ".ParamLeafLeftUpLegRoll4" 0;
-	setAttr ".ParamLeafLeftLegRoll4Mode" 0;
-	setAttr ".ParamLeafLeftLegRoll4" 0;
-	setAttr ".ParamLeafRightUpLegRoll4Mode" 0;
-	setAttr ".ParamLeafRightUpLegRoll4" 0;
-	setAttr ".ParamLeafRightLegRoll4Mode" 0;
-	setAttr ".ParamLeafRightLegRoll4" 0;
-	setAttr ".ParamLeafLeftArmRoll4Mode" 0;
-	setAttr ".ParamLeafLeftArmRoll4" 0;
-	setAttr ".ParamLeafLeftForeArmRoll4Mode" 0;
-	setAttr ".ParamLeafLeftForeArmRoll4" 0;
-	setAttr ".ParamLeafRightArmRoll4Mode" 0;
-	setAttr ".ParamLeafRightArmRoll4" 0;
-	setAttr ".ParamLeafRightForeArmRoll4Mode" 0;
-	setAttr ".ParamLeafRightForeArmRoll4" 0;
-	setAttr ".ParamLeafLeftUpLegRoll5Mode" 0;
-	setAttr ".ParamLeafLeftUpLegRoll5" 0;
-	setAttr ".ParamLeafLeftLegRoll5Mode" 0;
-	setAttr ".ParamLeafLeftLegRoll5" 0;
-	setAttr ".ParamLeafRightUpLegRoll5Mode" 0;
-	setAttr ".ParamLeafRightUpLegRoll5" 0;
-	setAttr ".ParamLeafRightLegRoll5Mode" 0;
-	setAttr ".ParamLeafRightLegRoll5" 0;
-	setAttr ".ParamLeafLeftArmRoll5Mode" 0;
-	setAttr ".ParamLeafLeftArmRoll5" 0;
-	setAttr ".ParamLeafLeftForeArmRoll5Mode" 0;
-	setAttr ".ParamLeafLeftForeArmRoll5" 0;
-	setAttr ".ParamLeafRightArmRoll5Mode" 0;
-	setAttr ".ParamLeafRightArmRoll5" 0;
-	setAttr ".ParamLeafRightForeArmRoll5Mode" 0;
-	setAttr ".ParamLeafRightForeArmRoll5" 0;
-createNode HIKState2SK -n "HIKState2SK1";
-	rename -uid "D153842D-40CA-CEB8-CE9B-21BD8AACD937";
-	setAttr ".ihi" 0;
-	setAttr ".HipsTx" 0;
-	setAttr ".HipsTy" 112.84286499023438;
-	setAttr ".HipsTz" -0.86268508434295654;
-	setAttr ".LeftUpLegTx" 8.4372577667236328;
-	setAttr ".LeftUpLegTy" -5.5608887194758978;
-	setAttr ".LeftUpLegTz" 1.9715801208990305;
-	setAttr ".LeftLegTx" 3.0728325154254712;
-	setAttr ".LeftLegTy" -44.878646458601423;
-	setAttr ".LeftLegTz" -1.1088951142346652;
-	setAttr ".LeftFootTx" -1.575811244709298;
-	setAttr ".LeftFootTy" -45.696546165818226;
-	setAttr ".LeftFootTz" -2.6494157314300537;
-	setAttr ".RightUpLegTx" -8.4372577667236328;
-	setAttr ".RightUpLegTy" -5.5608887194758978;
-	setAttr ".RightUpLegTz" 1.9715801208990305;
-	setAttr ".RightLegTx" -3.0728325154254712;
-	setAttr ".RightLegTy" -44.878646458601423;
-	setAttr ".RightLegTz" -1.1088951142346652;
-	setAttr ".RightFootTx" 1.575811244709298;
-	setAttr ".RightFootTy" -45.696546165818226;
-	setAttr ".RightFootTz" -2.6494157314300537;
-	setAttr ".SpineTy" 14.012361097418633;
-	setAttr ".SpineTz" 0.8626850574987619;
-	setAttr ".LeftArmTx" 7.4818011969326363;
-	setAttr ".LeftArmTy" -8.5627969101997792;
-	setAttr ".LeftArmTz" -11.118389595016787;
-	setAttr ".LeftArmRx" -3.4700343701165894;
-	setAttr ".LeftArmRy" 10.964149856509453;
-	setAttr ".LeftArmRz" -17.682529270646089;
-	setAttr ".LeftForeArmTx" -29.889896290295326;
-	setAttr ".LeftForeArmTy" -7.2008025129969742;
-	setAttr ".LeftForeArmTz" 0.86368754860117747;
-	setAttr ".LeftForeArmRx" -5.7554958175667652;
-	setAttr ".LeftForeArmRy" -2.4720171346419817;
-	setAttr ".LeftForeArmRz" -80.438812800624888;
-	setAttr ".LeftHandTx" -56.069503991299996;
-	setAttr ".LeftHandTy" -3.6657822269978335;
-	setAttr ".LeftHandTz" 4.9403714281520053;
-	setAttr ".LeftHandRx" -5.7481748717480396;
-	setAttr ".LeftHandRy" -2.4890395172693873;
-	setAttr ".LeftHandRz" -69.482001771256108;
-	setAttr ".RightArmTx" -7.4818114202890342;
-	setAttr ".RightArmTy" -8.5627306396680183;
-	setAttr ".RightArmTz" -11.118433753278843;
-	setAttr ".RightArmRx" -3.4703401632179727;
-	setAttr ".RightArmRy" -10.964313879780672;
-	setAttr ".RightArmRz" 17.682165951781144;
-	setAttr ".RightForeArmTx" 29.889582438773743;
-	setAttr ".RightForeArmTy" -7.201710966682028;
-	setAttr ".RightForeArmTz" 0.86387723906243608;
-	setAttr ".RightForeArmRx" -5.7574055861063957;
-	setAttr ".RightForeArmRy" 2.4686439326349823;
-	setAttr ".RightForeArmRz" 80.438708909825451;
-	setAttr ".RightHandTx" 56.071404527335318;
-	setAttr ".RightHandTy" -3.633256572822944;
-	setAttr ".RightHandTz" 4.9407472460656656;
-	setAttr ".RightHandRx" -5.7341830287337361;
-	setAttr ".RightHandRy" 2.5222600575705938;
-	setAttr ".RightHandRz" 69.480524019874025;
-	setAttr ".HeadTy" 12.245700696193637;
-	setAttr ".HeadTz" 2.5087448179929481;
-	setAttr ".LeftToeBaseTx" 8.8122192245521092e-06;
-	setAttr ".LeftToeBaseTy" -11.795995748963781;
-	setAttr ".LeftToeBaseTz" 13.919973209980435;
-	setAttr ".RightToeBaseTx" -8.8122192245521092e-06;
-	setAttr ".RightToeBaseTy" -11.795995748963781;
-	setAttr ".RightToeBaseTz" 13.919973209980435;
-	setAttr ".LeftShoulderTx" 10.624366760253906;
-	setAttr ".LeftShoulderTy" 7.1521885385668895;
-	setAttr ".LeftShoulderTz" 6.9180538318216804;
-	setAttr ".RightShoulderTx" -10.624366760253906;
-	setAttr ".RightShoulderTy" 7.1521885385668895;
-	setAttr ".RightShoulderTz" 6.9180538318216804;
-	setAttr ".NeckTy" 13.16567730809814;
-	setAttr ".NeckTz" 0.22806760287880934;
-	setAttr ".Spine1Ty" 13.165679970383735;
-	setAttr ".Spine2Ty" -140.0208982040208;
-	setAttr ".LeftHandThumb1Tx" -0.14610709065402183;
-	setAttr ".LeftHandThumb1Ty" 32.674982616231944;
-	setAttr ".LeftHandThumb1Tz" 57.322057450541919;
-	setAttr ".LeftHandThumb1Rx" -98.24498536025699;
-	setAttr ".LeftHandThumb1Ry" 4.6793593782387317;
-	setAttr ".LeftHandThumb1Rz" -77.274492452716117;
-	setAttr ".LeftHandThumb2Tx" -3.8364795734616495;
-	setAttr ".LeftHandThumb2Ty" 32.247859725973314;
-	setAttr ".LeftHandThumb2Tz" 58.505587473178934;
-	setAttr ".LeftHandThumb2Rx" -98.217835713746581;
-	setAttr ".LeftHandThumb2Ry" -0.64389773883914592;
-	setAttr ".LeftHandThumb2Rz" -71.125643370807808;
-	setAttr ".LeftHandThumb3Tx" -7.9715613935783454;
-	setAttr ".LeftHandThumb3Ty" 30.279353286031714;
-	setAttr ".LeftHandThumb3Tz" 59.286235182606504;
-	setAttr ".LeftHandThumb3Rx" -98.669139128049977;
-	setAttr ".LeftHandThumb3Ry" 18.513497229136561;
-	setAttr ".LeftHandThumb3Rz" -93.353577859565064;
-	setAttr ".LeftHandThumb4Tx" 0.1051741770932999;
-	setAttr ".LeftHandThumb4Ty" 29.83434183206257;
-	setAttr ".LeftHandThumb4Tz" 59.435635542187669;
-	setAttr ".LeftHandThumb4Rx" -100.14040232742106;
-	setAttr ".LeftHandThumb4Ry" -35.726845626681069;
-	setAttr ".LeftHandThumb4Rz" -29.751503887701936;
-	setAttr ".LeftHandIndex1Tx" 1.3812805691960373;
-	setAttr ".LeftHandIndex1Ty" 30.770656878386639;
-	setAttr ".LeftHandIndex1Tz" 63.727689988209235;
-	setAttr ".LeftHandIndex1Rx" -98.24498536025699;
-	setAttr ".LeftHandIndex1Ry" 4.6793593782387317;
-	setAttr ".LeftHandIndex1Rz" -77.274492452716117;
-	setAttr ".LeftHandIndex2Tx" -3.7281289571641203;
-	setAttr ".LeftHandIndex2Ty" 36.896186765505675;
-	setAttr ".LeftHandIndex2Tz" 66.934210545099035;
-	setAttr ".LeftHandIndex2Rx" -96.276350187927136;
-	setAttr ".LeftHandIndex2Ry" -1.5096323391899142;
-	setAttr ".LeftHandIndex2Rz" -73.146442063314993;
-	setAttr ".LeftHandIndex3Tx" -11.148477825947543;
-	setAttr ".LeftHandIndex3Ty" 38.502649890016983;
-	setAttr ".LeftHandIndex3Tz" 68.545678055858133;
-	setAttr ".LeftHandIndex3Rx" -126.05719387837782;
-	setAttr ".LeftHandIndex3Ry" 41.899740232462634;
-	setAttr ".LeftHandIndex3Rz" -73.402390600970733;
-	setAttr ".LeftHandIndex4Tx" 48.933263071292302;
-	setAttr ".LeftHandIndex4Ty" 38.315686108003668;
-	setAttr ".LeftHandIndex4Tz" 52.496379650703332;
-	setAttr ".LeftHandIndex4Rx" -95.171002917894469;
-	setAttr ".LeftHandIndex4Ry" 12.297470604552199;
-	setAttr ".LeftHandIndex4Rz" -90.017962983682807;
-	setAttr ".LeftHandMiddle1Tx" 0.7365050270873521;
-	setAttr ".LeftHandMiddle1Ty" 33.291754302656145;
-	setAttr ".LeftHandMiddle1Tz" 64.943227910850311;
-	setAttr ".LeftHandMiddle1Rx" -98.24498536025699;
-	setAttr ".LeftHandMiddle1Ry" 4.6793593782387317;
-	setAttr ".LeftHandMiddle1Rz" -77.274492452716117;
-	setAttr ".LeftHandMiddle2Tx" -1.5917943359421791;
-	setAttr ".LeftHandMiddle2Ty" 41.040334310895823;
-	setAttr ".LeftHandMiddle2Tz" 69.346968203638355;
-	setAttr ".LeftHandMiddle2Rx" -98.214424042985783;
-	setAttr ".LeftHandMiddle2Ry" -0.64555957836153421;
-	setAttr ".LeftHandMiddle2Rz" -71.129208297146988;
-	setAttr ".LeftHandMiddle3Tx" -6.5239204928289896;
-	setAttr ".LeftHandMiddle3Ty" 44.362823195075812;
-	setAttr ".LeftHandMiddle3Tz" 71.657157875224513;
-	setAttr ".LeftHandMiddle3Rx" -98.723961755796452;
-	setAttr ".LeftHandMiddle3Ry" 18.523203510275177;
-	setAttr ".LeftHandMiddle3Rz" -93.303030470445222;
-	setAttr ".LeftHandMiddle4Tx" 8.8276384948627342;
-	setAttr ".LeftHandMiddle4Ty" 46.011478645115012;
-	setAttr ".LeftHandMiddle4Tz" 73.357608860239495;
-	setAttr ".LeftHandMiddle4Rx" -99.259759991412594;
-	setAttr ".LeftHandMiddle4Ry" -36.330892916285599;
-	setAttr ".LeftHandMiddle4Rz" -30.865487955260502;
-	setAttr ".LeftHandRing1Tx" 0.33456169164894156;
-	setAttr ".LeftHandRing1Ty" 35.650211574722768;
-	setAttr ".LeftHandRing1Tz" 65.731714178744042;
-	setAttr ".LeftHandRing1Rx" -98.24498536025699;
-	setAttr ".LeftHandRing1Ry" 4.6793593782387317;
-	setAttr ".LeftHandRing1Rz" -77.274492452716117;
-	setAttr ".LeftHandRing2Tx" 0.20653627024624477;
-	setAttr ".LeftHandRing2Ty" 45.144933461588337;
-	setAttr ".LeftHandRing2Tz" 70.033056655715967;
-	setAttr ".LeftHandRing2Rx" -98.214423856278103;
-	setAttr ".LeftHandRing2Ry" -0.6455596692473945;
-	setAttr ".LeftHandRing2Rz" -71.129208491924658;
-	setAttr ".LeftHandRing3Tx" -4.2376881990516333;
-	setAttr ".LeftHandRing3Ty" 49.259542360387961;
-	setAttr ".LeftHandRing3Tz" 72.084398481085131;
-	setAttr ".LeftHandRing3Rx" -98.723964756485245;
-	setAttr ".LeftHandRing3Ry" 18.523204060333462;
-	setAttr ".LeftHandRing3Rz" -93.303027726931191;
-	setAttr ".LeftHandRing4Tx" 13.189871545646803;
-	setAttr ".LeftHandRing4Ty" 49.853341278593938;
-	setAttr ".LeftHandRing4Tz" 73.845356900339283;
-	setAttr ".LeftHandRing4Rx" -99.259710837725422;
-	setAttr ".LeftHandRing4Ry" -36.330925704015257;
-	setAttr ".LeftHandRing4Rz" -30.865549056946524;
-	setAttr ".LeftHandPinky1Tx" -0.060655859210896779;
-	setAttr ".LeftHandPinky1Ty" 37.984815305766332;
-	setAttr ".LeftHandPinky1Tz" 65.786540432574697;
-	setAttr ".LeftHandPinky1Rx" -98.24498536025699;
-	setAttr ".LeftHandPinky1Ry" 4.6793593782387317;
-	setAttr ".LeftHandPinky1Rz" -77.274492452716117;
-	setAttr ".LeftHandPinky2Tx" 1.7218700947760954;
-	setAttr ".LeftHandPinky2Ty" 48.24228720613668;
-	setAttr ".LeftHandPinky2Tz" 68.462057642264043;
-	setAttr ".LeftHandPinky2Rx" -98.217836940300316;
-	setAttr ".LeftHandPinky2Ry" -0.64465299119515251;
-	setAttr ".LeftHandPinky2Rz" -71.124771264379504;
-	setAttr ".LeftHandPinky3Tx" -2.2724925199101986;
-	setAttr ".LeftHandPinky3Ty" 51.517587468039565;
-	setAttr ".LeftHandPinky3Tz" 70.277292333180412;
-	setAttr ".LeftHandPinky3Rx" -98.669894586674403;
-	setAttr ".LeftHandPinky3Ry" 18.528286960890906;
-	setAttr ".LeftHandPinky3Rz" -93.37091878798816;
-	setAttr ".LeftHandPinky4Tx" 16.064340629015774;
-	setAttr ".LeftHandPinky4Ty" 51.309525625049901;
-	setAttr ".LeftHandPinky4Tz" 71.832431267913691;
-	setAttr ".LeftHandPinky4Rx" -100.15802885059901;
-	setAttr ".LeftHandPinky4Ry" -35.863394849245033;
-	setAttr ".LeftHandPinky4Rz" -29.582647523687985;
-	setAttr ".RightHandThumb1Tx" 0.069766524929773865;
-	setAttr ".RightHandThumb1Ty" 32.349744447153029;
-	setAttr ".RightHandThumb1Tz" 57.506141316543321;
-	setAttr ".RightHandThumb1Rx" -98.26505782061497;
-	setAttr ".RightHandThumb1Ry" -7.0944631985026039;
-	setAttr ".RightHandThumb1Rz" 80.030276172928083;
-	setAttr ".RightHandThumb2Tx" 2.4160229373241346;
-	setAttr ".RightHandThumb2Ty" 32.014904012491925;
-	setAttr ".RightHandThumb2Tz" 58.676482182365547;
-	setAttr ".RightHandThumb2Rx" -98.320869722625432;
-	setAttr ".RightHandThumb2Ry" 9.689557537865765;
-	setAttr ".RightHandThumb2Rz" 60.633527055629486;
-	setAttr ".RightHandThumb3Tx" 12.534602813876333;
-	setAttr ".RightHandThumb3Ty" 28.270376474641274;
-	setAttr ".RightHandThumb3Tz" 59.439765899933249;
-	setAttr ".RightHandThumb3Rx" -102.96984659568071;
-	setAttr ".RightHandThumb3Ry" -50.535773207704054;
-	setAttr ".RightHandThumb3Rz" 133.177010602601;
-	setAttr ".RightHandThumb4Tx" -15.877874974325366;
-	setAttr ".RightHandThumb4Ty" 24.784083163332035;
-	setAttr ".RightHandThumb4Tz" 59.570214412936878;
-	setAttr ".RightHandThumb4Rx" 105.33515788663232;
-	setAttr ".RightHandThumb4Ry" 57.357256839445419;
-	setAttr ".RightHandThumb4Rz" 143.13026699824329;
-	setAttr ".RightHandIndex1Tx" -1.464682812337502;
-	setAttr ".RightHandIndex1Ty" 30.408760782107088;
-	setAttr ".RightHandIndex1Tz" 63.899070647475241;
-	setAttr ".RightHandIndex1Rx" -98.26505782061497;
-	setAttr ".RightHandIndex1Ry" -7.0944631985026039;
-	setAttr ".RightHandIndex1Rz" 80.030276172928083;
-	setAttr ".RightHandIndex2Tx" 2.1424732837875924;
-	setAttr ".RightHandIndex2Ty" 36.597055125548941;
-	setAttr ".RightHandIndex2Tz" 67.091689628073141;
-	setAttr ".RightHandIndex2Rx" -100.37928504291027;
-	setAttr ".RightHandIndex2Ry" 8.3490687087328546;
-	setAttr ".RightHandIndex2Rz" 58.361414261548632;
-	setAttr ".RightHandIndex3Tx" 12.213908433264775;
-	setAttr ".RightHandIndex3Ty" 36.192384574764766;
-	setAttr ".RightHandIndex3Tz" 69.510372254319577;
-	setAttr ".RightHandIndex3Rx" -116.7415947330523;
-	setAttr ".RightHandIndex3Ry" -71.586639502152295;
-	setAttr ".RightHandIndex3Rz" 170.87535056858403;
-	setAttr ".RightHandIndex4Tx" 22.453084566394168;
-	setAttr ".RightHandIndex4Ty" 38.788002216397281;
-	setAttr ".RightHandIndex4Tz" 67.767596666734434;
-	setAttr ".RightHandIndex4Rx" -115.01132754747661;
-	setAttr ".RightHandIndex4Ry" -11.795235975683021;
-	setAttr ".RightHandIndex4Rz" -4.8312841472210781;
-	setAttr ".RightHandMiddle1Tx" -0.8220166714390551;
-	setAttr ".RightHandMiddle1Ty" 32.923098587463073;
-	setAttr ".RightHandMiddle1Tz" 65.12963385009374;
-	setAttr ".RightHandMiddle1Rx" -98.26505782061497;
-	setAttr ".RightHandMiddle1Ry" -7.0944631985026039;
-	setAttr ".RightHandMiddle1Rz" 80.030276172928083;
-	setAttr ".RightHandMiddle2Tx" -0.16581597929677372;
-	setAttr ".RightHandMiddle2Ty" 40.649599277182062;
-	setAttr ".RightHandMiddle2Tz" 69.52296930635336;
-	setAttr ".RightHandMiddle2Rx" -100.37928504291027;
-	setAttr ".RightHandMiddle2Ry" 8.3490687087328119;
-	setAttr ".RightHandMiddle2Rz" 58.361414261548639;
-	setAttr ".RightHandMiddle3Tx" 10.855362976882422;
-	setAttr ".RightHandMiddle3Ty" 42.335110932087574;
-	setAttr ".RightHandMiddle3Tz" 72.250523276510208;
-	setAttr ".RightHandMiddle3Rx" -116.74159473305224;
-	setAttr ".RightHandMiddle3Ry" -71.586639502152295;
-	setAttr ".RightHandMiddle3Rz" 170.87535056858403;
-	setAttr ".RightHandMiddle4Tx" 18.876865440100243;
-	setAttr ".RightHandMiddle4Ty" 41.159836920872948;
-	setAttr ".RightHandMiddle4Tz" 74.212944066418416;
-	setAttr ".RightHandMiddle4Rx" -115.01132754747661;
-	setAttr ".RightHandMiddle4Ry" -11.795235975683017;
-	setAttr ".RightHandMiddle4Rz" -4.8312841472210817;
-	setAttr ".RightHandRing1Tx" -0.42163446626669199;
-	setAttr ".RightHandRing1Ty" 35.277155210768278;
-	setAttr ".RightHandRing1Tz" 65.931943795051751;
-	setAttr ".RightHandRing1Rx" -98.26505782061497;
-	setAttr ".RightHandRing1Ry" -7.0944631985026039;
-	setAttr ".RightHandRing1Rz" 80.030276172928083;
-	setAttr ".RightHandRing2Tx" -2.1357168008110303;
-	setAttr ".RightHandRing2Ty" 44.68392509881766;
-	setAttr ".RightHandRing2Tz" 70.229609600721901;
-	setAttr ".RightHandRing2Rx" -100.37928504291027;
-	setAttr ".RightHandRing2Ry" 8.3490687087328421;
-	setAttr ".RightHandRing2Rz" 58.361414261548632;
-	setAttr ".RightHandRing3Tx" 9.3671321236801912;
-	setAttr ".RightHandRing3Ty" 47.550189691340364;
-	setAttr ".RightHandRing3Tz" 72.650525988934035;
-	setAttr ".RightHandRing3Rx" -116.7415947330523;
-	setAttr ".RightHandRing3Ry" -71.586639502152295;
-	setAttr ".RightHandRing3Rz" 170.87535056858403;
-	setAttr ".RightHandRing4Tx" 14.642621925069459;
-	setAttr ".RightHandRing4Ty" 42.161165558160498;
-	setAttr ".RightHandRing4Tz" 78.12939483790349;
-	setAttr ".RightHandRing4Rx" -115.01132754747661;
-	setAttr ".RightHandRing4Ry" -11.795235975683017;
-	setAttr ".RightHandRing4Rz" -4.831284147221079;
-	setAttr ".RightHandPinky1Tx" -0.027104587338756758;
-	setAttr ".RightHandPinky1Ty" 37.611513520036411;
-	setAttr ".RightHandPinky1Tz" 66.000462917953385;
-	setAttr ".RightHandPinky1Rx" -98.26505782061497;
-	setAttr ".RightHandPinky1Ry" -7.0944631985026039;
-	setAttr ".RightHandPinky1Rz" 80.030276172928083;
-	setAttr ".RightHandPinky2Tx" -3.7823428699662838;
-	setAttr ".RightHandPinky2Ty" 47.735683774821354;
-	setAttr ".RightHandPinky2Tz" 68.677786083607245;
-	setAttr ".RightHandPinky2Rx" -100.3792088452131;
-	setAttr ".RightHandPinky2Ry" 8.3478466350024334;
-	setAttr ".RightHandPinky2Rz" 58.362881804692215;
-	setAttr ".RightHandPinky3Tx" 7.8503260953269312;
-	setAttr ".RightHandPinky3Ty" 50.121001087629018;
-	setAttr ".RightHandPinky3Tz" 70.811350489945099;
-	setAttr ".RightHandPinky3Rx" -116.67433907571481;
-	setAttr ".RightHandPinky3Ry" -71.564726790093047;
-	setAttr ".RightHandPinky3Rz" 170.79367569144188;
-	setAttr ".RightHandPinky4Tx" 10.851825841114994;
-	setAttr ".RightHandPinky4Ty" 41.653483980851249;
-	setAttr ".RightHandPinky4Tz" 78.651050029438736;
-	setAttr ".RightHandPinky4Rx" -115.02923059238323;
-	setAttr ".RightHandPinky4Ry" -11.704458573393351;
-	setAttr ".RightHandPinky4Rz" -4.768001236394757;
-createNode HIKSolverNode -n "HIKSolverNode1";
-	rename -uid "7BB44175-4032-EC8E-6546-FC9CAC7D9D33";
-	setAttr ".ihi" 0;
-	setAttr ".InputStance" yes;
-	setAttr ".OutputCharacterState" -type "HIKCharacterState" ;
-createNode HIKFK2State -n "HIKFK2State1";
-	rename -uid "F9D8695A-405E-84BB-64B6-8E8C4558068A";
-	setAttr ".ihi" 0;
-	setAttr ".OutputCharacterState" -type "HIKCharacterState" ;
-	setAttr ".HipsGX" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 112.84286499023438 -0.86268508434295654 1;
-	setAttr ".LeftUpLegGX" -type "matrix" 1 3.8857805861880464e-16 2.7755575615628933e-16 0
-		 -3.8857805861880494e-16 1 1.0547118733938987e-15 0 -2.7755575615628894e-16 -1.0547118733938987e-15 1 0
-		 8.4372577667236328 107.28197479248047 1.1088950634002686 1;
-	setAttr ".LeftLegGX" -type "matrix" 1 3.8857805861880435e-16 1.4791141972893971e-31 0
-		 -3.8857805861880439e-16 1 -3.0531133177191813e-15 0 -1.3312027775604574e-30 3.0531133177191813e-15 1 0
-		 11.510089874267594 62.403331756591797 -4.6629367034256575e-14 1;
-	setAttr ".LeftFootGX" -type "matrix" 1 1.1102230246251487e-16 -1.1102230246251468e-16 0
-		 -1.1102230246251526e-16 1 -2.9976021664879234e-15 0 1.1102230246251435e-16 2.9976021664879234e-15 1 0
-		 9.9342784881592152 16.706787109374993 -2.6494157314299609 1;
-	setAttr ".RightUpLegGX" -type "matrix" 1 2.2204460492503096e-16 -3.3306690738754726e-16 0
-		 -2.2204460492503175e-16 1 -2.3314683517128295e-15 0 3.3306690738754676e-16 2.3314683517128295e-15 1 0
-		 -8.4372577667236328 107.28197479248047 1.1088950634002686 1;
-	setAttr ".RightLegGX" -type "matrix" 1 -4.7454913829701544e-31 -3.8857805861880474e-16 0
-		 2.2803010541544855e-31 1 -6.1062266354383649e-16 0 3.8857805861880479e-16 6.1062266354383649e-16 1 0
-		 -11.510089874267567 62.403331756591797 1.0547118733938987e-13 1;
-	setAttr ".RightFootGX" -type "matrix" 1 -4.9960036108132133e-16 -9.4368957093138266e-16 0
-		 4.9960036108132034e-16 1 -9.9920072216264168e-16 0 9.4368957093138306e-16 9.9920072216264128e-16 1 0
-		 -9.9342784881591726 16.706787109375 -2.6494157314299214 1;
-	setAttr ".SpineGX" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 126.855224609375 0 1;
-	setAttr ".LeftArmGX" -type "matrix" 1 2.9143354396410359e-16 2.6714741530042814e-16 0
-		 -2.9143354396410359e-16 1 8.3266726846886617e-17 0 -2.671474153004281e-16 -8.3266726846886765e-17 1 0
-		 22.290641784667962 155.01249694824219 -4.8432402610778791 1;
-	setAttr ".LeftForeArmGX" -type "matrix" 1 3.4694469519536142e-16 3.781697177629438e-16 0
-		 -3.4694469519536147e-16 1 3.053113317719179e-16 0 -3.781697177629437e-16 -3.0531133177191815e-16 1 0
-		 42.288307189941406 137.14773559570312 -4.6386008262634233 1;
-	setAttr ".LeftHandGX" -type "matrix" 1 3.4694469519536142e-16 3.781697177629438e-16 0
-		 -3.4694469519536147e-16 1 3.053113317719179e-16 0 -3.781697177629437e-16 -3.0531133177191815e-16 1 0
-		 64.123580932617202 123.89210510253909 -3.0315008163452069 1;
-	setAttr ".RightArmGX" -type "matrix" 1 7.6327832942979512e-16 3.9898639947466548e-16 0
-		 -7.6327832942979512e-16 1 -1.3877787807814469e-16 0 -3.9898639947466558e-16 1.3877787807814439e-16 1 0
-		 -22.290641784667969 155.01249694824219 -4.8432402610778897 1;
-	setAttr ".RightForeArmGX" -type "matrix" 1 4.0245584642661915e-16 2.8796409701214988e-16 0
-		 -4.0245584642661925e-16 1 -6.9388939039072271e-17 0 -2.8796409701214988e-16 6.9388939039072148e-17 1 0
-		 -42.288330078124986 137.14776611328125 -4.6386008262634428 1;
-	setAttr ".RightHandGX" -type "matrix" 1 2.799911665118839e-16 4.1042877692688518e-16 0
-		 -2.7999116651188395e-16 1 -6.9388939039072222e-17 0 -4.1042877692688518e-16 6.9388939039072111e-17 1 0
-		 -63.287563323974595 124.27178955078124 -3.0315008163452362 1;
-	setAttr ".HeadGX" -type "matrix" 1 5.5511151231257817e-16 5.5511151231257807e-16 0
-		 -5.5511151231257817e-16 1 5.5511151231257679e-17 0 -5.5511151231257807e-16 -5.5511151231258012e-17 1 0
-		 -1.5811066801512355e-14 178.59794616699216 0.38011285662650884 1;
-	setAttr ".LeftToeBaseGX" -type "matrix" 1 2.3348698237725021e-16 -1.1102230246251504e-16 0
-		 -2.334869823772506e-16 1 -2.8751374865731879e-15 0 1.1102230246251437e-16 2.8751374865731879e-15 1 0
-		 9.9342870712280646 4.9107909202575986 11.270557403564581 1;
-	setAttr ".RightToeBaseGX" -type "matrix" 1 -3.7713568116658599e-16 -9.4368957093138286e-16 0
-		 3.771356811665851e-16 1 -8.7673604224790613e-16 0 9.4368957093138306e-16 8.7673604224790594e-16 1 0
-		 -9.9342870712280114 4.910790920257579 11.270557403564599 1;
-	setAttr ".LeftShoulderGX" -type "matrix" 1 4.0245584642661925e-16 1.0061396160665474e-16 0
-		 -4.0245584642661915e-16 1 -1.3877787807814459e-16 0 -1.0061396160665476e-16 1.3877787807814452e-16 1 0
-		 10.624366760253899 160.33876037597656 4.5613541603088379 1;
-	setAttr ".RightShoulderGX" -type "matrix" 1 4.8572257327350599e-16 3.4347524824340771e-16 0
-		 -4.8572257327350599e-16 1 -1.3877787807814459e-16 0 -3.4347524824340776e-16 1.3877787807814442e-16 1 0
-		 -10.624366760253913 160.33876037597656 4.5613541603088326 1;
-	setAttr ".NeckGX" -type "matrix" 1 5.5511151231257817e-16 5.5511151231257807e-16 0
-		 -5.5511151231257817e-16 1 5.5511151231257679e-17 0 -5.5511151231257807e-16 -5.5511151231258012e-17 1 0
-		 -7.6207062191266606e-15 166.35224914550781 -2.1286320686340359 1;
-	setAttr ".Spine1GX" -type "matrix" 1 1.1102230246251565e-16 -1.1102230246251565e-16 0
-		 -1.1102230246251565e-16 1 -1.1102230246251565e-16 0 1.1102230246251565e-16 1.1102230246251565e-16 1 0
-		 0 140.02090454101562 0 1;
-	setAttr ".Spine2GX" -type "matrix" 1 4.4408920985006262e-16 2.2204460492503123e-16 0
-		 -4.4408920985006257e-16 1 -1.1102230246251568e-16 0 -2.2204460492503126e-16 1.1102230246251557e-16 1 0
-		 -1.7233286329049706e-15 153.18656921386719 -2.3566997051239027 1;
-	setAttr ".LeftHandThumb1GX" -type "matrix" 1 6.9388939039072234e-17 3.781697177629437e-16 0
-		 -6.9388939039072247e-17 1 1.9428902930940232e-16 0 -3.781697177629437e-16 -1.9428902930940247e-16 1 0
-		 65.214080810546875 122.07782745361331 1.5016440153122028 1;
-	setAttr ".LeftHandThumb2GX" -type "matrix" 1 1.3877787807814418e-17 3.2265856653168587e-16 0
-		 -1.3877787807814363e-17 1 2.7755575615628864e-17 0 -3.2265856653168587e-16 -2.7755575615628987e-17 1 0
-		 66.311645507812486 121.23181152343753 3.8275196552276696 1;
-	setAttr ".LeftHandThumb3GX" -type "matrix" 1 -2.6367796834847468e-16 -1.0408340855861138e-17 0
-		 2.6367796834847473e-16 1 3.0531133177191805e-16 0 1.040834085586104e-17 -3.0531133177191815e-16 1 0
-		 66.694587707519517 120.89575958251956 6.5463452339172452 1;
-	setAttr ".LeftHandThumb4GX" -type "matrix" 1 -4.1633363423443333e-17 -1.2143064331837672e-16 0
-		 4.1633363423443426e-17 1 3.0531133177191805e-16 0 1.2143064331837669e-16 -3.0531133177191815e-16 1 0
-		 66.884376525878892 120.4667892456055 9.8094511032104581 1;
-	setAttr ".LeftHandIndex1GX" -type "matrix" 1 2.3592239273284581e-16 2.671474153004281e-16 0
-		 -2.3592239273284576e-16 1 1.3877787807814447e-16 0 -2.671474153004281e-16 -1.3877787807814462e-16 1 0
-		 68.291412353515625 117.66071319580081 2.9905335903167805 1;
-	setAttr ".LeftHandIndex2GX" -type "matrix" 1 3.4694469519536142e-16 4.3368086899420158e-16 0
-		 -3.4694469519536147e-16 1 3.3306690738754676e-16 0 -4.3368086899420148e-16 -3.3306690738754701e-16 1 0
-		 70.252853393554673 114.90483093261722 5.5225701332092374 1;
-	setAttr ".LeftHandIndex3GX" -type "matrix" 1 3.4694469519536147e-16 3.2265856653168592e-16 0
-		 -3.4694469519536152e-16 1 4.7184478546569133e-16 0 -3.2265856653168577e-16 -4.7184478546569153e-16 1 0
-		 71.484832763671861 113.17385101318362 7.1129503250122159 1;
-	setAttr ".LeftHandIndex4GX" -type "matrix" 1 3.4694469519536152e-16 2.671474153004281e-16 0
-		 -3.4694469519536157e-16 1 6.106226635438359e-16 0 -2.671474153004279e-16 -6.106226635438361e-16 1 0
-		 72.393859863281236 111.89664459228518 8.2864208221435636 1;
-	setAttr ".LeftHandMiddle1GX" -type "matrix" 1 3.4694469519536147e-16 2.3939183968479923e-16 0
-		 -3.4694469519536152e-16 1 4.4408920985006247e-16 0 -2.3939183968479908e-16 -4.4408920985006262e-16 1 0
-		 69.165046691894531 117.23715972900393 1.1564404964447101 1;
-	setAttr ".LeftHandMiddle2GX" -type "matrix" 1 1.2490009027033021e-16 1.0061396160665456e-16 0
-		 -1.2490009027033023e-16 1 5.2735593669694926e-16 0 -1.0061396160665449e-16 -5.2735593669694936e-16 1 0
-		 71.519241333007812 113.27184295654301 2.70087122917176 1;
-	setAttr ".LeftHandMiddle3GX" -type "matrix" 1 1.2490009027033028e-16 -3.8163916471490003e-17 0
-		 -1.2490009027033023e-16 1 5.5511151231257817e-16 0 3.8163916471490077e-17 -5.5511151231257827e-16 1 0
-		 72.857826232910156 111.01716613769536 3.5790317058563295 1;
-	setAttr ".LeftHandMiddle4GX" -type "matrix" 1 5.6898930012039292e-16 -2.4286128663675269e-17 0
-		 -5.6898930012039283e-16 1 6.9388939039072274e-16 0 2.4286128663675669e-17 -6.9388939039072284e-16 1 0
-		 73.828712463378892 109.38185119628911 4.2159624099731499 1;
-	setAttr ".LeftHandRing1GX" -type "matrix" 1 4.5796699765787707e-16 4.7531423241764505e-16 0
-		 -4.5796699765787707e-16 1 2.7755575615628894e-16 0 -4.7531423241764495e-16 -2.7755575615628928e-16 1 0
-		 69.505973815917969 116.66481781005862 -1.0348697900772019 1;
-	setAttr ".LeftHandRing2GX" -type "matrix" 1 5.6898930012039273e-16 3.7123082385903662e-16 0
-		 -5.6898930012039273e-16 1 2.1510571102112383e-16 0 -3.7123082385903657e-16 -2.1510571102112418e-16 1 0
-		 71.656280517578125 113.31359863281254 -0.65144729614257035 1;
-	setAttr ".LeftHandRing3GX" -type "matrix" 1 7.9103390504542404e-16 2.7408630920433547e-16 0
-		 -7.9103390504542404e-16 1 1.7347234759768041e-16 0 -2.7408630920433542e-16 -1.7347234759768073e-16 1 0
-		 73.152542114257812 110.90415954589848 -0.45672425627707647 1;
-	setAttr ".LeftHandRing4GX" -type "matrix" 1 7.9103390504542404e-16 3.8857805861880469e-16 0
-		 -7.9103390504542404e-16 1 2.5673907444456715e-16 0 -3.8857805861880459e-16 -2.5673907444456755e-16 1 0
-		 74.17758941650392 109.28485870361332 -0.29420995712279485 1;
-	setAttr ".LeftHandPinky1GX" -type "matrix" 1 4.5796699765787707e-16 4.891920202254595e-16 0
-		 -4.5796699765787707e-16 1 2.4980018054066002e-16 0 -4.891920202254594e-16 -2.4980018054066037e-16 1 0
-		 69.315353393554688 116.59394836425784 -3.394574880599968 1;
-	setAttr ".LeftHandPinky2GX" -type "matrix" 1 2.3592239273284576e-16 4.0592529337857266e-16 0
-		 -2.3592239273284581e-16 1 3.0531133177191795e-16 0 -4.0592529337857266e-16 -3.0531133177191815e-16 1 0
-		 71.087890625 114.16645050048831 -3.8761119842529221 1;
-	setAttr ".LeftHandPinky3GX" -type "matrix" 1 2.3592239273284581e-16 2.9490299091605701e-16 0
-		 -2.3592239273284572e-16 1 1.1102230246251556e-16 0 -2.9490299091605706e-16 -1.1102230246251573e-16 1 0
-		 72.237617492675781 112.5918884277344 -4.1884527206420827 1;
-	setAttr ".LeftHandPinky4GX" -type "matrix" 1 1.3877787807814497e-17 3.6429192995512929e-16 0
-		 -1.3877787807814383e-17 1 2.7755575615628889e-17 0 -3.6429192995512934e-16 -2.7755575615628987e-17 1 0
-		 73.20806884765625 111.26285552978517 -4.4520883560180593 1;
-	setAttr ".RightHandThumb1GX" -type "matrix" 1 -1.363424677225499e-16 3.549176256956273e-16 0
-		 1.363424677225497e-16 1 2.6367796834847497e-16 0 -3.549176256956273e-16 -2.6367796834847488e-16 1 0
-		 -64.150001525878878 122.95237731933591 2.2570359706878449 1;
-	setAttr ".RightHandThumb2GX" -type "matrix" 1 -5.8043167757261242e-16 2.1850718308080238e-17 0
-		 5.8043167757261232e-16 1 1.5265566588595939e-16 0 -2.1850718308080337e-17 -1.5265566588595934e-16 1 0
-		 -64.879928588867145 121.67201995849605 4.4771513938903595 1;
-	setAttr ".RightHandThumb3GX" -type "matrix" 1 -2.245766214510347e-15 -3.3660432923177749e-17 0
-		 2.245766214510347e-15 1 4.1633363423443715e-17 0 3.3660432923177651e-17 -4.1633363423443777e-17 1 0
-		 -65.516647338867159 120.69946289062497 7.4301643371581827 1;
-	setAttr ".RightHandThumb4GX" -type "matrix" 1 -1.2465654923477061e-15 -2.0019388661695114e-16 0
-		 1.2465654923477061e-15 1 1.5265566588595947e-16 0 2.0019388661695092e-16 -1.5265566588595971e-16 1 0
-		 -65.683166503906207 120.28676605224605 10.696638107299783 1;
-	setAttr ".RightHandIndex1GX" -type "matrix" 1 2.4529669699234776e-16 2.9940647446436947e-16 0
-		 -2.4529669699234786e-16 1 1.3877787807814543e-17 0 -2.9940647446436947e-16 -1.3877787807814605e-17 1 0
-		 -68.085243225097628 117.66066741943357 4.1287279129028098 1;
-	setAttr ".RightHandIndex2GX" -type "matrix" 1 -1.838127135612692e-17 3.549176256956273e-16 0
-		 1.8381271356126747e-17 1 2.6367796834847483e-16 0 -3.549176256956273e-16 -2.6367796834847483e-16 1 0
-		 -70.116889953613267 114.70644378662107 6.3644142150878675 1;
-	setAttr ".RightHandIndex3GX" -type "matrix" 1 6.4885455490759845e-17 2.4389532323311164e-16 0
-		 -6.4885455490760018e-17 1 3.191891195797326e-16 0 -2.4389532323311164e-16 -3.1918911957973265e-16 1 0
-		 -71.392974853515611 112.8508834838867 7.7686557769775151 1;
-	setAttr ".RightHandIndex4GX" -type "matrix" 1 5.1007667682945407e-17 1.8838417200185382e-16 0
-		 -5.1007667682945555e-17 1 2.9143354396410369e-16 0 -1.8838417200185382e-16 -2.9143354396410374e-16 1 0
-		 -72.334541320800781 111.48175048828124 8.8047828674316175 1;
-	setAttr ".RightHandMiddle1GX" -type "matrix" 1 2.8346061346383751e-16 4.6593992815814295e-16 0
-		 -2.8346061346383756e-16 1 -6.9388939039072222e-17 0 -4.6593992815814295e-16 6.9388939039072099e-17 1 0
-		 -68.859649658203097 116.91635131835935 1.464991807937599 1;
-	setAttr ".RightHandMiddle2GX" -type "matrix" 1 4.0836070373416763e-16 4.6593992815814295e-16 0
-		 -4.0836070373416767e-16 1 -2.0816681711721688e-16 0 -4.6593992815814295e-16 2.0816681711721673e-16 1 0
-		 -71.478958129882784 113.13585662841794 3.0455799102782963 1;
-	setAttr ".RightHandMiddle3GX" -type "matrix" 1 5.0550521838886882e-16 4.1042877692688513e-16 0
-		 -5.0550521838886892e-16 1 -9.7144514654701271e-17 0 -4.1042877692688508e-16 9.7144514654701074e-17 1 0
-		 -72.968299865722642 110.98627471923825 3.9442994594573735 1;
-	setAttr ".RightHandMiddle4GX" -type "matrix" 1 5.0203577143691521e-16 3.9655098911907067e-16 0
-		 -5.0203577143691531e-16 1 -6.9388939039072358e-17 0 -3.9655098911907062e-16 6.9388939039072161e-17 1 0
-		 -74.048515319824205 109.42716979980466 4.5961418151855229 1;
-	setAttr ".RightHandRing1GX" -type "matrix" 1 -5.3726262179154315e-17 4.3818435254251409e-16 0
-		 5.3726262179154259e-17 1 -4.8572257327350401e-17 0 -4.3818435254251409e-16 4.8572257327350426e-17 1 0
-		 -69.200836181640597 116.3229064941406 -0.95926439762117743 1;
-	setAttr ".RightHandRing2GX" -type "matrix" 1 -2.7577086710418562e-16 4.6593992815814295e-16 0
-		 2.7577086710418557e-16 1 -4.1633363423443074e-17 0 -4.6593992815814295e-16 4.1633363423443204e-17 1 0
-		 -71.785255432128878 112.61656951904295 -0.54078024625780552 1;
-	setAttr ".RightHandRing3GX" -type "matrix" 1 -2.7512034580069432e-16 4.6593992815814295e-16 0
-		 2.7512034580069427e-16 1 -4.8572257327350303e-17 0 -4.6593992815814295e-16 4.8572257327350432e-17 1 0
-		 -73.097763061523409 110.73429107666014 -0.3282509148121121 1;
-	setAttr ".RightHandRing4GX" -type "matrix" 1 -1.6344752203468739e-16 4.6940937511009657e-16 0
-		 1.6344752203468734e-16 1 -4.8572257327350352e-17 0 -4.6940937511009657e-16 4.8572257327350432e-17 1 0
-		 -74.193176269531222 109.16334533691403 -0.15087556838991711 1;
-	setAttr ".RightHandPinky1GX" -type "matrix" 1 6.1479279737540767e-16 4.1042877692688518e-16 0
-		 -6.1479279737540777e-16 1 -8.3266726846886814e-17 0 -4.1042877692688518e-16 8.3266726846886568e-17 1 0
-		 -69.019805908203097 116.2413635253906 -3.3193798065185773 1;
-	setAttr ".RightHandPinky2GX" -type "matrix" 1 8.3076587013452015e-16 4.6593992815814295e-16 0
-		 -8.3076587013452025e-16 1 -1.4571677198205194e-16 0 -4.6593992815814305e-16 1.457167719820516e-16 1 0
-		 -70.748023986816364 113.77772521972653 -3.7779989242553942 1;
-	setAttr ".RightHandPinky3GX" -type "matrix" 1 8.2989850839653175e-16 4.6593992815814295e-16 0
-		 -8.2989850839653185e-16 1 -1.5265566588595917e-16 0 -4.6593992815814305e-16 1.5265566588595883e-16 1 0
-		 -71.868995666503864 112.17973327636716 -4.0754742622375719 1;
-	setAttr ".RightHandPinky4GX" -type "matrix" 1 8.2989850839653175e-16 4.6593992815814295e-16 0
-		 -8.2989850839653185e-16 1 -1.5265566588595917e-16 0 -4.6593992815814305e-16 1.5265566588595883e-16 1 0
-		 -72.81517791748044 110.83091735839841 -4.3265628814697497 1;
 createNode HIKProperty2State -n "HIKproperties1";
-	rename -uid "6A280D5D-4D65-5E86-840C-60A122E8938E";
+	rename -uid "BBDD14C4-4E1E-38A1-0651-7DBFBAC0547B";
 	setAttr ".OutputPropertySetState" -type "HIKPropertySetState" ;
-	setAttr ".ra" no;
 	setAttr ".lkr" 0.60000002384185791;
 	setAttr ".rkr" 0.60000002384185791;
-	setAttr ".FootBottomToAnkle" 16.669334411621094;
-	setAttr ".FootBackToAnkle" 6.959986448287963;
-	setAttr ".FootMiddleToAnkle" 13.919972896575926;
-	setAttr ".FootFrontToMiddle" 6.959986448287963;
-	setAttr ".FootInToAnkle" 6.959986448287963;
-	setAttr ".FootOutToAnkle" 6.959986448287963;
-	setAttr ".HandBottomToWrist" 3.6281233643100914;
+	setAttr ".FootBottomToAnkle" 16.706786669221351;
+	setAttr ".FootBackToAnkle" 6.9599868064259933;
+	setAttr ".FootMiddleToAnkle" 13.919973612851987;
+	setAttr ".FootFrontToMiddle" 6.9599868064259933;
+	setAttr ".FootInToAnkle" 6.9599868064259933;
+	setAttr ".FootOutToAnkle" 6.9599868064259933;
+	setAttr ".HandBottomToWrist" 3.6266196483538358;
 	setAttr ".HandBackToWrist" 0.01;
-	setAttr ".HandMiddleToWrist" 9.1871821117401122;
-	setAttr ".HandFrontToMiddle" 9.1871821117401122;
-	setAttr ".HandInToWrist" 9.1871821117401122;
-	setAttr ".HandOutToWrist" 9.1871821117401122;
-	setAttr ".CtrlPullLeftFoot" 0;
-	setAttr ".CtrlPullRightFoot" 0;
-	setAttr ".CtrlChestPullLeftHand" 0;
-	setAttr ".CtrlChestPullRightHand" 0;
-	setAttr ".LeftHandThumbTip" 1.1337885513469037;
-	setAttr ".LeftHandIndexTip" 1.1337885513469037;
-	setAttr ".LeftHandMiddleTip" 1.1337885513469037;
-	setAttr ".LeftHandRingTip" 1.1337885513469037;
-	setAttr ".LeftHandPinkyTip" 1.1337885513469037;
-	setAttr ".LeftHandExtraFingerTip" 1.1337885513469037;
-	setAttr ".RightHandThumbTip" 1.1337885513469037;
-	setAttr ".RightHandIndexTip" 1.1337885513469037;
-	setAttr ".RightHandMiddleTip" 1.1337885513469037;
-	setAttr ".RightHandRingTip" 1.1337885513469037;
-	setAttr ".RightHandPinkyTip" 1.1337885513469037;
-	setAttr ".RightHandExtraFingerTip" 1.1337885513469037;
-	setAttr ".LeftFootThumbTip" 1.1337885513469037;
-	setAttr ".LeftFootIndexTip" 1.1337885513469037;
-	setAttr ".LeftFootMiddleTip" 1.1337885513469037;
-	setAttr ".LeftFootRingTip" 1.1337885513469037;
-	setAttr ".LeftFootPinkyTip" 1.1337885513469037;
-	setAttr ".LeftFootExtraFingerTip" 1.1337885513469037;
-	setAttr ".RightFootThumbTip" 1.1337885513469037;
-	setAttr ".RightFootIndexTip" 1.1337885513469037;
-	setAttr ".RightFootMiddleTip" 1.1337885513469037;
-	setAttr ".RightFootRingTip" 1.1337885513469037;
-	setAttr ".RightFootPinkyTip" 1.1337885513469037;
-	setAttr ".RightFootExtraFingerTip" 1.1337885513469037;
+	setAttr ".HandMiddleToWrist" 9.1871825844823114;
+	setAttr ".HandFrontToMiddle" 9.1871825844823114;
+	setAttr ".HandInToWrist" 9.1871825844823114;
+	setAttr ".HandOutToWrist" 9.1871825844823114;
+	setAttr ".LeftHandThumbTip" 1.1333186401105737;
+	setAttr ".LeftHandIndexTip" 1.1333186401105737;
+	setAttr ".LeftHandMiddleTip" 1.1333186401105737;
+	setAttr ".LeftHandRingTip" 1.1333186401105737;
+	setAttr ".LeftHandPinkyTip" 1.1333186401105737;
+	setAttr ".LeftHandExtraFingerTip" 1.1333186401105737;
+	setAttr ".RightHandThumbTip" 1.1333186401105737;
+	setAttr ".RightHandIndexTip" 1.1333186401105737;
+	setAttr ".RightHandMiddleTip" 1.1333186401105737;
+	setAttr ".RightHandRingTip" 1.1333186401105737;
+	setAttr ".RightHandPinkyTip" 1.1333186401105737;
+	setAttr ".RightHandExtraFingerTip" 1.1333186401105737;
+	setAttr ".LeftFootThumbTip" 1.1333186401105737;
+	setAttr ".LeftFootIndexTip" 1.1333186401105737;
+	setAttr ".LeftFootMiddleTip" 1.1333186401105737;
+	setAttr ".LeftFootRingTip" 1.1333186401105737;
+	setAttr ".LeftFootPinkyTip" 1.1333186401105737;
+	setAttr ".LeftFootExtraFingerTip" 1.1333186401105737;
+	setAttr ".RightFootThumbTip" 1.1333186401105737;
+	setAttr ".RightFootIndexTip" 1.1333186401105737;
+	setAttr ".RightFootMiddleTip" 1.1333186401105737;
+	setAttr ".RightFootRingTip" 1.1333186401105737;
+	setAttr ".RightFootPinkyTip" 1.1333186401105737;
+	setAttr ".RightFootExtraFingerTip" 1.1333186401105737;
 	setAttr ".LeftUpLegRollEx" 1;
 	setAttr ".LeftLegRollEx" 1;
 	setAttr ".RightUpLegRollEx" 1;
@@ -72609,86 +73753,682 @@ createNode HIKProperty2State -n "HIKproperties1";
 	setAttr ".LeftForeArmRollEx" 1;
 	setAttr ".RightArmRollEx" 1;
 	setAttr ".RightForeArmRollEx" 1;
-	setAttr ".ParamLeafLeftUpLegRoll1Mode" 0;
 	setAttr ".ParamLeafLeftUpLegRoll1" 0;
-	setAttr ".ParamLeafLeftLegRoll1Mode" 0;
-	setAttr ".ParamLeafLeftLegRoll1" 0;
-	setAttr ".ParamLeafRightUpLegRoll1Mode" 0;
+	setAttr ".ParamLeafLeftLegRoll1" 0.2;
 	setAttr ".ParamLeafRightUpLegRoll1" 0;
-	setAttr ".ParamLeafRightLegRoll1Mode" 0;
-	setAttr ".ParamLeafRightLegRoll1" 0;
-	setAttr ".ParamLeafLeftArmRoll1Mode" 0;
+	setAttr ".ParamLeafRightLegRoll1" 0.2;
 	setAttr ".ParamLeafLeftArmRoll1" 0;
-	setAttr ".ParamLeafLeftForeArmRoll1Mode" 0;
-	setAttr ".ParamLeafLeftForeArmRoll1" 0;
-	setAttr ".ParamLeafRightArmRoll1Mode" 0;
+	setAttr ".ParamLeafLeftForeArmRoll1" 0.2;
 	setAttr ".ParamLeafRightArmRoll1" 0;
-	setAttr ".ParamLeafRightForeArmRoll1Mode" 0;
-	setAttr ".ParamLeafRightForeArmRoll1" 0;
-	setAttr ".ParamLeafLeftUpLegRoll2Mode" 0;
-	setAttr ".ParamLeafLeftUpLegRoll2" 0;
-	setAttr ".ParamLeafLeftLegRoll2Mode" 0;
-	setAttr ".ParamLeafLeftLegRoll2" 0;
-	setAttr ".ParamLeafRightUpLegRoll2Mode" 0;
-	setAttr ".ParamLeafRightUpLegRoll2" 0;
-	setAttr ".ParamLeafRightLegRoll2Mode" 0;
-	setAttr ".ParamLeafRightLegRoll2" 0;
-	setAttr ".ParamLeafLeftArmRoll2Mode" 0;
-	setAttr ".ParamLeafLeftArmRoll2" 0;
-	setAttr ".ParamLeafLeftForeArmRoll2Mode" 0;
-	setAttr ".ParamLeafLeftForeArmRoll2" 0;
-	setAttr ".ParamLeafRightArmRoll2Mode" 0;
-	setAttr ".ParamLeafRightArmRoll2" 0;
-	setAttr ".ParamLeafRightForeArmRoll2Mode" 0;
-	setAttr ".ParamLeafRightForeArmRoll2" 0;
-	setAttr ".ParamLeafLeftUpLegRoll3Mode" 0;
-	setAttr ".ParamLeafLeftUpLegRoll3" 0;
-	setAttr ".ParamLeafLeftLegRoll3Mode" 0;
-	setAttr ".ParamLeafLeftLegRoll3" 0;
-	setAttr ".ParamLeafRightUpLegRoll3Mode" 0;
-	setAttr ".ParamLeafRightUpLegRoll3" 0;
-	setAttr ".ParamLeafRightLegRoll3Mode" 0;
-	setAttr ".ParamLeafRightLegRoll3" 0;
-	setAttr ".ParamLeafLeftArmRoll3Mode" 0;
-	setAttr ".ParamLeafLeftArmRoll3" 0;
-	setAttr ".ParamLeafLeftForeArmRoll3Mode" 0;
-	setAttr ".ParamLeafLeftForeArmRoll3" 0;
-	setAttr ".ParamLeafRightArmRoll3Mode" 0;
-	setAttr ".ParamLeafRightArmRoll3" 0;
-	setAttr ".ParamLeafRightForeArmRoll3Mode" 0;
-	setAttr ".ParamLeafRightForeArmRoll3" 0;
-	setAttr ".ParamLeafLeftUpLegRoll4Mode" 0;
-	setAttr ".ParamLeafLeftUpLegRoll4" 0;
-	setAttr ".ParamLeafLeftLegRoll4Mode" 0;
-	setAttr ".ParamLeafLeftLegRoll4" 0;
-	setAttr ".ParamLeafRightUpLegRoll4Mode" 0;
-	setAttr ".ParamLeafRightUpLegRoll4" 0;
-	setAttr ".ParamLeafRightLegRoll4Mode" 0;
-	setAttr ".ParamLeafRightLegRoll4" 0;
-	setAttr ".ParamLeafLeftArmRoll4Mode" 0;
-	setAttr ".ParamLeafLeftArmRoll4" 0;
-	setAttr ".ParamLeafLeftForeArmRoll4Mode" 0;
-	setAttr ".ParamLeafLeftForeArmRoll4" 0;
-	setAttr ".ParamLeafRightArmRoll4Mode" 0;
-	setAttr ".ParamLeafRightArmRoll4" 0;
-	setAttr ".ParamLeafRightForeArmRoll4Mode" 0;
-	setAttr ".ParamLeafRightForeArmRoll4" 0;
-	setAttr ".ParamLeafLeftUpLegRoll5Mode" 0;
-	setAttr ".ParamLeafLeftUpLegRoll5" 0;
-	setAttr ".ParamLeafLeftLegRoll5Mode" 0;
-	setAttr ".ParamLeafLeftLegRoll5" 0;
-	setAttr ".ParamLeafRightUpLegRoll5Mode" 0;
-	setAttr ".ParamLeafRightUpLegRoll5" 0;
-	setAttr ".ParamLeafRightLegRoll5Mode" 0;
-	setAttr ".ParamLeafRightLegRoll5" 0;
-	setAttr ".ParamLeafLeftArmRoll5Mode" 0;
-	setAttr ".ParamLeafLeftArmRoll5" 0;
-	setAttr ".ParamLeafLeftForeArmRoll5Mode" 0;
-	setAttr ".ParamLeafLeftForeArmRoll5" 0;
-	setAttr ".ParamLeafRightArmRoll5Mode" 0;
-	setAttr ".ParamLeafRightArmRoll5" 0;
-	setAttr ".ParamLeafRightForeArmRoll5Mode" 0;
-	setAttr ".ParamLeafRightForeArmRoll5" 0;
+	setAttr ".ParamLeafRightForeArmRoll1" 0.2;
+	setAttr ".ParamLeafLeftUpLegRoll2" 0.22;
+	setAttr ".ParamLeafLeftLegRoll2" 0.4;
+	setAttr ".ParamLeafRightUpLegRoll2" 0.22;
+	setAttr ".ParamLeafRightLegRoll2" 0.4;
+	setAttr ".ParamLeafLeftArmRoll2" 0.22;
+	setAttr ".ParamLeafLeftForeArmRoll2" 0.4;
+	setAttr ".ParamLeafRightArmRoll2" 0.22;
+	setAttr ".ParamLeafRightForeArmRoll2" 0.4;
+	setAttr ".ParamLeafLeftUpLegRoll3" 0.44;
+	setAttr ".ParamLeafLeftLegRoll3" 0.6;
+	setAttr ".ParamLeafRightUpLegRoll3" 0.44;
+	setAttr ".ParamLeafRightLegRoll3" 0.6;
+	setAttr ".ParamLeafLeftArmRoll3" 0.44;
+	setAttr ".ParamLeafLeftForeArmRoll3" 0.6;
+	setAttr ".ParamLeafRightArmRoll3" 0.44;
+	setAttr ".ParamLeafRightForeArmRoll3" 0.6;
+	setAttr ".ParamLeafLeftUpLegRoll4" 0.66;
+	setAttr ".ParamLeafLeftLegRoll4" 0.8;
+	setAttr ".ParamLeafRightUpLegRoll4" 0.66;
+	setAttr ".ParamLeafRightLegRoll4" 0.8;
+	setAttr ".ParamLeafLeftArmRoll4" 0.66;
+	setAttr ".ParamLeafLeftForeArmRoll4" 0.8;
+	setAttr ".ParamLeafRightArmRoll4" 0.66;
+	setAttr ".ParamLeafRightForeArmRoll4" 0.8;
+	setAttr ".ParamLeafLeftUpLegRoll5" 0.9;
+	setAttr ".ParamLeafLeftLegRoll5" 1;
+	setAttr ".ParamLeafRightUpLegRoll5" 0.9;
+	setAttr ".ParamLeafRightLegRoll5" 1;
+	setAttr ".ParamLeafLeftArmRoll5" 0.9;
+	setAttr ".ParamLeafLeftForeArmRoll5" 1;
+	setAttr ".ParamLeafRightArmRoll5" 0.9;
+	setAttr ".ParamLeafRightForeArmRoll5" 1;
+createNode HIKSolverNode -n "HIKSolverNode1";
+	rename -uid "BAEA3168-433F-04F4-6B55-4E9C3EA6D7EE";
+	setAttr ".ihi" 0;
+	setAttr ".OutputCharacterState" -type "HIKCharacterState" ;
+createNode HIKState2SK -n "HIKState2SK1";
+	rename -uid "D4C4D7C2-4008-8761-E9B8-B9BAF19CE05F";
+	setAttr ".ihi" 0;
+	setAttr ".HipsTy" 112.84285736083984;
+	setAttr ".HipsTz" -0.86268520355224609;
+	setAttr ".LeftUpLegTx" 8.4372577667236328;
+	setAttr ".LeftUpLegTy" -5.5608901977539062;
+	setAttr ".LeftUpLegTz" 1.9715801477432251;
+	setAttr ".LeftUpLegRx" 0.0031695271030072556;
+	setAttr ".LeftLegTx" 3.0728340148925781;
+	setAttr ".LeftLegTy" -44.878658641565984;
+	setAttr ".LeftLegTz" -1.108366515450423;
+	setAttr ".LeftLegRx" -0.0059966326113706139;
+	setAttr ".LeftLegRy" 5.815295021718908e-05;
+	setAttr ".LeftLegRz" 7.7894880393787437e-05;
+	setAttr ".LeftFootTx" -1.5758698736857166;
+	setAttr ".LeftFootTy" -45.696480481776547;
+	setAttr ".LeftFootTz" -2.6497171902662955;
+	setAttr ".LeftFootRx" 0.0028271053789802733;
+	setAttr ".LeftFootRy" -5.8144803217158357e-05;
+	setAttr ".LeftFootRz" -7.7900966795198067e-05;
+	setAttr ".RightUpLegTx" -8.4372577667236328;
+	setAttr ".RightUpLegTy" -5.5608901977539062;
+	setAttr ".RightUpLegTz" 1.9715801477432251;
+	setAttr ".RightUpLegRx" 0.00073061679773915274;
+	setAttr ".RightUpLegRy" 0.00012320918014741716;
+	setAttr ".RightUpLegRz" 0.00015826152837401154;
+	setAttr ".RightLegTx" -3.0729555890741675;
+	setAttr ".RightLegTy" -44.878602933230759;
+	setAttr ".RightLegTz" -1.1102834731932349;
+	setAttr ".RightLegRx" -0.0035560142546474127;
+	setAttr ".RightLegRy" -0.00019331361586539435;
+	setAttr ".RightLegRz" -0.00023444957423025885;
+	setAttr ".RightFootTx" 1.5758679594869243;
+	setAttr ".RightFootTy" -45.696480607693751;
+	setAttr ".RightFootTz" -2.6497161571570045;
+	setAttr ".RightFootRx" 0.0028253978458551866;
+	setAttr ".RightFootRy" 7.0097694723656034e-05;
+	setAttr ".RightFootRz" 7.6193968027859241e-05;
+	setAttr ".SpineTy" 14.012359619140625;
+	setAttr ".SpineTz" 0.86268496513366699;
+	setAttr ".LeftArmTx" 11.666256379024247;
+	setAttr ".LeftArmTy" -5.3262702675616822;
+	setAttr ".LeftArmTz" -9.4045813378209395;
+	setAttr ".LeftArmRx" 13.630967951662608;
+	setAttr ".LeftArmRy" -0.00052058221822098914;
+	setAttr ".LeftArmRz" 62.586585723095666;
+	setAttr ".LeftForeArmTx" 4.7937944218366511;
+	setAttr ".LeftForeArmTy" -26.383236257626603;
+	setAttr ".LeftForeArmTz" 0.20564865060826065;
+	setAttr ".LeftForeArmRx" -0.002422704626236975;
+	setAttr ".LeftForeArmRy" -0.00014602615195841346;
+	setAttr ".LeftForeArmRz" -10.956903725262949;
+	setAttr ".LeftHandTx" 8.6439131330094199;
+	setAttr ".LeftHandTy" -23.065984460959534;
+	setAttr ".LeftHandTz" 1.6070355390401758;
+	setAttr ".LeftHandRx" 102.78744578627412;
+	setAttr ".LeftHandRy" -78.023049405810951;
+	setAttr ".LeftHandRz" -85.451083074396109;
+	setAttr ".RightArmTx" -11.666255038949146;
+	setAttr ".RightArmTy" -5.3262702550291863;
+	setAttr ".RightArmTz" -9.4045809232496005;
+	setAttr ".RightArmRx" 13.631212852974494;
+	setAttr ".RightArmRy" 0.00051801194565162219;
+	setAttr ".RightArmRz" -62.586632565363409;
+	setAttr ".RightForeArmTx" -4.7945518287982907;
+	setAttr ".RightForeArmTy" -26.383100564032247;
+	setAttr ".RightForeArmTz" 0.20562380155812932;
+	setAttr ".RightForeArmRx" -0.0023603880327317519;
+	setAttr ".RightForeArmRy" 0.00011086040556896932;
+	setAttr ".RightForeArmRz" 10.956706606462426;
+	setAttr ".RightHandTx" -8.6305280191427016;
+	setAttr ".RightHandTy" -23.070996490491471;
+	setAttr ".RightHandTz" 1.6070421009292062;
+	setAttr ".RightHandRx" 102.78783200075625;
+	setAttr ".RightHandRy" 78.022870887074077;
+	setAttr ".RightHandRz" 85.450869621953032;
+	setAttr ".HeadTx" -8.1904164236945055e-15;
+	setAttr ".HeadTy" 12.245697021484375;
+	setAttr ".HeadTz" 2.5087423324584961;
+	setAttr ".LeftToeBaseTx" 8.5830703753231319e-06;
+	setAttr ".LeftToeBaseTy" -11.795995712330905;
+	setAttr ".LeftToeBaseTz" 13.919973373370173;
+	setAttr ".RightToeBaseTx" -8.5830703415723519e-06;
+	setAttr ".RightToeBaseTy" -11.795995712330917;
+	setAttr ".RightToeBaseTz" 13.919973373370173;
+	setAttr ".LeftShoulderTx" 10.624362945556642;
+	setAttr ".LeftShoulderTy" 7.152191162109375;
+	setAttr ".LeftShoulderTz" 6.9180517196655273;
+	setAttr ".LeftShoulderRy" -11.493754832360185;
+	setAttr ".LeftShoulderRz" 17.34939956055786;
+	setAttr ".RightShoulderTx" -10.624362945556639;
+	setAttr ".RightShoulderTy" 7.152191162109375;
+	setAttr ".RightShoulderTz" 6.9180517196655273;
+	setAttr ".RightShoulderRy" 11.494000619432221;
+	setAttr ".RightShoulderRz" -17.348998732610497;
+	setAttr ".NeckTx" -5.8973058531189694e-15;
+	setAttr ".NeckTy" 13.165679931640625;
+	setAttr ".NeckTz" 0.22806787490844727;
+	setAttr ".Spine1Ty" 13.165672302246108;
+	setAttr ".Spine1Tz" 1.7581420763690403e-07;
+	setAttr ".Spine2Tx" -1.7233284476165134e-15;
+	setAttr ".Spine2Ty" 13.165664672851562;
+	setAttr ".Spine2Tz" -2.3566989272637926;
+	setAttr ".LeftHandThumb1Tx" 5.2750244591249151;
+	setAttr ".LeftHandThumb1Ty" -1.616965851557211;
+	setAttr ".LeftHandThumb1Tz" 0.11311424674659065;
+	setAttr ".LeftHandThumb2Tx" 2.1779900696563721;
+	setAttr ".LeftHandThumb2Ty" -1.5229561710797128;
+	setAttr ".LeftHandThumb2Tz" 0.1949057287583571;
+	setAttr ".LeftHandThumb2Rx" 0.1945891622168239;
+	setAttr ".LeftHandThumb2Ry" -0.43090326720036765;
+	setAttr ".LeftHandThumb2Rz" -10.83652665169172;
+	setAttr ".LeftHandThumb3Tx" 3.0227079201418583;
+	setAttr ".LeftHandThumb3Ty" -0.96332419103100619;
+	setAttr ".LeftHandThumb3Tz" 0.082588132670821324;
+	setAttr ".LeftHandThumb4Tx" 3.0306655396326221;
+	setAttr ".LeftHandThumb4Ty" -1.2919499072262113;
+	setAttr ".LeftHandThumb4Tz" 0.1175180714982389;
+	setAttr ".LeftHandIndex1Tx" 7.0907792534814025;
+	setAttr ".LeftHandIndex1Ty" -8.2267272518594297;
+	setAttr ".LeftHandIndex1Tz" 0.18787050858537668;
+	setAttr ".LeftHandIndex2Tx" 2.1336895232787647;
+	setAttr ".LeftHandIndex2Ty" -3.6428928419748132;
+	setAttr ".LeftHandIndex2Tz" 0.17323413212548644;
+	setAttr ".LeftHandIndex2Rx" -0.14669334345826085;
+	setAttr ".LeftHandIndex2Ry" -0.10338417112604821;
+	setAttr ".LeftHandIndex2Rz" 0.023925264542502378;
+	setAttr ".LeftHandIndex3Tx" 1.544003353037791;
+	setAttr ".LeftHandIndex3Ty" -2.1524230189030362;
+	setAttr ".LeftHandIndex3Tz" 0.16279671251541572;
+	setAttr ".LeftHandIndex4Tx" 0.43997084200188397;
+	setAttr ".LeftHandIndex4Ty" -1.8770413039220841;
+	setAttr ".LeftHandIndex4Tz" -0.34318766976382165;
+	setAttr ".LeftHandMiddle1Tx" 4.4181469620513427;
+	setAttr ".LeftHandMiddle1Ty" -9.265443296252954;
+	setAttr ".LeftHandMiddle1Tz" 0.022638983248782552;
+	setAttr ".LeftHandMiddle2Tx" 1.4502438399048918;
+	setAttr ".LeftHandMiddle2Ty" -4.6374035500603838;
+	setAttr ".LeftHandMiddle2Tz" 0.20623953649266014;
+	setAttr ".LeftHandMiddle2Rx" -0.15089856396847903;
+	setAttr ".LeftHandMiddle2Ry" -0.062117270732862113;
+	setAttr ".LeftHandMiddle2Rz" 0.023985464395166314;
+	setAttr ".LeftHandMiddle3Tx" 1.0681310077575725;
+	setAttr ".LeftHandMiddle3Ty" -2.547912849007659;
+	setAttr ".LeftHandMiddle3Tz" 0.11732011179725532;
+	setAttr ".LeftHandMiddle4Tx" 0.11830287136997697;
+	setAttr ".LeftHandMiddle4Ty" -2.0003483901010952;
+	setAttr ".LeftHandMiddle4Tz" 0.084806781753798077;
+	setAttr ".LeftHandRing1Tx" 1.988227232031301;
+	setAttr ".LeftHandRing1Ty" -9.9237293732728489;
+	setAttr ".LeftHandRing1Tz" 0.11069586334582482;
+	setAttr ".LeftHandRing2Tx" 0.29086323703076644;
+	setAttr ".LeftHandRing2Ty" -4.5244762565702104;
+	setAttr ".LeftHandRing2Tz" 0.18906735464196345;
+	setAttr ".LeftHandRing2Rx" -0.15290606720410257;
+	setAttr ".LeftHandRing2Ry" -0.023429271184224981;
+	setAttr ".LeftHandRing2Rz" 0.021494941921057817;
+	setAttr ".LeftHandRing3Tx" 0.36244495734988358;
+	setAttr ".LeftHandRing3Ty" -2.2738189683277454;
+	setAttr ".LeftHandRing3Tz" 0.096037785372914186;
+	setAttr ".LeftHandRing4Tx" -0.34369880548207021;
+	setAttr ".LeftHandRing4Ty" -1.8906825434798264;
+	setAttr ".LeftHandRing4Tz" 0.080464940805910601;
+	setAttr ".LeftHandPinky1Tx" -0.37142458923590738;
+	setAttr ".LeftHandPinky1Ty" -9.8589464791768222;
+	setAttr ".LeftHandPinky1Tz" 0.30412110874979703;
+	setAttr ".LeftHandPinky2Tx" -0.54333280659391647;
+	setAttr ".LeftHandPinky2Ty" -2.9929105551324255;
+	setAttr ".LeftHandPinky2Tz" 0.11745855330164545;
+	setAttr ".LeftHandPinky2Rx" -0.15605761685293607;
+	setAttr ".LeftHandPinky2Ry" 0.014298554078191136;
+	setAttr ".LeftHandPinky2Rz" 0.022071054494142685;
+	setAttr ".LeftHandPinky3Tx" -0.16887493441041146;
+	setAttr ".LeftHandPinky3Ty" -1.9657899942031491;
+	setAttr ".LeftHandPinky3Tz" 0.076193301618047826;
+	setAttr ".LeftHandPinky4Tx" -0.68503260516482811;
+	setAttr ".LeftHandPinky4Ty" -1.5179666569234627;
+	setAttr ".LeftHandPinky4Tz" 0.064307723181201482;
+	setAttr ".RightHandThumb1Tx" -5.2843184284574694;
+	setAttr ".RightHandThumb1Ty" -1.5863279906358088;
+	setAttr ".RightHandThumb1Tz" 0.11312409375941002;
+	setAttr ".RightHandThumb2Tx" -2.1205659639251273;
+	setAttr ".RightHandThumb2Ty" -1.6019472142950661;
+	setAttr ".RightHandThumb2Tz" 0.19489709546877521;
+	setAttr ".RightHandThumb2Rx" 0.19775266923595811;
+	setAttr ".RightHandThumb2Ry" 0.30539222192556797;
+	setAttr ".RightHandThumb2Rz" 8.4052401878743126;
+	setAttr ".RightHandThumb3Tx" -3.1400459001862799;
+	setAttr ".RightHandThumb3Ty" -0.45260901689314892;
+	setAttr ".RightHandThumb3Tz" 0.082576844709819852;
+	setAttr ".RightHandThumb4Tx" -1.8754563299442282;
+	setAttr ".RightHandThumb4Ty" -2.708642872691243;
+	setAttr ".RightHandThumb4Tz" 0.11754172585884248;
+	setAttr ".RightHandIndex1Tx" -7.1383967392548318;
+	setAttr ".RightHandIndex1Ty" -8.1854488146369846;
+	setAttr ".RightHandIndex1Tz" 0.18788319414531429;
+	setAttr ".RightHandIndex2Tx" -1.9984103797881962;
+	setAttr ".RightHandIndex2Ty" -3.7188229224655913;
+	setAttr ".RightHandIndex2Tz" 0.17322995632710558;
+	setAttr ".RightHandIndex2Rx" -0.39255845391536998;
+	setAttr ".RightHandIndex2Ry" 0.39295479588753318;
+	setAttr ".RightHandIndex2Rz" -0.10365874233892525;
+	setAttr ".RightHandIndex3Tx" -1.884594800906946;
+	setAttr ".RightHandIndex3Ty" -1.8681070695952826;
+	setAttr ".RightHandIndex3Tz" 0.043070500612344631;
+	setAttr ".RightHandIndex4Tx" 0.57162188056422281;
+	setAttr ".RightHandIndex4Ty" -1.8694293112740468;
+	setAttr ".RightHandIndex4Tz" -0.11451230446849081;
+	setAttr ".RightHandMiddle1Tx" -4.471834740534919;
+	setAttr ".RightHandMiddle1Ty" -9.239651485537081;
+	setAttr ".RightHandMiddle1Tz" 0.02264415513491258;
+	setAttr ".RightHandMiddle2Tx" -1.2788874160115498;
+	setAttr ".RightHandMiddle2Ty" -4.6875491307989279;
+	setAttr ".RightHandMiddle2Tz" 0.20623401392899154;
+	setAttr ".RightHandMiddle2Rx" -0.43158255409069951;
+	setAttr ".RightHandMiddle2Ry" 0.2696058035122148;
+	setAttr ".RightHandMiddle2Rz" -0.090139428109388131;
+	setAttr ".RightHandMiddle3Tx" -1.4761812772392808;
+	setAttr ".RightHandMiddle3Ty" -2.3373203419305213;
+	setAttr ".RightHandMiddle3Tz" 0.065794880758318186;
+	setAttr ".RightHandMiddle4Tx" 0.90581224115227599;
+	setAttr ".RightHandMiddle4Ty" -1.7463153266859948;
+	setAttr ".RightHandMiddle4Tz" -0.39046291129074007;
+	setAttr ".RightHandRing1Tx" -2.0457755153082893;
+	setAttr ".RightHandRing1Ty" -9.9120262634314713;
+	setAttr ".RightHandRing1Tz" 0.11070135988330776;
+	setAttr ".RightHandRing2Tx" -0.12443955831033016;
+	setAttr ".RightHandRing2Ty" -4.5321074462678297;
+	setAttr ".RightHandRing2Tz" 0.18906324941590924;
+	setAttr ".RightHandRing2Rx" -0.46156862560323281;
+	setAttr ".RightHandRing2Ry" 0.15226564903059248;
+	setAttr ".RightHandRing2Rz" -0.084239377450924732;
+	setAttr ".RightHandRing3Tx" -0.73471304077985167;
+	setAttr ".RightHandRing3Ty" -2.1831334145095127;
+	setAttr ".RightHandRing3Tz" 0.070434801267310831;
+	setAttr ".RightHandRing4Tx" 1.1441355839066603;
+	setAttr ".RightHandRing4Ty" -1.4121683041358963;
+	setAttr ".RightHandRing4Tz" -0.62928919310940046;
+	setAttr ".RightHandPinky1Tx" 0.31421276909677509;
+	setAttr ".RightHandPinky1Ty" -9.8609304478887907;
+	setAttr ".RightHandPinky1Tz" 0.304132688493155;
+	setAttr ".RightHandPinky2Tx" 0.65292439349036435;
+	setAttr ".RightHandPinky2Ty" -2.9709338350617429;
+	setAttr ".RightHandPinky2Tz" 0.1174506543110283;
+	setAttr ".RightHandPinky2Rx" -0.49575107165309318;
+	setAttr ".RightHandPinky2Ry" 0.036658254754463944;
+	setAttr ".RightHandPinky2Rz" -0.088243136703944736;
+	setAttr ".RightHandPinky3Tx" -0.15951652322041276;
+	setAttr ".RightHandPinky3Ty" -1.966775699563172;
+	setAttr ".RightHandPinky3Tz" 0.070666532602501775;
+	setAttr ".RightHandPinky4Tx" 1.1767567410664981;
+	setAttr ".RightHandPinky4Ty" -0.92064479756902529;
+	setAttr ".RightHandPinky4Tz" -0.73842189073687337;
+createNode HIKControlSetNode -n "Character1_ControlRig";
+	rename -uid "EA147BF8-4A8B-FA58-B72E-05B617E8002C";
+	setAttr ".ihi" 0;
+createNode keyingGroup -n "Character1_FullBodyKG3";
+	rename -uid "5F5C2B9C-4184-FDBC-2DB6-9DA231744F59";
+	setAttr ".ihi" 0;
+	setAttr -s 11 ".dnsm";
+	setAttr -s 90 ".act";
+	setAttr ".cat" -type "string" "FullBody";
+	setAttr ".mr" yes;
+createNode keyingGroup -n "Character1_HipsBPKG2";
+	rename -uid "47274BEC-4004-F5C6-85E4-F19602EF242D";
+	setAttr ".ihi" 0;
+	setAttr -s 12 ".dnsm";
+	setAttr -s 2 ".act";
+	setAttr ".cat" -type "string" "BodyPart";
+	setAttr ".mr" yes;
+createNode keyingGroup -n "Character1_ChestBPKG2";
+	rename -uid "580E4055-45A1-F624-9098-9380B15DBDA6";
+	setAttr ".ihi" 0;
+	setAttr -s 21 ".dnsm";
+	setAttr -s 5 ".act";
+	setAttr ".cat" -type "string" "BodyPart";
+	setAttr ".mr" yes;
+createNode keyingGroup -n "Character1_LeftArmBPKG2";
+	rename -uid "1ED99A63-4A36-D2FC-E76B-C38EB25A65A1";
+	setAttr ".ihi" 0;
+	setAttr -s 30 ".dnsm";
+	setAttr -s 7 ".act";
+	setAttr ".cat" -type "string" "BodyPart";
+	setAttr ".mr" yes;
+createNode keyingGroup -n "Character1_RightArmBPKG2";
+	rename -uid "C492BAA0-4123-ABEC-53A9-BBBAD5BDF9C9";
+	setAttr ".ihi" 0;
+	setAttr -s 30 ".dnsm";
+	setAttr -s 7 ".act";
+	setAttr ".cat" -type "string" "BodyPart";
+	setAttr ".mr" yes;
+createNode keyingGroup -n "Character1_LeftLegBPKG2";
+	rename -uid "8667CDB6-4098-E277-A9EE-70823BAD6578";
+	setAttr ".ihi" 0;
+	setAttr -s 36 ".dnsm";
+	setAttr -s 8 ".act";
+	setAttr ".cat" -type "string" "BodyPart";
+	setAttr ".mr" yes;
+createNode keyingGroup -n "Character1_RightLegBPKG2";
+	rename -uid "B5A6A3C7-455A-1823-C324-DBAD9D5138B4";
+	setAttr ".ihi" 0;
+	setAttr -s 36 ".dnsm";
+	setAttr -s 8 ".act";
+	setAttr ".cat" -type "string" "BodyPart";
+	setAttr ".mr" yes;
+createNode keyingGroup -n "Character1_HeadBPKG2";
+	rename -uid "3F457450-4B6E-5C52-A53E-66867ED50683";
+	setAttr ".ihi" 0;
+	setAttr -s 12 ".dnsm";
+	setAttr -s 3 ".act";
+	setAttr ".cat" -type "string" "BodyPart";
+	setAttr ".mr" yes;
+createNode keyingGroup -n "Character1_LeftHandBPKG2";
+	rename -uid "92403BBD-4613-8BC3-0093-9485A4D41190";
+	setAttr ".ihi" 0;
+	setAttr -s 90 ".dnsm";
+	setAttr -s 25 ".act";
+	setAttr ".cat" -type "string" "BodyPart";
+	setAttr ".mr" yes;
+createNode keyingGroup -n "Character1_RightHandBPKG2";
+	rename -uid "5B154229-4550-A605-907F-F1B717384610";
+	setAttr ".ihi" 0;
+	setAttr -s 90 ".dnsm";
+	setAttr -s 25 ".act";
+	setAttr ".cat" -type "string" "BodyPart";
+	setAttr ".mr" yes;
+createNode keyingGroup -n "Character1_LeftFootBPKG3";
+	rename -uid "977E1452-408A-BC03-4F6F-33984BF6FE2C";
+	setAttr ".ihi" 0;
+	setAttr ".cat" -type "string" "BodyPart";
+	setAttr ".mr" yes;
+createNode keyingGroup -n "Character1_RightFootBPKG3";
+	rename -uid "7F766640-4C8E-3DE4-DC2F-50887512E580";
+	setAttr ".ihi" 0;
+	setAttr ".cat" -type "string" "BodyPart";
+	setAttr ".mr" yes;
+createNode HIKFK2State -n "HIKFK2State1";
+	rename -uid "9CA8A173-47CE-A3A7-C708-7C974065B08A";
+	setAttr ".ihi" 0;
+	setAttr ".OutputCharacterState" -type "HIKCharacterState" ;
+createNode HIKEffector2State -n "HIKEffector2State1";
+	rename -uid "1182C12F-475C-E7B9-D7ED-2C81E1D83E67";
+	setAttr ".ihi" 0;
+	setAttr ".EFF" -type "HIKEffectorState" ;
+createNode HIKPinning2State -n "HIKPinning2State1";
+	rename -uid "D55417E8-4D26-D823-0E21-F1AAE4ED86E8";
+	setAttr ".ihi" 0;
+	setAttr ".OutputEffectorState" -type "HIKEffectorState" ;
+createNode HIKState2FK -n "HIKState2FK1";
+	rename -uid "0FAA560F-494E-3EE7-039A-C7A1B939AA2A";
+	setAttr ".ihi" 0;
+	setAttr ".HipsGX" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 112.84285736083984 -0.86268520355224609 1;
+	setAttr ".LeftUpLegGX" -type "matrix" 1 -6.55628582535428e-07 -8.0840595728659537e-07 0
+		 6.5567326146265259e-07 1 5.5318683735094965e-05 0 8.0836969118536217e-07 -5.5318683735094965e-05 1 0
+		 8.4372577667236328 107.28196716308594 1.108894944190979 1;
+	setAttr ".LeftLegGX" -type "matrix" 1 1.3595782775155385e-06 -1.0148852425118093e-06 0
+		 -1.359628299724136e-06 1 -4.9342299462296069e-05 0 1.0148181672775536e-06 4.9342299462296069e-05 1 0
+		 11.510091781616211 62.403369903564453 -0.001954197883605957 1;
+	setAttr ".LeftFootGX" -type "matrix" 1 -7.1054282046339491e-15 1.0250829319494864e-13 0
+		 7.1054282046339491e-15 1 -3.6379792407725819e-12 0 -1.0250829319494864e-13 3.6379792407725819e-12 1 0
+		 9.9342813491821289 16.706756591796875 -2.6494150161743164 1;
+	setAttr ".RightUpLegGX" -type "matrix" 1 2.7621847493719542e-06 -2.1504058622667799e-06 0
+		 -2.7621574645309011e-06 1 1.2751668691635132e-05 0 2.1504408778127981e-06 -1.2751663234666921e-05 1 0
+		 -8.4372577667236328 107.28196716308594 1.108894944190979 1;
+	setAttr ".RightLegGX" -type "matrix" 1 -1.3297752730068169e-06 1.2235010444783256e-06 0
+		 1.3298355270308093e-06 1 -4.9312497139908373e-05 0 -1.223435560859798e-06 4.9312497139908373e-05 1 0
+		 -11.510091781616211 62.403369903564453 -0.001954197883605957 1;
+	setAttr ".RightFootGX" -type "matrix" 1 7.1054282046339491e-15 -1.0250872687581764e-13 0
+		 -7.1054282046339491e-15 1 -3.6379792407725819e-12 0 1.0250872687581764e-13 3.6379792407725819e-12 1 0
+		 -9.9342813491821289 16.706756591796875 -2.6494150161743164 1;
+	setAttr ".SpineGX" -type "matrix" 0.9999997615814209 -0 0 0 0 0.9999997615814209 1.335397925572579e-08 0
+		 -0 -1.335397925572579e-08 0.9999997615814209 0 0 126.85521697998047 -2.384185791015625e-07 1;
+	setAttr ".LeftArmGX" -type "matrix" 1 1.7095617295126431e-05 -3.6448982427828014e-05 0
+		 -1.7095140719902702e-05 1 1.3066548490314744e-05 0 3.6449207982514054e-05 -1.3065924576949328e-05 1 0
+		 24.913537979125977 159.22270202636719 -2.3300018310546875 1;
+	setAttr ".LeftForeArmGX" -type "matrix" 1 8.7544016480478604e-08 2.5285351057391381e-06 0
+		 -8.7544201221589901e-08 1 7.2958378893872577e-08 0 -2.5285351057391381e-06 -7.2958606267548021e-08 1 0
+		 51.71038818359375 159.66142272949219 -3.2433774471282959 1;
+	setAttr ".LeftHandGX" -type "matrix" 1 4.1893574591817851e-16 1.6794290328311484e-16 0
+		 -4.1893574591817851e-16 1 1.3353981920261049e-08 0 -1.6794290328311484e-16 -1.3353981920261049e-08 1 0
+		 76.38922119140625 159.62506103515625 -2.7017910480499268 1;
+	setAttr ".RightArmGX" -type "matrix" 1 -1.6015879737096839e-05 3.5619021218735725e-05 0
+		 1.6015414075809531e-05 1 1.3058343938610051e-05 0 -3.5619232221506536e-05 -1.3057772775937337e-05 1 0
+		 -24.913557052612305 159.22261047363281 -2.3299446105957031 1;
+	setAttr ".RightForeArmGX" -type "matrix" 1 -2.7194568019694998e-07 -2.2659032765659504e-06 0
+		 2.7194556651011226e-07 1 -5.0878352197969434e-08 0 2.2659032765659504e-06 5.0877734025789323e-08 1 0
+		 -51.710411071777344 159.66122436523438 -3.2433099746704102 1;
+	setAttr ".RightHandGX" -type "matrix" 1 3.2682864207991705e-16 3.3963038040736332e-16 0
+		 -3.2682864207991705e-16 1 1.3353981920261049e-08 0 -3.3963038040736332e-16 -1.3353981920261049e-08 1 0
+		 -76.389244079589844 159.62548828125 -2.7016444206237793 1;
+	setAttr ".HeadGX" -type "matrix" 1 5.5511754742232746e-16 5.5511331225759119e-16 0
+		 -5.5511765330144586e-16 1 9.8802715342571901e-08 0 -5.5511320637847278e-16 -9.8802715342571901e-08 1 0
+		 -1.5811050724429988e-14 178.59793090820312 0.3801112174987793 1;
+	setAttr ".LeftToeBaseGX" -type "matrix" 1 -6.9829633340869751e-15 1.0250828641868506e-13 0
+		 6.9829633340869751e-15 1 -3.6378567259270911e-12 0 -1.0250828641868506e-13 3.6378567259270911e-12 1 0
+		 9.9342899322509766 4.9107608795166016 11.27055835723877 1;
+	setAttr ".RightToeBaseGX" -type "matrix" 1 7.2278913811150286e-15 -1.0250872009955406e-13 0
+		 -7.2278913811150286e-15 1 -3.6378567259270911e-12 0 1.0250872009955406e-13 3.6378567259270911e-12 1 0
+		 -9.9342899322509766 4.9107608795166016 11.27055835723877 1;
+	setAttr ".LeftShoulderGX" -type "matrix" 0.9999997615814209 4.172009430328629e-16 1.6620815333735843e-16 0
+		 -4.172009430328629e-16 0.9999997615814209 1.335397925572579e-08 0 -1.6620815333735843e-16 -1.335397925572579e-08 0.9999997615814209 0
+		 10.624362945556641 160.3387451171875 4.5613527297973633 1;
+	setAttr ".RightShoulderGX" -type "matrix" 0.9999997615814209 4.4235443343452661e-16 2.2236981263721776e-16 0
+		 -4.4235443343452661e-16 0.9999997615814209 1.335397925572579e-08 0 -2.2236981263721776e-16 -1.335397925572579e-08 0.9999997615814209 0
+		 -10.624362945556641 160.3387451171875 4.5613527297973633 1;
+	setAttr ".NeckGX" -type "matrix" 1 5.5511754742232746e-16 5.5511331225759119e-16 0
+		 -5.5511765330144586e-16 1 9.8802715342571901e-08 0 -5.5511320637847278e-16 -9.8802715342571901e-08 1 0
+		 -7.6206343007354828e-15 166.35223388671875 -2.1286311149597168 1;
+	setAttr ".Spine1GX" -type "matrix" 0.9999997615814209 1.1102228922762585e-16 -1.1102228922762585e-16 0
+		 -1.1102228922762585e-16 0.9999997615814209 1.335397925572579e-08 0 1.1102228922762585e-16 -1.335397925572579e-08 0.9999997615814209 0
+		 0 140.02088928222656 -6.260437146465847e-08 1;
+	setAttr ".Spine2GX" -type "matrix" 0.9999997615814209 4.4408915691050341e-16 2.2204456522036191e-16 0
+		 -4.4408915691050341e-16 0.9999997615814209 1.335397925572579e-08 0 -2.2204456522036191e-16 -1.335397925572579e-08 0.9999997615814209 0
+		 -1.7233284476165134e-15 153.18655395507812 -2.3566989898681641 1;
+	setAttr ".LeftHandThumb1GX" -type "matrix" 1 3.0791344345566286e-16 1.4094516572928863e-18 0
+		 -3.0791344345566286e-16 1 1.3353981920261049e-08 0 -1.4094475213898235e-18 -1.3353981920261049e-08 1 0
+		 79.220741271972656 158.65330505371094 1.9340951442718506 1;
+	setAttr ".LeftHandThumb2GX" -type "matrix" 0.98234677314758301 0.028651665896177292 -0.18486283719539642 0
+		 -0.024837572127580643 0.99942904710769653 0.022915355861186981 0 0.18541382253170013 -0.017919279634952545 0.98249733448028564 0
+		 81.168296813964844 158.07807922363281 3.6595420837402344 1;
+	setAttr ".LeftHandThumb3GX" -type "matrix" 0.98234677314758301 0.028651665896177292 -0.18486283719539642 0
+		 -0.024837572127580643 0.99942904710769653 0.022915355861186981 0 0.18541382253170013 -0.017919279634952545 0.98249733448028564 0
+		 83.503814697265625 157.52073669433594 5.7347054481506348 1;
+	setAttr ".LeftHandThumb4GX" -type "matrix" 0.98234677314758301 0.028651665896177292 -0.18486283719539642 0
+		 -0.024837572127580643 0.99942904710769653 0.022915355861186981 0 0.18541382253170013 -0.017919279634952545 0.98249733448028564 0
+		 85.057518005371094 156.86419677734375 8.5671672821044922 1;
+	setAttr ".LeftHandIndex1GX" -type "matrix" 1 3.6342459468692069e-16 2.2345406774926246e-16 0
+		 -3.6342459468692069e-16 1 1.3353981920261049e-08 0 -2.2345406774926246e-16 -1.3353981920261049e-08 1 0
+		 86.0540771484375 158.11528015136719 2.020984411239624 1;
+	setAttr ".LeftHandIndex2GX" -type "matrix" 0.99999535083770752 -0.0030455135274678469 0.00012355901708360761 0
+		 0.0030454096850007772 0.99999499320983887 0.00083322497084736824 0 -0.00012609599798452109 -0.00083284475840628147 0.99999964237213135 0
+		 90.057060241699219 157.501953125 3.226499080657959 1;
+	setAttr ".LeftHandIndex3GX" -type "matrix" 0.99999535083770752 -0.0030455135274678469 0.00012355901708360761 0
+		 0.0030454096850007772 0.99999499320983887 0.00083322497084736824 0 -0.00012609599798452109 -0.00083284475840628147 0.99999964237213135 0
+		 92.585464477539062 157.11460876464844 3.9339666366577148 1;
+	setAttr ".LeftHandIndex4GX" -type "matrix" 0.99999535083770752 -0.0030455135274678469 0.00012355901708360761 0
+		 0.0030454096850007772 0.99999499320983887 0.00083322497084736824 0 -0.00012609599798452109 -0.00083284475840628147 0.99999964237213135 0
+		 94.387130737304688 156.76913452148438 4.6190085411071777 1;
+	setAttr ".LeftHandMiddle1GX" -type "matrix" 1 4.3281353372599297e-16 2.2345406774926246e-16 0
+		 -4.3281353372599297e-16 1 1.3353981920261049e-08 0 -2.2345406774926246e-16 -1.3353981920261049e-08 1 0
+		 86.425460815429688 158.66259765625 -0.77395987510681152 1;
+	setAttr ".LeftHandMiddle2GX" -type "matrix" 0.99999594688415527 -0.0028755187522619963 1.4933408237993717e-05 0
+		 0.002875516889616847 0.99999594688415527 0.00013064379163552076 0 -1.5309014997910708e-05 -0.0001306003105128184 1.0000001192092896 0
+		 91.244560241699219 158.09071350097656 -0.45696955919265747 1;
+	setAttr ".LeftHandMiddle3GX" -type "matrix" 0.99999594688415527 -0.0028755187522619963 1.4933408237993717e-05 0
+		 0.002875516889616847 0.99999594688415527 0.00013064379163552076 0 -1.5309014997910708e-05 -0.0001306003105128184 1.0000001192092896 0
+		 93.987663269042969 157.76519775390625 -0.33066427707672119 1;
+	setAttr ".LeftHandMiddle4GX" -type "matrix" 0.99999594688415527 -0.0028755187522619963 1.4933408237993717e-05 0
+		 0.002875516889616847 0.99999594688415527 0.00013064379163552076 0 -1.5309014997910708e-05 -0.0001306003105128184 1.0000001192092896 0
+		 95.956809997558594 157.50360107421875 -0.05387955904006958 1;
+	setAttr ".LeftHandRing1GX" -type "matrix" 1 4.0505795811036406e-16 1.4018732766748592e-16 0
+		 -4.0505795811036406e-16 1 1.3353981920261049e-08 0 -1.4018732766748592e-16 -1.3353981920261049e-08 1 0
+		 86.470611572265625 158.93283081054688 -3.278064489364624 1;
+	setAttr ".LeftHandRing2GX" -type "matrix" 0.99999654293060303 -0.0026764313224703074 -4.0950671973405406e-05 0
+		 0.0026764099020510912 0.99999642372131348 -0.00051450863247737288 0 4.2327566916355863e-05 0.00051439722301438451 1 0
+		 90.9266357421875 158.559814453125 -4.0500364303588867 1;
+	setAttr ".LeftHandRing3GX" -type "matrix" 0.99999654293060303 -0.0026764313224703074 -4.0950671973405406e-05 0
+		 0.0026764099020510912 0.99999642372131348 -0.00051450863247737288 0 4.2327566916355863e-05 0.00051439722301438451 1 0
+		 93.18157958984375 158.37103271484375 -4.4864215850830078 1;
+	setAttr ".LeftHandRing4GX" -type "matrix" 0.99999654293060303 -0.0026764313224703074 -4.0950671973405406e-05 0
+		 0.0026764099020510912 0.99999642372131348 -0.00051450863247737288 0 4.2327566916355863e-05 0.00051439722301438451 1 0
+		 95.086845397949219 158.18635559082031 -4.6738796234130859 1;
+	setAttr ".LeftHandPinky1GX" -type "matrix" 1 4.6750797677574951e-16 5.6920600820599182e-17 0
+		 -4.6750797677574951e-16 1 1.3353981920261049e-08 0 -5.6920600820599182e-17 -1.3353981920261049e-08 1 0
+		 85.825759887695312 159.10823059082031 -5.5502810478210449 1;
+	setAttr ".LeftHandPinky2GX" -type "matrix" 0.9999968409538269 -0.0025093602016568184 -4.7272067604353651e-05 0
+		 0.0025093038566410542 0.99999618530273438 -0.0011539526749402285 0 5.0167571316706017e-05 0.0011538304388523102 0.99999934434890747 0
+		 88.612533569335938 158.98219299316406 -6.7686929702758789 1;
+	setAttr ".LeftHandPinky3GX" -type "matrix" 0.9999968409538269 -0.0025093602016568184 -4.7272067604353651e-05 0
+		 0.0025093038566410542 0.99999618530273438 -0.0011539526749402285 0 5.0167571316706017e-05 0.0011538304388523102 0.99999934434890747 0
+		 90.404342651367188 158.90110778808594 -7.5942230224609375 1;
+	setAttr ".LeftHandPinky4GX" -type "matrix" 0.9999968409538269 -0.0025093602016568184 -4.7272067604353651e-05 0
+		 0.0025093038566410542 0.99999618530273438 -0.0011539526749402285 0 5.0167571316706017e-05 0.0011538304388523102 0.99999934434890747 0
+		 91.973686218261719 158.80818176269531 -8.1475343704223633 1;
+	setAttr ".RightHandThumb1GX" -type "matrix" 1 2.4356191523303031e-16 5.061638076313572e-16 0
+		 -2.4356191523303031e-16 1 1.3353981920261049e-08 0 -5.061638076313572e-16 -1.3353981920261049e-08 1 0
+		 -79.190109252929688 158.63661193847656 1.9492192268371582 1;
+	setAttr ".RightHandThumb2GX" -type "matrix" 0.98938107490539551 -0.021806458011269569 0.14369909465312958 0
+		 0.01938462071120739 0.99964576959609985 0.01823224313557148 0 -0.14404578506946564 -0.01525308471173048 0.98945337533950806 0
+		 -81.113182067871094 158.04766845703125 3.6973485946655273 1;
+	setAttr ".RightHandThumb3GX" -type "matrix" 0.98938107490539551 -0.021806458011269569 0.14369909465312958 0
+		 0.01938462071120739 0.99964576959609985 0.01823224313557148 0 -0.14404578506946564 -0.01525308471173048 0.98945337533950806 0
+		 -83.420913696289062 157.47810363769531 5.8000926971435547 1;
+	setAttr ".RightHandThumb4GX" -type "matrix" 0.98938107490539551 -0.021806458011269569 0.14369909465312958 0
+		 0.01938462071120739 0.99964576959609985 0.01823224313557148 0 -0.14404578506946564 -0.01525308471173048 0.98945337533950806 0
+		 -84.322357177734375 156.82478332519531 8.9030704498291016 1;
+	setAttr ".RightHandIndex1GX" -type "matrix" 1 5.4236806043981493e-16 2.841192291761055e-16 0
+		 -5.4236806043981493e-16 1 1.3353981920261049e-08 0 -2.841192291761055e-16 -1.3353981920261049e-08 1 0
+		 -86.018890380859375 158.04971313476562 2.0712399482727051 1;
+	setAttr ".RightHandIndex2GX" -type "matrix" 0.99995404481887817 0.009576793760061264 -0.00033817795338109136 0
+		 -0.009575987234711647 0.99995142221450806 0.0023116869851946831 0 0.00036030006594955921 -0.0023083426058292389 0.99999719858169556 0
+		 -90.002799987792969 157.40548706054688 3.322932243347168 1;
+	setAttr ".RightHandIndex3GX" -type "matrix" 0.99995404481887817 0.009576793760061264 -0.00033817795338109136 0
+		 -0.009575987234711647 0.99995142221450806 0.0023116869851946831 0 0.00036030006594955921 -0.0023083426058292389 0.99999719858169556 0
+		 -92.548126220703125 156.99429321289062 3.9519081115722656 1;
+	setAttr ".RightHandIndex4GX" -type "matrix" 0.99995404481887817 0.009576793760061264 -0.00033817795338109136 0
+		 -0.009575987234711647 0.99995142221450806 0.0023116869851946831 0 0.00036030006594955921 -0.0023083426058292389 0.99999719858169556 0
+		 -94.202308654785156 156.67971801757812 4.9515848159790039 1;
+	setAttr ".RightHandMiddle1GX" -type "matrix" 1 2.9863938559529393e-16 3.3963038040736332e-16 0
+		 -2.9863938559529393e-16 1 1.3353981920261049e-08 0 -3.3963038040736332e-16 -1.3353981920261049e-08 1 0
+		 -86.408393859863281 158.59246826171875 -0.72212791442871094 1;
+	setAttr ".RightHandMiddle2GX" -type "matrix" 0.99995946884155273 0.0090157119557261467 -1.5212721336865798e-05 0
+		 -0.0090157100930809975 0.99995946884155273 0.00013500011118594557 0 1.6429225070169196e-05 -0.00013485747331287712 1.0000001192092896 0
+		 -91.218788146972656 157.98208618164062 -0.34964588284492493 1;
+	setAttr ".RightHandMiddle3GX" -type "matrix" 0.99995946884155273 0.0090157119557261467 -1.5212721336865798e-05 0
+		 -0.0090157100930809975 0.99995946884155273 0.00013500011118594557 0 1.6429225070169196e-05 -0.00013485747331287712 1.0000001192092896 0
+		 -93.961715698242188 157.63406372070312 -0.30798864364624023 1;
+	setAttr ".RightHandMiddle4GX" -type "matrix" 0.99995946884155273 0.0090157119557261467 -1.5212721336865798e-05 0
+		 -0.0090157100930809975 0.99995946884155273 0.00013500011118594557 0 1.6429225070169196e-05 -0.00013485747331287712 1.0000001192092896 0
+		 -95.84869384765625 157.34332275390625 0.3063056468963623 1;
+	setAttr ".RightHandRing1GX" -type "matrix" 1 1.5899414577916096e-16 2.841192291761055e-16 0
+		 -1.5899414577916096e-16 1 1.3353981920261049e-08 0 -2.841192291761055e-16 -1.3353981920261049e-08 1 0
+		 -86.468215942382812 158.86067199707031 -3.2261433601379395 1;
+	setAttr ".RightHandRing2GX" -type "matrix" 0.99996483325958252 0.0083979479968547821 0.00014847809507045895 0
+		 -0.0083976536989212036 0.99996304512023926 -0.0018824754515662789 0 -0.00016428153321612626 0.0018811622867360711 0.99999833106994629 0
+		 -90.929580688476562 158.45083618164062 -3.9468979835510254 1;
+	setAttr ".RightHandRing3GX" -type "matrix" 0.99996483325958252 0.0083979479968547821 0.00014847809507045895 0
+		 -0.0083976536989212036 0.99996304512023926 -0.0018824754515662789 0 -0.00016428153321612626 0.0018811622867360711 0.99999833106994629 0
+		 -93.16851806640625 158.24488830566406 -4.4524478912353516 1;
+	setAttr ".RightHandRing4GX" -type "matrix" 0.99996483325958252 0.0083979479968547821 0.00014847809507045895 0
+		 -0.0083976536989212036 0.99996304512023926 -0.0018824754515662789 0 -0.00016428153321612626 0.0018811622867360711 0.99999833106994629 0
+		 -95.072250366210938 158.01124572753906 -4.3093223571777344 1;
+	setAttr ".RightHandPinky1GX" -type "matrix" 1 2.8259319344250847e-16 2.841192291761055e-16 0
+		 -2.8259319344250847e-16 1 1.3353981920261049e-08 0 -2.841192291761055e-16 -1.3353981920261049e-08 1 0
+		 -85.836196899414062 159.03913879394531 -5.5017251968383789 1;
+	setAttr ".RightHandPinky2GX" -type "matrix" 0.99996906518936157 0.007887624204158783 0.00015708534920122474 0
+		 -0.0078869462013244629 0.99996137619018555 -0.0039245104417204857 0 -0.00018803430430125445 0.0039231497794389725 0.9999924898147583 0
+		 -88.63555908203125 158.88923645019531 -6.6881709098815918 1;
+	setAttr ".RightHandPinky3GX" -type "matrix" 0.99996906518936157 0.007887624204158783 0.00015708534920122474 0
+		 -0.0078869462013244629 0.99996137619018555 -0.0039245104417204857 0 -0.00018803430430125445 0.0039231497794389725 0.9999924898147583 0
+		 -90.400497436523438 158.79420471191406 -7.5682888031005859 1;
+	setAttr ".RightHandPinky4GX" -type "matrix" 0.99996906518936157 0.007887624204158783 0.00015708534920122474 0
+		 -0.0078869462013244629 0.99996137619018555 -0.0039245104417204857 0 -0.00018803430430125445 0.0039231497794389725 0.9999924898147583 0
+		 -92.036750793457031 158.64157104492188 -7.8457560539245605 1;
+createNode HIKState2FK -n "HIKState2FK2";
+	rename -uid "A9EB194A-4F6A-BB83-86AB-D3843EB0CD96";
+	setAttr ".ihi" 0;
+createNode HIKEffectorFromCharacter -n "HIKEffectorFromCharacter1";
+	rename -uid "C3C9D9D7-47A3-16C1-DECC-078F36B6FDD6";
+	setAttr ".ihi" 0;
+	setAttr ".OutputEffectorState" -type "HIKEffectorState" ;
+createNode HIKEffectorFromCharacter -n "HIKEffectorFromCharacter2";
+	rename -uid "19CDD5E0-4CB5-81EC-6349-CFACA28FA392";
+	setAttr ".ihi" 0;
+createNode HIKState2Effector -n "HIKState2Effector1";
+	rename -uid "99A56B94-4225-8159-4D8C-6DA490AD6939";
+	setAttr ".ihi" 0;
+	setAttr ".HipsEffectorGXM[0]" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 107.28196716308594 1.108894944190979 1;
+	setAttr ".LeftAnkleEffectorGXM[0]" -type "matrix" 1 -7.1054282046339491e-15 1.0250829319494864e-13 0
+		 7.1054282046339491e-15 1 -3.6379792407725819e-12 0 -1.0250829319494864e-13 3.6379792407725819e-12 1 0
+		 9.9342813491821289 16.706756591796875 -2.6494150161743164 1;
+	setAttr ".RightAnkleEffectorGXM[0]" -type "matrix" 1 7.1054282046339491e-15 -1.0250872687581764e-13 0
+		 -7.1054282046339491e-15 1 -3.6379792407725819e-12 0 1.0250872687581764e-13 3.6379792407725819e-12 1 0
+		 -9.9342813491821289 16.706756591796875 -2.6494150161743164 1;
+	setAttr ".LeftWristEffectorGXM[0]" -type "matrix" 1 4.1893574591817851e-16 1.6794290328311484e-16 0
+		 -4.1893574591817851e-16 1 1.3353981920261049e-08 0 -1.6794290328311484e-16 -1.3353981920261049e-08 1 0
+		 76.38922119140625 159.62506103515625 -2.7017910480499268 1;
+	setAttr ".RightWristEffectorGXM[0]" -type "matrix" 1 3.2682864207991705e-16 3.3963038040736332e-16 0
+		 -3.2682864207991705e-16 1 1.3353981920261049e-08 0 -3.3963038040736332e-16 -1.3353981920261049e-08 1 0
+		 -76.389244079589844 159.62548828125 -2.7016444206237793 1;
+	setAttr ".LeftKneeEffectorGXM[0]" -type "matrix" 1 1.3595782775155385e-06 -1.0148852425118093e-06 0
+		 -1.359628299724136e-06 1 -4.9342299462296069e-05 0 1.0148181672775536e-06 4.9342299462296069e-05 1 0
+		 11.510091781616211 62.403369903564453 -0.001954197883605957 1;
+	setAttr ".RightKneeEffectorGXM[0]" -type "matrix" 1 -1.3297752730068169e-06 1.2235010444783256e-06 0
+		 1.3298355270308093e-06 1 -4.9312497139908373e-05 0 -1.223435560859798e-06 4.9312497139908373e-05 1 0
+		 -11.510091781616211 62.403369903564453 -0.001954197883605957 1;
+	setAttr ".LeftElbowEffectorGXM[0]" -type "matrix" 1 8.7544016480478604e-08 2.5285351057391381e-06 0
+		 -8.7544201221589901e-08 1 7.2958378893872577e-08 0 -2.5285351057391381e-06 -7.2958606267548021e-08 1 0
+		 51.71038818359375 159.66142272949219 -3.2433774471282959 1;
+	setAttr ".RightElbowEffectorGXM[0]" -type "matrix" 1 -2.7194568019694998e-07 -2.2659032765659504e-06 0
+		 2.7194556651011226e-07 1 -5.0878352197969434e-08 0 2.2659032765659504e-06 5.0877734025789323e-08 1 0
+		 -51.710411071777344 159.66122436523438 -3.2433099746704102 1;
+	setAttr ".ChestOriginEffectorGXM[0]" -type "matrix" 0.9999997615814209 -0 0 0 0 0.9999997615814209 1.335397925572579e-08 0
+		 -0 -1.335397925572579e-08 0.9999997615814209 0 0 126.85521697998047 -2.384185791015625e-07 1;
+	setAttr ".ChestEndEffectorGXM[0]" -type "matrix" 0.9999997615814209 4.4408915691050341e-16 2.2204456522036191e-16 0
+		 -4.4408915691050341e-16 0.9999997615814209 1.335397925572579e-08 0 -2.2204456522036191e-16 -1.335397925572579e-08 0.9999997615814209 0
+		 0 160.3387451171875 4.5613527297973633 1;
+	setAttr ".LeftFootEffectorGXM[0]" -type "matrix" 1 -6.9829633340869751e-15 1.0250828641868506e-13 0
+		 6.9829633340869751e-15 1 -3.6378567259270911e-12 0 -1.0250828641868506e-13 3.6378567259270911e-12 1 0
+		 9.9342899322509766 4.9107608795166016 11.27055835723877 1;
+	setAttr ".RightFootEffectorGXM[0]" -type "matrix" 1 7.2278913811150286e-15 -1.0250872009955406e-13 0
+		 -7.2278913811150286e-15 1 -3.6378567259270911e-12 0 1.0250872009955406e-13 3.6378567259270911e-12 1 0
+		 -9.9342899322509766 4.9107608795166016 11.27055835723877 1;
+	setAttr ".LeftShoulderEffectorGXM[0]" -type "matrix" 1 1.7095617295126431e-05 -3.6448982427828014e-05 0
+		 -1.7095140719902702e-05 1 1.3066548490314744e-05 0 3.6449207982514054e-05 -1.3065924576949328e-05 1 0
+		 24.913537979125977 159.22270202636719 -2.3300018310546875 1;
+	setAttr ".RightShoulderEffectorGXM[0]" -type "matrix" 1 -1.6015879737096839e-05 3.5619021218735725e-05 0
+		 1.6015414075809531e-05 1 1.3058343938610051e-05 0 -3.5619232221506536e-05 -1.3057772775937337e-05 1 0
+		 -24.913557052612305 159.22261047363281 -2.3299446105957031 1;
+	setAttr ".HeadEffectorGXM[0]" -type "matrix" 1 5.5511754742232746e-16 5.5511331225759119e-16 0
+		 -5.5511765330144586e-16 1 9.8802715342571901e-08 0 -5.5511320637847278e-16 -9.8802715342571901e-08 1 0
+		 -1.5811050724429988e-14 178.59793090820312 0.3801112174987793 1;
+	setAttr ".LeftHipEffectorGXM[0]" -type "matrix" 1 -6.55628582535428e-07 -8.0840595728659537e-07 0
+		 6.5567326146265259e-07 1 5.5318683735094965e-05 0 8.0836969118536217e-07 -5.5318683735094965e-05 1 0
+		 8.4372577667236328 107.28196716308594 1.108894944190979 1;
+	setAttr ".RightHipEffectorGXM[0]" -type "matrix" 1 2.7621847493719542e-06 -2.1504058622667799e-06 0
+		 -2.7621574645309011e-06 1 1.2751668691635132e-05 0 2.1504408778127981e-06 -1.2751663234666921e-05 1 0
+		 -8.4372577667236328 107.28196716308594 1.108894944190979 1;
+	setAttr ".LeftHandThumbEffectorGXM[0]" -type "matrix" 0.98234677314758301 0.028651665896177292 -0.18486283719539642 0
+		 -0.024837572127580643 0.99942904710769653 0.022915355861186981 0 0.18541382253170013 -0.017919279634952545 0.98249733448028564 0
+		 85.057518005371094 156.86419677734375 8.5671672821044922 1;
+	setAttr ".LeftHandIndexEffectorGXM[0]" -type "matrix" 0.99999535083770752 -0.0030455135274678469 0.00012355901708360761 0
+		 0.0030454096850007772 0.99999499320983887 0.00083322497084736824 0 -0.00012609599798452109 -0.00083284475840628147 0.99999964237213135 0
+		 94.387130737304688 156.76913452148438 4.6190085411071777 1;
+	setAttr ".LeftHandMiddleEffectorGXM[0]" -type "matrix" 0.99999594688415527 -0.0028755187522619963 1.4933408237993717e-05 0
+		 0.002875516889616847 0.99999594688415527 0.00013064379163552076 0 -1.5309014997910708e-05 -0.0001306003105128184 1.0000001192092896 0
+		 95.956809997558594 157.50360107421875 -0.05387955904006958 1;
+	setAttr ".LeftHandRingEffectorGXM[0]" -type "matrix" 0.99999654293060303 -0.0026764313224703074 -4.0950671973405406e-05 0
+		 0.0026764099020510912 0.99999642372131348 -0.00051450863247737288 0 4.2327566916355863e-05 0.00051439722301438451 1 0
+		 95.086845397949219 158.18635559082031 -4.6738796234130859 1;
+	setAttr ".LeftHandPinkyEffectorGXM[0]" -type "matrix" 0.9999968409538269 -0.0025093602016568184 -4.7272067604353651e-05 0
+		 0.0025093038566410542 0.99999618530273438 -0.0011539526749402285 0 5.0167571316706017e-05 0.0011538304388523102 0.99999934434890747 0
+		 91.973686218261719 158.80818176269531 -8.1475343704223633 1;
+	setAttr ".RightHandThumbEffectorGXM[0]" -type "matrix" 0.98938107490539551 -0.021806458011269569 0.14369909465312958 0
+		 0.01938462071120739 0.99964576959609985 0.01823224313557148 0 -0.14404578506946564 -0.01525308471173048 0.98945337533950806 0
+		 -84.322357177734375 156.82478332519531 8.9030704498291016 1;
+	setAttr ".RightHandIndexEffectorGXM[0]" -type "matrix" 0.99995404481887817 0.009576793760061264 -0.00033817795338109136 0
+		 -0.009575987234711647 0.99995142221450806 0.0023116869851946831 0 0.00036030006594955921 -0.0023083426058292389 0.99999719858169556 0
+		 -94.202308654785156 156.67971801757812 4.9515848159790039 1;
+	setAttr ".RightHandMiddleEffectorGXM[0]" -type "matrix" 0.99995946884155273 0.0090157119557261467 -1.5212721336865798e-05 0
+		 -0.0090157100930809975 0.99995946884155273 0.00013500011118594557 0 1.6429225070169196e-05 -0.00013485747331287712 1.0000001192092896 0
+		 -95.84869384765625 157.34332275390625 0.3063056468963623 1;
+	setAttr ".RightHandRingEffectorGXM[0]" -type "matrix" 0.99996483325958252 0.0083979479968547821 0.00014847809507045895 0
+		 -0.0083976536989212036 0.99996304512023926 -0.0018824754515662789 0 -0.00016428153321612626 0.0018811622867360711 0.99999833106994629 0
+		 -95.072250366210938 158.01124572753906 -4.3093223571777344 1;
+	setAttr ".RightHandPinkyEffectorGXM[0]" -type "matrix" 0.99996906518936157 0.007887624204158783 0.00015708534920122474 0
+		 -0.0078869462013244629 0.99996137619018555 -0.0039245104417204857 0 -0.00018803430430125445 0.0039231497794389725 0.9999924898147583 0
+		 -92.036750793457031 158.64157104492188 -7.8457560539245605 1;
+createNode HIKState2Effector -n "HIKState2Effector2";
+	rename -uid "9D35AB23-4B0D-4E1D-7416-8594791B6C06";
+	setAttr ".ihi" 0;
 select -ne :time1;
 	setAttr ".o" 0;
 select -ne :hardwareRenderingGlobals;
@@ -72732,69 +74472,627 @@ select -ne :hardwareRenderGlobals;
 	setAttr ".ctrs" 256;
 	setAttr ".btrs" 512;
 connectAttr "Character1_Reference.s" "Character1_Hips.is";
+connectAttr "HIKState2SK1.HipsSx" "Character1_Hips.sx";
+connectAttr "HIKState2SK1.HipsSy" "Character1_Hips.sy";
+connectAttr "HIKState2SK1.HipsSz" "Character1_Hips.sz";
+connectAttr "HIKState2SK1.HipsTx" "Character1_Hips.tx";
+connectAttr "HIKState2SK1.HipsTy" "Character1_Hips.ty";
+connectAttr "HIKState2SK1.HipsTz" "Character1_Hips.tz";
+connectAttr "HIKState2SK1.HipsRx" "Character1_Hips.rx";
+connectAttr "HIKState2SK1.HipsRy" "Character1_Hips.ry";
+connectAttr "HIKState2SK1.HipsRz" "Character1_Hips.rz";
 connectAttr "Character1_Hips.s" "Character1_LeftUpLeg.is";
+connectAttr "HIKState2SK1.LeftUpLegSx" "Character1_LeftUpLeg.sx";
+connectAttr "HIKState2SK1.LeftUpLegSy" "Character1_LeftUpLeg.sy";
+connectAttr "HIKState2SK1.LeftUpLegSz" "Character1_LeftUpLeg.sz";
+connectAttr "HIKState2SK1.LeftUpLegTx" "Character1_LeftUpLeg.tx";
+connectAttr "HIKState2SK1.LeftUpLegTy" "Character1_LeftUpLeg.ty";
+connectAttr "HIKState2SK1.LeftUpLegTz" "Character1_LeftUpLeg.tz";
+connectAttr "HIKState2SK1.LeftUpLegRx" "Character1_LeftUpLeg.rx";
+connectAttr "HIKState2SK1.LeftUpLegRy" "Character1_LeftUpLeg.ry";
+connectAttr "HIKState2SK1.LeftUpLegRz" "Character1_LeftUpLeg.rz";
 connectAttr "Character1_LeftUpLeg.s" "Character1_LeftLeg.is";
+connectAttr "HIKState2SK1.LeftLegSx" "Character1_LeftLeg.sx";
+connectAttr "HIKState2SK1.LeftLegSy" "Character1_LeftLeg.sy";
+connectAttr "HIKState2SK1.LeftLegSz" "Character1_LeftLeg.sz";
+connectAttr "HIKState2SK1.LeftLegTx" "Character1_LeftLeg.tx";
+connectAttr "HIKState2SK1.LeftLegTy" "Character1_LeftLeg.ty";
+connectAttr "HIKState2SK1.LeftLegTz" "Character1_LeftLeg.tz";
+connectAttr "HIKState2SK1.LeftLegRx" "Character1_LeftLeg.rx";
+connectAttr "HIKState2SK1.LeftLegRy" "Character1_LeftLeg.ry";
+connectAttr "HIKState2SK1.LeftLegRz" "Character1_LeftLeg.rz";
 connectAttr "Character1_LeftLeg.s" "Character1_LeftFoot.is";
+connectAttr "HIKState2SK1.LeftFootSx" "Character1_LeftFoot.sx";
+connectAttr "HIKState2SK1.LeftFootSy" "Character1_LeftFoot.sy";
+connectAttr "HIKState2SK1.LeftFootSz" "Character1_LeftFoot.sz";
+connectAttr "HIKState2SK1.LeftFootTx" "Character1_LeftFoot.tx";
+connectAttr "HIKState2SK1.LeftFootTy" "Character1_LeftFoot.ty";
+connectAttr "HIKState2SK1.LeftFootTz" "Character1_LeftFoot.tz";
+connectAttr "HIKState2SK1.LeftFootRx" "Character1_LeftFoot.rx";
+connectAttr "HIKState2SK1.LeftFootRy" "Character1_LeftFoot.ry";
+connectAttr "HIKState2SK1.LeftFootRz" "Character1_LeftFoot.rz";
 connectAttr "Character1_LeftFoot.s" "Character1_LeftToeBase.is";
+connectAttr "HIKState2SK1.LeftToeBaseTx" "Character1_LeftToeBase.tx";
+connectAttr "HIKState2SK1.LeftToeBaseTy" "Character1_LeftToeBase.ty";
+connectAttr "HIKState2SK1.LeftToeBaseTz" "Character1_LeftToeBase.tz";
+connectAttr "HIKState2SK1.LeftToeBaseRx" "Character1_LeftToeBase.rx";
+connectAttr "HIKState2SK1.LeftToeBaseRy" "Character1_LeftToeBase.ry";
+connectAttr "HIKState2SK1.LeftToeBaseRz" "Character1_LeftToeBase.rz";
+connectAttr "HIKState2SK1.LeftToeBaseSx" "Character1_LeftToeBase.sx";
+connectAttr "HIKState2SK1.LeftToeBaseSy" "Character1_LeftToeBase.sy";
+connectAttr "HIKState2SK1.LeftToeBaseSz" "Character1_LeftToeBase.sz";
 connectAttr "Character1_Hips.s" "Character1_RightUpLeg.is";
+connectAttr "HIKState2SK1.RightUpLegSx" "Character1_RightUpLeg.sx";
+connectAttr "HIKState2SK1.RightUpLegSy" "Character1_RightUpLeg.sy";
+connectAttr "HIKState2SK1.RightUpLegSz" "Character1_RightUpLeg.sz";
+connectAttr "HIKState2SK1.RightUpLegTx" "Character1_RightUpLeg.tx";
+connectAttr "HIKState2SK1.RightUpLegTy" "Character1_RightUpLeg.ty";
+connectAttr "HIKState2SK1.RightUpLegTz" "Character1_RightUpLeg.tz";
+connectAttr "HIKState2SK1.RightUpLegRx" "Character1_RightUpLeg.rx";
+connectAttr "HIKState2SK1.RightUpLegRy" "Character1_RightUpLeg.ry";
+connectAttr "HIKState2SK1.RightUpLegRz" "Character1_RightUpLeg.rz";
 connectAttr "Character1_RightUpLeg.s" "Character1_RightLeg.is";
+connectAttr "HIKState2SK1.RightLegSx" "Character1_RightLeg.sx";
+connectAttr "HIKState2SK1.RightLegSy" "Character1_RightLeg.sy";
+connectAttr "HIKState2SK1.RightLegSz" "Character1_RightLeg.sz";
+connectAttr "HIKState2SK1.RightLegTx" "Character1_RightLeg.tx";
+connectAttr "HIKState2SK1.RightLegTy" "Character1_RightLeg.ty";
+connectAttr "HIKState2SK1.RightLegTz" "Character1_RightLeg.tz";
+connectAttr "HIKState2SK1.RightLegRx" "Character1_RightLeg.rx";
+connectAttr "HIKState2SK1.RightLegRy" "Character1_RightLeg.ry";
+connectAttr "HIKState2SK1.RightLegRz" "Character1_RightLeg.rz";
 connectAttr "Character1_RightLeg.s" "Character1_RightFoot.is";
+connectAttr "HIKState2SK1.RightFootSx" "Character1_RightFoot.sx";
+connectAttr "HIKState2SK1.RightFootSy" "Character1_RightFoot.sy";
+connectAttr "HIKState2SK1.RightFootSz" "Character1_RightFoot.sz";
+connectAttr "HIKState2SK1.RightFootTx" "Character1_RightFoot.tx";
+connectAttr "HIKState2SK1.RightFootTy" "Character1_RightFoot.ty";
+connectAttr "HIKState2SK1.RightFootTz" "Character1_RightFoot.tz";
+connectAttr "HIKState2SK1.RightFootRx" "Character1_RightFoot.rx";
+connectAttr "HIKState2SK1.RightFootRy" "Character1_RightFoot.ry";
+connectAttr "HIKState2SK1.RightFootRz" "Character1_RightFoot.rz";
 connectAttr "Character1_RightFoot.s" "Character1_RightToeBase.is";
+connectAttr "HIKState2SK1.RightToeBaseTx" "Character1_RightToeBase.tx";
+connectAttr "HIKState2SK1.RightToeBaseTy" "Character1_RightToeBase.ty";
+connectAttr "HIKState2SK1.RightToeBaseTz" "Character1_RightToeBase.tz";
+connectAttr "HIKState2SK1.RightToeBaseRx" "Character1_RightToeBase.rx";
+connectAttr "HIKState2SK1.RightToeBaseRy" "Character1_RightToeBase.ry";
+connectAttr "HIKState2SK1.RightToeBaseRz" "Character1_RightToeBase.rz";
+connectAttr "HIKState2SK1.RightToeBaseSx" "Character1_RightToeBase.sx";
+connectAttr "HIKState2SK1.RightToeBaseSy" "Character1_RightToeBase.sy";
+connectAttr "HIKState2SK1.RightToeBaseSz" "Character1_RightToeBase.sz";
 connectAttr "Character1_Hips.s" "Character1_Spine.is";
+connectAttr "HIKState2SK1.SpineSx" "Character1_Spine.sx";
+connectAttr "HIKState2SK1.SpineSy" "Character1_Spine.sy";
+connectAttr "HIKState2SK1.SpineSz" "Character1_Spine.sz";
+connectAttr "HIKState2SK1.SpineTx" "Character1_Spine.tx";
+connectAttr "HIKState2SK1.SpineTy" "Character1_Spine.ty";
+connectAttr "HIKState2SK1.SpineTz" "Character1_Spine.tz";
+connectAttr "HIKState2SK1.SpineRx" "Character1_Spine.rx";
+connectAttr "HIKState2SK1.SpineRy" "Character1_Spine.ry";
+connectAttr "HIKState2SK1.SpineRz" "Character1_Spine.rz";
 connectAttr "Character1_Spine.s" "Character1_Spine1.is";
+connectAttr "HIKState2SK1.Spine1Sx" "Character1_Spine1.sx";
+connectAttr "HIKState2SK1.Spine1Sy" "Character1_Spine1.sy";
+connectAttr "HIKState2SK1.Spine1Sz" "Character1_Spine1.sz";
+connectAttr "HIKState2SK1.Spine1Tx" "Character1_Spine1.tx";
+connectAttr "HIKState2SK1.Spine1Ty" "Character1_Spine1.ty";
+connectAttr "HIKState2SK1.Spine1Tz" "Character1_Spine1.tz";
+connectAttr "HIKState2SK1.Spine1Rx" "Character1_Spine1.rx";
+connectAttr "HIKState2SK1.Spine1Ry" "Character1_Spine1.ry";
+connectAttr "HIKState2SK1.Spine1Rz" "Character1_Spine1.rz";
 connectAttr "Character1_Spine1.s" "Character1_Spine2.is";
+connectAttr "HIKState2SK1.Spine2Sx" "Character1_Spine2.sx";
+connectAttr "HIKState2SK1.Spine2Sy" "Character1_Spine2.sy";
+connectAttr "HIKState2SK1.Spine2Sz" "Character1_Spine2.sz";
+connectAttr "HIKState2SK1.Spine2Tx" "Character1_Spine2.tx";
+connectAttr "HIKState2SK1.Spine2Ty" "Character1_Spine2.ty";
+connectAttr "HIKState2SK1.Spine2Tz" "Character1_Spine2.tz";
+connectAttr "HIKState2SK1.Spine2Rx" "Character1_Spine2.rx";
+connectAttr "HIKState2SK1.Spine2Ry" "Character1_Spine2.ry";
+connectAttr "HIKState2SK1.Spine2Rz" "Character1_Spine2.rz";
 connectAttr "Character1_Spine2.s" "Character1_Power1.is";
 connectAttr "Character1_Spine2.s" "Character1_LeftShoulder.is";
+connectAttr "HIKState2SK1.LeftShoulderSx" "Character1_LeftShoulder.sx";
+connectAttr "HIKState2SK1.LeftShoulderSy" "Character1_LeftShoulder.sy";
+connectAttr "HIKState2SK1.LeftShoulderSz" "Character1_LeftShoulder.sz";
+connectAttr "HIKState2SK1.LeftShoulderTx" "Character1_LeftShoulder.tx";
+connectAttr "HIKState2SK1.LeftShoulderTy" "Character1_LeftShoulder.ty";
+connectAttr "HIKState2SK1.LeftShoulderTz" "Character1_LeftShoulder.tz";
+connectAttr "HIKState2SK1.LeftShoulderRx" "Character1_LeftShoulder.rx";
+connectAttr "HIKState2SK1.LeftShoulderRy" "Character1_LeftShoulder.ry";
+connectAttr "HIKState2SK1.LeftShoulderRz" "Character1_LeftShoulder.rz";
 connectAttr "Character1_LeftShoulder.s" "Character1_LeftArm.is";
+connectAttr "HIKState2SK1.LeftArmSx" "Character1_LeftArm.sx";
+connectAttr "HIKState2SK1.LeftArmSy" "Character1_LeftArm.sy";
+connectAttr "HIKState2SK1.LeftArmSz" "Character1_LeftArm.sz";
+connectAttr "HIKState2SK1.LeftArmTx" "Character1_LeftArm.tx";
+connectAttr "HIKState2SK1.LeftArmTy" "Character1_LeftArm.ty";
+connectAttr "HIKState2SK1.LeftArmTz" "Character1_LeftArm.tz";
+connectAttr "HIKState2SK1.LeftArmRx" "Character1_LeftArm.rx";
+connectAttr "HIKState2SK1.LeftArmRy" "Character1_LeftArm.ry";
+connectAttr "HIKState2SK1.LeftArmRz" "Character1_LeftArm.rz";
 connectAttr "Character1_LeftArm.s" "Character1_LeftForeArm.is";
+connectAttr "HIKState2SK1.LeftForeArmSx" "Character1_LeftForeArm.sx";
+connectAttr "HIKState2SK1.LeftForeArmSy" "Character1_LeftForeArm.sy";
+connectAttr "HIKState2SK1.LeftForeArmSz" "Character1_LeftForeArm.sz";
+connectAttr "HIKState2SK1.LeftForeArmTx" "Character1_LeftForeArm.tx";
+connectAttr "HIKState2SK1.LeftForeArmTy" "Character1_LeftForeArm.ty";
+connectAttr "HIKState2SK1.LeftForeArmTz" "Character1_LeftForeArm.tz";
+connectAttr "HIKState2SK1.LeftForeArmRx" "Character1_LeftForeArm.rx";
+connectAttr "HIKState2SK1.LeftForeArmRy" "Character1_LeftForeArm.ry";
+connectAttr "HIKState2SK1.LeftForeArmRz" "Character1_LeftForeArm.rz";
 connectAttr "Character1_LeftForeArm.s" "Character1_LeftHand.is";
+connectAttr "HIKState2SK1.LeftHandSx" "Character1_LeftHand.sx";
+connectAttr "HIKState2SK1.LeftHandSy" "Character1_LeftHand.sy";
+connectAttr "HIKState2SK1.LeftHandSz" "Character1_LeftHand.sz";
+connectAttr "HIKState2SK1.LeftHandTx" "Character1_LeftHand.tx";
+connectAttr "HIKState2SK1.LeftHandTy" "Character1_LeftHand.ty";
+connectAttr "HIKState2SK1.LeftHandTz" "Character1_LeftHand.tz";
+connectAttr "HIKState2SK1.LeftHandRx" "Character1_LeftHand.rx";
+connectAttr "HIKState2SK1.LeftHandRy" "Character1_LeftHand.ry";
+connectAttr "HIKState2SK1.LeftHandRz" "Character1_LeftHand.rz";
 connectAttr "Character1_LeftHand.s" "Character1_LeftHandThumb1.is";
+connectAttr "HIKState2SK1.LeftHandThumb1Sx" "Character1_LeftHandThumb1.sx";
+connectAttr "HIKState2SK1.LeftHandThumb1Sy" "Character1_LeftHandThumb1.sy";
+connectAttr "HIKState2SK1.LeftHandThumb1Sz" "Character1_LeftHandThumb1.sz";
+connectAttr "HIKState2SK1.LeftHandThumb1Tx" "Character1_LeftHandThumb1.tx";
+connectAttr "HIKState2SK1.LeftHandThumb1Ty" "Character1_LeftHandThumb1.ty";
+connectAttr "HIKState2SK1.LeftHandThumb1Tz" "Character1_LeftHandThumb1.tz";
+connectAttr "HIKState2SK1.LeftHandThumb1Rx" "Character1_LeftHandThumb1.rx";
+connectAttr "HIKState2SK1.LeftHandThumb1Ry" "Character1_LeftHandThumb1.ry";
+connectAttr "HIKState2SK1.LeftHandThumb1Rz" "Character1_LeftHandThumb1.rz";
 connectAttr "Character1_LeftHandThumb1.s" "Character1_LeftHandThumb2.is";
+connectAttr "HIKState2SK1.LeftHandThumb2Sx" "Character1_LeftHandThumb2.sx";
+connectAttr "HIKState2SK1.LeftHandThumb2Sy" "Character1_LeftHandThumb2.sy";
+connectAttr "HIKState2SK1.LeftHandThumb2Sz" "Character1_LeftHandThumb2.sz";
+connectAttr "HIKState2SK1.LeftHandThumb2Tx" "Character1_LeftHandThumb2.tx";
+connectAttr "HIKState2SK1.LeftHandThumb2Ty" "Character1_LeftHandThumb2.ty";
+connectAttr "HIKState2SK1.LeftHandThumb2Tz" "Character1_LeftHandThumb2.tz";
+connectAttr "HIKState2SK1.LeftHandThumb2Rx" "Character1_LeftHandThumb2.rx";
+connectAttr "HIKState2SK1.LeftHandThumb2Ry" "Character1_LeftHandThumb2.ry";
+connectAttr "HIKState2SK1.LeftHandThumb2Rz" "Character1_LeftHandThumb2.rz";
 connectAttr "Character1_LeftHandThumb2.s" "Character1_LeftHandThumb3.is";
+connectAttr "HIKState2SK1.LeftHandThumb3Sx" "Character1_LeftHandThumb3.sx";
+connectAttr "HIKState2SK1.LeftHandThumb3Sy" "Character1_LeftHandThumb3.sy";
+connectAttr "HIKState2SK1.LeftHandThumb3Sz" "Character1_LeftHandThumb3.sz";
+connectAttr "HIKState2SK1.LeftHandThumb3Tx" "Character1_LeftHandThumb3.tx";
+connectAttr "HIKState2SK1.LeftHandThumb3Ty" "Character1_LeftHandThumb3.ty";
+connectAttr "HIKState2SK1.LeftHandThumb3Tz" "Character1_LeftHandThumb3.tz";
+connectAttr "HIKState2SK1.LeftHandThumb3Rx" "Character1_LeftHandThumb3.rx";
+connectAttr "HIKState2SK1.LeftHandThumb3Ry" "Character1_LeftHandThumb3.ry";
+connectAttr "HIKState2SK1.LeftHandThumb3Rz" "Character1_LeftHandThumb3.rz";
 connectAttr "Character1_LeftHandThumb3.s" "Character1_LeftHandThumb4.is";
+connectAttr "HIKState2SK1.LeftHandThumb4Tx" "Character1_LeftHandThumb4.tx";
+connectAttr "HIKState2SK1.LeftHandThumb4Ty" "Character1_LeftHandThumb4.ty";
+connectAttr "HIKState2SK1.LeftHandThumb4Tz" "Character1_LeftHandThumb4.tz";
+connectAttr "HIKState2SK1.LeftHandThumb4Rx" "Character1_LeftHandThumb4.rx";
+connectAttr "HIKState2SK1.LeftHandThumb4Ry" "Character1_LeftHandThumb4.ry";
+connectAttr "HIKState2SK1.LeftHandThumb4Rz" "Character1_LeftHandThumb4.rz";
+connectAttr "HIKState2SK1.LeftHandThumb4Sx" "Character1_LeftHandThumb4.sx";
+connectAttr "HIKState2SK1.LeftHandThumb4Sy" "Character1_LeftHandThumb4.sy";
+connectAttr "HIKState2SK1.LeftHandThumb4Sz" "Character1_LeftHandThumb4.sz";
 connectAttr "Character1_LeftHand.s" "Character1_LeftHandIndex1.is";
+connectAttr "HIKState2SK1.LeftHandIndex1Sx" "Character1_LeftHandIndex1.sx";
+connectAttr "HIKState2SK1.LeftHandIndex1Sy" "Character1_LeftHandIndex1.sy";
+connectAttr "HIKState2SK1.LeftHandIndex1Sz" "Character1_LeftHandIndex1.sz";
+connectAttr "HIKState2SK1.LeftHandIndex1Tx" "Character1_LeftHandIndex1.tx";
+connectAttr "HIKState2SK1.LeftHandIndex1Ty" "Character1_LeftHandIndex1.ty";
+connectAttr "HIKState2SK1.LeftHandIndex1Tz" "Character1_LeftHandIndex1.tz";
+connectAttr "HIKState2SK1.LeftHandIndex1Rx" "Character1_LeftHandIndex1.rx";
+connectAttr "HIKState2SK1.LeftHandIndex1Ry" "Character1_LeftHandIndex1.ry";
+connectAttr "HIKState2SK1.LeftHandIndex1Rz" "Character1_LeftHandIndex1.rz";
 connectAttr "Character1_LeftHandIndex1.s" "Character1_LeftHandIndex2.is";
+connectAttr "HIKState2SK1.LeftHandIndex2Sx" "Character1_LeftHandIndex2.sx";
+connectAttr "HIKState2SK1.LeftHandIndex2Sy" "Character1_LeftHandIndex2.sy";
+connectAttr "HIKState2SK1.LeftHandIndex2Sz" "Character1_LeftHandIndex2.sz";
+connectAttr "HIKState2SK1.LeftHandIndex2Tx" "Character1_LeftHandIndex2.tx";
+connectAttr "HIKState2SK1.LeftHandIndex2Ty" "Character1_LeftHandIndex2.ty";
+connectAttr "HIKState2SK1.LeftHandIndex2Tz" "Character1_LeftHandIndex2.tz";
+connectAttr "HIKState2SK1.LeftHandIndex2Rx" "Character1_LeftHandIndex2.rx";
+connectAttr "HIKState2SK1.LeftHandIndex2Ry" "Character1_LeftHandIndex2.ry";
+connectAttr "HIKState2SK1.LeftHandIndex2Rz" "Character1_LeftHandIndex2.rz";
 connectAttr "Character1_LeftHandIndex2.s" "Character1_LeftHandIndex3.is";
+connectAttr "HIKState2SK1.LeftHandIndex3Sx" "Character1_LeftHandIndex3.sx";
+connectAttr "HIKState2SK1.LeftHandIndex3Sy" "Character1_LeftHandIndex3.sy";
+connectAttr "HIKState2SK1.LeftHandIndex3Sz" "Character1_LeftHandIndex3.sz";
+connectAttr "HIKState2SK1.LeftHandIndex3Tx" "Character1_LeftHandIndex3.tx";
+connectAttr "HIKState2SK1.LeftHandIndex3Ty" "Character1_LeftHandIndex3.ty";
+connectAttr "HIKState2SK1.LeftHandIndex3Tz" "Character1_LeftHandIndex3.tz";
+connectAttr "HIKState2SK1.LeftHandIndex3Rx" "Character1_LeftHandIndex3.rx";
+connectAttr "HIKState2SK1.LeftHandIndex3Ry" "Character1_LeftHandIndex3.ry";
+connectAttr "HIKState2SK1.LeftHandIndex3Rz" "Character1_LeftHandIndex3.rz";
 connectAttr "Character1_LeftHandIndex3.s" "Character1_LeftHandIndex4.is";
+connectAttr "HIKState2SK1.LeftHandIndex4Tx" "Character1_LeftHandIndex4.tx";
+connectAttr "HIKState2SK1.LeftHandIndex4Ty" "Character1_LeftHandIndex4.ty";
+connectAttr "HIKState2SK1.LeftHandIndex4Tz" "Character1_LeftHandIndex4.tz";
+connectAttr "HIKState2SK1.LeftHandIndex4Rx" "Character1_LeftHandIndex4.rx";
+connectAttr "HIKState2SK1.LeftHandIndex4Ry" "Character1_LeftHandIndex4.ry";
+connectAttr "HIKState2SK1.LeftHandIndex4Rz" "Character1_LeftHandIndex4.rz";
+connectAttr "HIKState2SK1.LeftHandIndex4Sx" "Character1_LeftHandIndex4.sx";
+connectAttr "HIKState2SK1.LeftHandIndex4Sy" "Character1_LeftHandIndex4.sy";
+connectAttr "HIKState2SK1.LeftHandIndex4Sz" "Character1_LeftHandIndex4.sz";
 connectAttr "Character1_LeftHand.s" "Character1_LeftHandMiddle1.is";
+connectAttr "HIKState2SK1.LeftHandMiddle1Sx" "Character1_LeftHandMiddle1.sx";
+connectAttr "HIKState2SK1.LeftHandMiddle1Sy" "Character1_LeftHandMiddle1.sy";
+connectAttr "HIKState2SK1.LeftHandMiddle1Sz" "Character1_LeftHandMiddle1.sz";
+connectAttr "HIKState2SK1.LeftHandMiddle1Tx" "Character1_LeftHandMiddle1.tx";
+connectAttr "HIKState2SK1.LeftHandMiddle1Ty" "Character1_LeftHandMiddle1.ty";
+connectAttr "HIKState2SK1.LeftHandMiddle1Tz" "Character1_LeftHandMiddle1.tz";
+connectAttr "HIKState2SK1.LeftHandMiddle1Rx" "Character1_LeftHandMiddle1.rx";
+connectAttr "HIKState2SK1.LeftHandMiddle1Ry" "Character1_LeftHandMiddle1.ry";
+connectAttr "HIKState2SK1.LeftHandMiddle1Rz" "Character1_LeftHandMiddle1.rz";
 connectAttr "Character1_LeftHandMiddle1.s" "Character1_LeftHandMiddle2.is";
+connectAttr "HIKState2SK1.LeftHandMiddle2Sx" "Character1_LeftHandMiddle2.sx";
+connectAttr "HIKState2SK1.LeftHandMiddle2Sy" "Character1_LeftHandMiddle2.sy";
+connectAttr "HIKState2SK1.LeftHandMiddle2Sz" "Character1_LeftHandMiddle2.sz";
+connectAttr "HIKState2SK1.LeftHandMiddle2Tx" "Character1_LeftHandMiddle2.tx";
+connectAttr "HIKState2SK1.LeftHandMiddle2Ty" "Character1_LeftHandMiddle2.ty";
+connectAttr "HIKState2SK1.LeftHandMiddle2Tz" "Character1_LeftHandMiddle2.tz";
+connectAttr "HIKState2SK1.LeftHandMiddle2Rx" "Character1_LeftHandMiddle2.rx";
+connectAttr "HIKState2SK1.LeftHandMiddle2Ry" "Character1_LeftHandMiddle2.ry";
+connectAttr "HIKState2SK1.LeftHandMiddle2Rz" "Character1_LeftHandMiddle2.rz";
 connectAttr "Character1_LeftHandMiddle2.s" "Character1_LeftHandMiddle3.is";
+connectAttr "HIKState2SK1.LeftHandMiddle3Sx" "Character1_LeftHandMiddle3.sx";
+connectAttr "HIKState2SK1.LeftHandMiddle3Sy" "Character1_LeftHandMiddle3.sy";
+connectAttr "HIKState2SK1.LeftHandMiddle3Sz" "Character1_LeftHandMiddle3.sz";
+connectAttr "HIKState2SK1.LeftHandMiddle3Tx" "Character1_LeftHandMiddle3.tx";
+connectAttr "HIKState2SK1.LeftHandMiddle3Ty" "Character1_LeftHandMiddle3.ty";
+connectAttr "HIKState2SK1.LeftHandMiddle3Tz" "Character1_LeftHandMiddle3.tz";
+connectAttr "HIKState2SK1.LeftHandMiddle3Rx" "Character1_LeftHandMiddle3.rx";
+connectAttr "HIKState2SK1.LeftHandMiddle3Ry" "Character1_LeftHandMiddle3.ry";
+connectAttr "HIKState2SK1.LeftHandMiddle3Rz" "Character1_LeftHandMiddle3.rz";
 connectAttr "Character1_LeftHandMiddle3.s" "Character1_LeftHandMiddle4.is";
+connectAttr "HIKState2SK1.LeftHandMiddle4Tx" "Character1_LeftHandMiddle4.tx";
+connectAttr "HIKState2SK1.LeftHandMiddle4Ty" "Character1_LeftHandMiddle4.ty";
+connectAttr "HIKState2SK1.LeftHandMiddle4Tz" "Character1_LeftHandMiddle4.tz";
+connectAttr "HIKState2SK1.LeftHandMiddle4Rx" "Character1_LeftHandMiddle4.rx";
+connectAttr "HIKState2SK1.LeftHandMiddle4Ry" "Character1_LeftHandMiddle4.ry";
+connectAttr "HIKState2SK1.LeftHandMiddle4Rz" "Character1_LeftHandMiddle4.rz";
+connectAttr "HIKState2SK1.LeftHandMiddle4Sx" "Character1_LeftHandMiddle4.sx";
+connectAttr "HIKState2SK1.LeftHandMiddle4Sy" "Character1_LeftHandMiddle4.sy";
+connectAttr "HIKState2SK1.LeftHandMiddle4Sz" "Character1_LeftHandMiddle4.sz";
 connectAttr "Character1_LeftHand.s" "Character1_LeftHandRing1.is";
+connectAttr "HIKState2SK1.LeftHandRing1Sx" "Character1_LeftHandRing1.sx";
+connectAttr "HIKState2SK1.LeftHandRing1Sy" "Character1_LeftHandRing1.sy";
+connectAttr "HIKState2SK1.LeftHandRing1Sz" "Character1_LeftHandRing1.sz";
+connectAttr "HIKState2SK1.LeftHandRing1Tx" "Character1_LeftHandRing1.tx";
+connectAttr "HIKState2SK1.LeftHandRing1Ty" "Character1_LeftHandRing1.ty";
+connectAttr "HIKState2SK1.LeftHandRing1Tz" "Character1_LeftHandRing1.tz";
+connectAttr "HIKState2SK1.LeftHandRing1Rx" "Character1_LeftHandRing1.rx";
+connectAttr "HIKState2SK1.LeftHandRing1Ry" "Character1_LeftHandRing1.ry";
+connectAttr "HIKState2SK1.LeftHandRing1Rz" "Character1_LeftHandRing1.rz";
 connectAttr "Character1_LeftHandRing1.s" "Character1_LeftHandRing2.is";
+connectAttr "HIKState2SK1.LeftHandRing2Sx" "Character1_LeftHandRing2.sx";
+connectAttr "HIKState2SK1.LeftHandRing2Sy" "Character1_LeftHandRing2.sy";
+connectAttr "HIKState2SK1.LeftHandRing2Sz" "Character1_LeftHandRing2.sz";
+connectAttr "HIKState2SK1.LeftHandRing2Tx" "Character1_LeftHandRing2.tx";
+connectAttr "HIKState2SK1.LeftHandRing2Ty" "Character1_LeftHandRing2.ty";
+connectAttr "HIKState2SK1.LeftHandRing2Tz" "Character1_LeftHandRing2.tz";
+connectAttr "HIKState2SK1.LeftHandRing2Rx" "Character1_LeftHandRing2.rx";
+connectAttr "HIKState2SK1.LeftHandRing2Ry" "Character1_LeftHandRing2.ry";
+connectAttr "HIKState2SK1.LeftHandRing2Rz" "Character1_LeftHandRing2.rz";
 connectAttr "Character1_LeftHandRing2.s" "Character1_LeftHandRing3.is";
+connectAttr "HIKState2SK1.LeftHandRing3Sx" "Character1_LeftHandRing3.sx";
+connectAttr "HIKState2SK1.LeftHandRing3Sy" "Character1_LeftHandRing3.sy";
+connectAttr "HIKState2SK1.LeftHandRing3Sz" "Character1_LeftHandRing3.sz";
+connectAttr "HIKState2SK1.LeftHandRing3Tx" "Character1_LeftHandRing3.tx";
+connectAttr "HIKState2SK1.LeftHandRing3Ty" "Character1_LeftHandRing3.ty";
+connectAttr "HIKState2SK1.LeftHandRing3Tz" "Character1_LeftHandRing3.tz";
+connectAttr "HIKState2SK1.LeftHandRing3Rx" "Character1_LeftHandRing3.rx";
+connectAttr "HIKState2SK1.LeftHandRing3Ry" "Character1_LeftHandRing3.ry";
+connectAttr "HIKState2SK1.LeftHandRing3Rz" "Character1_LeftHandRing3.rz";
 connectAttr "Character1_LeftHandRing3.s" "Character1_LeftHandRing4.is";
+connectAttr "HIKState2SK1.LeftHandRing4Tx" "Character1_LeftHandRing4.tx";
+connectAttr "HIKState2SK1.LeftHandRing4Ty" "Character1_LeftHandRing4.ty";
+connectAttr "HIKState2SK1.LeftHandRing4Tz" "Character1_LeftHandRing4.tz";
+connectAttr "HIKState2SK1.LeftHandRing4Rx" "Character1_LeftHandRing4.rx";
+connectAttr "HIKState2SK1.LeftHandRing4Ry" "Character1_LeftHandRing4.ry";
+connectAttr "HIKState2SK1.LeftHandRing4Rz" "Character1_LeftHandRing4.rz";
+connectAttr "HIKState2SK1.LeftHandRing4Sx" "Character1_LeftHandRing4.sx";
+connectAttr "HIKState2SK1.LeftHandRing4Sy" "Character1_LeftHandRing4.sy";
+connectAttr "HIKState2SK1.LeftHandRing4Sz" "Character1_LeftHandRing4.sz";
 connectAttr "Character1_LeftHand.s" "Character1_LeftHandPinky1.is";
+connectAttr "HIKState2SK1.LeftHandPinky1Sx" "Character1_LeftHandPinky1.sx";
+connectAttr "HIKState2SK1.LeftHandPinky1Sy" "Character1_LeftHandPinky1.sy";
+connectAttr "HIKState2SK1.LeftHandPinky1Sz" "Character1_LeftHandPinky1.sz";
+connectAttr "HIKState2SK1.LeftHandPinky1Tx" "Character1_LeftHandPinky1.tx";
+connectAttr "HIKState2SK1.LeftHandPinky1Ty" "Character1_LeftHandPinky1.ty";
+connectAttr "HIKState2SK1.LeftHandPinky1Tz" "Character1_LeftHandPinky1.tz";
+connectAttr "HIKState2SK1.LeftHandPinky1Rx" "Character1_LeftHandPinky1.rx";
+connectAttr "HIKState2SK1.LeftHandPinky1Ry" "Character1_LeftHandPinky1.ry";
+connectAttr "HIKState2SK1.LeftHandPinky1Rz" "Character1_LeftHandPinky1.rz";
 connectAttr "Character1_LeftHandPinky1.s" "Character1_LeftHandPinky2.is";
+connectAttr "HIKState2SK1.LeftHandPinky2Sx" "Character1_LeftHandPinky2.sx";
+connectAttr "HIKState2SK1.LeftHandPinky2Sy" "Character1_LeftHandPinky2.sy";
+connectAttr "HIKState2SK1.LeftHandPinky2Sz" "Character1_LeftHandPinky2.sz";
+connectAttr "HIKState2SK1.LeftHandPinky2Tx" "Character1_LeftHandPinky2.tx";
+connectAttr "HIKState2SK1.LeftHandPinky2Ty" "Character1_LeftHandPinky2.ty";
+connectAttr "HIKState2SK1.LeftHandPinky2Tz" "Character1_LeftHandPinky2.tz";
+connectAttr "HIKState2SK1.LeftHandPinky2Rx" "Character1_LeftHandPinky2.rx";
+connectAttr "HIKState2SK1.LeftHandPinky2Ry" "Character1_LeftHandPinky2.ry";
+connectAttr "HIKState2SK1.LeftHandPinky2Rz" "Character1_LeftHandPinky2.rz";
 connectAttr "Character1_LeftHandPinky2.s" "Character1_LeftHandPinky3.is";
+connectAttr "HIKState2SK1.LeftHandPinky3Sx" "Character1_LeftHandPinky3.sx";
+connectAttr "HIKState2SK1.LeftHandPinky3Sy" "Character1_LeftHandPinky3.sy";
+connectAttr "HIKState2SK1.LeftHandPinky3Sz" "Character1_LeftHandPinky3.sz";
+connectAttr "HIKState2SK1.LeftHandPinky3Tx" "Character1_LeftHandPinky3.tx";
+connectAttr "HIKState2SK1.LeftHandPinky3Ty" "Character1_LeftHandPinky3.ty";
+connectAttr "HIKState2SK1.LeftHandPinky3Tz" "Character1_LeftHandPinky3.tz";
+connectAttr "HIKState2SK1.LeftHandPinky3Rx" "Character1_LeftHandPinky3.rx";
+connectAttr "HIKState2SK1.LeftHandPinky3Ry" "Character1_LeftHandPinky3.ry";
+connectAttr "HIKState2SK1.LeftHandPinky3Rz" "Character1_LeftHandPinky3.rz";
 connectAttr "Character1_LeftHandPinky3.s" "Character1_LeftHandPinky4.is";
+connectAttr "HIKState2SK1.LeftHandPinky4Tx" "Character1_LeftHandPinky4.tx";
+connectAttr "HIKState2SK1.LeftHandPinky4Ty" "Character1_LeftHandPinky4.ty";
+connectAttr "HIKState2SK1.LeftHandPinky4Tz" "Character1_LeftHandPinky4.tz";
+connectAttr "HIKState2SK1.LeftHandPinky4Rx" "Character1_LeftHandPinky4.rx";
+connectAttr "HIKState2SK1.LeftHandPinky4Ry" "Character1_LeftHandPinky4.ry";
+connectAttr "HIKState2SK1.LeftHandPinky4Rz" "Character1_LeftHandPinky4.rz";
+connectAttr "HIKState2SK1.LeftHandPinky4Sx" "Character1_LeftHandPinky4.sx";
+connectAttr "HIKState2SK1.LeftHandPinky4Sy" "Character1_LeftHandPinky4.sy";
+connectAttr "HIKState2SK1.LeftHandPinky4Sz" "Character1_LeftHandPinky4.sz";
 connectAttr "Character1_Spine2.s" "Character1_RightShoulder.is";
+connectAttr "HIKState2SK1.RightShoulderSx" "Character1_RightShoulder.sx";
+connectAttr "HIKState2SK1.RightShoulderSy" "Character1_RightShoulder.sy";
+connectAttr "HIKState2SK1.RightShoulderSz" "Character1_RightShoulder.sz";
+connectAttr "HIKState2SK1.RightShoulderTx" "Character1_RightShoulder.tx";
+connectAttr "HIKState2SK1.RightShoulderTy" "Character1_RightShoulder.ty";
+connectAttr "HIKState2SK1.RightShoulderTz" "Character1_RightShoulder.tz";
+connectAttr "HIKState2SK1.RightShoulderRx" "Character1_RightShoulder.rx";
+connectAttr "HIKState2SK1.RightShoulderRy" "Character1_RightShoulder.ry";
+connectAttr "HIKState2SK1.RightShoulderRz" "Character1_RightShoulder.rz";
 connectAttr "Character1_RightShoulder.s" "Character1_RightArm.is";
+connectAttr "HIKState2SK1.RightArmSx" "Character1_RightArm.sx";
+connectAttr "HIKState2SK1.RightArmSy" "Character1_RightArm.sy";
+connectAttr "HIKState2SK1.RightArmSz" "Character1_RightArm.sz";
+connectAttr "HIKState2SK1.RightArmTx" "Character1_RightArm.tx";
+connectAttr "HIKState2SK1.RightArmTy" "Character1_RightArm.ty";
+connectAttr "HIKState2SK1.RightArmTz" "Character1_RightArm.tz";
+connectAttr "HIKState2SK1.RightArmRx" "Character1_RightArm.rx";
+connectAttr "HIKState2SK1.RightArmRy" "Character1_RightArm.ry";
+connectAttr "HIKState2SK1.RightArmRz" "Character1_RightArm.rz";
 connectAttr "Character1_RightArm.s" "Character1_RightForeArm.is";
+connectAttr "HIKState2SK1.RightForeArmSx" "Character1_RightForeArm.sx";
+connectAttr "HIKState2SK1.RightForeArmSy" "Character1_RightForeArm.sy";
+connectAttr "HIKState2SK1.RightForeArmSz" "Character1_RightForeArm.sz";
+connectAttr "HIKState2SK1.RightForeArmTx" "Character1_RightForeArm.tx";
+connectAttr "HIKState2SK1.RightForeArmTy" "Character1_RightForeArm.ty";
+connectAttr "HIKState2SK1.RightForeArmTz" "Character1_RightForeArm.tz";
+connectAttr "HIKState2SK1.RightForeArmRx" "Character1_RightForeArm.rx";
+connectAttr "HIKState2SK1.RightForeArmRy" "Character1_RightForeArm.ry";
+connectAttr "HIKState2SK1.RightForeArmRz" "Character1_RightForeArm.rz";
 connectAttr "Character1_RightForeArm.s" "Character1_RightHand.is";
+connectAttr "HIKState2SK1.RightHandSx" "Character1_RightHand.sx";
+connectAttr "HIKState2SK1.RightHandSy" "Character1_RightHand.sy";
+connectAttr "HIKState2SK1.RightHandSz" "Character1_RightHand.sz";
+connectAttr "HIKState2SK1.RightHandTx" "Character1_RightHand.tx";
+connectAttr "HIKState2SK1.RightHandTy" "Character1_RightHand.ty";
+connectAttr "HIKState2SK1.RightHandTz" "Character1_RightHand.tz";
+connectAttr "HIKState2SK1.RightHandRx" "Character1_RightHand.rx";
+connectAttr "HIKState2SK1.RightHandRy" "Character1_RightHand.ry";
+connectAttr "HIKState2SK1.RightHandRz" "Character1_RightHand.rz";
 connectAttr "Character1_RightHand.s" "PipeJoint.is";
 connectAttr "Character1_RightHand.s" "Character1_RightHandThumb1.is";
+connectAttr "HIKState2SK1.RightHandThumb1Sx" "Character1_RightHandThumb1.sx";
+connectAttr "HIKState2SK1.RightHandThumb1Sy" "Character1_RightHandThumb1.sy";
+connectAttr "HIKState2SK1.RightHandThumb1Sz" "Character1_RightHandThumb1.sz";
+connectAttr "HIKState2SK1.RightHandThumb1Tx" "Character1_RightHandThumb1.tx";
+connectAttr "HIKState2SK1.RightHandThumb1Ty" "Character1_RightHandThumb1.ty";
+connectAttr "HIKState2SK1.RightHandThumb1Tz" "Character1_RightHandThumb1.tz";
+connectAttr "HIKState2SK1.RightHandThumb1Rx" "Character1_RightHandThumb1.rx";
+connectAttr "HIKState2SK1.RightHandThumb1Ry" "Character1_RightHandThumb1.ry";
+connectAttr "HIKState2SK1.RightHandThumb1Rz" "Character1_RightHandThumb1.rz";
 connectAttr "Character1_RightHandThumb1.s" "Character1_RightHandThumb2.is";
+connectAttr "HIKState2SK1.RightHandThumb2Sx" "Character1_RightHandThumb2.sx";
+connectAttr "HIKState2SK1.RightHandThumb2Sy" "Character1_RightHandThumb2.sy";
+connectAttr "HIKState2SK1.RightHandThumb2Sz" "Character1_RightHandThumb2.sz";
+connectAttr "HIKState2SK1.RightHandThumb2Tx" "Character1_RightHandThumb2.tx";
+connectAttr "HIKState2SK1.RightHandThumb2Ty" "Character1_RightHandThumb2.ty";
+connectAttr "HIKState2SK1.RightHandThumb2Tz" "Character1_RightHandThumb2.tz";
+connectAttr "HIKState2SK1.RightHandThumb2Rx" "Character1_RightHandThumb2.rx";
+connectAttr "HIKState2SK1.RightHandThumb2Ry" "Character1_RightHandThumb2.ry";
+connectAttr "HIKState2SK1.RightHandThumb2Rz" "Character1_RightHandThumb2.rz";
 connectAttr "Character1_RightHandThumb2.s" "Character1_RightHandThumb3.is";
+connectAttr "HIKState2SK1.RightHandThumb3Sx" "Character1_RightHandThumb3.sx";
+connectAttr "HIKState2SK1.RightHandThumb3Sy" "Character1_RightHandThumb3.sy";
+connectAttr "HIKState2SK1.RightHandThumb3Sz" "Character1_RightHandThumb3.sz";
+connectAttr "HIKState2SK1.RightHandThumb3Tx" "Character1_RightHandThumb3.tx";
+connectAttr "HIKState2SK1.RightHandThumb3Ty" "Character1_RightHandThumb3.ty";
+connectAttr "HIKState2SK1.RightHandThumb3Tz" "Character1_RightHandThumb3.tz";
+connectAttr "HIKState2SK1.RightHandThumb3Rx" "Character1_RightHandThumb3.rx";
+connectAttr "HIKState2SK1.RightHandThumb3Ry" "Character1_RightHandThumb3.ry";
+connectAttr "HIKState2SK1.RightHandThumb3Rz" "Character1_RightHandThumb3.rz";
 connectAttr "Character1_RightHandThumb3.s" "Character1_RightHandThumb4.is";
+connectAttr "HIKState2SK1.RightHandThumb4Tx" "Character1_RightHandThumb4.tx";
+connectAttr "HIKState2SK1.RightHandThumb4Ty" "Character1_RightHandThumb4.ty";
+connectAttr "HIKState2SK1.RightHandThumb4Tz" "Character1_RightHandThumb4.tz";
+connectAttr "HIKState2SK1.RightHandThumb4Rx" "Character1_RightHandThumb4.rx";
+connectAttr "HIKState2SK1.RightHandThumb4Ry" "Character1_RightHandThumb4.ry";
+connectAttr "HIKState2SK1.RightHandThumb4Rz" "Character1_RightHandThumb4.rz";
+connectAttr "HIKState2SK1.RightHandThumb4Sx" "Character1_RightHandThumb4.sx";
+connectAttr "HIKState2SK1.RightHandThumb4Sy" "Character1_RightHandThumb4.sy";
+connectAttr "HIKState2SK1.RightHandThumb4Sz" "Character1_RightHandThumb4.sz";
 connectAttr "Character1_RightHand.s" "Character1_RightHandIndex1.is";
+connectAttr "HIKState2SK1.RightHandIndex1Sx" "Character1_RightHandIndex1.sx";
+connectAttr "HIKState2SK1.RightHandIndex1Sy" "Character1_RightHandIndex1.sy";
+connectAttr "HIKState2SK1.RightHandIndex1Sz" "Character1_RightHandIndex1.sz";
+connectAttr "HIKState2SK1.RightHandIndex1Tx" "Character1_RightHandIndex1.tx";
+connectAttr "HIKState2SK1.RightHandIndex1Ty" "Character1_RightHandIndex1.ty";
+connectAttr "HIKState2SK1.RightHandIndex1Tz" "Character1_RightHandIndex1.tz";
+connectAttr "HIKState2SK1.RightHandIndex1Rx" "Character1_RightHandIndex1.rx";
+connectAttr "HIKState2SK1.RightHandIndex1Ry" "Character1_RightHandIndex1.ry";
+connectAttr "HIKState2SK1.RightHandIndex1Rz" "Character1_RightHandIndex1.rz";
 connectAttr "Character1_RightHandIndex1.s" "Character1_RightHandIndex2.is";
+connectAttr "HIKState2SK1.RightHandIndex2Sx" "Character1_RightHandIndex2.sx";
+connectAttr "HIKState2SK1.RightHandIndex2Sy" "Character1_RightHandIndex2.sy";
+connectAttr "HIKState2SK1.RightHandIndex2Sz" "Character1_RightHandIndex2.sz";
+connectAttr "HIKState2SK1.RightHandIndex2Tx" "Character1_RightHandIndex2.tx";
+connectAttr "HIKState2SK1.RightHandIndex2Ty" "Character1_RightHandIndex2.ty";
+connectAttr "HIKState2SK1.RightHandIndex2Tz" "Character1_RightHandIndex2.tz";
+connectAttr "HIKState2SK1.RightHandIndex2Rx" "Character1_RightHandIndex2.rx";
+connectAttr "HIKState2SK1.RightHandIndex2Ry" "Character1_RightHandIndex2.ry";
+connectAttr "HIKState2SK1.RightHandIndex2Rz" "Character1_RightHandIndex2.rz";
 connectAttr "Character1_RightHandIndex2.s" "Character1_RightHandIndex3.is";
+connectAttr "HIKState2SK1.RightHandIndex3Sx" "Character1_RightHandIndex3.sx";
+connectAttr "HIKState2SK1.RightHandIndex3Sy" "Character1_RightHandIndex3.sy";
+connectAttr "HIKState2SK1.RightHandIndex3Sz" "Character1_RightHandIndex3.sz";
+connectAttr "HIKState2SK1.RightHandIndex3Tx" "Character1_RightHandIndex3.tx";
+connectAttr "HIKState2SK1.RightHandIndex3Ty" "Character1_RightHandIndex3.ty";
+connectAttr "HIKState2SK1.RightHandIndex3Tz" "Character1_RightHandIndex3.tz";
+connectAttr "HIKState2SK1.RightHandIndex3Rx" "Character1_RightHandIndex3.rx";
+connectAttr "HIKState2SK1.RightHandIndex3Ry" "Character1_RightHandIndex3.ry";
+connectAttr "HIKState2SK1.RightHandIndex3Rz" "Character1_RightHandIndex3.rz";
 connectAttr "Character1_RightHandIndex3.s" "Character1_RightHandIndex4.is";
+connectAttr "HIKState2SK1.RightHandIndex4Tx" "Character1_RightHandIndex4.tx";
+connectAttr "HIKState2SK1.RightHandIndex4Ty" "Character1_RightHandIndex4.ty";
+connectAttr "HIKState2SK1.RightHandIndex4Tz" "Character1_RightHandIndex4.tz";
+connectAttr "HIKState2SK1.RightHandIndex4Rx" "Character1_RightHandIndex4.rx";
+connectAttr "HIKState2SK1.RightHandIndex4Ry" "Character1_RightHandIndex4.ry";
+connectAttr "HIKState2SK1.RightHandIndex4Rz" "Character1_RightHandIndex4.rz";
+connectAttr "HIKState2SK1.RightHandIndex4Sx" "Character1_RightHandIndex4.sx";
+connectAttr "HIKState2SK1.RightHandIndex4Sy" "Character1_RightHandIndex4.sy";
+connectAttr "HIKState2SK1.RightHandIndex4Sz" "Character1_RightHandIndex4.sz";
 connectAttr "Character1_RightHand.s" "Character1_RightHandMiddle1.is";
+connectAttr "HIKState2SK1.RightHandMiddle1Sx" "Character1_RightHandMiddle1.sx";
+connectAttr "HIKState2SK1.RightHandMiddle1Sy" "Character1_RightHandMiddle1.sy";
+connectAttr "HIKState2SK1.RightHandMiddle1Sz" "Character1_RightHandMiddle1.sz";
+connectAttr "HIKState2SK1.RightHandMiddle1Tx" "Character1_RightHandMiddle1.tx";
+connectAttr "HIKState2SK1.RightHandMiddle1Ty" "Character1_RightHandMiddle1.ty";
+connectAttr "HIKState2SK1.RightHandMiddle1Tz" "Character1_RightHandMiddle1.tz";
+connectAttr "HIKState2SK1.RightHandMiddle1Rx" "Character1_RightHandMiddle1.rx";
+connectAttr "HIKState2SK1.RightHandMiddle1Ry" "Character1_RightHandMiddle1.ry";
+connectAttr "HIKState2SK1.RightHandMiddle1Rz" "Character1_RightHandMiddle1.rz";
 connectAttr "Character1_RightHandMiddle1.s" "Character1_RightHandMiddle2.is";
+connectAttr "HIKState2SK1.RightHandMiddle2Sx" "Character1_RightHandMiddle2.sx";
+connectAttr "HIKState2SK1.RightHandMiddle2Sy" "Character1_RightHandMiddle2.sy";
+connectAttr "HIKState2SK1.RightHandMiddle2Sz" "Character1_RightHandMiddle2.sz";
+connectAttr "HIKState2SK1.RightHandMiddle2Tx" "Character1_RightHandMiddle2.tx";
+connectAttr "HIKState2SK1.RightHandMiddle2Ty" "Character1_RightHandMiddle2.ty";
+connectAttr "HIKState2SK1.RightHandMiddle2Tz" "Character1_RightHandMiddle2.tz";
+connectAttr "HIKState2SK1.RightHandMiddle2Rx" "Character1_RightHandMiddle2.rx";
+connectAttr "HIKState2SK1.RightHandMiddle2Ry" "Character1_RightHandMiddle2.ry";
+connectAttr "HIKState2SK1.RightHandMiddle2Rz" "Character1_RightHandMiddle2.rz";
 connectAttr "Character1_RightHandMiddle2.s" "Character1_RightHandMiddle3.is";
+connectAttr "HIKState2SK1.RightHandMiddle3Sx" "Character1_RightHandMiddle3.sx";
+connectAttr "HIKState2SK1.RightHandMiddle3Sy" "Character1_RightHandMiddle3.sy";
+connectAttr "HIKState2SK1.RightHandMiddle3Sz" "Character1_RightHandMiddle3.sz";
+connectAttr "HIKState2SK1.RightHandMiddle3Tx" "Character1_RightHandMiddle3.tx";
+connectAttr "HIKState2SK1.RightHandMiddle3Ty" "Character1_RightHandMiddle3.ty";
+connectAttr "HIKState2SK1.RightHandMiddle3Tz" "Character1_RightHandMiddle3.tz";
+connectAttr "HIKState2SK1.RightHandMiddle3Rx" "Character1_RightHandMiddle3.rx";
+connectAttr "HIKState2SK1.RightHandMiddle3Ry" "Character1_RightHandMiddle3.ry";
+connectAttr "HIKState2SK1.RightHandMiddle3Rz" "Character1_RightHandMiddle3.rz";
 connectAttr "Character1_RightHandMiddle3.s" "Character1_RightHandMiddle4.is";
+connectAttr "HIKState2SK1.RightHandMiddle4Tx" "Character1_RightHandMiddle4.tx";
+connectAttr "HIKState2SK1.RightHandMiddle4Ty" "Character1_RightHandMiddle4.ty";
+connectAttr "HIKState2SK1.RightHandMiddle4Tz" "Character1_RightHandMiddle4.tz";
+connectAttr "HIKState2SK1.RightHandMiddle4Rx" "Character1_RightHandMiddle4.rx";
+connectAttr "HIKState2SK1.RightHandMiddle4Ry" "Character1_RightHandMiddle4.ry";
+connectAttr "HIKState2SK1.RightHandMiddle4Rz" "Character1_RightHandMiddle4.rz";
+connectAttr "HIKState2SK1.RightHandMiddle4Sx" "Character1_RightHandMiddle4.sx";
+connectAttr "HIKState2SK1.RightHandMiddle4Sy" "Character1_RightHandMiddle4.sy";
+connectAttr "HIKState2SK1.RightHandMiddle4Sz" "Character1_RightHandMiddle4.sz";
 connectAttr "Character1_RightHand.s" "Character1_RightHandRing1.is";
+connectAttr "HIKState2SK1.RightHandRing1Sx" "Character1_RightHandRing1.sx";
+connectAttr "HIKState2SK1.RightHandRing1Sy" "Character1_RightHandRing1.sy";
+connectAttr "HIKState2SK1.RightHandRing1Sz" "Character1_RightHandRing1.sz";
+connectAttr "HIKState2SK1.RightHandRing1Tx" "Character1_RightHandRing1.tx";
+connectAttr "HIKState2SK1.RightHandRing1Ty" "Character1_RightHandRing1.ty";
+connectAttr "HIKState2SK1.RightHandRing1Tz" "Character1_RightHandRing1.tz";
+connectAttr "HIKState2SK1.RightHandRing1Rx" "Character1_RightHandRing1.rx";
+connectAttr "HIKState2SK1.RightHandRing1Ry" "Character1_RightHandRing1.ry";
+connectAttr "HIKState2SK1.RightHandRing1Rz" "Character1_RightHandRing1.rz";
 connectAttr "Character1_RightHandRing1.s" "Character1_RightHandRing2.is";
+connectAttr "HIKState2SK1.RightHandRing2Sx" "Character1_RightHandRing2.sx";
+connectAttr "HIKState2SK1.RightHandRing2Sy" "Character1_RightHandRing2.sy";
+connectAttr "HIKState2SK1.RightHandRing2Sz" "Character1_RightHandRing2.sz";
+connectAttr "HIKState2SK1.RightHandRing2Tx" "Character1_RightHandRing2.tx";
+connectAttr "HIKState2SK1.RightHandRing2Ty" "Character1_RightHandRing2.ty";
+connectAttr "HIKState2SK1.RightHandRing2Tz" "Character1_RightHandRing2.tz";
+connectAttr "HIKState2SK1.RightHandRing2Rx" "Character1_RightHandRing2.rx";
+connectAttr "HIKState2SK1.RightHandRing2Ry" "Character1_RightHandRing2.ry";
+connectAttr "HIKState2SK1.RightHandRing2Rz" "Character1_RightHandRing2.rz";
 connectAttr "Character1_RightHandRing2.s" "Character1_RightHandRing3.is";
+connectAttr "HIKState2SK1.RightHandRing3Sx" "Character1_RightHandRing3.sx";
+connectAttr "HIKState2SK1.RightHandRing3Sy" "Character1_RightHandRing3.sy";
+connectAttr "HIKState2SK1.RightHandRing3Sz" "Character1_RightHandRing3.sz";
+connectAttr "HIKState2SK1.RightHandRing3Tx" "Character1_RightHandRing3.tx";
+connectAttr "HIKState2SK1.RightHandRing3Ty" "Character1_RightHandRing3.ty";
+connectAttr "HIKState2SK1.RightHandRing3Tz" "Character1_RightHandRing3.tz";
+connectAttr "HIKState2SK1.RightHandRing3Rx" "Character1_RightHandRing3.rx";
+connectAttr "HIKState2SK1.RightHandRing3Ry" "Character1_RightHandRing3.ry";
+connectAttr "HIKState2SK1.RightHandRing3Rz" "Character1_RightHandRing3.rz";
 connectAttr "Character1_RightHandRing3.s" "Character1_RightHandRing4.is";
+connectAttr "HIKState2SK1.RightHandRing4Tx" "Character1_RightHandRing4.tx";
+connectAttr "HIKState2SK1.RightHandRing4Ty" "Character1_RightHandRing4.ty";
+connectAttr "HIKState2SK1.RightHandRing4Tz" "Character1_RightHandRing4.tz";
+connectAttr "HIKState2SK1.RightHandRing4Rx" "Character1_RightHandRing4.rx";
+connectAttr "HIKState2SK1.RightHandRing4Ry" "Character1_RightHandRing4.ry";
+connectAttr "HIKState2SK1.RightHandRing4Rz" "Character1_RightHandRing4.rz";
+connectAttr "HIKState2SK1.RightHandRing4Sx" "Character1_RightHandRing4.sx";
+connectAttr "HIKState2SK1.RightHandRing4Sy" "Character1_RightHandRing4.sy";
+connectAttr "HIKState2SK1.RightHandRing4Sz" "Character1_RightHandRing4.sz";
 connectAttr "Character1_RightHand.s" "Character1_RightHandPinky1.is";
+connectAttr "HIKState2SK1.RightHandPinky1Sx" "Character1_RightHandPinky1.sx";
+connectAttr "HIKState2SK1.RightHandPinky1Sy" "Character1_RightHandPinky1.sy";
+connectAttr "HIKState2SK1.RightHandPinky1Sz" "Character1_RightHandPinky1.sz";
+connectAttr "HIKState2SK1.RightHandPinky1Tx" "Character1_RightHandPinky1.tx";
+connectAttr "HIKState2SK1.RightHandPinky1Ty" "Character1_RightHandPinky1.ty";
+connectAttr "HIKState2SK1.RightHandPinky1Tz" "Character1_RightHandPinky1.tz";
+connectAttr "HIKState2SK1.RightHandPinky1Rx" "Character1_RightHandPinky1.rx";
+connectAttr "HIKState2SK1.RightHandPinky1Ry" "Character1_RightHandPinky1.ry";
+connectAttr "HIKState2SK1.RightHandPinky1Rz" "Character1_RightHandPinky1.rz";
 connectAttr "Character1_RightHandPinky1.s" "Character1_RightHandPinky2.is";
+connectAttr "HIKState2SK1.RightHandPinky2Sx" "Character1_RightHandPinky2.sx";
+connectAttr "HIKState2SK1.RightHandPinky2Sy" "Character1_RightHandPinky2.sy";
+connectAttr "HIKState2SK1.RightHandPinky2Sz" "Character1_RightHandPinky2.sz";
+connectAttr "HIKState2SK1.RightHandPinky2Tx" "Character1_RightHandPinky2.tx";
+connectAttr "HIKState2SK1.RightHandPinky2Ty" "Character1_RightHandPinky2.ty";
+connectAttr "HIKState2SK1.RightHandPinky2Tz" "Character1_RightHandPinky2.tz";
+connectAttr "HIKState2SK1.RightHandPinky2Rx" "Character1_RightHandPinky2.rx";
+connectAttr "HIKState2SK1.RightHandPinky2Ry" "Character1_RightHandPinky2.ry";
+connectAttr "HIKState2SK1.RightHandPinky2Rz" "Character1_RightHandPinky2.rz";
 connectAttr "Character1_RightHandPinky2.s" "Character1_RightHandPinky3.is";
+connectAttr "HIKState2SK1.RightHandPinky3Sx" "Character1_RightHandPinky3.sx";
+connectAttr "HIKState2SK1.RightHandPinky3Sy" "Character1_RightHandPinky3.sy";
+connectAttr "HIKState2SK1.RightHandPinky3Sz" "Character1_RightHandPinky3.sz";
+connectAttr "HIKState2SK1.RightHandPinky3Tx" "Character1_RightHandPinky3.tx";
+connectAttr "HIKState2SK1.RightHandPinky3Ty" "Character1_RightHandPinky3.ty";
+connectAttr "HIKState2SK1.RightHandPinky3Tz" "Character1_RightHandPinky3.tz";
+connectAttr "HIKState2SK1.RightHandPinky3Rx" "Character1_RightHandPinky3.rx";
+connectAttr "HIKState2SK1.RightHandPinky3Ry" "Character1_RightHandPinky3.ry";
+connectAttr "HIKState2SK1.RightHandPinky3Rz" "Character1_RightHandPinky3.rz";
 connectAttr "Character1_RightHandPinky3.s" "Character1_RightHandPinky4.is";
+connectAttr "HIKState2SK1.RightHandPinky4Tx" "Character1_RightHandPinky4.tx";
+connectAttr "HIKState2SK1.RightHandPinky4Ty" "Character1_RightHandPinky4.ty";
+connectAttr "HIKState2SK1.RightHandPinky4Tz" "Character1_RightHandPinky4.tz";
+connectAttr "HIKState2SK1.RightHandPinky4Rx" "Character1_RightHandPinky4.rx";
+connectAttr "HIKState2SK1.RightHandPinky4Ry" "Character1_RightHandPinky4.ry";
+connectAttr "HIKState2SK1.RightHandPinky4Rz" "Character1_RightHandPinky4.rz";
+connectAttr "HIKState2SK1.RightHandPinky4Sx" "Character1_RightHandPinky4.sx";
+connectAttr "HIKState2SK1.RightHandPinky4Sy" "Character1_RightHandPinky4.sy";
+connectAttr "HIKState2SK1.RightHandPinky4Sz" "Character1_RightHandPinky4.sz";
 connectAttr "Character1_Spine2.s" "Character1_Neck.is";
+connectAttr "HIKState2SK1.NeckSx" "Character1_Neck.sx";
+connectAttr "HIKState2SK1.NeckSy" "Character1_Neck.sy";
+connectAttr "HIKState2SK1.NeckSz" "Character1_Neck.sz";
+connectAttr "HIKState2SK1.NeckTx" "Character1_Neck.tx";
+connectAttr "HIKState2SK1.NeckTy" "Character1_Neck.ty";
+connectAttr "HIKState2SK1.NeckTz" "Character1_Neck.tz";
+connectAttr "HIKState2SK1.NeckRx" "Character1_Neck.rx";
+connectAttr "HIKState2SK1.NeckRy" "Character1_Neck.ry";
+connectAttr "HIKState2SK1.NeckRz" "Character1_Neck.rz";
 connectAttr "Character1_Neck.s" "Character1_Head.is";
+connectAttr "HIKState2SK1.HeadTx" "Character1_Head.tx";
+connectAttr "HIKState2SK1.HeadTy" "Character1_Head.ty";
+connectAttr "HIKState2SK1.HeadTz" "Character1_Head.tz";
+connectAttr "HIKState2SK1.HeadRx" "Character1_Head.rx";
+connectAttr "HIKState2SK1.HeadRy" "Character1_Head.ry";
+connectAttr "HIKState2SK1.HeadRz" "Character1_Head.rz";
+connectAttr "HIKState2SK1.HeadSx" "Character1_Head.sx";
+connectAttr "HIKState2SK1.HeadSy" "Character1_Head.sy";
+connectAttr "HIKState2SK1.HeadSz" "Character1_Head.sz";
 connectAttr "pasted__groupId367.id" "PunkBotShape.iog.og[0].gid";
 connectAttr "PunkBot_Skinning_0004:PunkBot3SG1.mwc" "PunkBotShape.iog.og[0].gco"
 		;
@@ -72817,6 +75115,516 @@ connectAttr "PunkBot_Skinning_0004:PunkBot3SG1.mwc" "PunkBotShape.iog.og[7].gco"
 		;
 connectAttr "pasted__groupId374.id" "PunkBotShape.iog.og[10].gid";
 connectAttr "skinCluster2.og[0]" "PunkBotShape.i";
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_HipsEffector.uagx";
+connectAttr "HIKState2Effector1.HipsEffectorGXM[0]" "Character1_Ctrl_HipsEffector.agx"
+		;
+connectAttr "HIKState2Effector2.HipsEffectorGXM[0]" "Character1_Ctrl_HipsEffector.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_LeftAnkleEffector.uagx"
+		;
+connectAttr "HIKState2Effector1.LeftAnkleEffectorGXM[0]" "Character1_Ctrl_LeftAnkleEffector.agx"
+		;
+connectAttr "HIKState2Effector2.LeftAnkleEffectorGXM[0]" "Character1_Ctrl_LeftAnkleEffector.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_RightAnkleEffector.uagx"
+		;
+connectAttr "HIKState2Effector1.RightAnkleEffectorGXM[0]" "Character1_Ctrl_RightAnkleEffector.agx"
+		;
+connectAttr "HIKState2Effector2.RightAnkleEffectorGXM[0]" "Character1_Ctrl_RightAnkleEffector.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_LeftWristEffector.uagx"
+		;
+connectAttr "HIKState2Effector1.LeftWristEffectorGXM[0]" "Character1_Ctrl_LeftWristEffector.agx"
+		;
+connectAttr "HIKState2Effector2.LeftWristEffectorGXM[0]" "Character1_Ctrl_LeftWristEffector.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_RightWristEffector.uagx"
+		;
+connectAttr "HIKState2Effector1.RightWristEffectorGXM[0]" "Character1_Ctrl_RightWristEffector.agx"
+		;
+connectAttr "HIKState2Effector2.RightWristEffectorGXM[0]" "Character1_Ctrl_RightWristEffector.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_LeftKneeEffector.uagx";
+connectAttr "HIKState2Effector1.LeftKneeEffectorGXM[0]" "Character1_Ctrl_LeftKneeEffector.agx"
+		;
+connectAttr "HIKState2Effector2.LeftKneeEffectorGXM[0]" "Character1_Ctrl_LeftKneeEffector.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_RightKneeEffector.uagx"
+		;
+connectAttr "HIKState2Effector1.RightKneeEffectorGXM[0]" "Character1_Ctrl_RightKneeEffector.agx"
+		;
+connectAttr "HIKState2Effector2.RightKneeEffectorGXM[0]" "Character1_Ctrl_RightKneeEffector.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_LeftElbowEffector.uagx"
+		;
+connectAttr "HIKState2Effector1.LeftElbowEffectorGXM[0]" "Character1_Ctrl_LeftElbowEffector.agx"
+		;
+connectAttr "HIKState2Effector2.LeftElbowEffectorGXM[0]" "Character1_Ctrl_LeftElbowEffector.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_RightElbowEffector.uagx"
+		;
+connectAttr "HIKState2Effector1.RightElbowEffectorGXM[0]" "Character1_Ctrl_RightElbowEffector.agx"
+		;
+connectAttr "HIKState2Effector2.RightElbowEffectorGXM[0]" "Character1_Ctrl_RightElbowEffector.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_ChestOriginEffector.uagx"
+		;
+connectAttr "HIKState2Effector1.ChestOriginEffectorGXM[0]" "Character1_Ctrl_ChestOriginEffector.agx"
+		;
+connectAttr "HIKState2Effector2.ChestOriginEffectorGXM[0]" "Character1_Ctrl_ChestOriginEffector.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_ChestEndEffector.uagx";
+connectAttr "HIKState2Effector1.ChestEndEffectorGXM[0]" "Character1_Ctrl_ChestEndEffector.agx"
+		;
+connectAttr "HIKState2Effector2.ChestEndEffectorGXM[0]" "Character1_Ctrl_ChestEndEffector.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_LeftFootEffector.uagx";
+connectAttr "HIKState2Effector1.LeftFootEffectorGXM[0]" "Character1_Ctrl_LeftFootEffector.agx"
+		;
+connectAttr "HIKState2Effector2.LeftFootEffectorGXM[0]" "Character1_Ctrl_LeftFootEffector.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_RightFootEffector.uagx"
+		;
+connectAttr "HIKState2Effector1.RightFootEffectorGXM[0]" "Character1_Ctrl_RightFootEffector.agx"
+		;
+connectAttr "HIKState2Effector2.RightFootEffectorGXM[0]" "Character1_Ctrl_RightFootEffector.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_LeftShoulderEffector.uagx"
+		;
+connectAttr "HIKState2Effector1.LeftShoulderEffectorGXM[0]" "Character1_Ctrl_LeftShoulderEffector.agx"
+		;
+connectAttr "HIKState2Effector2.LeftShoulderEffectorGXM[0]" "Character1_Ctrl_LeftShoulderEffector.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_RightShoulderEffector.uagx"
+		;
+connectAttr "HIKState2Effector1.RightShoulderEffectorGXM[0]" "Character1_Ctrl_RightShoulderEffector.agx"
+		;
+connectAttr "HIKState2Effector2.RightShoulderEffectorGXM[0]" "Character1_Ctrl_RightShoulderEffector.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_HeadEffector.uagx";
+connectAttr "HIKState2Effector1.HeadEffectorGXM[0]" "Character1_Ctrl_HeadEffector.agx"
+		;
+connectAttr "HIKState2Effector2.HeadEffectorGXM[0]" "Character1_Ctrl_HeadEffector.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_LeftHipEffector.uagx";
+connectAttr "HIKState2Effector1.LeftHipEffectorGXM[0]" "Character1_Ctrl_LeftHipEffector.agx"
+		;
+connectAttr "HIKState2Effector2.LeftHipEffectorGXM[0]" "Character1_Ctrl_LeftHipEffector.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_RightHipEffector.uagx";
+connectAttr "HIKState2Effector1.RightHipEffectorGXM[0]" "Character1_Ctrl_RightHipEffector.agx"
+		;
+connectAttr "HIKState2Effector2.RightHipEffectorGXM[0]" "Character1_Ctrl_RightHipEffector.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_LeftHandThumbEffector.uagx"
+		;
+connectAttr "HIKState2Effector1.LeftHandThumbEffectorGXM[0]" "Character1_Ctrl_LeftHandThumbEffector.agx"
+		;
+connectAttr "HIKState2Effector2.LeftHandThumbEffectorGXM[0]" "Character1_Ctrl_LeftHandThumbEffector.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_LeftHandIndexEffector.uagx"
+		;
+connectAttr "HIKState2Effector1.LeftHandIndexEffectorGXM[0]" "Character1_Ctrl_LeftHandIndexEffector.agx"
+		;
+connectAttr "HIKState2Effector2.LeftHandIndexEffectorGXM[0]" "Character1_Ctrl_LeftHandIndexEffector.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_LeftHandMiddleEffector.uagx"
+		;
+connectAttr "HIKState2Effector1.LeftHandMiddleEffectorGXM[0]" "Character1_Ctrl_LeftHandMiddleEffector.agx"
+		;
+connectAttr "HIKState2Effector2.LeftHandMiddleEffectorGXM[0]" "Character1_Ctrl_LeftHandMiddleEffector.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_LeftHandRingEffector.uagx"
+		;
+connectAttr "HIKState2Effector1.LeftHandRingEffectorGXM[0]" "Character1_Ctrl_LeftHandRingEffector.agx"
+		;
+connectAttr "HIKState2Effector2.LeftHandRingEffectorGXM[0]" "Character1_Ctrl_LeftHandRingEffector.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_LeftHandPinkyEffector.uagx"
+		;
+connectAttr "HIKState2Effector1.LeftHandPinkyEffectorGXM[0]" "Character1_Ctrl_LeftHandPinkyEffector.agx"
+		;
+connectAttr "HIKState2Effector2.LeftHandPinkyEffectorGXM[0]" "Character1_Ctrl_LeftHandPinkyEffector.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_RightHandThumbEffector.uagx"
+		;
+connectAttr "HIKState2Effector1.RightHandThumbEffectorGXM[0]" "Character1_Ctrl_RightHandThumbEffector.agx"
+		;
+connectAttr "HIKState2Effector2.RightHandThumbEffectorGXM[0]" "Character1_Ctrl_RightHandThumbEffector.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_RightHandIndexEffector.uagx"
+		;
+connectAttr "HIKState2Effector1.RightHandIndexEffectorGXM[0]" "Character1_Ctrl_RightHandIndexEffector.agx"
+		;
+connectAttr "HIKState2Effector2.RightHandIndexEffectorGXM[0]" "Character1_Ctrl_RightHandIndexEffector.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_RightHandMiddleEffector.uagx"
+		;
+connectAttr "HIKState2Effector1.RightHandMiddleEffectorGXM[0]" "Character1_Ctrl_RightHandMiddleEffector.agx"
+		;
+connectAttr "HIKState2Effector2.RightHandMiddleEffectorGXM[0]" "Character1_Ctrl_RightHandMiddleEffector.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_RightHandRingEffector.uagx"
+		;
+connectAttr "HIKState2Effector1.RightHandRingEffectorGXM[0]" "Character1_Ctrl_RightHandRingEffector.agx"
+		;
+connectAttr "HIKState2Effector2.RightHandRingEffectorGXM[0]" "Character1_Ctrl_RightHandRingEffector.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_RightHandPinkyEffector.uagx"
+		;
+connectAttr "HIKState2Effector1.RightHandPinkyEffectorGXM[0]" "Character1_Ctrl_RightHandPinkyEffector.agx"
+		;
+connectAttr "HIKState2Effector2.RightHandPinkyEffectorGXM[0]" "Character1_Ctrl_RightHandPinkyEffector.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_Hips.uagx";
+connectAttr "HIKState2FK1.HipsGX" "Character1_Ctrl_Hips.agx";
+connectAttr "HIKState2FK2.HipsGX" "Character1_Ctrl_Hips.atx";
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_LeftUpLeg.uagx";
+connectAttr "Character1_Ctrl_Hips.s" "Character1_Ctrl_LeftUpLeg.is";
+connectAttr "HIKState2FK1.LeftUpLegGX" "Character1_Ctrl_LeftUpLeg.agx";
+connectAttr "HIKState2FK2.LeftUpLegGX" "Character1_Ctrl_LeftUpLeg.atx";
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_LeftLeg.uagx";
+connectAttr "Character1_Ctrl_LeftUpLeg.s" "Character1_Ctrl_LeftLeg.is";
+connectAttr "HIKState2FK1.LeftLegGX" "Character1_Ctrl_LeftLeg.agx";
+connectAttr "HIKState2FK2.LeftLegGX" "Character1_Ctrl_LeftLeg.atx";
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_LeftFoot.uagx";
+connectAttr "Character1_Ctrl_LeftLeg.s" "Character1_Ctrl_LeftFoot.is";
+connectAttr "HIKState2FK1.LeftFootGX" "Character1_Ctrl_LeftFoot.agx";
+connectAttr "HIKState2FK2.LeftFootGX" "Character1_Ctrl_LeftFoot.atx";
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_LeftToeBase.uagx";
+connectAttr "Character1_Ctrl_LeftFoot.s" "Character1_Ctrl_LeftToeBase.is";
+connectAttr "HIKState2FK1.LeftToeBaseGX" "Character1_Ctrl_LeftToeBase.agx";
+connectAttr "HIKState2FK2.LeftToeBaseGX" "Character1_Ctrl_LeftToeBase.atx";
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_RightUpLeg.uagx";
+connectAttr "Character1_Ctrl_Hips.s" "Character1_Ctrl_RightUpLeg.is";
+connectAttr "HIKState2FK1.RightUpLegGX" "Character1_Ctrl_RightUpLeg.agx";
+connectAttr "HIKState2FK2.RightUpLegGX" "Character1_Ctrl_RightUpLeg.atx";
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_RightLeg.uagx";
+connectAttr "Character1_Ctrl_RightUpLeg.s" "Character1_Ctrl_RightLeg.is";
+connectAttr "HIKState2FK1.RightLegGX" "Character1_Ctrl_RightLeg.agx";
+connectAttr "HIKState2FK2.RightLegGX" "Character1_Ctrl_RightLeg.atx";
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_RightFoot.uagx";
+connectAttr "Character1_Ctrl_RightLeg.s" "Character1_Ctrl_RightFoot.is";
+connectAttr "HIKState2FK1.RightFootGX" "Character1_Ctrl_RightFoot.agx";
+connectAttr "HIKState2FK2.RightFootGX" "Character1_Ctrl_RightFoot.atx";
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_RightToeBase.uagx";
+connectAttr "Character1_Ctrl_RightFoot.s" "Character1_Ctrl_RightToeBase.is";
+connectAttr "HIKState2FK1.RightToeBaseGX" "Character1_Ctrl_RightToeBase.agx";
+connectAttr "HIKState2FK2.RightToeBaseGX" "Character1_Ctrl_RightToeBase.atx";
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_Spine.uagx";
+connectAttr "Character1_Ctrl_Hips.s" "Character1_Ctrl_Spine.is";
+connectAttr "HIKState2FK1.SpineGX" "Character1_Ctrl_Spine.agx";
+connectAttr "HIKState2FK2.SpineGX" "Character1_Ctrl_Spine.atx";
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_Spine1.uagx";
+connectAttr "Character1_Ctrl_Spine.s" "Character1_Ctrl_Spine1.is";
+connectAttr "HIKState2FK1.Spine1GX" "Character1_Ctrl_Spine1.agx";
+connectAttr "HIKState2FK2.Spine1GX" "Character1_Ctrl_Spine1.atx";
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_Spine2.uagx";
+connectAttr "Character1_Ctrl_Spine1.s" "Character1_Ctrl_Spine2.is";
+connectAttr "HIKState2FK1.Spine2GX" "Character1_Ctrl_Spine2.agx";
+connectAttr "HIKState2FK2.Spine2GX" "Character1_Ctrl_Spine2.atx";
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_LeftShoulder.uagx";
+connectAttr "Character1_Ctrl_Spine2.s" "Character1_Ctrl_LeftShoulder.is";
+connectAttr "HIKState2FK1.LeftShoulderGX" "Character1_Ctrl_LeftShoulder.agx";
+connectAttr "HIKState2FK2.LeftShoulderGX" "Character1_Ctrl_LeftShoulder.atx";
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_LeftArm.uagx";
+connectAttr "Character1_Ctrl_LeftShoulder.s" "Character1_Ctrl_LeftArm.is";
+connectAttr "HIKState2FK1.LeftArmGX" "Character1_Ctrl_LeftArm.agx";
+connectAttr "HIKState2FK2.LeftArmGX" "Character1_Ctrl_LeftArm.atx";
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_LeftForeArm.uagx";
+connectAttr "Character1_Ctrl_LeftArm.s" "Character1_Ctrl_LeftForeArm.is";
+connectAttr "HIKState2FK1.LeftForeArmGX" "Character1_Ctrl_LeftForeArm.agx";
+connectAttr "HIKState2FK2.LeftForeArmGX" "Character1_Ctrl_LeftForeArm.atx";
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_LeftHand.uagx";
+connectAttr "Character1_Ctrl_LeftForeArm.s" "Character1_Ctrl_LeftHand.is";
+connectAttr "HIKState2FK1.LeftHandGX" "Character1_Ctrl_LeftHand.agx";
+connectAttr "HIKState2FK2.LeftHandGX" "Character1_Ctrl_LeftHand.atx";
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_LeftHandThumb1.uagx";
+connectAttr "Character1_Ctrl_LeftHand.s" "Character1_Ctrl_LeftHandThumb1.is";
+connectAttr "HIKState2FK1.LeftHandThumb1GX" "Character1_Ctrl_LeftHandThumb1.agx"
+		;
+connectAttr "HIKState2FK2.LeftHandThumb1GX" "Character1_Ctrl_LeftHandThumb1.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_LeftHandThumb2.uagx";
+connectAttr "Character1_Ctrl_LeftHandThumb1.s" "Character1_Ctrl_LeftHandThumb2.is"
+		;
+connectAttr "HIKState2FK1.LeftHandThumb2GX" "Character1_Ctrl_LeftHandThumb2.agx"
+		;
+connectAttr "HIKState2FK2.LeftHandThumb2GX" "Character1_Ctrl_LeftHandThumb2.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_LeftHandThumb3.uagx";
+connectAttr "Character1_Ctrl_LeftHandThumb2.s" "Character1_Ctrl_LeftHandThumb3.is"
+		;
+connectAttr "HIKState2FK1.LeftHandThumb3GX" "Character1_Ctrl_LeftHandThumb3.agx"
+		;
+connectAttr "HIKState2FK2.LeftHandThumb3GX" "Character1_Ctrl_LeftHandThumb3.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_LeftHandThumb4.uagx";
+connectAttr "Character1_Ctrl_LeftHandThumb3.s" "Character1_Ctrl_LeftHandThumb4.is"
+		;
+connectAttr "HIKState2FK1.LeftHandThumb4GX" "Character1_Ctrl_LeftHandThumb4.agx"
+		;
+connectAttr "HIKState2FK2.LeftHandThumb4GX" "Character1_Ctrl_LeftHandThumb4.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_LeftHandIndex1.uagx";
+connectAttr "Character1_Ctrl_LeftHand.s" "Character1_Ctrl_LeftHandIndex1.is";
+connectAttr "HIKState2FK1.LeftHandIndex1GX" "Character1_Ctrl_LeftHandIndex1.agx"
+		;
+connectAttr "HIKState2FK2.LeftHandIndex1GX" "Character1_Ctrl_LeftHandIndex1.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_LeftHandIndex2.uagx";
+connectAttr "Character1_Ctrl_LeftHandIndex1.s" "Character1_Ctrl_LeftHandIndex2.is"
+		;
+connectAttr "HIKState2FK1.LeftHandIndex2GX" "Character1_Ctrl_LeftHandIndex2.agx"
+		;
+connectAttr "HIKState2FK2.LeftHandIndex2GX" "Character1_Ctrl_LeftHandIndex2.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_LeftHandIndex3.uagx";
+connectAttr "Character1_Ctrl_LeftHandIndex2.s" "Character1_Ctrl_LeftHandIndex3.is"
+		;
+connectAttr "HIKState2FK1.LeftHandIndex3GX" "Character1_Ctrl_LeftHandIndex3.agx"
+		;
+connectAttr "HIKState2FK2.LeftHandIndex3GX" "Character1_Ctrl_LeftHandIndex3.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_LeftHandIndex4.uagx";
+connectAttr "Character1_Ctrl_LeftHandIndex3.s" "Character1_Ctrl_LeftHandIndex4.is"
+		;
+connectAttr "HIKState2FK1.LeftHandIndex4GX" "Character1_Ctrl_LeftHandIndex4.agx"
+		;
+connectAttr "HIKState2FK2.LeftHandIndex4GX" "Character1_Ctrl_LeftHandIndex4.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_LeftHandMiddle1.uagx";
+connectAttr "Character1_Ctrl_LeftHand.s" "Character1_Ctrl_LeftHandMiddle1.is";
+connectAttr "HIKState2FK1.LeftHandMiddle1GX" "Character1_Ctrl_LeftHandMiddle1.agx"
+		;
+connectAttr "HIKState2FK2.LeftHandMiddle1GX" "Character1_Ctrl_LeftHandMiddle1.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_LeftHandMiddle2.uagx";
+connectAttr "Character1_Ctrl_LeftHandMiddle1.s" "Character1_Ctrl_LeftHandMiddle2.is"
+		;
+connectAttr "HIKState2FK1.LeftHandMiddle2GX" "Character1_Ctrl_LeftHandMiddle2.agx"
+		;
+connectAttr "HIKState2FK2.LeftHandMiddle2GX" "Character1_Ctrl_LeftHandMiddle2.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_LeftHandMiddle3.uagx";
+connectAttr "Character1_Ctrl_LeftHandMiddle2.s" "Character1_Ctrl_LeftHandMiddle3.is"
+		;
+connectAttr "HIKState2FK1.LeftHandMiddle3GX" "Character1_Ctrl_LeftHandMiddle3.agx"
+		;
+connectAttr "HIKState2FK2.LeftHandMiddle3GX" "Character1_Ctrl_LeftHandMiddle3.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_LeftHandMiddle4.uagx";
+connectAttr "Character1_Ctrl_LeftHandMiddle3.s" "Character1_Ctrl_LeftHandMiddle4.is"
+		;
+connectAttr "HIKState2FK1.LeftHandMiddle4GX" "Character1_Ctrl_LeftHandMiddle4.agx"
+		;
+connectAttr "HIKState2FK2.LeftHandMiddle4GX" "Character1_Ctrl_LeftHandMiddle4.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_LeftHandRing1.uagx";
+connectAttr "Character1_Ctrl_LeftHand.s" "Character1_Ctrl_LeftHandRing1.is";
+connectAttr "HIKState2FK1.LeftHandRing1GX" "Character1_Ctrl_LeftHandRing1.agx";
+connectAttr "HIKState2FK2.LeftHandRing1GX" "Character1_Ctrl_LeftHandRing1.atx";
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_LeftHandRing2.uagx";
+connectAttr "Character1_Ctrl_LeftHandRing1.s" "Character1_Ctrl_LeftHandRing2.is"
+		;
+connectAttr "HIKState2FK1.LeftHandRing2GX" "Character1_Ctrl_LeftHandRing2.agx";
+connectAttr "HIKState2FK2.LeftHandRing2GX" "Character1_Ctrl_LeftHandRing2.atx";
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_LeftHandRing3.uagx";
+connectAttr "Character1_Ctrl_LeftHandRing2.s" "Character1_Ctrl_LeftHandRing3.is"
+		;
+connectAttr "HIKState2FK1.LeftHandRing3GX" "Character1_Ctrl_LeftHandRing3.agx";
+connectAttr "HIKState2FK2.LeftHandRing3GX" "Character1_Ctrl_LeftHandRing3.atx";
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_LeftHandRing4.uagx";
+connectAttr "Character1_Ctrl_LeftHandRing3.s" "Character1_Ctrl_LeftHandRing4.is"
+		;
+connectAttr "HIKState2FK1.LeftHandRing4GX" "Character1_Ctrl_LeftHandRing4.agx";
+connectAttr "HIKState2FK2.LeftHandRing4GX" "Character1_Ctrl_LeftHandRing4.atx";
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_LeftHandPinky1.uagx";
+connectAttr "Character1_Ctrl_LeftHand.s" "Character1_Ctrl_LeftHandPinky1.is";
+connectAttr "HIKState2FK1.LeftHandPinky1GX" "Character1_Ctrl_LeftHandPinky1.agx"
+		;
+connectAttr "HIKState2FK2.LeftHandPinky1GX" "Character1_Ctrl_LeftHandPinky1.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_LeftHandPinky2.uagx";
+connectAttr "Character1_Ctrl_LeftHandPinky1.s" "Character1_Ctrl_LeftHandPinky2.is"
+		;
+connectAttr "HIKState2FK1.LeftHandPinky2GX" "Character1_Ctrl_LeftHandPinky2.agx"
+		;
+connectAttr "HIKState2FK2.LeftHandPinky2GX" "Character1_Ctrl_LeftHandPinky2.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_LeftHandPinky3.uagx";
+connectAttr "Character1_Ctrl_LeftHandPinky2.s" "Character1_Ctrl_LeftHandPinky3.is"
+		;
+connectAttr "HIKState2FK1.LeftHandPinky3GX" "Character1_Ctrl_LeftHandPinky3.agx"
+		;
+connectAttr "HIKState2FK2.LeftHandPinky3GX" "Character1_Ctrl_LeftHandPinky3.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_LeftHandPinky4.uagx";
+connectAttr "Character1_Ctrl_LeftHandPinky3.s" "Character1_Ctrl_LeftHandPinky4.is"
+		;
+connectAttr "HIKState2FK1.LeftHandPinky4GX" "Character1_Ctrl_LeftHandPinky4.agx"
+		;
+connectAttr "HIKState2FK2.LeftHandPinky4GX" "Character1_Ctrl_LeftHandPinky4.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_RightShoulder.uagx";
+connectAttr "Character1_Ctrl_Spine2.s" "Character1_Ctrl_RightShoulder.is";
+connectAttr "HIKState2FK1.RightShoulderGX" "Character1_Ctrl_RightShoulder.agx";
+connectAttr "HIKState2FK2.RightShoulderGX" "Character1_Ctrl_RightShoulder.atx";
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_RightArm.uagx";
+connectAttr "Character1_Ctrl_RightShoulder.s" "Character1_Ctrl_RightArm.is";
+connectAttr "HIKState2FK1.RightArmGX" "Character1_Ctrl_RightArm.agx";
+connectAttr "HIKState2FK2.RightArmGX" "Character1_Ctrl_RightArm.atx";
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_RightForeArm.uagx";
+connectAttr "Character1_Ctrl_RightArm.s" "Character1_Ctrl_RightForeArm.is";
+connectAttr "HIKState2FK1.RightForeArmGX" "Character1_Ctrl_RightForeArm.agx";
+connectAttr "HIKState2FK2.RightForeArmGX" "Character1_Ctrl_RightForeArm.atx";
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_RightHand.uagx";
+connectAttr "Character1_Ctrl_RightForeArm.s" "Character1_Ctrl_RightHand.is";
+connectAttr "HIKState2FK1.RightHandGX" "Character1_Ctrl_RightHand.agx";
+connectAttr "HIKState2FK2.RightHandGX" "Character1_Ctrl_RightHand.atx";
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_RightHandThumb1.uagx";
+connectAttr "Character1_Ctrl_RightHand.s" "Character1_Ctrl_RightHandThumb1.is";
+connectAttr "HIKState2FK1.RightHandThumb1GX" "Character1_Ctrl_RightHandThumb1.agx"
+		;
+connectAttr "HIKState2FK2.RightHandThumb1GX" "Character1_Ctrl_RightHandThumb1.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_RightHandThumb2.uagx";
+connectAttr "Character1_Ctrl_RightHandThumb1.s" "Character1_Ctrl_RightHandThumb2.is"
+		;
+connectAttr "HIKState2FK1.RightHandThumb2GX" "Character1_Ctrl_RightHandThumb2.agx"
+		;
+connectAttr "HIKState2FK2.RightHandThumb2GX" "Character1_Ctrl_RightHandThumb2.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_RightHandThumb3.uagx";
+connectAttr "Character1_Ctrl_RightHandThumb2.s" "Character1_Ctrl_RightHandThumb3.is"
+		;
+connectAttr "HIKState2FK1.RightHandThumb3GX" "Character1_Ctrl_RightHandThumb3.agx"
+		;
+connectAttr "HIKState2FK2.RightHandThumb3GX" "Character1_Ctrl_RightHandThumb3.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_RightHandThumb4.uagx";
+connectAttr "Character1_Ctrl_RightHandThumb3.s" "Character1_Ctrl_RightHandThumb4.is"
+		;
+connectAttr "HIKState2FK1.RightHandThumb4GX" "Character1_Ctrl_RightHandThumb4.agx"
+		;
+connectAttr "HIKState2FK2.RightHandThumb4GX" "Character1_Ctrl_RightHandThumb4.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_RightHandIndex1.uagx";
+connectAttr "Character1_Ctrl_RightHand.s" "Character1_Ctrl_RightHandIndex1.is";
+connectAttr "HIKState2FK1.RightHandIndex1GX" "Character1_Ctrl_RightHandIndex1.agx"
+		;
+connectAttr "HIKState2FK2.RightHandIndex1GX" "Character1_Ctrl_RightHandIndex1.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_RightHandIndex2.uagx";
+connectAttr "Character1_Ctrl_RightHandIndex1.s" "Character1_Ctrl_RightHandIndex2.is"
+		;
+connectAttr "HIKState2FK1.RightHandIndex2GX" "Character1_Ctrl_RightHandIndex2.agx"
+		;
+connectAttr "HIKState2FK2.RightHandIndex2GX" "Character1_Ctrl_RightHandIndex2.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_RightHandIndex3.uagx";
+connectAttr "Character1_Ctrl_RightHandIndex2.s" "Character1_Ctrl_RightHandIndex3.is"
+		;
+connectAttr "HIKState2FK1.RightHandIndex3GX" "Character1_Ctrl_RightHandIndex3.agx"
+		;
+connectAttr "HIKState2FK2.RightHandIndex3GX" "Character1_Ctrl_RightHandIndex3.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_RightHandIndex4.uagx";
+connectAttr "Character1_Ctrl_RightHandIndex3.s" "Character1_Ctrl_RightHandIndex4.is"
+		;
+connectAttr "HIKState2FK1.RightHandIndex4GX" "Character1_Ctrl_RightHandIndex4.agx"
+		;
+connectAttr "HIKState2FK2.RightHandIndex4GX" "Character1_Ctrl_RightHandIndex4.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_RightHandMiddle1.uagx";
+connectAttr "Character1_Ctrl_RightHand.s" "Character1_Ctrl_RightHandMiddle1.is";
+connectAttr "HIKState2FK1.RightHandMiddle1GX" "Character1_Ctrl_RightHandMiddle1.agx"
+		;
+connectAttr "HIKState2FK2.RightHandMiddle1GX" "Character1_Ctrl_RightHandMiddle1.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_RightHandMiddle2.uagx";
+connectAttr "Character1_Ctrl_RightHandMiddle1.s" "Character1_Ctrl_RightHandMiddle2.is"
+		;
+connectAttr "HIKState2FK1.RightHandMiddle2GX" "Character1_Ctrl_RightHandMiddle2.agx"
+		;
+connectAttr "HIKState2FK2.RightHandMiddle2GX" "Character1_Ctrl_RightHandMiddle2.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_RightHandMiddle3.uagx";
+connectAttr "Character1_Ctrl_RightHandMiddle2.s" "Character1_Ctrl_RightHandMiddle3.is"
+		;
+connectAttr "HIKState2FK1.RightHandMiddle3GX" "Character1_Ctrl_RightHandMiddle3.agx"
+		;
+connectAttr "HIKState2FK2.RightHandMiddle3GX" "Character1_Ctrl_RightHandMiddle3.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_RightHandMiddle4.uagx";
+connectAttr "Character1_Ctrl_RightHandMiddle3.s" "Character1_Ctrl_RightHandMiddle4.is"
+		;
+connectAttr "HIKState2FK1.RightHandMiddle4GX" "Character1_Ctrl_RightHandMiddle4.agx"
+		;
+connectAttr "HIKState2FK2.RightHandMiddle4GX" "Character1_Ctrl_RightHandMiddle4.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_RightHandRing1.uagx";
+connectAttr "Character1_Ctrl_RightHand.s" "Character1_Ctrl_RightHandRing1.is";
+connectAttr "HIKState2FK1.RightHandRing1GX" "Character1_Ctrl_RightHandRing1.agx"
+		;
+connectAttr "HIKState2FK2.RightHandRing1GX" "Character1_Ctrl_RightHandRing1.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_RightHandRing2.uagx";
+connectAttr "Character1_Ctrl_RightHandRing1.s" "Character1_Ctrl_RightHandRing2.is"
+		;
+connectAttr "HIKState2FK1.RightHandRing2GX" "Character1_Ctrl_RightHandRing2.agx"
+		;
+connectAttr "HIKState2FK2.RightHandRing2GX" "Character1_Ctrl_RightHandRing2.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_RightHandRing3.uagx";
+connectAttr "Character1_Ctrl_RightHandRing2.s" "Character1_Ctrl_RightHandRing3.is"
+		;
+connectAttr "HIKState2FK1.RightHandRing3GX" "Character1_Ctrl_RightHandRing3.agx"
+		;
+connectAttr "HIKState2FK2.RightHandRing3GX" "Character1_Ctrl_RightHandRing3.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_RightHandRing4.uagx";
+connectAttr "Character1_Ctrl_RightHandRing3.s" "Character1_Ctrl_RightHandRing4.is"
+		;
+connectAttr "HIKState2FK1.RightHandRing4GX" "Character1_Ctrl_RightHandRing4.agx"
+		;
+connectAttr "HIKState2FK2.RightHandRing4GX" "Character1_Ctrl_RightHandRing4.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_RightHandPinky1.uagx";
+connectAttr "Character1_Ctrl_RightHand.s" "Character1_Ctrl_RightHandPinky1.is";
+connectAttr "HIKState2FK1.RightHandPinky1GX" "Character1_Ctrl_RightHandPinky1.agx"
+		;
+connectAttr "HIKState2FK2.RightHandPinky1GX" "Character1_Ctrl_RightHandPinky1.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_RightHandPinky2.uagx";
+connectAttr "Character1_Ctrl_RightHandPinky1.s" "Character1_Ctrl_RightHandPinky2.is"
+		;
+connectAttr "HIKState2FK1.RightHandPinky2GX" "Character1_Ctrl_RightHandPinky2.agx"
+		;
+connectAttr "HIKState2FK2.RightHandPinky2GX" "Character1_Ctrl_RightHandPinky2.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_RightHandPinky3.uagx";
+connectAttr "Character1_Ctrl_RightHandPinky2.s" "Character1_Ctrl_RightHandPinky3.is"
+		;
+connectAttr "HIKState2FK1.RightHandPinky3GX" "Character1_Ctrl_RightHandPinky3.agx"
+		;
+connectAttr "HIKState2FK2.RightHandPinky3GX" "Character1_Ctrl_RightHandPinky3.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_RightHandPinky4.uagx";
+connectAttr "Character1_Ctrl_RightHandPinky3.s" "Character1_Ctrl_RightHandPinky4.is"
+		;
+connectAttr "HIKState2FK1.RightHandPinky4GX" "Character1_Ctrl_RightHandPinky4.agx"
+		;
+connectAttr "HIKState2FK2.RightHandPinky4GX" "Character1_Ctrl_RightHandPinky4.atx"
+		;
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_Neck.uagx";
+connectAttr "Character1_Ctrl_Spine2.s" "Character1_Ctrl_Neck.is";
+connectAttr "HIKState2FK1.NeckGX" "Character1_Ctrl_Neck.agx";
+connectAttr "HIKState2FK2.NeckGX" "Character1_Ctrl_Neck.atx";
+connectAttr "Character1_ControlRig.rao" "Character1_Ctrl_Head.uagx";
+connectAttr "Character1_Ctrl_Neck.s" "Character1_Ctrl_Head.is";
+connectAttr "HIKState2FK1.HeadGX" "Character1_Ctrl_Head.agx";
+connectAttr "HIKState2FK2.HeadGX" "Character1_Ctrl_Head.atx";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "lambert1SG.message" ":defaultLightSet.message";
@@ -73414,33 +76222,12 @@ connectAttr "Character1_LeftFootBPKG1.msg" "Character1_FullBodyKG1.dnsm" -na;
 connectAttr "Character1_LeftFootBPKG2.msg" "Character1_FullBodyKG2.dnsm" -na;
 connectAttr "Character1_RightFootBPKG2.msg" "Character1_FullBodyKG2.dnsm" -na;
 connectAttr "HIKproperties1.msg" "Character1.propertyState";
-connectAttr "HIKSkeletonGeneratorNode1.CharacterNode" "Character1.SkeletonGenerator"
-		;
+connectAttr "Character1_Head.ch" "Character1.Head";
 connectAttr "Character1_Hips.ch" "Character1.Hips";
-connectAttr "Character1_LeftUpLeg.ch" "Character1.LeftUpLeg";
-connectAttr "Character1_LeftLeg.ch" "Character1.LeftLeg";
-connectAttr "Character1_LeftFoot.ch" "Character1.LeftFoot";
-connectAttr "Character1_RightUpLeg.ch" "Character1.RightUpLeg";
-connectAttr "Character1_RightLeg.ch" "Character1.RightLeg";
-connectAttr "Character1_RightFoot.ch" "Character1.RightFoot";
-connectAttr "Character1_Spine.ch" "Character1.Spine";
 connectAttr "Character1_LeftArm.ch" "Character1.LeftArm";
+connectAttr "Character1_LeftFoot.ch" "Character1.LeftFoot";
 connectAttr "Character1_LeftForeArm.ch" "Character1.LeftForeArm";
 connectAttr "Character1_LeftHand.ch" "Character1.LeftHand";
-connectAttr "Character1_RightArm.ch" "Character1.RightArm";
-connectAttr "Character1_RightForeArm.ch" "Character1.RightForeArm";
-connectAttr "Character1_RightHand.ch" "Character1.RightHand";
-connectAttr "Character1_Head.ch" "Character1.Head";
-connectAttr "Character1_LeftToeBase.ch" "Character1.LeftToeBase";
-connectAttr "Character1_RightToeBase.ch" "Character1.RightToeBase";
-connectAttr "Character1_LeftShoulder.ch" "Character1.LeftShoulder";
-connectAttr "Character1_RightShoulder.ch" "Character1.RightShoulder";
-connectAttr "Character1_Neck.ch" "Character1.Neck";
-connectAttr "Character1_Spine1.ch" "Character1.Spine1";
-connectAttr "Character1_LeftHandThumb1.ch" "Character1.LeftHandThumb1";
-connectAttr "Character1_LeftHandThumb2.ch" "Character1.LeftHandThumb2";
-connectAttr "Character1_LeftHandThumb3.ch" "Character1.LeftHandThumb3";
-connectAttr "Character1_LeftHandThumb4.ch" "Character1.LeftHandThumb4";
 connectAttr "Character1_LeftHandIndex1.ch" "Character1.LeftHandIndex1";
 connectAttr "Character1_LeftHandIndex2.ch" "Character1.LeftHandIndex2";
 connectAttr "Character1_LeftHandIndex3.ch" "Character1.LeftHandIndex3";
@@ -73449,18 +76236,28 @@ connectAttr "Character1_LeftHandMiddle1.ch" "Character1.LeftHandMiddle1";
 connectAttr "Character1_LeftHandMiddle2.ch" "Character1.LeftHandMiddle2";
 connectAttr "Character1_LeftHandMiddle3.ch" "Character1.LeftHandMiddle3";
 connectAttr "Character1_LeftHandMiddle4.ch" "Character1.LeftHandMiddle4";
-connectAttr "Character1_LeftHandRing1.ch" "Character1.LeftHandRing1";
-connectAttr "Character1_LeftHandRing2.ch" "Character1.LeftHandRing2";
-connectAttr "Character1_LeftHandRing3.ch" "Character1.LeftHandRing3";
-connectAttr "Character1_LeftHandRing4.ch" "Character1.LeftHandRing4";
 connectAttr "Character1_LeftHandPinky1.ch" "Character1.LeftHandPinky1";
 connectAttr "Character1_LeftHandPinky2.ch" "Character1.LeftHandPinky2";
 connectAttr "Character1_LeftHandPinky3.ch" "Character1.LeftHandPinky3";
 connectAttr "Character1_LeftHandPinky4.ch" "Character1.LeftHandPinky4";
-connectAttr "Character1_RightHandThumb1.ch" "Character1.RightHandThumb1";
-connectAttr "Character1_RightHandThumb2.ch" "Character1.RightHandThumb2";
-connectAttr "Character1_RightHandThumb3.ch" "Character1.RightHandThumb3";
-connectAttr "Character1_RightHandThumb4.ch" "Character1.RightHandThumb4";
+connectAttr "Character1_LeftHandRing1.ch" "Character1.LeftHandRing1";
+connectAttr "Character1_LeftHandRing2.ch" "Character1.LeftHandRing2";
+connectAttr "Character1_LeftHandRing3.ch" "Character1.LeftHandRing3";
+connectAttr "Character1_LeftHandRing4.ch" "Character1.LeftHandRing4";
+connectAttr "Character1_LeftHandThumb1.ch" "Character1.LeftHandThumb1";
+connectAttr "Character1_LeftHandThumb2.ch" "Character1.LeftHandThumb2";
+connectAttr "Character1_LeftHandThumb3.ch" "Character1.LeftHandThumb3";
+connectAttr "Character1_LeftHandThumb4.ch" "Character1.LeftHandThumb4";
+connectAttr "Character1_LeftLeg.ch" "Character1.LeftLeg";
+connectAttr "Character1_LeftShoulder.ch" "Character1.LeftShoulder";
+connectAttr "Character1_LeftToeBase.ch" "Character1.LeftToeBase";
+connectAttr "Character1_LeftUpLeg.ch" "Character1.LeftUpLeg";
+connectAttr "Character1_Neck.ch" "Character1.Neck";
+connectAttr "Character1_Reference.ch" "Character1.Reference";
+connectAttr "Character1_RightArm.ch" "Character1.RightArm";
+connectAttr "Character1_RightFoot.ch" "Character1.RightFoot";
+connectAttr "Character1_RightForeArm.ch" "Character1.RightForeArm";
+connectAttr "Character1_RightHand.ch" "Character1.RightHand";
 connectAttr "Character1_RightHandIndex1.ch" "Character1.RightHandIndex1";
 connectAttr "Character1_RightHandIndex2.ch" "Character1.RightHandIndex2";
 connectAttr "Character1_RightHandIndex3.ch" "Character1.RightHandIndex3";
@@ -73469,21 +76266,79 @@ connectAttr "Character1_RightHandMiddle1.ch" "Character1.RightHandMiddle1";
 connectAttr "Character1_RightHandMiddle2.ch" "Character1.RightHandMiddle2";
 connectAttr "Character1_RightHandMiddle3.ch" "Character1.RightHandMiddle3";
 connectAttr "Character1_RightHandMiddle4.ch" "Character1.RightHandMiddle4";
-connectAttr "Character1_RightHandRing1.ch" "Character1.RightHandRing1";
-connectAttr "Character1_RightHandRing2.ch" "Character1.RightHandRing2";
-connectAttr "Character1_RightHandRing3.ch" "Character1.RightHandRing3";
-connectAttr "Character1_RightHandRing4.ch" "Character1.RightHandRing4";
 connectAttr "Character1_RightHandPinky1.ch" "Character1.RightHandPinky1";
 connectAttr "Character1_RightHandPinky2.ch" "Character1.RightHandPinky2";
 connectAttr "Character1_RightHandPinky3.ch" "Character1.RightHandPinky3";
 connectAttr "Character1_RightHandPinky4.ch" "Character1.RightHandPinky4";
-connectAttr "Character1_Reference.ch" "Character1.Reference";
-connectAttr "Character1.OutputCharacterDefinition" "HIKRetargeterNode1.InputCharacterDefinitionDst"
+connectAttr "Character1_RightHandRing1.ch" "Character1.RightHandRing1";
+connectAttr "Character1_RightHandRing2.ch" "Character1.RightHandRing2";
+connectAttr "Character1_RightHandRing3.ch" "Character1.RightHandRing3";
+connectAttr "Character1_RightHandRing4.ch" "Character1.RightHandRing4";
+connectAttr "Character1_RightHandThumb1.ch" "Character1.RightHandThumb1";
+connectAttr "Character1_RightHandThumb2.ch" "Character1.RightHandThumb2";
+connectAttr "Character1_RightHandThumb3.ch" "Character1.RightHandThumb3";
+connectAttr "Character1_RightHandThumb4.ch" "Character1.RightHandThumb4";
+connectAttr "Character1_RightLeg.ch" "Character1.RightLeg";
+connectAttr "Character1_RightShoulder.ch" "Character1.RightShoulder";
+connectAttr "Character1_RightToeBase.ch" "Character1.RightToeBase";
+connectAttr "Character1_RightUpLeg.ch" "Character1.RightUpLeg";
+connectAttr "Character1_Spine.ch" "Character1.Spine";
+connectAttr "Character1_Spine1.ch" "Character1.Spine1";
+connectAttr "Character1_Spine2.ch" "Character1.Spine2";
+connectAttr "Character1_Ctrl_HipsEffector.pull" "HIKproperties1.CtrlResistHipsPosition"
 		;
-connectAttr "Character1_Reference.wm" "HIKRetargeterNode1.referenceGX";
-connectAttr "HIKproperties1.OutputPropertySetState" "HIKRetargeterNode1.InputDstPropertySetState"
+connectAttr "Character1_Ctrl_HipsEffector.stiffness" "HIKproperties1.CtrlResistHipsOrientation"
 		;
-connectAttr "PunkBot_Skinning_0003:HIKproperties1.OutputPropertySetState" "HIKRetargeterNode1.InputSrcPropertySetState"
+connectAttr "Character1_Ctrl_LeftAnkleEffector.pull" "HIKproperties1.CtrlPullLeftFoot"
+		;
+connectAttr "Character1_Ctrl_RightAnkleEffector.pull" "HIKproperties1.CtrlPullRightFoot"
+		;
+connectAttr "Character1_Ctrl_LeftWristEffector.pull" "HIKproperties1.CtrlChestPullLeftHand"
+		;
+connectAttr "Character1_Ctrl_RightWristEffector.pull" "HIKproperties1.CtrlChestPullRightHand"
+		;
+connectAttr "Character1_Ctrl_LeftKneeEffector.pull" "HIKproperties1.CtrlPullLeftKnee"
+		;
+connectAttr "Character1_Ctrl_LeftKneeEffector.stiffness" "HIKproperties1.CtrlResistLeftKnee"
+		;
+connectAttr "Character1_Ctrl_RightKneeEffector.pull" "HIKproperties1.CtrlPullRightKnee"
+		;
+connectAttr "Character1_Ctrl_RightKneeEffector.stiffness" "HIKproperties1.CtrlResistRightKnee"
+		;
+connectAttr "Character1_Ctrl_LeftElbowEffector.pull" "HIKproperties1.CtrlPullLeftElbow"
+		;
+connectAttr "Character1_Ctrl_LeftElbowEffector.stiffness" "HIKproperties1.CtrlResistLeftElbow"
+		;
+connectAttr "Character1_Ctrl_RightElbowEffector.pull" "HIKproperties1.CtrlPullRightElbow"
+		;
+connectAttr "Character1_Ctrl_RightElbowEffector.stiffness" "HIKproperties1.CtrlResistRightElbow"
+		;
+connectAttr "Character1_Ctrl_ChestOriginEffector.stiffness" "HIKproperties1.ParamCtrlSpineStiffness"
+		;
+connectAttr "Character1_Ctrl_ChestEndEffector.pull" "HIKproperties1.CtrlResistChestPosition"
+		;
+connectAttr "Character1_Ctrl_ChestEndEffector.stiffness" "HIKproperties1.CtrlResistChestOrientation"
+		;
+connectAttr "Character1_Ctrl_LeftFootEffector.pull" "HIKproperties1.CtrlPullLeftToeBase"
+		;
+connectAttr "Character1_Ctrl_RightFootEffector.pull" "HIKproperties1.CtrlPullRightToeBase"
+		;
+connectAttr "Character1_Ctrl_LeftShoulderEffector.stiffness" "HIKproperties1.CtrlResistLeftCollar"
+		;
+connectAttr "Character1_Ctrl_RightShoulderEffector.stiffness" "HIKproperties1.CtrlResistRightCollar"
+		;
+connectAttr "Character1_Ctrl_HeadEffector.pull" "HIKproperties1.CtrlPullHead";
+connectAttr "Character1_Ctrl_HeadEffector.stiffness" "HIKproperties1.ParamCtrlNeckStiffness"
+		;
+connectAttr "HIKproperties1.OutputPropertySetState" "HIKSolverNode1.InputPropertySetState"
+		;
+connectAttr "Character1.OutputCharacterDefinition" "HIKSolverNode1.InputCharacterDefinition"
+		;
+connectAttr "HIKFK2State1.OutputCharacterState" "HIKSolverNode1.InputCharacterState"
+		;
+connectAttr "HIKPinning2State1.OutputEffectorState" "HIKSolverNode1.InputEffectorState"
+		;
+connectAttr "HIKPinning2State1.OutputEffectorStateNoAux" "HIKSolverNode1.InputEffectorStateNoAux"
 		;
 connectAttr "Character1.OutputCharacterDefinition" "HIKState2SK1.InputCharacterDefinition"
 		;
@@ -73889,13 +76744,1815 @@ connectAttr "Character1_RightHandPinky4.is" "HIKState2SK1.RightHandPinky4IS";
 connectAttr "Character1_RightHandPinky4.ro" "HIKState2SK1.RightHandPinky4ROrder"
 		;
 connectAttr "Character1_RightHandPinky4.ra" "HIKState2SK1.RightHandPinky4PostR";
-connectAttr "HIKproperties1.OutputPropertySetState" "HIKSolverNode1.InputPropertySetState"
+connectAttr "Character1.OutputCharacterDefinition" "Character1_ControlRig.HIC";
+connectAttr "Character1_Ctrl_Reference.ch" "Character1_ControlRig.Reference";
+connectAttr "Character1_Ctrl_Hips.ch" "Character1_ControlRig.Hips";
+connectAttr "Character1_Ctrl_LeftUpLeg.ch" "Character1_ControlRig.LeftUpLeg";
+connectAttr "Character1_Ctrl_LeftLeg.ch" "Character1_ControlRig.LeftLeg";
+connectAttr "Character1_Ctrl_LeftFoot.ch" "Character1_ControlRig.LeftFoot";
+connectAttr "Character1_Ctrl_RightUpLeg.ch" "Character1_ControlRig.RightUpLeg";
+connectAttr "Character1_Ctrl_RightLeg.ch" "Character1_ControlRig.RightLeg";
+connectAttr "Character1_Ctrl_RightFoot.ch" "Character1_ControlRig.RightFoot";
+connectAttr "Character1_Ctrl_Spine.ch" "Character1_ControlRig.Spine";
+connectAttr "Character1_Ctrl_LeftArm.ch" "Character1_ControlRig.LeftArm";
+connectAttr "Character1_Ctrl_LeftForeArm.ch" "Character1_ControlRig.LeftForeArm"
 		;
-connectAttr "Character1.OutputCharacterDefinition" "HIKSolverNode1.InputCharacterDefinition"
+connectAttr "Character1_Ctrl_LeftHand.ch" "Character1_ControlRig.LeftHand";
+connectAttr "Character1_Ctrl_RightArm.ch" "Character1_ControlRig.RightArm";
+connectAttr "Character1_Ctrl_RightForeArm.ch" "Character1_ControlRig.RightForeArm"
 		;
-connectAttr "HIKFK2State1.OutputCharacterState" "HIKSolverNode1.InputCharacterState"
+connectAttr "Character1_Ctrl_RightHand.ch" "Character1_ControlRig.RightHand";
+connectAttr "Character1_Ctrl_Head.ch" "Character1_ControlRig.Head";
+connectAttr "Character1_Ctrl_LeftToeBase.ch" "Character1_ControlRig.LeftToeBase"
+		;
+connectAttr "Character1_Ctrl_RightToeBase.ch" "Character1_ControlRig.RightToeBase"
+		;
+connectAttr "Character1_Ctrl_LeftShoulder.ch" "Character1_ControlRig.LeftShoulder"
+		;
+connectAttr "Character1_Ctrl_RightShoulder.ch" "Character1_ControlRig.RightShoulder"
+		;
+connectAttr "Character1_Ctrl_Neck.ch" "Character1_ControlRig.Neck";
+connectAttr "Character1_Ctrl_Spine1.ch" "Character1_ControlRig.Spine1";
+connectAttr "Character1_Ctrl_Spine2.ch" "Character1_ControlRig.Spine2";
+connectAttr "Character1_Ctrl_LeftHandThumb1.ch" "Character1_ControlRig.LeftHandThumb1"
+		;
+connectAttr "Character1_Ctrl_LeftHandThumb2.ch" "Character1_ControlRig.LeftHandThumb2"
+		;
+connectAttr "Character1_Ctrl_LeftHandThumb3.ch" "Character1_ControlRig.LeftHandThumb3"
+		;
+connectAttr "Character1_Ctrl_LeftHandThumb4.ch" "Character1_ControlRig.LeftHandThumb4"
+		;
+connectAttr "Character1_Ctrl_LeftHandIndex1.ch" "Character1_ControlRig.LeftHandIndex1"
+		;
+connectAttr "Character1_Ctrl_LeftHandIndex2.ch" "Character1_ControlRig.LeftHandIndex2"
+		;
+connectAttr "Character1_Ctrl_LeftHandIndex3.ch" "Character1_ControlRig.LeftHandIndex3"
+		;
+connectAttr "Character1_Ctrl_LeftHandIndex4.ch" "Character1_ControlRig.LeftHandIndex4"
+		;
+connectAttr "Character1_Ctrl_LeftHandMiddle1.ch" "Character1_ControlRig.LeftHandMiddle1"
+		;
+connectAttr "Character1_Ctrl_LeftHandMiddle2.ch" "Character1_ControlRig.LeftHandMiddle2"
+		;
+connectAttr "Character1_Ctrl_LeftHandMiddle3.ch" "Character1_ControlRig.LeftHandMiddle3"
+		;
+connectAttr "Character1_Ctrl_LeftHandMiddle4.ch" "Character1_ControlRig.LeftHandMiddle4"
+		;
+connectAttr "Character1_Ctrl_LeftHandRing1.ch" "Character1_ControlRig.LeftHandRing1"
+		;
+connectAttr "Character1_Ctrl_LeftHandRing2.ch" "Character1_ControlRig.LeftHandRing2"
+		;
+connectAttr "Character1_Ctrl_LeftHandRing3.ch" "Character1_ControlRig.LeftHandRing3"
+		;
+connectAttr "Character1_Ctrl_LeftHandRing4.ch" "Character1_ControlRig.LeftHandRing4"
+		;
+connectAttr "Character1_Ctrl_LeftHandPinky1.ch" "Character1_ControlRig.LeftHandPinky1"
+		;
+connectAttr "Character1_Ctrl_LeftHandPinky2.ch" "Character1_ControlRig.LeftHandPinky2"
+		;
+connectAttr "Character1_Ctrl_LeftHandPinky3.ch" "Character1_ControlRig.LeftHandPinky3"
+		;
+connectAttr "Character1_Ctrl_LeftHandPinky4.ch" "Character1_ControlRig.LeftHandPinky4"
+		;
+connectAttr "Character1_Ctrl_RightHandThumb1.ch" "Character1_ControlRig.RightHandThumb1"
+		;
+connectAttr "Character1_Ctrl_RightHandThumb2.ch" "Character1_ControlRig.RightHandThumb2"
+		;
+connectAttr "Character1_Ctrl_RightHandThumb3.ch" "Character1_ControlRig.RightHandThumb3"
+		;
+connectAttr "Character1_Ctrl_RightHandThumb4.ch" "Character1_ControlRig.RightHandThumb4"
+		;
+connectAttr "Character1_Ctrl_RightHandIndex1.ch" "Character1_ControlRig.RightHandIndex1"
+		;
+connectAttr "Character1_Ctrl_RightHandIndex2.ch" "Character1_ControlRig.RightHandIndex2"
+		;
+connectAttr "Character1_Ctrl_RightHandIndex3.ch" "Character1_ControlRig.RightHandIndex3"
+		;
+connectAttr "Character1_Ctrl_RightHandIndex4.ch" "Character1_ControlRig.RightHandIndex4"
+		;
+connectAttr "Character1_Ctrl_RightHandMiddle1.ch" "Character1_ControlRig.RightHandMiddle1"
+		;
+connectAttr "Character1_Ctrl_RightHandMiddle2.ch" "Character1_ControlRig.RightHandMiddle2"
+		;
+connectAttr "Character1_Ctrl_RightHandMiddle3.ch" "Character1_ControlRig.RightHandMiddle3"
+		;
+connectAttr "Character1_Ctrl_RightHandMiddle4.ch" "Character1_ControlRig.RightHandMiddle4"
+		;
+connectAttr "Character1_Ctrl_RightHandRing1.ch" "Character1_ControlRig.RightHandRing1"
+		;
+connectAttr "Character1_Ctrl_RightHandRing2.ch" "Character1_ControlRig.RightHandRing2"
+		;
+connectAttr "Character1_Ctrl_RightHandRing3.ch" "Character1_ControlRig.RightHandRing3"
+		;
+connectAttr "Character1_Ctrl_RightHandRing4.ch" "Character1_ControlRig.RightHandRing4"
+		;
+connectAttr "Character1_Ctrl_RightHandPinky1.ch" "Character1_ControlRig.RightHandPinky1"
+		;
+connectAttr "Character1_Ctrl_RightHandPinky2.ch" "Character1_ControlRig.RightHandPinky2"
+		;
+connectAttr "Character1_Ctrl_RightHandPinky3.ch" "Character1_ControlRig.RightHandPinky3"
+		;
+connectAttr "Character1_Ctrl_RightHandPinky4.ch" "Character1_ControlRig.RightHandPinky4"
+		;
+connectAttr "Character1_Ctrl_HipsEffector.ch" "Character1_ControlRig.HipsEffector[0]"
+		;
+connectAttr "Character1_Ctrl_LeftAnkleEffector.ch" "Character1_ControlRig.LeftAnkleEffector[0]"
+		;
+connectAttr "Character1_Ctrl_RightAnkleEffector.ch" "Character1_ControlRig.RightAnkleEffector[0]"
+		;
+connectAttr "Character1_Ctrl_LeftWristEffector.ch" "Character1_ControlRig.LeftWristEffector[0]"
+		;
+connectAttr "Character1_Ctrl_RightWristEffector.ch" "Character1_ControlRig.RightWristEffector[0]"
+		;
+connectAttr "Character1_Ctrl_LeftKneeEffector.ch" "Character1_ControlRig.LeftKneeEffector[0]"
+		;
+connectAttr "Character1_Ctrl_RightKneeEffector.ch" "Character1_ControlRig.RightKneeEffector[0]"
+		;
+connectAttr "Character1_Ctrl_LeftElbowEffector.ch" "Character1_ControlRig.LeftElbowEffector[0]"
+		;
+connectAttr "Character1_Ctrl_RightElbowEffector.ch" "Character1_ControlRig.RightElbowEffector[0]"
+		;
+connectAttr "Character1_Ctrl_ChestOriginEffector.ch" "Character1_ControlRig.ChestOriginEffector[0]"
+		;
+connectAttr "Character1_Ctrl_ChestEndEffector.ch" "Character1_ControlRig.ChestEndEffector[0]"
+		;
+connectAttr "Character1_Ctrl_LeftFootEffector.ch" "Character1_ControlRig.LeftFootEffector[0]"
+		;
+connectAttr "Character1_Ctrl_RightFootEffector.ch" "Character1_ControlRig.RightFootEffector[0]"
+		;
+connectAttr "Character1_Ctrl_LeftShoulderEffector.ch" "Character1_ControlRig.LeftShoulderEffector[0]"
+		;
+connectAttr "Character1_Ctrl_RightShoulderEffector.ch" "Character1_ControlRig.RightShoulderEffector[0]"
+		;
+connectAttr "Character1_Ctrl_HeadEffector.ch" "Character1_ControlRig.HeadEffector[0]"
+		;
+connectAttr "Character1_Ctrl_LeftHipEffector.ch" "Character1_ControlRig.LeftHipEffector[0]"
+		;
+connectAttr "Character1_Ctrl_RightHipEffector.ch" "Character1_ControlRig.RightHipEffector[0]"
+		;
+connectAttr "Character1_Ctrl_LeftHandThumbEffector.ch" "Character1_ControlRig.LeftHandThumbEffector[0]"
+		;
+connectAttr "Character1_Ctrl_LeftHandIndexEffector.ch" "Character1_ControlRig.LeftHandIndexEffector[0]"
+		;
+connectAttr "Character1_Ctrl_LeftHandMiddleEffector.ch" "Character1_ControlRig.LeftHandMiddleEffector[0]"
+		;
+connectAttr "Character1_Ctrl_LeftHandRingEffector.ch" "Character1_ControlRig.LeftHandRingEffector[0]"
+		;
+connectAttr "Character1_Ctrl_LeftHandPinkyEffector.ch" "Character1_ControlRig.LeftHandPinkyEffector[0]"
+		;
+connectAttr "Character1_Ctrl_RightHandThumbEffector.ch" "Character1_ControlRig.RightHandThumbEffector[0]"
+		;
+connectAttr "Character1_Ctrl_RightHandIndexEffector.ch" "Character1_ControlRig.RightHandIndexEffector[0]"
+		;
+connectAttr "Character1_Ctrl_RightHandMiddleEffector.ch" "Character1_ControlRig.RightHandMiddleEffector[0]"
+		;
+connectAttr "Character1_Ctrl_RightHandRingEffector.ch" "Character1_ControlRig.RightHandRingEffector[0]"
+		;
+connectAttr "Character1_Ctrl_RightHandPinkyEffector.ch" "Character1_ControlRig.RightHandPinkyEffector[0]"
+		;
+connectAttr "HIKproperties1.ra" "Character1_ControlRig.ra";
+connectAttr "Character1_HipsBPKG2.msg" "Character1_FullBodyKG3.dnsm" -na;
+connectAttr "Character1_ChestBPKG2.msg" "Character1_FullBodyKG3.dnsm" -na;
+connectAttr "Character1_LeftArmBPKG2.msg" "Character1_FullBodyKG3.dnsm" -na;
+connectAttr "Character1_RightArmBPKG2.msg" "Character1_FullBodyKG3.dnsm" -na;
+connectAttr "Character1_LeftLegBPKG2.msg" "Character1_FullBodyKG3.dnsm" -na;
+connectAttr "Character1_RightLegBPKG2.msg" "Character1_FullBodyKG3.dnsm" -na;
+connectAttr "Character1_HeadBPKG2.msg" "Character1_FullBodyKG3.dnsm" -na;
+connectAttr "Character1_LeftHandBPKG2.msg" "Character1_FullBodyKG3.dnsm" -na;
+connectAttr "Character1_RightHandBPKG2.msg" "Character1_FullBodyKG3.dnsm" -na;
+connectAttr "Character1_LeftFootBPKG3.msg" "Character1_FullBodyKG3.dnsm" -na;
+connectAttr "Character1_RightFootBPKG3.msg" "Character1_FullBodyKG3.dnsm" -na;
+connectAttr "Character1_Ctrl_Hips.msg" "Character1_FullBodyKG3.act[0]";
+connectAttr "Character1_Ctrl_LeftUpLeg.msg" "Character1_FullBodyKG3.act[1]";
+connectAttr "Character1_Ctrl_LeftLeg.msg" "Character1_FullBodyKG3.act[2]";
+connectAttr "Character1_Ctrl_LeftFoot.msg" "Character1_FullBodyKG3.act[3]";
+connectAttr "Character1_Ctrl_RightUpLeg.msg" "Character1_FullBodyKG3.act[4]";
+connectAttr "Character1_Ctrl_RightLeg.msg" "Character1_FullBodyKG3.act[5]";
+connectAttr "Character1_Ctrl_RightFoot.msg" "Character1_FullBodyKG3.act[6]";
+connectAttr "Character1_Ctrl_Spine.msg" "Character1_FullBodyKG3.act[7]";
+connectAttr "Character1_Ctrl_LeftArm.msg" "Character1_FullBodyKG3.act[8]";
+connectAttr "Character1_Ctrl_LeftForeArm.msg" "Character1_FullBodyKG3.act[9]";
+connectAttr "Character1_Ctrl_LeftHand.msg" "Character1_FullBodyKG3.act[10]";
+connectAttr "Character1_Ctrl_RightArm.msg" "Character1_FullBodyKG3.act[11]";
+connectAttr "Character1_Ctrl_RightForeArm.msg" "Character1_FullBodyKG3.act[12]";
+connectAttr "Character1_Ctrl_RightHand.msg" "Character1_FullBodyKG3.act[13]";
+connectAttr "Character1_Ctrl_Head.msg" "Character1_FullBodyKG3.act[14]";
+connectAttr "Character1_Ctrl_LeftToeBase.msg" "Character1_FullBodyKG3.act[15]";
+connectAttr "Character1_Ctrl_RightToeBase.msg" "Character1_FullBodyKG3.act[16]";
+connectAttr "Character1_Ctrl_LeftShoulder.msg" "Character1_FullBodyKG3.act[17]";
+connectAttr "Character1_Ctrl_RightShoulder.msg" "Character1_FullBodyKG3.act[18]"
+		;
+connectAttr "Character1_Ctrl_Neck.msg" "Character1_FullBodyKG3.act[19]";
+connectAttr "Character1_Ctrl_Spine1.msg" "Character1_FullBodyKG3.act[20]";
+connectAttr "Character1_Ctrl_Spine2.msg" "Character1_FullBodyKG3.act[21]";
+connectAttr "Character1_Ctrl_LeftHandThumb1.msg" "Character1_FullBodyKG3.act[22]"
+		;
+connectAttr "Character1_Ctrl_LeftHandThumb2.msg" "Character1_FullBodyKG3.act[23]"
+		;
+connectAttr "Character1_Ctrl_LeftHandThumb3.msg" "Character1_FullBodyKG3.act[24]"
+		;
+connectAttr "Character1_Ctrl_LeftHandThumb4.msg" "Character1_FullBodyKG3.act[25]"
+		;
+connectAttr "Character1_Ctrl_LeftHandIndex1.msg" "Character1_FullBodyKG3.act[26]"
+		;
+connectAttr "Character1_Ctrl_LeftHandIndex2.msg" "Character1_FullBodyKG3.act[27]"
+		;
+connectAttr "Character1_Ctrl_LeftHandIndex3.msg" "Character1_FullBodyKG3.act[28]"
+		;
+connectAttr "Character1_Ctrl_LeftHandIndex4.msg" "Character1_FullBodyKG3.act[29]"
+		;
+connectAttr "Character1_Ctrl_LeftHandMiddle1.msg" "Character1_FullBodyKG3.act[30]"
+		;
+connectAttr "Character1_Ctrl_LeftHandMiddle2.msg" "Character1_FullBodyKG3.act[31]"
+		;
+connectAttr "Character1_Ctrl_LeftHandMiddle3.msg" "Character1_FullBodyKG3.act[32]"
+		;
+connectAttr "Character1_Ctrl_LeftHandMiddle4.msg" "Character1_FullBodyKG3.act[33]"
+		;
+connectAttr "Character1_Ctrl_LeftHandRing1.msg" "Character1_FullBodyKG3.act[34]"
+		;
+connectAttr "Character1_Ctrl_LeftHandRing2.msg" "Character1_FullBodyKG3.act[35]"
+		;
+connectAttr "Character1_Ctrl_LeftHandRing3.msg" "Character1_FullBodyKG3.act[36]"
+		;
+connectAttr "Character1_Ctrl_LeftHandRing4.msg" "Character1_FullBodyKG3.act[37]"
+		;
+connectAttr "Character1_Ctrl_LeftHandPinky1.msg" "Character1_FullBodyKG3.act[38]"
+		;
+connectAttr "Character1_Ctrl_LeftHandPinky2.msg" "Character1_FullBodyKG3.act[39]"
+		;
+connectAttr "Character1_Ctrl_LeftHandPinky3.msg" "Character1_FullBodyKG3.act[40]"
+		;
+connectAttr "Character1_Ctrl_LeftHandPinky4.msg" "Character1_FullBodyKG3.act[41]"
+		;
+connectAttr "Character1_Ctrl_RightHandThumb1.msg" "Character1_FullBodyKG3.act[42]"
+		;
+connectAttr "Character1_Ctrl_RightHandThumb2.msg" "Character1_FullBodyKG3.act[43]"
+		;
+connectAttr "Character1_Ctrl_RightHandThumb3.msg" "Character1_FullBodyKG3.act[44]"
+		;
+connectAttr "Character1_Ctrl_RightHandThumb4.msg" "Character1_FullBodyKG3.act[45]"
+		;
+connectAttr "Character1_Ctrl_RightHandIndex1.msg" "Character1_FullBodyKG3.act[46]"
+		;
+connectAttr "Character1_Ctrl_RightHandIndex2.msg" "Character1_FullBodyKG3.act[47]"
+		;
+connectAttr "Character1_Ctrl_RightHandIndex3.msg" "Character1_FullBodyKG3.act[48]"
+		;
+connectAttr "Character1_Ctrl_RightHandIndex4.msg" "Character1_FullBodyKG3.act[49]"
+		;
+connectAttr "Character1_Ctrl_RightHandMiddle1.msg" "Character1_FullBodyKG3.act[50]"
+		;
+connectAttr "Character1_Ctrl_RightHandMiddle2.msg" "Character1_FullBodyKG3.act[51]"
+		;
+connectAttr "Character1_Ctrl_RightHandMiddle3.msg" "Character1_FullBodyKG3.act[52]"
+		;
+connectAttr "Character1_Ctrl_RightHandMiddle4.msg" "Character1_FullBodyKG3.act[53]"
+		;
+connectAttr "Character1_Ctrl_RightHandRing1.msg" "Character1_FullBodyKG3.act[54]"
+		;
+connectAttr "Character1_Ctrl_RightHandRing2.msg" "Character1_FullBodyKG3.act[55]"
+		;
+connectAttr "Character1_Ctrl_RightHandRing3.msg" "Character1_FullBodyKG3.act[56]"
+		;
+connectAttr "Character1_Ctrl_RightHandRing4.msg" "Character1_FullBodyKG3.act[57]"
+		;
+connectAttr "Character1_Ctrl_RightHandPinky1.msg" "Character1_FullBodyKG3.act[58]"
+		;
+connectAttr "Character1_Ctrl_RightHandPinky2.msg" "Character1_FullBodyKG3.act[59]"
+		;
+connectAttr "Character1_Ctrl_RightHandPinky3.msg" "Character1_FullBodyKG3.act[60]"
+		;
+connectAttr "Character1_Ctrl_RightHandPinky4.msg" "Character1_FullBodyKG3.act[61]"
+		;
+connectAttr "Character1_Ctrl_HipsEffector.msg" "Character1_FullBodyKG3.act[62]";
+connectAttr "Character1_Ctrl_LeftAnkleEffector.msg" "Character1_FullBodyKG3.act[63]"
+		;
+connectAttr "Character1_Ctrl_RightAnkleEffector.msg" "Character1_FullBodyKG3.act[64]"
+		;
+connectAttr "Character1_Ctrl_LeftWristEffector.msg" "Character1_FullBodyKG3.act[65]"
+		;
+connectAttr "Character1_Ctrl_RightWristEffector.msg" "Character1_FullBodyKG3.act[66]"
+		;
+connectAttr "Character1_Ctrl_LeftKneeEffector.msg" "Character1_FullBodyKG3.act[67]"
+		;
+connectAttr "Character1_Ctrl_RightKneeEffector.msg" "Character1_FullBodyKG3.act[68]"
+		;
+connectAttr "Character1_Ctrl_LeftElbowEffector.msg" "Character1_FullBodyKG3.act[69]"
+		;
+connectAttr "Character1_Ctrl_RightElbowEffector.msg" "Character1_FullBodyKG3.act[70]"
+		;
+connectAttr "Character1_Ctrl_ChestOriginEffector.msg" "Character1_FullBodyKG3.act[71]"
+		;
+connectAttr "Character1_Ctrl_ChestEndEffector.msg" "Character1_FullBodyKG3.act[72]"
+		;
+connectAttr "Character1_Ctrl_LeftFootEffector.msg" "Character1_FullBodyKG3.act[73]"
+		;
+connectAttr "Character1_Ctrl_RightFootEffector.msg" "Character1_FullBodyKG3.act[74]"
+		;
+connectAttr "Character1_Ctrl_LeftShoulderEffector.msg" "Character1_FullBodyKG3.act[75]"
+		;
+connectAttr "Character1_Ctrl_RightShoulderEffector.msg" "Character1_FullBodyKG3.act[76]"
+		;
+connectAttr "Character1_Ctrl_HeadEffector.msg" "Character1_FullBodyKG3.act[77]";
+connectAttr "Character1_Ctrl_LeftHipEffector.msg" "Character1_FullBodyKG3.act[78]"
+		;
+connectAttr "Character1_Ctrl_RightHipEffector.msg" "Character1_FullBodyKG3.act[79]"
+		;
+connectAttr "Character1_Ctrl_LeftHandThumbEffector.msg" "Character1_FullBodyKG3.act[80]"
+		;
+connectAttr "Character1_Ctrl_LeftHandIndexEffector.msg" "Character1_FullBodyKG3.act[81]"
+		;
+connectAttr "Character1_Ctrl_LeftHandMiddleEffector.msg" "Character1_FullBodyKG3.act[82]"
+		;
+connectAttr "Character1_Ctrl_LeftHandRingEffector.msg" "Character1_FullBodyKG3.act[83]"
+		;
+connectAttr "Character1_Ctrl_LeftHandPinkyEffector.msg" "Character1_FullBodyKG3.act[84]"
+		;
+connectAttr "Character1_Ctrl_RightHandThumbEffector.msg" "Character1_FullBodyKG3.act[85]"
+		;
+connectAttr "Character1_Ctrl_RightHandIndexEffector.msg" "Character1_FullBodyKG3.act[86]"
+		;
+connectAttr "Character1_Ctrl_RightHandMiddleEffector.msg" "Character1_FullBodyKG3.act[87]"
+		;
+connectAttr "Character1_Ctrl_RightHandRingEffector.msg" "Character1_FullBodyKG3.act[88]"
+		;
+connectAttr "Character1_Ctrl_RightHandPinkyEffector.msg" "Character1_FullBodyKG3.act[89]"
+		;
+connectAttr "Character1_Ctrl_Hips.rz" "Character1_HipsBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_Hips.ry" "Character1_HipsBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_Hips.rx" "Character1_HipsBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_Hips.tz" "Character1_HipsBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_Hips.ty" "Character1_HipsBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_Hips.tx" "Character1_HipsBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_HipsEffector.rz" "Character1_HipsBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_HipsEffector.ry" "Character1_HipsBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_HipsEffector.rx" "Character1_HipsBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_HipsEffector.tz" "Character1_HipsBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_HipsEffector.ty" "Character1_HipsBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_HipsEffector.tx" "Character1_HipsBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_Hips.msg" "Character1_HipsBPKG2.act[0]";
+connectAttr "Character1_Ctrl_HipsEffector.msg" "Character1_HipsBPKG2.act[1]";
+connectAttr "Character1_Ctrl_Spine.rz" "Character1_ChestBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_Spine.ry" "Character1_ChestBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_Spine.rx" "Character1_ChestBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_Spine1.rz" "Character1_ChestBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_Spine1.ry" "Character1_ChestBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_Spine1.rx" "Character1_ChestBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_Spine2.rz" "Character1_ChestBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_Spine2.ry" "Character1_ChestBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_Spine2.rx" "Character1_ChestBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_ChestOriginEffector.rz" "Character1_ChestBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_ChestOriginEffector.ry" "Character1_ChestBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_ChestOriginEffector.rx" "Character1_ChestBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_ChestOriginEffector.tz" "Character1_ChestBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_ChestOriginEffector.ty" "Character1_ChestBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_ChestOriginEffector.tx" "Character1_ChestBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_ChestEndEffector.rz" "Character1_ChestBPKG2.dnsm" -na
+		;
+connectAttr "Character1_Ctrl_ChestEndEffector.ry" "Character1_ChestBPKG2.dnsm" -na
+		;
+connectAttr "Character1_Ctrl_ChestEndEffector.rx" "Character1_ChestBPKG2.dnsm" -na
+		;
+connectAttr "Character1_Ctrl_ChestEndEffector.tz" "Character1_ChestBPKG2.dnsm" -na
+		;
+connectAttr "Character1_Ctrl_ChestEndEffector.ty" "Character1_ChestBPKG2.dnsm" -na
+		;
+connectAttr "Character1_Ctrl_ChestEndEffector.tx" "Character1_ChestBPKG2.dnsm" -na
+		;
+connectAttr "Character1_Ctrl_Spine.msg" "Character1_ChestBPKG2.act[0]";
+connectAttr "Character1_Ctrl_Spine1.msg" "Character1_ChestBPKG2.act[1]";
+connectAttr "Character1_Ctrl_Spine2.msg" "Character1_ChestBPKG2.act[2]";
+connectAttr "Character1_Ctrl_ChestOriginEffector.msg" "Character1_ChestBPKG2.act[3]"
+		;
+connectAttr "Character1_Ctrl_ChestEndEffector.msg" "Character1_ChestBPKG2.act[4]"
+		;
+connectAttr "Character1_Ctrl_LeftArm.rz" "Character1_LeftArmBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_LeftArm.ry" "Character1_LeftArmBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_LeftArm.rx" "Character1_LeftArmBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_LeftForeArm.rz" "Character1_LeftArmBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_LeftForeArm.ry" "Character1_LeftArmBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_LeftForeArm.rx" "Character1_LeftArmBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_LeftHand.rz" "Character1_LeftArmBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_LeftHand.ry" "Character1_LeftArmBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_LeftHand.rx" "Character1_LeftArmBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_LeftShoulder.rz" "Character1_LeftArmBPKG2.dnsm" -na
+		;
+connectAttr "Character1_Ctrl_LeftShoulder.ry" "Character1_LeftArmBPKG2.dnsm" -na
+		;
+connectAttr "Character1_Ctrl_LeftShoulder.rx" "Character1_LeftArmBPKG2.dnsm" -na
+		;
+connectAttr "Character1_Ctrl_LeftWristEffector.rz" "Character1_LeftArmBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftWristEffector.ry" "Character1_LeftArmBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftWristEffector.rx" "Character1_LeftArmBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftWristEffector.tz" "Character1_LeftArmBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftWristEffector.ty" "Character1_LeftArmBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftWristEffector.tx" "Character1_LeftArmBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftElbowEffector.rz" "Character1_LeftArmBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftElbowEffector.ry" "Character1_LeftArmBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftElbowEffector.rx" "Character1_LeftArmBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftElbowEffector.tz" "Character1_LeftArmBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftElbowEffector.ty" "Character1_LeftArmBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftElbowEffector.tx" "Character1_LeftArmBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftShoulderEffector.rz" "Character1_LeftArmBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftShoulderEffector.ry" "Character1_LeftArmBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftShoulderEffector.rx" "Character1_LeftArmBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftShoulderEffector.tz" "Character1_LeftArmBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftShoulderEffector.ty" "Character1_LeftArmBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftShoulderEffector.tx" "Character1_LeftArmBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftArm.msg" "Character1_LeftArmBPKG2.act[0]";
+connectAttr "Character1_Ctrl_LeftForeArm.msg" "Character1_LeftArmBPKG2.act[1]";
+connectAttr "Character1_Ctrl_LeftHand.msg" "Character1_LeftArmBPKG2.act[2]";
+connectAttr "Character1_Ctrl_LeftShoulder.msg" "Character1_LeftArmBPKG2.act[3]";
+connectAttr "Character1_Ctrl_LeftWristEffector.msg" "Character1_LeftArmBPKG2.act[4]"
+		;
+connectAttr "Character1_Ctrl_LeftElbowEffector.msg" "Character1_LeftArmBPKG2.act[5]"
+		;
+connectAttr "Character1_Ctrl_LeftShoulderEffector.msg" "Character1_LeftArmBPKG2.act[6]"
+		;
+connectAttr "Character1_Ctrl_RightArm.rz" "Character1_RightArmBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_RightArm.ry" "Character1_RightArmBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_RightArm.rx" "Character1_RightArmBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_RightForeArm.rz" "Character1_RightArmBPKG2.dnsm" -na
+		;
+connectAttr "Character1_Ctrl_RightForeArm.ry" "Character1_RightArmBPKG2.dnsm" -na
+		;
+connectAttr "Character1_Ctrl_RightForeArm.rx" "Character1_RightArmBPKG2.dnsm" -na
+		;
+connectAttr "Character1_Ctrl_RightHand.rz" "Character1_RightArmBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_RightHand.ry" "Character1_RightArmBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_RightHand.rx" "Character1_RightArmBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_RightShoulder.rz" "Character1_RightArmBPKG2.dnsm" -na
+		;
+connectAttr "Character1_Ctrl_RightShoulder.ry" "Character1_RightArmBPKG2.dnsm" -na
+		;
+connectAttr "Character1_Ctrl_RightShoulder.rx" "Character1_RightArmBPKG2.dnsm" -na
+		;
+connectAttr "Character1_Ctrl_RightWristEffector.rz" "Character1_RightArmBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightWristEffector.ry" "Character1_RightArmBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightWristEffector.rx" "Character1_RightArmBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightWristEffector.tz" "Character1_RightArmBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightWristEffector.ty" "Character1_RightArmBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightWristEffector.tx" "Character1_RightArmBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightElbowEffector.rz" "Character1_RightArmBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightElbowEffector.ry" "Character1_RightArmBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightElbowEffector.rx" "Character1_RightArmBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightElbowEffector.tz" "Character1_RightArmBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightElbowEffector.ty" "Character1_RightArmBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightElbowEffector.tx" "Character1_RightArmBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightShoulderEffector.rz" "Character1_RightArmBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightShoulderEffector.ry" "Character1_RightArmBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightShoulderEffector.rx" "Character1_RightArmBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightShoulderEffector.tz" "Character1_RightArmBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightShoulderEffector.ty" "Character1_RightArmBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightShoulderEffector.tx" "Character1_RightArmBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightArm.msg" "Character1_RightArmBPKG2.act[0]";
+connectAttr "Character1_Ctrl_RightForeArm.msg" "Character1_RightArmBPKG2.act[1]"
+		;
+connectAttr "Character1_Ctrl_RightHand.msg" "Character1_RightArmBPKG2.act[2]";
+connectAttr "Character1_Ctrl_RightShoulder.msg" "Character1_RightArmBPKG2.act[3]"
+		;
+connectAttr "Character1_Ctrl_RightWristEffector.msg" "Character1_RightArmBPKG2.act[4]"
+		;
+connectAttr "Character1_Ctrl_RightElbowEffector.msg" "Character1_RightArmBPKG2.act[5]"
+		;
+connectAttr "Character1_Ctrl_RightShoulderEffector.msg" "Character1_RightArmBPKG2.act[6]"
+		;
+connectAttr "Character1_Ctrl_LeftUpLeg.rz" "Character1_LeftLegBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_LeftUpLeg.ry" "Character1_LeftLegBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_LeftUpLeg.rx" "Character1_LeftLegBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_LeftLeg.rz" "Character1_LeftLegBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_LeftLeg.ry" "Character1_LeftLegBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_LeftLeg.rx" "Character1_LeftLegBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_LeftFoot.rz" "Character1_LeftLegBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_LeftFoot.ry" "Character1_LeftLegBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_LeftFoot.rx" "Character1_LeftLegBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_LeftToeBase.rz" "Character1_LeftLegBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_LeftToeBase.ry" "Character1_LeftLegBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_LeftToeBase.rx" "Character1_LeftLegBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_LeftAnkleEffector.rz" "Character1_LeftLegBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftAnkleEffector.ry" "Character1_LeftLegBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftAnkleEffector.rx" "Character1_LeftLegBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftAnkleEffector.tz" "Character1_LeftLegBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftAnkleEffector.ty" "Character1_LeftLegBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftAnkleEffector.tx" "Character1_LeftLegBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftKneeEffector.rz" "Character1_LeftLegBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftKneeEffector.ry" "Character1_LeftLegBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftKneeEffector.rx" "Character1_LeftLegBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftKneeEffector.tz" "Character1_LeftLegBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftKneeEffector.ty" "Character1_LeftLegBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftKneeEffector.tx" "Character1_LeftLegBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftFootEffector.rz" "Character1_LeftLegBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftFootEffector.ry" "Character1_LeftLegBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftFootEffector.rx" "Character1_LeftLegBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftFootEffector.tz" "Character1_LeftLegBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftFootEffector.ty" "Character1_LeftLegBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftFootEffector.tx" "Character1_LeftLegBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftHipEffector.rz" "Character1_LeftLegBPKG2.dnsm" 
+		-na;
+connectAttr "Character1_Ctrl_LeftHipEffector.ry" "Character1_LeftLegBPKG2.dnsm" 
+		-na;
+connectAttr "Character1_Ctrl_LeftHipEffector.rx" "Character1_LeftLegBPKG2.dnsm" 
+		-na;
+connectAttr "Character1_Ctrl_LeftHipEffector.tz" "Character1_LeftLegBPKG2.dnsm" 
+		-na;
+connectAttr "Character1_Ctrl_LeftHipEffector.ty" "Character1_LeftLegBPKG2.dnsm" 
+		-na;
+connectAttr "Character1_Ctrl_LeftHipEffector.tx" "Character1_LeftLegBPKG2.dnsm" 
+		-na;
+connectAttr "Character1_Ctrl_LeftUpLeg.msg" "Character1_LeftLegBPKG2.act[0]";
+connectAttr "Character1_Ctrl_LeftLeg.msg" "Character1_LeftLegBPKG2.act[1]";
+connectAttr "Character1_Ctrl_LeftFoot.msg" "Character1_LeftLegBPKG2.act[2]";
+connectAttr "Character1_Ctrl_LeftToeBase.msg" "Character1_LeftLegBPKG2.act[3]";
+connectAttr "Character1_Ctrl_LeftAnkleEffector.msg" "Character1_LeftLegBPKG2.act[4]"
+		;
+connectAttr "Character1_Ctrl_LeftKneeEffector.msg" "Character1_LeftLegBPKG2.act[5]"
+		;
+connectAttr "Character1_Ctrl_LeftFootEffector.msg" "Character1_LeftLegBPKG2.act[6]"
+		;
+connectAttr "Character1_Ctrl_LeftHipEffector.msg" "Character1_LeftLegBPKG2.act[7]"
+		;
+connectAttr "Character1_Ctrl_RightUpLeg.rz" "Character1_RightLegBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_RightUpLeg.ry" "Character1_RightLegBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_RightUpLeg.rx" "Character1_RightLegBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_RightLeg.rz" "Character1_RightLegBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_RightLeg.ry" "Character1_RightLegBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_RightLeg.rx" "Character1_RightLegBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_RightFoot.rz" "Character1_RightLegBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_RightFoot.ry" "Character1_RightLegBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_RightFoot.rx" "Character1_RightLegBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_RightToeBase.rz" "Character1_RightLegBPKG2.dnsm" -na
+		;
+connectAttr "Character1_Ctrl_RightToeBase.ry" "Character1_RightLegBPKG2.dnsm" -na
+		;
+connectAttr "Character1_Ctrl_RightToeBase.rx" "Character1_RightLegBPKG2.dnsm" -na
+		;
+connectAttr "Character1_Ctrl_RightAnkleEffector.rz" "Character1_RightLegBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightAnkleEffector.ry" "Character1_RightLegBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightAnkleEffector.rx" "Character1_RightLegBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightAnkleEffector.tz" "Character1_RightLegBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightAnkleEffector.ty" "Character1_RightLegBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightAnkleEffector.tx" "Character1_RightLegBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightKneeEffector.rz" "Character1_RightLegBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightKneeEffector.ry" "Character1_RightLegBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightKneeEffector.rx" "Character1_RightLegBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightKneeEffector.tz" "Character1_RightLegBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightKneeEffector.ty" "Character1_RightLegBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightKneeEffector.tx" "Character1_RightLegBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightFootEffector.rz" "Character1_RightLegBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightFootEffector.ry" "Character1_RightLegBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightFootEffector.rx" "Character1_RightLegBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightFootEffector.tz" "Character1_RightLegBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightFootEffector.ty" "Character1_RightLegBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightFootEffector.tx" "Character1_RightLegBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHipEffector.rz" "Character1_RightLegBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHipEffector.ry" "Character1_RightLegBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHipEffector.rx" "Character1_RightLegBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHipEffector.tz" "Character1_RightLegBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHipEffector.ty" "Character1_RightLegBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHipEffector.tx" "Character1_RightLegBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightUpLeg.msg" "Character1_RightLegBPKG2.act[0]";
+connectAttr "Character1_Ctrl_RightLeg.msg" "Character1_RightLegBPKG2.act[1]";
+connectAttr "Character1_Ctrl_RightFoot.msg" "Character1_RightLegBPKG2.act[2]";
+connectAttr "Character1_Ctrl_RightToeBase.msg" "Character1_RightLegBPKG2.act[3]"
+		;
+connectAttr "Character1_Ctrl_RightAnkleEffector.msg" "Character1_RightLegBPKG2.act[4]"
+		;
+connectAttr "Character1_Ctrl_RightKneeEffector.msg" "Character1_RightLegBPKG2.act[5]"
+		;
+connectAttr "Character1_Ctrl_RightFootEffector.msg" "Character1_RightLegBPKG2.act[6]"
+		;
+connectAttr "Character1_Ctrl_RightHipEffector.msg" "Character1_RightLegBPKG2.act[7]"
+		;
+connectAttr "Character1_Ctrl_Head.rz" "Character1_HeadBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_Head.ry" "Character1_HeadBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_Head.rx" "Character1_HeadBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_Neck.rz" "Character1_HeadBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_Neck.ry" "Character1_HeadBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_Neck.rx" "Character1_HeadBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_HeadEffector.rz" "Character1_HeadBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_HeadEffector.ry" "Character1_HeadBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_HeadEffector.rx" "Character1_HeadBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_HeadEffector.tz" "Character1_HeadBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_HeadEffector.ty" "Character1_HeadBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_HeadEffector.tx" "Character1_HeadBPKG2.dnsm" -na;
+connectAttr "Character1_Ctrl_Head.msg" "Character1_HeadBPKG2.act[0]";
+connectAttr "Character1_Ctrl_Neck.msg" "Character1_HeadBPKG2.act[1]";
+connectAttr "Character1_Ctrl_HeadEffector.msg" "Character1_HeadBPKG2.act[2]";
+connectAttr "Character1_Ctrl_LeftHandThumb1.rz" "Character1_LeftHandBPKG2.dnsm" 
+		-na;
+connectAttr "Character1_Ctrl_LeftHandThumb1.ry" "Character1_LeftHandBPKG2.dnsm" 
+		-na;
+connectAttr "Character1_Ctrl_LeftHandThumb1.rx" "Character1_LeftHandBPKG2.dnsm" 
+		-na;
+connectAttr "Character1_Ctrl_LeftHandThumb2.rz" "Character1_LeftHandBPKG2.dnsm" 
+		-na;
+connectAttr "Character1_Ctrl_LeftHandThumb2.ry" "Character1_LeftHandBPKG2.dnsm" 
+		-na;
+connectAttr "Character1_Ctrl_LeftHandThumb2.rx" "Character1_LeftHandBPKG2.dnsm" 
+		-na;
+connectAttr "Character1_Ctrl_LeftHandThumb3.rz" "Character1_LeftHandBPKG2.dnsm" 
+		-na;
+connectAttr "Character1_Ctrl_LeftHandThumb3.ry" "Character1_LeftHandBPKG2.dnsm" 
+		-na;
+connectAttr "Character1_Ctrl_LeftHandThumb3.rx" "Character1_LeftHandBPKG2.dnsm" 
+		-na;
+connectAttr "Character1_Ctrl_LeftHandThumb4.rz" "Character1_LeftHandBPKG2.dnsm" 
+		-na;
+connectAttr "Character1_Ctrl_LeftHandThumb4.ry" "Character1_LeftHandBPKG2.dnsm" 
+		-na;
+connectAttr "Character1_Ctrl_LeftHandThumb4.rx" "Character1_LeftHandBPKG2.dnsm" 
+		-na;
+connectAttr "Character1_Ctrl_LeftHandIndex1.rz" "Character1_LeftHandBPKG2.dnsm" 
+		-na;
+connectAttr "Character1_Ctrl_LeftHandIndex1.ry" "Character1_LeftHandBPKG2.dnsm" 
+		-na;
+connectAttr "Character1_Ctrl_LeftHandIndex1.rx" "Character1_LeftHandBPKG2.dnsm" 
+		-na;
+connectAttr "Character1_Ctrl_LeftHandIndex2.rz" "Character1_LeftHandBPKG2.dnsm" 
+		-na;
+connectAttr "Character1_Ctrl_LeftHandIndex2.ry" "Character1_LeftHandBPKG2.dnsm" 
+		-na;
+connectAttr "Character1_Ctrl_LeftHandIndex2.rx" "Character1_LeftHandBPKG2.dnsm" 
+		-na;
+connectAttr "Character1_Ctrl_LeftHandIndex3.rz" "Character1_LeftHandBPKG2.dnsm" 
+		-na;
+connectAttr "Character1_Ctrl_LeftHandIndex3.ry" "Character1_LeftHandBPKG2.dnsm" 
+		-na;
+connectAttr "Character1_Ctrl_LeftHandIndex3.rx" "Character1_LeftHandBPKG2.dnsm" 
+		-na;
+connectAttr "Character1_Ctrl_LeftHandIndex4.rz" "Character1_LeftHandBPKG2.dnsm" 
+		-na;
+connectAttr "Character1_Ctrl_LeftHandIndex4.ry" "Character1_LeftHandBPKG2.dnsm" 
+		-na;
+connectAttr "Character1_Ctrl_LeftHandIndex4.rx" "Character1_LeftHandBPKG2.dnsm" 
+		-na;
+connectAttr "Character1_Ctrl_LeftHandMiddle1.rz" "Character1_LeftHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftHandMiddle1.ry" "Character1_LeftHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftHandMiddle1.rx" "Character1_LeftHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftHandMiddle2.rz" "Character1_LeftHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftHandMiddle2.ry" "Character1_LeftHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftHandMiddle2.rx" "Character1_LeftHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftHandMiddle3.rz" "Character1_LeftHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftHandMiddle3.ry" "Character1_LeftHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftHandMiddle3.rx" "Character1_LeftHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftHandMiddle4.rz" "Character1_LeftHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftHandMiddle4.ry" "Character1_LeftHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftHandMiddle4.rx" "Character1_LeftHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftHandRing1.rz" "Character1_LeftHandBPKG2.dnsm" -na
+		;
+connectAttr "Character1_Ctrl_LeftHandRing1.ry" "Character1_LeftHandBPKG2.dnsm" -na
+		;
+connectAttr "Character1_Ctrl_LeftHandRing1.rx" "Character1_LeftHandBPKG2.dnsm" -na
+		;
+connectAttr "Character1_Ctrl_LeftHandRing2.rz" "Character1_LeftHandBPKG2.dnsm" -na
+		;
+connectAttr "Character1_Ctrl_LeftHandRing2.ry" "Character1_LeftHandBPKG2.dnsm" -na
+		;
+connectAttr "Character1_Ctrl_LeftHandRing2.rx" "Character1_LeftHandBPKG2.dnsm" -na
+		;
+connectAttr "Character1_Ctrl_LeftHandRing3.rz" "Character1_LeftHandBPKG2.dnsm" -na
+		;
+connectAttr "Character1_Ctrl_LeftHandRing3.ry" "Character1_LeftHandBPKG2.dnsm" -na
+		;
+connectAttr "Character1_Ctrl_LeftHandRing3.rx" "Character1_LeftHandBPKG2.dnsm" -na
+		;
+connectAttr "Character1_Ctrl_LeftHandRing4.rz" "Character1_LeftHandBPKG2.dnsm" -na
+		;
+connectAttr "Character1_Ctrl_LeftHandRing4.ry" "Character1_LeftHandBPKG2.dnsm" -na
+		;
+connectAttr "Character1_Ctrl_LeftHandRing4.rx" "Character1_LeftHandBPKG2.dnsm" -na
+		;
+connectAttr "Character1_Ctrl_LeftHandPinky1.rz" "Character1_LeftHandBPKG2.dnsm" 
+		-na;
+connectAttr "Character1_Ctrl_LeftHandPinky1.ry" "Character1_LeftHandBPKG2.dnsm" 
+		-na;
+connectAttr "Character1_Ctrl_LeftHandPinky1.rx" "Character1_LeftHandBPKG2.dnsm" 
+		-na;
+connectAttr "Character1_Ctrl_LeftHandPinky2.rz" "Character1_LeftHandBPKG2.dnsm" 
+		-na;
+connectAttr "Character1_Ctrl_LeftHandPinky2.ry" "Character1_LeftHandBPKG2.dnsm" 
+		-na;
+connectAttr "Character1_Ctrl_LeftHandPinky2.rx" "Character1_LeftHandBPKG2.dnsm" 
+		-na;
+connectAttr "Character1_Ctrl_LeftHandPinky3.rz" "Character1_LeftHandBPKG2.dnsm" 
+		-na;
+connectAttr "Character1_Ctrl_LeftHandPinky3.ry" "Character1_LeftHandBPKG2.dnsm" 
+		-na;
+connectAttr "Character1_Ctrl_LeftHandPinky3.rx" "Character1_LeftHandBPKG2.dnsm" 
+		-na;
+connectAttr "Character1_Ctrl_LeftHandPinky4.rz" "Character1_LeftHandBPKG2.dnsm" 
+		-na;
+connectAttr "Character1_Ctrl_LeftHandPinky4.ry" "Character1_LeftHandBPKG2.dnsm" 
+		-na;
+connectAttr "Character1_Ctrl_LeftHandPinky4.rx" "Character1_LeftHandBPKG2.dnsm" 
+		-na;
+connectAttr "Character1_Ctrl_LeftHandThumbEffector.rz" "Character1_LeftHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftHandThumbEffector.ry" "Character1_LeftHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftHandThumbEffector.rx" "Character1_LeftHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftHandThumbEffector.tz" "Character1_LeftHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftHandThumbEffector.ty" "Character1_LeftHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftHandThumbEffector.tx" "Character1_LeftHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftHandIndexEffector.rz" "Character1_LeftHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftHandIndexEffector.ry" "Character1_LeftHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftHandIndexEffector.rx" "Character1_LeftHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftHandIndexEffector.tz" "Character1_LeftHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftHandIndexEffector.ty" "Character1_LeftHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftHandIndexEffector.tx" "Character1_LeftHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftHandMiddleEffector.rz" "Character1_LeftHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftHandMiddleEffector.ry" "Character1_LeftHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftHandMiddleEffector.rx" "Character1_LeftHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftHandMiddleEffector.tz" "Character1_LeftHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftHandMiddleEffector.ty" "Character1_LeftHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftHandMiddleEffector.tx" "Character1_LeftHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftHandRingEffector.rz" "Character1_LeftHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftHandRingEffector.ry" "Character1_LeftHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftHandRingEffector.rx" "Character1_LeftHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftHandRingEffector.tz" "Character1_LeftHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftHandRingEffector.ty" "Character1_LeftHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftHandRingEffector.tx" "Character1_LeftHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftHandPinkyEffector.rz" "Character1_LeftHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftHandPinkyEffector.ry" "Character1_LeftHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftHandPinkyEffector.rx" "Character1_LeftHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftHandPinkyEffector.tz" "Character1_LeftHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftHandPinkyEffector.ty" "Character1_LeftHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftHandPinkyEffector.tx" "Character1_LeftHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_LeftHandThumb1.msg" "Character1_LeftHandBPKG2.act[0]"
+		;
+connectAttr "Character1_Ctrl_LeftHandThumb2.msg" "Character1_LeftHandBPKG2.act[1]"
+		;
+connectAttr "Character1_Ctrl_LeftHandThumb3.msg" "Character1_LeftHandBPKG2.act[2]"
+		;
+connectAttr "Character1_Ctrl_LeftHandThumb4.msg" "Character1_LeftHandBPKG2.act[3]"
+		;
+connectAttr "Character1_Ctrl_LeftHandIndex1.msg" "Character1_LeftHandBPKG2.act[4]"
+		;
+connectAttr "Character1_Ctrl_LeftHandIndex2.msg" "Character1_LeftHandBPKG2.act[5]"
+		;
+connectAttr "Character1_Ctrl_LeftHandIndex3.msg" "Character1_LeftHandBPKG2.act[6]"
+		;
+connectAttr "Character1_Ctrl_LeftHandIndex4.msg" "Character1_LeftHandBPKG2.act[7]"
+		;
+connectAttr "Character1_Ctrl_LeftHandMiddle1.msg" "Character1_LeftHandBPKG2.act[8]"
+		;
+connectAttr "Character1_Ctrl_LeftHandMiddle2.msg" "Character1_LeftHandBPKG2.act[9]"
+		;
+connectAttr "Character1_Ctrl_LeftHandMiddle3.msg" "Character1_LeftHandBPKG2.act[10]"
+		;
+connectAttr "Character1_Ctrl_LeftHandMiddle4.msg" "Character1_LeftHandBPKG2.act[11]"
+		;
+connectAttr "Character1_Ctrl_LeftHandRing1.msg" "Character1_LeftHandBPKG2.act[12]"
+		;
+connectAttr "Character1_Ctrl_LeftHandRing2.msg" "Character1_LeftHandBPKG2.act[13]"
+		;
+connectAttr "Character1_Ctrl_LeftHandRing3.msg" "Character1_LeftHandBPKG2.act[14]"
+		;
+connectAttr "Character1_Ctrl_LeftHandRing4.msg" "Character1_LeftHandBPKG2.act[15]"
+		;
+connectAttr "Character1_Ctrl_LeftHandPinky1.msg" "Character1_LeftHandBPKG2.act[16]"
+		;
+connectAttr "Character1_Ctrl_LeftHandPinky2.msg" "Character1_LeftHandBPKG2.act[17]"
+		;
+connectAttr "Character1_Ctrl_LeftHandPinky3.msg" "Character1_LeftHandBPKG2.act[18]"
+		;
+connectAttr "Character1_Ctrl_LeftHandPinky4.msg" "Character1_LeftHandBPKG2.act[19]"
+		;
+connectAttr "Character1_Ctrl_LeftHandThumbEffector.msg" "Character1_LeftHandBPKG2.act[20]"
+		;
+connectAttr "Character1_Ctrl_LeftHandIndexEffector.msg" "Character1_LeftHandBPKG2.act[21]"
+		;
+connectAttr "Character1_Ctrl_LeftHandMiddleEffector.msg" "Character1_LeftHandBPKG2.act[22]"
+		;
+connectAttr "Character1_Ctrl_LeftHandRingEffector.msg" "Character1_LeftHandBPKG2.act[23]"
+		;
+connectAttr "Character1_Ctrl_LeftHandPinkyEffector.msg" "Character1_LeftHandBPKG2.act[24]"
+		;
+connectAttr "Character1_Ctrl_RightHandThumb1.rz" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandThumb1.ry" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandThumb1.rx" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandThumb2.rz" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandThumb2.ry" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandThumb2.rx" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandThumb3.rz" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandThumb3.ry" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandThumb3.rx" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandThumb4.rz" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandThumb4.ry" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandThumb4.rx" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandIndex1.rz" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandIndex1.ry" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandIndex1.rx" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandIndex2.rz" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandIndex2.ry" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandIndex2.rx" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandIndex3.rz" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandIndex3.ry" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandIndex3.rx" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandIndex4.rz" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandIndex4.ry" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandIndex4.rx" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandMiddle1.rz" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandMiddle1.ry" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandMiddle1.rx" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandMiddle2.rz" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandMiddle2.ry" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandMiddle2.rx" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandMiddle3.rz" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandMiddle3.ry" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandMiddle3.rx" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandMiddle4.rz" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandMiddle4.ry" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandMiddle4.rx" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandRing1.rz" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandRing1.ry" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandRing1.rx" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandRing2.rz" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandRing2.ry" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandRing2.rx" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandRing3.rz" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandRing3.ry" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandRing3.rx" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandRing4.rz" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandRing4.ry" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandRing4.rx" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandPinky1.rz" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandPinky1.ry" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandPinky1.rx" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandPinky2.rz" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandPinky2.ry" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandPinky2.rx" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandPinky3.rz" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandPinky3.ry" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandPinky3.rx" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandPinky4.rz" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandPinky4.ry" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandPinky4.rx" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandThumbEffector.rz" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandThumbEffector.ry" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandThumbEffector.rx" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandThumbEffector.tz" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandThumbEffector.ty" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandThumbEffector.tx" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandIndexEffector.rz" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandIndexEffector.ry" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandIndexEffector.rx" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandIndexEffector.tz" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandIndexEffector.ty" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandIndexEffector.tx" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandMiddleEffector.rz" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandMiddleEffector.ry" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandMiddleEffector.rx" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandMiddleEffector.tz" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandMiddleEffector.ty" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandMiddleEffector.tx" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandRingEffector.rz" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandRingEffector.ry" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandRingEffector.rx" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandRingEffector.tz" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandRingEffector.ty" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandRingEffector.tx" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandPinkyEffector.rz" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandPinkyEffector.ry" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandPinkyEffector.rx" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandPinkyEffector.tz" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandPinkyEffector.ty" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandPinkyEffector.tx" "Character1_RightHandBPKG2.dnsm"
+		 -na;
+connectAttr "Character1_Ctrl_RightHandThumb1.msg" "Character1_RightHandBPKG2.act[0]"
+		;
+connectAttr "Character1_Ctrl_RightHandThumb2.msg" "Character1_RightHandBPKG2.act[1]"
+		;
+connectAttr "Character1_Ctrl_RightHandThumb3.msg" "Character1_RightHandBPKG2.act[2]"
+		;
+connectAttr "Character1_Ctrl_RightHandThumb4.msg" "Character1_RightHandBPKG2.act[3]"
+		;
+connectAttr "Character1_Ctrl_RightHandIndex1.msg" "Character1_RightHandBPKG2.act[4]"
+		;
+connectAttr "Character1_Ctrl_RightHandIndex2.msg" "Character1_RightHandBPKG2.act[5]"
+		;
+connectAttr "Character1_Ctrl_RightHandIndex3.msg" "Character1_RightHandBPKG2.act[6]"
+		;
+connectAttr "Character1_Ctrl_RightHandIndex4.msg" "Character1_RightHandBPKG2.act[7]"
+		;
+connectAttr "Character1_Ctrl_RightHandMiddle1.msg" "Character1_RightHandBPKG2.act[8]"
+		;
+connectAttr "Character1_Ctrl_RightHandMiddle2.msg" "Character1_RightHandBPKG2.act[9]"
+		;
+connectAttr "Character1_Ctrl_RightHandMiddle3.msg" "Character1_RightHandBPKG2.act[10]"
+		;
+connectAttr "Character1_Ctrl_RightHandMiddle4.msg" "Character1_RightHandBPKG2.act[11]"
+		;
+connectAttr "Character1_Ctrl_RightHandRing1.msg" "Character1_RightHandBPKG2.act[12]"
+		;
+connectAttr "Character1_Ctrl_RightHandRing2.msg" "Character1_RightHandBPKG2.act[13]"
+		;
+connectAttr "Character1_Ctrl_RightHandRing3.msg" "Character1_RightHandBPKG2.act[14]"
+		;
+connectAttr "Character1_Ctrl_RightHandRing4.msg" "Character1_RightHandBPKG2.act[15]"
+		;
+connectAttr "Character1_Ctrl_RightHandPinky1.msg" "Character1_RightHandBPKG2.act[16]"
+		;
+connectAttr "Character1_Ctrl_RightHandPinky2.msg" "Character1_RightHandBPKG2.act[17]"
+		;
+connectAttr "Character1_Ctrl_RightHandPinky3.msg" "Character1_RightHandBPKG2.act[18]"
+		;
+connectAttr "Character1_Ctrl_RightHandPinky4.msg" "Character1_RightHandBPKG2.act[19]"
+		;
+connectAttr "Character1_Ctrl_RightHandThumbEffector.msg" "Character1_RightHandBPKG2.act[20]"
+		;
+connectAttr "Character1_Ctrl_RightHandIndexEffector.msg" "Character1_RightHandBPKG2.act[21]"
+		;
+connectAttr "Character1_Ctrl_RightHandMiddleEffector.msg" "Character1_RightHandBPKG2.act[22]"
+		;
+connectAttr "Character1_Ctrl_RightHandRingEffector.msg" "Character1_RightHandBPKG2.act[23]"
+		;
+connectAttr "Character1_Ctrl_RightHandPinkyEffector.msg" "Character1_RightHandBPKG2.act[24]"
 		;
 connectAttr "Character1.OutputCharacterDefinition" "HIKFK2State1.InputCharacterDefinition"
+		;
+connectAttr "Character1_Ctrl_Reference.wm" "HIKFK2State1.ReferenceGX";
+connectAttr "Character1_Ctrl_Hips.wm" "HIKFK2State1.HipsGX";
+connectAttr "Character1_Ctrl_LeftUpLeg.wm" "HIKFK2State1.LeftUpLegGX";
+connectAttr "Character1_Ctrl_LeftLeg.wm" "HIKFK2State1.LeftLegGX";
+connectAttr "Character1_Ctrl_LeftFoot.wm" "HIKFK2State1.LeftFootGX";
+connectAttr "Character1_Ctrl_RightUpLeg.wm" "HIKFK2State1.RightUpLegGX";
+connectAttr "Character1_Ctrl_RightLeg.wm" "HIKFK2State1.RightLegGX";
+connectAttr "Character1_Ctrl_RightFoot.wm" "HIKFK2State1.RightFootGX";
+connectAttr "Character1_Ctrl_Spine.wm" "HIKFK2State1.SpineGX";
+connectAttr "Character1_Ctrl_LeftArm.wm" "HIKFK2State1.LeftArmGX";
+connectAttr "Character1_Ctrl_LeftForeArm.wm" "HIKFK2State1.LeftForeArmGX";
+connectAttr "Character1_Ctrl_LeftHand.wm" "HIKFK2State1.LeftHandGX";
+connectAttr "Character1_Ctrl_RightArm.wm" "HIKFK2State1.RightArmGX";
+connectAttr "Character1_Ctrl_RightForeArm.wm" "HIKFK2State1.RightForeArmGX";
+connectAttr "Character1_Ctrl_RightHand.wm" "HIKFK2State1.RightHandGX";
+connectAttr "Character1_Ctrl_Head.wm" "HIKFK2State1.HeadGX";
+connectAttr "Character1_Ctrl_LeftToeBase.wm" "HIKFK2State1.LeftToeBaseGX";
+connectAttr "Character1_Ctrl_RightToeBase.wm" "HIKFK2State1.RightToeBaseGX";
+connectAttr "Character1_Ctrl_LeftShoulder.wm" "HIKFK2State1.LeftShoulderGX";
+connectAttr "Character1_Ctrl_RightShoulder.wm" "HIKFK2State1.RightShoulderGX";
+connectAttr "Character1_Ctrl_Neck.wm" "HIKFK2State1.NeckGX";
+connectAttr "Character1_Ctrl_Spine1.wm" "HIKFK2State1.Spine1GX";
+connectAttr "Character1_Ctrl_Spine2.wm" "HIKFK2State1.Spine2GX";
+connectAttr "Character1_Ctrl_LeftHandThumb1.wm" "HIKFK2State1.LeftHandThumb1GX";
+connectAttr "Character1_Ctrl_LeftHandThumb2.wm" "HIKFK2State1.LeftHandThumb2GX";
+connectAttr "Character1_Ctrl_LeftHandThumb3.wm" "HIKFK2State1.LeftHandThumb3GX";
+connectAttr "Character1_Ctrl_LeftHandThumb4.wm" "HIKFK2State1.LeftHandThumb4GX";
+connectAttr "Character1_Ctrl_LeftHandIndex1.wm" "HIKFK2State1.LeftHandIndex1GX";
+connectAttr "Character1_Ctrl_LeftHandIndex2.wm" "HIKFK2State1.LeftHandIndex2GX";
+connectAttr "Character1_Ctrl_LeftHandIndex3.wm" "HIKFK2State1.LeftHandIndex3GX";
+connectAttr "Character1_Ctrl_LeftHandIndex4.wm" "HIKFK2State1.LeftHandIndex4GX";
+connectAttr "Character1_Ctrl_LeftHandMiddle1.wm" "HIKFK2State1.LeftHandMiddle1GX"
+		;
+connectAttr "Character1_Ctrl_LeftHandMiddle2.wm" "HIKFK2State1.LeftHandMiddle2GX"
+		;
+connectAttr "Character1_Ctrl_LeftHandMiddle3.wm" "HIKFK2State1.LeftHandMiddle3GX"
+		;
+connectAttr "Character1_Ctrl_LeftHandMiddle4.wm" "HIKFK2State1.LeftHandMiddle4GX"
+		;
+connectAttr "Character1_Ctrl_LeftHandRing1.wm" "HIKFK2State1.LeftHandRing1GX";
+connectAttr "Character1_Ctrl_LeftHandRing2.wm" "HIKFK2State1.LeftHandRing2GX";
+connectAttr "Character1_Ctrl_LeftHandRing3.wm" "HIKFK2State1.LeftHandRing3GX";
+connectAttr "Character1_Ctrl_LeftHandRing4.wm" "HIKFK2State1.LeftHandRing4GX";
+connectAttr "Character1_Ctrl_LeftHandPinky1.wm" "HIKFK2State1.LeftHandPinky1GX";
+connectAttr "Character1_Ctrl_LeftHandPinky2.wm" "HIKFK2State1.LeftHandPinky2GX";
+connectAttr "Character1_Ctrl_LeftHandPinky3.wm" "HIKFK2State1.LeftHandPinky3GX";
+connectAttr "Character1_Ctrl_LeftHandPinky4.wm" "HIKFK2State1.LeftHandPinky4GX";
+connectAttr "Character1_Ctrl_RightHandThumb1.wm" "HIKFK2State1.RightHandThumb1GX"
+		;
+connectAttr "Character1_Ctrl_RightHandThumb2.wm" "HIKFK2State1.RightHandThumb2GX"
+		;
+connectAttr "Character1_Ctrl_RightHandThumb3.wm" "HIKFK2State1.RightHandThumb3GX"
+		;
+connectAttr "Character1_Ctrl_RightHandThumb4.wm" "HIKFK2State1.RightHandThumb4GX"
+		;
+connectAttr "Character1_Ctrl_RightHandIndex1.wm" "HIKFK2State1.RightHandIndex1GX"
+		;
+connectAttr "Character1_Ctrl_RightHandIndex2.wm" "HIKFK2State1.RightHandIndex2GX"
+		;
+connectAttr "Character1_Ctrl_RightHandIndex3.wm" "HIKFK2State1.RightHandIndex3GX"
+		;
+connectAttr "Character1_Ctrl_RightHandIndex4.wm" "HIKFK2State1.RightHandIndex4GX"
+		;
+connectAttr "Character1_Ctrl_RightHandMiddle1.wm" "HIKFK2State1.RightHandMiddle1GX"
+		;
+connectAttr "Character1_Ctrl_RightHandMiddle2.wm" "HIKFK2State1.RightHandMiddle2GX"
+		;
+connectAttr "Character1_Ctrl_RightHandMiddle3.wm" "HIKFK2State1.RightHandMiddle3GX"
+		;
+connectAttr "Character1_Ctrl_RightHandMiddle4.wm" "HIKFK2State1.RightHandMiddle4GX"
+		;
+connectAttr "Character1_Ctrl_RightHandRing1.wm" "HIKFK2State1.RightHandRing1GX";
+connectAttr "Character1_Ctrl_RightHandRing2.wm" "HIKFK2State1.RightHandRing2GX";
+connectAttr "Character1_Ctrl_RightHandRing3.wm" "HIKFK2State1.RightHandRing3GX";
+connectAttr "Character1_Ctrl_RightHandRing4.wm" "HIKFK2State1.RightHandRing4GX";
+connectAttr "Character1_Ctrl_RightHandPinky1.wm" "HIKFK2State1.RightHandPinky1GX"
+		;
+connectAttr "Character1_Ctrl_RightHandPinky2.wm" "HIKFK2State1.RightHandPinky2GX"
+		;
+connectAttr "Character1_Ctrl_RightHandPinky3.wm" "HIKFK2State1.RightHandPinky3GX"
+		;
+connectAttr "Character1_Ctrl_RightHandPinky4.wm" "HIKFK2State1.RightHandPinky4GX"
+		;
+connectAttr "Character1_Ctrl_HipsEffector.wm" "HIKEffector2State1.HipsEffectorGX[0]"
+		;
+connectAttr "Character1_Ctrl_HipsEffector.rt" "HIKEffector2State1.HipsEffectorReachT[0]"
+		;
+connectAttr "Character1_Ctrl_HipsEffector.rr" "HIKEffector2State1.HipsEffectorReachR[0]"
+		;
+connectAttr "Character1_Ctrl_HipsEffector.po" "HIKEffector2State1.HipsEffectorPivot[0]"
+		;
+connectAttr "Character1_Ctrl_HipsEffector.pull" "HIKEffector2State1.HipsEffectorPull"
+		;
+connectAttr "Character1_Ctrl_HipsEffector.stiffness" "HIKEffector2State1.HipsEffectorStiffness"
+		;
+connectAttr "Character1_Ctrl_LeftAnkleEffector.wm" "HIKEffector2State1.LeftAnkleEffectorGX[0]"
+		;
+connectAttr "Character1_Ctrl_LeftAnkleEffector.rt" "HIKEffector2State1.LeftAnkleEffectorReachT[0]"
+		;
+connectAttr "Character1_Ctrl_LeftAnkleEffector.rr" "HIKEffector2State1.LeftAnkleEffectorReachR[0]"
+		;
+connectAttr "Character1_Ctrl_LeftAnkleEffector.po" "HIKEffector2State1.LeftAnkleEffectorPivot[0]"
+		;
+connectAttr "Character1_Ctrl_LeftAnkleEffector.pull" "HIKEffector2State1.LeftAnkleEffectorPull"
+		;
+connectAttr "Character1_Ctrl_LeftAnkleEffector.stiffness" "HIKEffector2State1.LeftAnkleEffectorStiffness"
+		;
+connectAttr "Character1_Ctrl_RightAnkleEffector.wm" "HIKEffector2State1.RightAnkleEffectorGX[0]"
+		;
+connectAttr "Character1_Ctrl_RightAnkleEffector.rt" "HIKEffector2State1.RightAnkleEffectorReachT[0]"
+		;
+connectAttr "Character1_Ctrl_RightAnkleEffector.rr" "HIKEffector2State1.RightAnkleEffectorReachR[0]"
+		;
+connectAttr "Character1_Ctrl_RightAnkleEffector.po" "HIKEffector2State1.RightAnkleEffectorPivot[0]"
+		;
+connectAttr "Character1_Ctrl_RightAnkleEffector.pull" "HIKEffector2State1.RightAnkleEffectorPull"
+		;
+connectAttr "Character1_Ctrl_RightAnkleEffector.stiffness" "HIKEffector2State1.RightAnkleEffectorStiffness"
+		;
+connectAttr "Character1_Ctrl_LeftWristEffector.wm" "HIKEffector2State1.LeftWristEffectorGX[0]"
+		;
+connectAttr "Character1_Ctrl_LeftWristEffector.rt" "HIKEffector2State1.LeftWristEffectorReachT[0]"
+		;
+connectAttr "Character1_Ctrl_LeftWristEffector.rr" "HIKEffector2State1.LeftWristEffectorReachR[0]"
+		;
+connectAttr "Character1_Ctrl_LeftWristEffector.po" "HIKEffector2State1.LeftWristEffectorPivot[0]"
+		;
+connectAttr "Character1_Ctrl_LeftWristEffector.pull" "HIKEffector2State1.LeftWristEffectorPull"
+		;
+connectAttr "Character1_Ctrl_LeftWristEffector.stiffness" "HIKEffector2State1.LeftWristEffectorStiffness"
+		;
+connectAttr "Character1_Ctrl_RightWristEffector.wm" "HIKEffector2State1.RightWristEffectorGX[0]"
+		;
+connectAttr "Character1_Ctrl_RightWristEffector.rt" "HIKEffector2State1.RightWristEffectorReachT[0]"
+		;
+connectAttr "Character1_Ctrl_RightWristEffector.rr" "HIKEffector2State1.RightWristEffectorReachR[0]"
+		;
+connectAttr "Character1_Ctrl_RightWristEffector.po" "HIKEffector2State1.RightWristEffectorPivot[0]"
+		;
+connectAttr "Character1_Ctrl_RightWristEffector.pull" "HIKEffector2State1.RightWristEffectorPull"
+		;
+connectAttr "Character1_Ctrl_RightWristEffector.stiffness" "HIKEffector2State1.RightWristEffectorStiffness"
+		;
+connectAttr "Character1_Ctrl_LeftKneeEffector.wm" "HIKEffector2State1.LeftKneeEffectorGX[0]"
+		;
+connectAttr "Character1_Ctrl_LeftKneeEffector.rt" "HIKEffector2State1.LeftKneeEffectorReachT[0]"
+		;
+connectAttr "Character1_Ctrl_LeftKneeEffector.rr" "HIKEffector2State1.LeftKneeEffectorReachR[0]"
+		;
+connectAttr "Character1_Ctrl_LeftKneeEffector.po" "HIKEffector2State1.LeftKneeEffectorPivot[0]"
+		;
+connectAttr "Character1_Ctrl_LeftKneeEffector.pull" "HIKEffector2State1.LeftKneeEffectorPull"
+		;
+connectAttr "Character1_Ctrl_LeftKneeEffector.stiffness" "HIKEffector2State1.LeftKneeEffectorStiffness"
+		;
+connectAttr "Character1_Ctrl_RightKneeEffector.wm" "HIKEffector2State1.RightKneeEffectorGX[0]"
+		;
+connectAttr "Character1_Ctrl_RightKneeEffector.rt" "HIKEffector2State1.RightKneeEffectorReachT[0]"
+		;
+connectAttr "Character1_Ctrl_RightKneeEffector.rr" "HIKEffector2State1.RightKneeEffectorReachR[0]"
+		;
+connectAttr "Character1_Ctrl_RightKneeEffector.po" "HIKEffector2State1.RightKneeEffectorPivot[0]"
+		;
+connectAttr "Character1_Ctrl_RightKneeEffector.pull" "HIKEffector2State1.RightKneeEffectorPull"
+		;
+connectAttr "Character1_Ctrl_RightKneeEffector.stiffness" "HIKEffector2State1.RightKneeEffectorStiffness"
+		;
+connectAttr "Character1_Ctrl_LeftElbowEffector.wm" "HIKEffector2State1.LeftElbowEffectorGX[0]"
+		;
+connectAttr "Character1_Ctrl_LeftElbowEffector.rt" "HIKEffector2State1.LeftElbowEffectorReachT[0]"
+		;
+connectAttr "Character1_Ctrl_LeftElbowEffector.rr" "HIKEffector2State1.LeftElbowEffectorReachR[0]"
+		;
+connectAttr "Character1_Ctrl_LeftElbowEffector.po" "HIKEffector2State1.LeftElbowEffectorPivot[0]"
+		;
+connectAttr "Character1_Ctrl_LeftElbowEffector.pull" "HIKEffector2State1.LeftElbowEffectorPull"
+		;
+connectAttr "Character1_Ctrl_LeftElbowEffector.stiffness" "HIKEffector2State1.LeftElbowEffectorStiffness"
+		;
+connectAttr "Character1_Ctrl_RightElbowEffector.wm" "HIKEffector2State1.RightElbowEffectorGX[0]"
+		;
+connectAttr "Character1_Ctrl_RightElbowEffector.rt" "HIKEffector2State1.RightElbowEffectorReachT[0]"
+		;
+connectAttr "Character1_Ctrl_RightElbowEffector.rr" "HIKEffector2State1.RightElbowEffectorReachR[0]"
+		;
+connectAttr "Character1_Ctrl_RightElbowEffector.po" "HIKEffector2State1.RightElbowEffectorPivot[0]"
+		;
+connectAttr "Character1_Ctrl_RightElbowEffector.pull" "HIKEffector2State1.RightElbowEffectorPull"
+		;
+connectAttr "Character1_Ctrl_RightElbowEffector.stiffness" "HIKEffector2State1.RightElbowEffectorStiffness"
+		;
+connectAttr "Character1_Ctrl_ChestOriginEffector.wm" "HIKEffector2State1.ChestOriginEffectorGX[0]"
+		;
+connectAttr "Character1_Ctrl_ChestOriginEffector.rt" "HIKEffector2State1.ChestOriginEffectorReachT[0]"
+		;
+connectAttr "Character1_Ctrl_ChestOriginEffector.rr" "HIKEffector2State1.ChestOriginEffectorReachR[0]"
+		;
+connectAttr "Character1_Ctrl_ChestOriginEffector.po" "HIKEffector2State1.ChestOriginEffectorPivot[0]"
+		;
+connectAttr "Character1_Ctrl_ChestOriginEffector.pull" "HIKEffector2State1.ChestOriginEffectorPull"
+		;
+connectAttr "Character1_Ctrl_ChestOriginEffector.stiffness" "HIKEffector2State1.ChestOriginEffectorStiffness"
+		;
+connectAttr "Character1_Ctrl_ChestEndEffector.wm" "HIKEffector2State1.ChestEndEffectorGX[0]"
+		;
+connectAttr "Character1_Ctrl_ChestEndEffector.rt" "HIKEffector2State1.ChestEndEffectorReachT[0]"
+		;
+connectAttr "Character1_Ctrl_ChestEndEffector.rr" "HIKEffector2State1.ChestEndEffectorReachR[0]"
+		;
+connectAttr "Character1_Ctrl_ChestEndEffector.po" "HIKEffector2State1.ChestEndEffectorPivot[0]"
+		;
+connectAttr "Character1_Ctrl_ChestEndEffector.pull" "HIKEffector2State1.ChestEndEffectorPull"
+		;
+connectAttr "Character1_Ctrl_ChestEndEffector.stiffness" "HIKEffector2State1.ChestEndEffectorStiffness"
+		;
+connectAttr "Character1_Ctrl_LeftFootEffector.wm" "HIKEffector2State1.LeftFootEffectorGX[0]"
+		;
+connectAttr "Character1_Ctrl_LeftFootEffector.rt" "HIKEffector2State1.LeftFootEffectorReachT[0]"
+		;
+connectAttr "Character1_Ctrl_LeftFootEffector.rr" "HIKEffector2State1.LeftFootEffectorReachR[0]"
+		;
+connectAttr "Character1_Ctrl_LeftFootEffector.po" "HIKEffector2State1.LeftFootEffectorPivot[0]"
+		;
+connectAttr "Character1_Ctrl_LeftFootEffector.pull" "HIKEffector2State1.LeftFootEffectorPull"
+		;
+connectAttr "Character1_Ctrl_LeftFootEffector.stiffness" "HIKEffector2State1.LeftFootEffectorStiffness"
+		;
+connectAttr "Character1_Ctrl_RightFootEffector.wm" "HIKEffector2State1.RightFootEffectorGX[0]"
+		;
+connectAttr "Character1_Ctrl_RightFootEffector.rt" "HIKEffector2State1.RightFootEffectorReachT[0]"
+		;
+connectAttr "Character1_Ctrl_RightFootEffector.rr" "HIKEffector2State1.RightFootEffectorReachR[0]"
+		;
+connectAttr "Character1_Ctrl_RightFootEffector.po" "HIKEffector2State1.RightFootEffectorPivot[0]"
+		;
+connectAttr "Character1_Ctrl_RightFootEffector.pull" "HIKEffector2State1.RightFootEffectorPull"
+		;
+connectAttr "Character1_Ctrl_RightFootEffector.stiffness" "HIKEffector2State1.RightFootEffectorStiffness"
+		;
+connectAttr "Character1_Ctrl_LeftShoulderEffector.wm" "HIKEffector2State1.LeftShoulderEffectorGX[0]"
+		;
+connectAttr "Character1_Ctrl_LeftShoulderEffector.rt" "HIKEffector2State1.LeftShoulderEffectorReachT[0]"
+		;
+connectAttr "Character1_Ctrl_LeftShoulderEffector.rr" "HIKEffector2State1.LeftShoulderEffectorReachR[0]"
+		;
+connectAttr "Character1_Ctrl_LeftShoulderEffector.po" "HIKEffector2State1.LeftShoulderEffectorPivot[0]"
+		;
+connectAttr "Character1_Ctrl_LeftShoulderEffector.pull" "HIKEffector2State1.LeftShoulderEffectorPull"
+		;
+connectAttr "Character1_Ctrl_LeftShoulderEffector.stiffness" "HIKEffector2State1.LeftShoulderEffectorStiffness"
+		;
+connectAttr "Character1_Ctrl_RightShoulderEffector.wm" "HIKEffector2State1.RightShoulderEffectorGX[0]"
+		;
+connectAttr "Character1_Ctrl_RightShoulderEffector.rt" "HIKEffector2State1.RightShoulderEffectorReachT[0]"
+		;
+connectAttr "Character1_Ctrl_RightShoulderEffector.rr" "HIKEffector2State1.RightShoulderEffectorReachR[0]"
+		;
+connectAttr "Character1_Ctrl_RightShoulderEffector.po" "HIKEffector2State1.RightShoulderEffectorPivot[0]"
+		;
+connectAttr "Character1_Ctrl_RightShoulderEffector.pull" "HIKEffector2State1.RightShoulderEffectorPull"
+		;
+connectAttr "Character1_Ctrl_RightShoulderEffector.stiffness" "HIKEffector2State1.RightShoulderEffectorStiffness"
+		;
+connectAttr "Character1_Ctrl_HeadEffector.wm" "HIKEffector2State1.HeadEffectorGX[0]"
+		;
+connectAttr "Character1_Ctrl_HeadEffector.rt" "HIKEffector2State1.HeadEffectorReachT[0]"
+		;
+connectAttr "Character1_Ctrl_HeadEffector.rr" "HIKEffector2State1.HeadEffectorReachR[0]"
+		;
+connectAttr "Character1_Ctrl_HeadEffector.po" "HIKEffector2State1.HeadEffectorPivot[0]"
+		;
+connectAttr "Character1_Ctrl_HeadEffector.pull" "HIKEffector2State1.HeadEffectorPull"
+		;
+connectAttr "Character1_Ctrl_HeadEffector.stiffness" "HIKEffector2State1.HeadEffectorStiffness"
+		;
+connectAttr "Character1_Ctrl_LeftHipEffector.wm" "HIKEffector2State1.LeftHipEffectorGX[0]"
+		;
+connectAttr "Character1_Ctrl_LeftHipEffector.rt" "HIKEffector2State1.LeftHipEffectorReachT[0]"
+		;
+connectAttr "Character1_Ctrl_LeftHipEffector.rr" "HIKEffector2State1.LeftHipEffectorReachR[0]"
+		;
+connectAttr "Character1_Ctrl_LeftHipEffector.po" "HIKEffector2State1.LeftHipEffectorPivot[0]"
+		;
+connectAttr "Character1_Ctrl_LeftHipEffector.pull" "HIKEffector2State1.LeftHipEffectorPull"
+		;
+connectAttr "Character1_Ctrl_LeftHipEffector.stiffness" "HIKEffector2State1.LeftHipEffectorStiffness"
+		;
+connectAttr "Character1_Ctrl_RightHipEffector.wm" "HIKEffector2State1.RightHipEffectorGX[0]"
+		;
+connectAttr "Character1_Ctrl_RightHipEffector.rt" "HIKEffector2State1.RightHipEffectorReachT[0]"
+		;
+connectAttr "Character1_Ctrl_RightHipEffector.rr" "HIKEffector2State1.RightHipEffectorReachR[0]"
+		;
+connectAttr "Character1_Ctrl_RightHipEffector.po" "HIKEffector2State1.RightHipEffectorPivot[0]"
+		;
+connectAttr "Character1_Ctrl_RightHipEffector.pull" "HIKEffector2State1.RightHipEffectorPull"
+		;
+connectAttr "Character1_Ctrl_RightHipEffector.stiffness" "HIKEffector2State1.RightHipEffectorStiffness"
+		;
+connectAttr "Character1_Ctrl_LeftHandThumbEffector.wm" "HIKEffector2State1.LeftHandThumbEffectorGX[0]"
+		;
+connectAttr "Character1_Ctrl_LeftHandThumbEffector.rt" "HIKEffector2State1.LeftHandThumbEffectorReachT[0]"
+		;
+connectAttr "Character1_Ctrl_LeftHandThumbEffector.rr" "HIKEffector2State1.LeftHandThumbEffectorReachR[0]"
+		;
+connectAttr "Character1_Ctrl_LeftHandThumbEffector.po" "HIKEffector2State1.LeftHandThumbEffectorPivot[0]"
+		;
+connectAttr "Character1_Ctrl_LeftHandThumbEffector.pull" "HIKEffector2State1.LeftHandThumbEffectorPull"
+		;
+connectAttr "Character1_Ctrl_LeftHandThumbEffector.stiffness" "HIKEffector2State1.LeftHandThumbEffectorStiffness"
+		;
+connectAttr "Character1_Ctrl_LeftHandIndexEffector.wm" "HIKEffector2State1.LeftHandIndexEffectorGX[0]"
+		;
+connectAttr "Character1_Ctrl_LeftHandIndexEffector.rt" "HIKEffector2State1.LeftHandIndexEffectorReachT[0]"
+		;
+connectAttr "Character1_Ctrl_LeftHandIndexEffector.rr" "HIKEffector2State1.LeftHandIndexEffectorReachR[0]"
+		;
+connectAttr "Character1_Ctrl_LeftHandIndexEffector.po" "HIKEffector2State1.LeftHandIndexEffectorPivot[0]"
+		;
+connectAttr "Character1_Ctrl_LeftHandIndexEffector.pull" "HIKEffector2State1.LeftHandIndexEffectorPull"
+		;
+connectAttr "Character1_Ctrl_LeftHandIndexEffector.stiffness" "HIKEffector2State1.LeftHandIndexEffectorStiffness"
+		;
+connectAttr "Character1_Ctrl_LeftHandMiddleEffector.wm" "HIKEffector2State1.LeftHandMiddleEffectorGX[0]"
+		;
+connectAttr "Character1_Ctrl_LeftHandMiddleEffector.rt" "HIKEffector2State1.LeftHandMiddleEffectorReachT[0]"
+		;
+connectAttr "Character1_Ctrl_LeftHandMiddleEffector.rr" "HIKEffector2State1.LeftHandMiddleEffectorReachR[0]"
+		;
+connectAttr "Character1_Ctrl_LeftHandMiddleEffector.po" "HIKEffector2State1.LeftHandMiddleEffectorPivot[0]"
+		;
+connectAttr "Character1_Ctrl_LeftHandMiddleEffector.pull" "HIKEffector2State1.LeftHandMiddleEffectorPull"
+		;
+connectAttr "Character1_Ctrl_LeftHandMiddleEffector.stiffness" "HIKEffector2State1.LeftHandMiddleEffectorStiffness"
+		;
+connectAttr "Character1_Ctrl_LeftHandRingEffector.wm" "HIKEffector2State1.LeftHandRingEffectorGX[0]"
+		;
+connectAttr "Character1_Ctrl_LeftHandRingEffector.rt" "HIKEffector2State1.LeftHandRingEffectorReachT[0]"
+		;
+connectAttr "Character1_Ctrl_LeftHandRingEffector.rr" "HIKEffector2State1.LeftHandRingEffectorReachR[0]"
+		;
+connectAttr "Character1_Ctrl_LeftHandRingEffector.po" "HIKEffector2State1.LeftHandRingEffectorPivot[0]"
+		;
+connectAttr "Character1_Ctrl_LeftHandRingEffector.pull" "HIKEffector2State1.LeftHandRingEffectorPull"
+		;
+connectAttr "Character1_Ctrl_LeftHandRingEffector.stiffness" "HIKEffector2State1.LeftHandRingEffectorStiffness"
+		;
+connectAttr "Character1_Ctrl_LeftHandPinkyEffector.wm" "HIKEffector2State1.LeftHandPinkyEffectorGX[0]"
+		;
+connectAttr "Character1_Ctrl_LeftHandPinkyEffector.rt" "HIKEffector2State1.LeftHandPinkyEffectorReachT[0]"
+		;
+connectAttr "Character1_Ctrl_LeftHandPinkyEffector.rr" "HIKEffector2State1.LeftHandPinkyEffectorReachR[0]"
+		;
+connectAttr "Character1_Ctrl_LeftHandPinkyEffector.po" "HIKEffector2State1.LeftHandPinkyEffectorPivot[0]"
+		;
+connectAttr "Character1_Ctrl_LeftHandPinkyEffector.pull" "HIKEffector2State1.LeftHandPinkyEffectorPull"
+		;
+connectAttr "Character1_Ctrl_LeftHandPinkyEffector.stiffness" "HIKEffector2State1.LeftHandPinkyEffectorStiffness"
+		;
+connectAttr "Character1_Ctrl_RightHandThumbEffector.wm" "HIKEffector2State1.RightHandThumbEffectorGX[0]"
+		;
+connectAttr "Character1_Ctrl_RightHandThumbEffector.rt" "HIKEffector2State1.RightHandThumbEffectorReachT[0]"
+		;
+connectAttr "Character1_Ctrl_RightHandThumbEffector.rr" "HIKEffector2State1.RightHandThumbEffectorReachR[0]"
+		;
+connectAttr "Character1_Ctrl_RightHandThumbEffector.po" "HIKEffector2State1.RightHandThumbEffectorPivot[0]"
+		;
+connectAttr "Character1_Ctrl_RightHandThumbEffector.pull" "HIKEffector2State1.RightHandThumbEffectorPull"
+		;
+connectAttr "Character1_Ctrl_RightHandThumbEffector.stiffness" "HIKEffector2State1.RightHandThumbEffectorStiffness"
+		;
+connectAttr "Character1_Ctrl_RightHandIndexEffector.wm" "HIKEffector2State1.RightHandIndexEffectorGX[0]"
+		;
+connectAttr "Character1_Ctrl_RightHandIndexEffector.rt" "HIKEffector2State1.RightHandIndexEffectorReachT[0]"
+		;
+connectAttr "Character1_Ctrl_RightHandIndexEffector.rr" "HIKEffector2State1.RightHandIndexEffectorReachR[0]"
+		;
+connectAttr "Character1_Ctrl_RightHandIndexEffector.po" "HIKEffector2State1.RightHandIndexEffectorPivot[0]"
+		;
+connectAttr "Character1_Ctrl_RightHandIndexEffector.pull" "HIKEffector2State1.RightHandIndexEffectorPull"
+		;
+connectAttr "Character1_Ctrl_RightHandIndexEffector.stiffness" "HIKEffector2State1.RightHandIndexEffectorStiffness"
+		;
+connectAttr "Character1_Ctrl_RightHandMiddleEffector.wm" "HIKEffector2State1.RightHandMiddleEffectorGX[0]"
+		;
+connectAttr "Character1_Ctrl_RightHandMiddleEffector.rt" "HIKEffector2State1.RightHandMiddleEffectorReachT[0]"
+		;
+connectAttr "Character1_Ctrl_RightHandMiddleEffector.rr" "HIKEffector2State1.RightHandMiddleEffectorReachR[0]"
+		;
+connectAttr "Character1_Ctrl_RightHandMiddleEffector.po" "HIKEffector2State1.RightHandMiddleEffectorPivot[0]"
+		;
+connectAttr "Character1_Ctrl_RightHandMiddleEffector.pull" "HIKEffector2State1.RightHandMiddleEffectorPull"
+		;
+connectAttr "Character1_Ctrl_RightHandMiddleEffector.stiffness" "HIKEffector2State1.RightHandMiddleEffectorStiffness"
+		;
+connectAttr "Character1_Ctrl_RightHandRingEffector.wm" "HIKEffector2State1.RightHandRingEffectorGX[0]"
+		;
+connectAttr "Character1_Ctrl_RightHandRingEffector.rt" "HIKEffector2State1.RightHandRingEffectorReachT[0]"
+		;
+connectAttr "Character1_Ctrl_RightHandRingEffector.rr" "HIKEffector2State1.RightHandRingEffectorReachR[0]"
+		;
+connectAttr "Character1_Ctrl_RightHandRingEffector.po" "HIKEffector2State1.RightHandRingEffectorPivot[0]"
+		;
+connectAttr "Character1_Ctrl_RightHandRingEffector.pull" "HIKEffector2State1.RightHandRingEffectorPull"
+		;
+connectAttr "Character1_Ctrl_RightHandRingEffector.stiffness" "HIKEffector2State1.RightHandRingEffectorStiffness"
+		;
+connectAttr "Character1_Ctrl_RightHandPinkyEffector.wm" "HIKEffector2State1.RightHandPinkyEffectorGX[0]"
+		;
+connectAttr "Character1_Ctrl_RightHandPinkyEffector.rt" "HIKEffector2State1.RightHandPinkyEffectorReachT[0]"
+		;
+connectAttr "Character1_Ctrl_RightHandPinkyEffector.rr" "HIKEffector2State1.RightHandPinkyEffectorReachR[0]"
+		;
+connectAttr "Character1_Ctrl_RightHandPinkyEffector.po" "HIKEffector2State1.RightHandPinkyEffectorPivot[0]"
+		;
+connectAttr "Character1_Ctrl_RightHandPinkyEffector.pull" "HIKEffector2State1.RightHandPinkyEffectorPull"
+		;
+connectAttr "Character1_Ctrl_RightHandPinkyEffector.stiffness" "HIKEffector2State1.RightHandPinkyEffectorStiffness"
+		;
+connectAttr "HIKEffector2State1.EFF" "HIKPinning2State1.InputEffectorState";
+connectAttr "HIKEffector2State1.EFFNA" "HIKPinning2State1.InputEffectorStateNoAux"
+		;
+connectAttr "Character1_Ctrl_HipsEffector.pint" "HIKPinning2State1.HipsEffectorPinT"
+		;
+connectAttr "Character1_Ctrl_HipsEffector.pinr" "HIKPinning2State1.HipsEffectorPinR"
+		;
+connectAttr "Character1_Ctrl_LeftAnkleEffector.pint" "HIKPinning2State1.LeftAnkleEffectorPinT"
+		;
+connectAttr "Character1_Ctrl_LeftAnkleEffector.pinr" "HIKPinning2State1.LeftAnkleEffectorPinR"
+		;
+connectAttr "Character1_Ctrl_RightAnkleEffector.pint" "HIKPinning2State1.RightAnkleEffectorPinT"
+		;
+connectAttr "Character1_Ctrl_RightAnkleEffector.pinr" "HIKPinning2State1.RightAnkleEffectorPinR"
+		;
+connectAttr "Character1_Ctrl_LeftWristEffector.pint" "HIKPinning2State1.LeftWristEffectorPinT"
+		;
+connectAttr "Character1_Ctrl_LeftWristEffector.pinr" "HIKPinning2State1.LeftWristEffectorPinR"
+		;
+connectAttr "Character1_Ctrl_RightWristEffector.pint" "HIKPinning2State1.RightWristEffectorPinT"
+		;
+connectAttr "Character1_Ctrl_RightWristEffector.pinr" "HIKPinning2State1.RightWristEffectorPinR"
+		;
+connectAttr "Character1_Ctrl_LeftKneeEffector.pint" "HIKPinning2State1.LeftKneeEffectorPinT"
+		;
+connectAttr "Character1_Ctrl_LeftKneeEffector.pinr" "HIKPinning2State1.LeftKneeEffectorPinR"
+		;
+connectAttr "Character1_Ctrl_RightKneeEffector.pint" "HIKPinning2State1.RightKneeEffectorPinT"
+		;
+connectAttr "Character1_Ctrl_RightKneeEffector.pinr" "HIKPinning2State1.RightKneeEffectorPinR"
+		;
+connectAttr "Character1_Ctrl_LeftElbowEffector.pint" "HIKPinning2State1.LeftElbowEffectorPinT"
+		;
+connectAttr "Character1_Ctrl_LeftElbowEffector.pinr" "HIKPinning2State1.LeftElbowEffectorPinR"
+		;
+connectAttr "Character1_Ctrl_RightElbowEffector.pint" "HIKPinning2State1.RightElbowEffectorPinT"
+		;
+connectAttr "Character1_Ctrl_RightElbowEffector.pinr" "HIKPinning2State1.RightElbowEffectorPinR"
+		;
+connectAttr "Character1_Ctrl_ChestOriginEffector.pint" "HIKPinning2State1.ChestOriginEffectorPinT"
+		;
+connectAttr "Character1_Ctrl_ChestOriginEffector.pinr" "HIKPinning2State1.ChestOriginEffectorPinR"
+		;
+connectAttr "Character1_Ctrl_ChestEndEffector.pint" "HIKPinning2State1.ChestEndEffectorPinT"
+		;
+connectAttr "Character1_Ctrl_ChestEndEffector.pinr" "HIKPinning2State1.ChestEndEffectorPinR"
+		;
+connectAttr "Character1_Ctrl_LeftFootEffector.pint" "HIKPinning2State1.LeftFootEffectorPinT"
+		;
+connectAttr "Character1_Ctrl_LeftFootEffector.pinr" "HIKPinning2State1.LeftFootEffectorPinR"
+		;
+connectAttr "Character1_Ctrl_RightFootEffector.pint" "HIKPinning2State1.RightFootEffectorPinT"
+		;
+connectAttr "Character1_Ctrl_RightFootEffector.pinr" "HIKPinning2State1.RightFootEffectorPinR"
+		;
+connectAttr "Character1_Ctrl_LeftShoulderEffector.pint" "HIKPinning2State1.LeftShoulderEffectorPinT"
+		;
+connectAttr "Character1_Ctrl_LeftShoulderEffector.pinr" "HIKPinning2State1.LeftShoulderEffectorPinR"
+		;
+connectAttr "Character1_Ctrl_RightShoulderEffector.pint" "HIKPinning2State1.RightShoulderEffectorPinT"
+		;
+connectAttr "Character1_Ctrl_RightShoulderEffector.pinr" "HIKPinning2State1.RightShoulderEffectorPinR"
+		;
+connectAttr "Character1_Ctrl_HeadEffector.pint" "HIKPinning2State1.HeadEffectorPinT"
+		;
+connectAttr "Character1_Ctrl_HeadEffector.pinr" "HIKPinning2State1.HeadEffectorPinR"
+		;
+connectAttr "Character1_Ctrl_LeftHipEffector.pint" "HIKPinning2State1.LeftHipEffectorPinT"
+		;
+connectAttr "Character1_Ctrl_LeftHipEffector.pinr" "HIKPinning2State1.LeftHipEffectorPinR"
+		;
+connectAttr "Character1_Ctrl_RightHipEffector.pint" "HIKPinning2State1.RightHipEffectorPinT"
+		;
+connectAttr "Character1_Ctrl_RightHipEffector.pinr" "HIKPinning2State1.RightHipEffectorPinR"
+		;
+connectAttr "Character1_Ctrl_LeftHandThumbEffector.pint" "HIKPinning2State1.LeftHandThumbEffectorPinT"
+		;
+connectAttr "Character1_Ctrl_LeftHandThumbEffector.pinr" "HIKPinning2State1.LeftHandThumbEffectorPinR"
+		;
+connectAttr "Character1_Ctrl_LeftHandIndexEffector.pint" "HIKPinning2State1.LeftHandIndexEffectorPinT"
+		;
+connectAttr "Character1_Ctrl_LeftHandIndexEffector.pinr" "HIKPinning2State1.LeftHandIndexEffectorPinR"
+		;
+connectAttr "Character1_Ctrl_LeftHandMiddleEffector.pint" "HIKPinning2State1.LeftHandMiddleEffectorPinT"
+		;
+connectAttr "Character1_Ctrl_LeftHandMiddleEffector.pinr" "HIKPinning2State1.LeftHandMiddleEffectorPinR"
+		;
+connectAttr "Character1_Ctrl_LeftHandRingEffector.pint" "HIKPinning2State1.LeftHandRingEffectorPinT"
+		;
+connectAttr "Character1_Ctrl_LeftHandRingEffector.pinr" "HIKPinning2State1.LeftHandRingEffectorPinR"
+		;
+connectAttr "Character1_Ctrl_LeftHandPinkyEffector.pint" "HIKPinning2State1.LeftHandPinkyEffectorPinT"
+		;
+connectAttr "Character1_Ctrl_LeftHandPinkyEffector.pinr" "HIKPinning2State1.LeftHandPinkyEffectorPinR"
+		;
+connectAttr "Character1_Ctrl_RightHandThumbEffector.pint" "HIKPinning2State1.RightHandThumbEffectorPinT"
+		;
+connectAttr "Character1_Ctrl_RightHandThumbEffector.pinr" "HIKPinning2State1.RightHandThumbEffectorPinR"
+		;
+connectAttr "Character1_Ctrl_RightHandIndexEffector.pint" "HIKPinning2State1.RightHandIndexEffectorPinT"
+		;
+connectAttr "Character1_Ctrl_RightHandIndexEffector.pinr" "HIKPinning2State1.RightHandIndexEffectorPinR"
+		;
+connectAttr "Character1_Ctrl_RightHandMiddleEffector.pint" "HIKPinning2State1.RightHandMiddleEffectorPinT"
+		;
+connectAttr "Character1_Ctrl_RightHandMiddleEffector.pinr" "HIKPinning2State1.RightHandMiddleEffectorPinR"
+		;
+connectAttr "Character1_Ctrl_RightHandRingEffector.pint" "HIKPinning2State1.RightHandRingEffectorPinT"
+		;
+connectAttr "Character1_Ctrl_RightHandRingEffector.pinr" "HIKPinning2State1.RightHandRingEffectorPinR"
+		;
+connectAttr "Character1_Ctrl_RightHandPinkyEffector.pint" "HIKPinning2State1.RightHandPinkyEffectorPinT"
+		;
+connectAttr "Character1_Ctrl_RightHandPinkyEffector.pinr" "HIKPinning2State1.RightHandPinkyEffectorPinR"
+		;
+connectAttr "Character1.OutputCharacterDefinition" "HIKState2FK1.InputCharacterDefinition"
+		;
+connectAttr "HIKSolverNode1.OutputCharacterState" "HIKState2FK1.InputCharacterState"
+		;
+connectAttr "Character1.OutputCharacterDefinition" "HIKState2FK2.InputCharacterDefinition"
+		;
+connectAttr "HIKSolverNode1.decs" "HIKState2FK2.InputCharacterState";
+connectAttr "HIKSolverNode1.OutputCharacterState" "HIKEffectorFromCharacter1.InputCharacterState"
+		;
+connectAttr "Character1.OutputCharacterDefinition" "HIKEffectorFromCharacter1.InputCharacterDefinition"
+		;
+connectAttr "HIKproperties1.OutputPropertySetState" "HIKEffectorFromCharacter1.InputPropertySetState"
+		;
+connectAttr "HIKSolverNode1.decs" "HIKEffectorFromCharacter2.InputCharacterState"
+		;
+connectAttr "Character1.OutputCharacterDefinition" "HIKEffectorFromCharacter2.InputCharacterDefinition"
+		;
+connectAttr "HIKproperties1.OutputPropertySetState" "HIKEffectorFromCharacter2.InputPropertySetState"
+		;
+connectAttr "Character1_Ctrl_HipsEffector.po" "HIKState2Effector1.HipsEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_LeftAnkleEffector.po" "HIKState2Effector1.LeftAnkleEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_RightAnkleEffector.po" "HIKState2Effector1.RightAnkleEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_LeftWristEffector.po" "HIKState2Effector1.LeftWristEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_RightWristEffector.po" "HIKState2Effector1.RightWristEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_LeftKneeEffector.po" "HIKState2Effector1.LeftKneeEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_RightKneeEffector.po" "HIKState2Effector1.RightKneeEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_LeftElbowEffector.po" "HIKState2Effector1.LeftElbowEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_RightElbowEffector.po" "HIKState2Effector1.RightElbowEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_ChestOriginEffector.po" "HIKState2Effector1.ChestOriginEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_ChestEndEffector.po" "HIKState2Effector1.ChestEndEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_LeftFootEffector.po" "HIKState2Effector1.LeftFootEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_RightFootEffector.po" "HIKState2Effector1.RightFootEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_LeftShoulderEffector.po" "HIKState2Effector1.LeftShoulderEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_RightShoulderEffector.po" "HIKState2Effector1.RightShoulderEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_HeadEffector.po" "HIKState2Effector1.HeadEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_LeftHipEffector.po" "HIKState2Effector1.LeftHipEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_RightHipEffector.po" "HIKState2Effector1.RightHipEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_LeftHandThumbEffector.po" "HIKState2Effector1.LeftHandThumbEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_LeftHandIndexEffector.po" "HIKState2Effector1.LeftHandIndexEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_LeftHandMiddleEffector.po" "HIKState2Effector1.LeftHandMiddleEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_LeftHandRingEffector.po" "HIKState2Effector1.LeftHandRingEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_LeftHandPinkyEffector.po" "HIKState2Effector1.LeftHandPinkyEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_RightHandThumbEffector.po" "HIKState2Effector1.RightHandThumbEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_RightHandIndexEffector.po" "HIKState2Effector1.RightHandIndexEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_RightHandMiddleEffector.po" "HIKState2Effector1.RightHandMiddleEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_RightHandRingEffector.po" "HIKState2Effector1.RightHandRingEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_RightHandPinkyEffector.po" "HIKState2Effector1.RightHandPinkyEffectorpivotOffset[0]"
+		;
+connectAttr "HIKEffectorFromCharacter1.OutputEffectorState" "HIKState2Effector1.InputEffectorState"
+		;
+connectAttr "Character1_Ctrl_HipsEffector.po" "HIKState2Effector2.HipsEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_LeftAnkleEffector.po" "HIKState2Effector2.LeftAnkleEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_RightAnkleEffector.po" "HIKState2Effector2.RightAnkleEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_LeftWristEffector.po" "HIKState2Effector2.LeftWristEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_RightWristEffector.po" "HIKState2Effector2.RightWristEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_LeftKneeEffector.po" "HIKState2Effector2.LeftKneeEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_RightKneeEffector.po" "HIKState2Effector2.RightKneeEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_LeftElbowEffector.po" "HIKState2Effector2.LeftElbowEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_RightElbowEffector.po" "HIKState2Effector2.RightElbowEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_ChestOriginEffector.po" "HIKState2Effector2.ChestOriginEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_ChestEndEffector.po" "HIKState2Effector2.ChestEndEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_LeftFootEffector.po" "HIKState2Effector2.LeftFootEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_RightFootEffector.po" "HIKState2Effector2.RightFootEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_LeftShoulderEffector.po" "HIKState2Effector2.LeftShoulderEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_RightShoulderEffector.po" "HIKState2Effector2.RightShoulderEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_HeadEffector.po" "HIKState2Effector2.HeadEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_LeftHipEffector.po" "HIKState2Effector2.LeftHipEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_RightHipEffector.po" "HIKState2Effector2.RightHipEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_LeftHandThumbEffector.po" "HIKState2Effector2.LeftHandThumbEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_LeftHandIndexEffector.po" "HIKState2Effector2.LeftHandIndexEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_LeftHandMiddleEffector.po" "HIKState2Effector2.LeftHandMiddleEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_LeftHandRingEffector.po" "HIKState2Effector2.LeftHandRingEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_LeftHandPinkyEffector.po" "HIKState2Effector2.LeftHandPinkyEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_RightHandThumbEffector.po" "HIKState2Effector2.RightHandThumbEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_RightHandIndexEffector.po" "HIKState2Effector2.RightHandIndexEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_RightHandMiddleEffector.po" "HIKState2Effector2.RightHandMiddleEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_RightHandRingEffector.po" "HIKState2Effector2.RightHandRingEffectorpivotOffset[0]"
+		;
+connectAttr "Character1_Ctrl_RightHandPinkyEffector.po" "HIKState2Effector2.RightHandPinkyEffectorpivotOffset[0]"
+		;
+connectAttr "HIKEffectorFromCharacter2.OutputEffectorState" "HIKState2Effector2.InputEffectorState"
 		;
 connectAttr "lambert1SG.pa" ":renderPartition.st" -na;
 connectAttr "lambert2SG.pa" ":renderPartition.st" -na;
