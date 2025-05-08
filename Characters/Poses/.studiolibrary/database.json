@@ -98,6 +98,15 @@
         "modified": 1746163934.0566554,
         "__class__": "studiolibrarymaya.poseitem.PoseItem"
     },
+    "../../PunkBot/Skeleton/TPose-beforeRig.pose": {
+        "name": "TPose-beforeRig.pose",
+        "path": "../../PunkBot/Skeleton/TPose-beforeRig.pose",
+        "type": ".pose",
+        "folder": "../../PunkBot/Skeleton",
+        "category": "Skeleton",
+        "modified": 1746690289.9733386,
+        "__class__": "studiolibrarymaya.poseitem.PoseItem"
+    },
     "../../Trash/APose-Broad.pose": {
         "name": "APose-Broad.pose",
         "path": "../../Trash/APose-Broad.pose",
