@@ -1,6 +1,6 @@
 //Maya ASCII 2025ff03 scene
 //Name: RoboticaB.ma
-//Last modified: Thu, May 08, 2025 03:56:31 PM
+//Last modified: Thu, May 08, 2025 04:27:33 PM
 //Codeset: 1252
 requires maya "2025ff03";
 requires -nodeType "HIKCharacterNode" -nodeType "HIKSkeletonGeneratorNode" -nodeType "HIKProperty2State"
@@ -17,11 +17,11 @@ fileInfo "product" "Maya 2025";
 fileInfo "version" "2025";
 fileInfo "cutIdentifier" "202409190603-cbdc5a7e54";
 fileInfo "osv" "Windows 10 Home v2009 (Build: 19045)";
-fileInfo "UUID" "A7C33BD3-4654-7CB7-74E8-5F889AEE7253";
+fileInfo "UUID" "A336B421-41CC-83E8-F94A-419AA4CC9921";
 fileInfo "exportedFrom" "E:/Studium/GameDesign UU/Graphics3D/PunkBot_Skinning.ma";
 createNode transform -s -n "persp";
 	rename -uid "A5020B8C-425D-0A5B-0414-CB8C0BD879B3";
-	setAttr ".t" -type "double3" 56.967166341025873 204.43762301521309 86.844261138065917 ;
+	setAttr ".t" -type "double3" 136.22051020677105 283.07759328504221 216.67889686741705 ;
 	setAttr ".r" -type "double3" 1412.6617230986869 -59008.599307748656 0.00015257889991296094 ;
 	setAttr ".rp" -type "double3" 0 0 1.5543122344752192e-15 ;
 	setAttr ".rpt" -type "double3" 3.6592218168576601e-16 -2.5015595558336037e-16 -3.0440804973523192e-15 ;
@@ -29,7 +29,7 @@ createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "DD8E2808-44E7-F1EB-B7AA-8EAA140DAB06";
 	setAttr -k off ".v";
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 114.20802723304435;
+	setAttr ".coi" 285.4457861325202;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
