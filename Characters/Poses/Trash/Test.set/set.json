@@ -1,0 +1,49 @@
+{
+  "metadata": {
+    "description": "",
+    "user": "manue",
+    "ctime": "1747297720",
+    "version": "1.0.0",
+    "references": [
+      {
+        "filename": "C:/Users/manue/Documents/GitHub/access-aquired-modeling/Characters/RoboticaB_CtrlRig.ma",
+        "unresolved": "C:/Users/manue/Documents/GitHub/access-aquired-modeling/Characters/RoboticaB_CtrlRig.ma",
+        "namespace": "PunkBot_Rigged",
+        "node": "PunkBot_RiggedPipeRN"
+      }
+    ],
+    "mayaVersion": "2025",
+    "mayaSceneFile": "C:/Users/manue/Documents/GitHub/access-aquired-modeling/Characters/RoboticaB_Equip.ma"
+  }
+,
+  "objects": {
+    "PunkBot_Rigged:Character1_Ctrl_LeftHandThumbEffector": {},
+    "PunkBot_Rigged:Character1_Ctrl_RightFootEffector": {},
+    "PunkBot_Rigged:Character1_Ctrl_LeftElbowEffector": {},
+    "PunkBot_Rigged:Character1_Ctrl_LeftAnkleEffector": {},
+    "PunkBot_Rigged:Character1_Ctrl_RightHandIndexEffector": {},
+    "PunkBot_Rigged:Character1_Ctrl_HeadEffector": {},
+    "PunkBot_Rigged:Character1_Ctrl_RightHandPinkyEffector": {},
+    "PunkBot_Rigged:Character1_Ctrl_LeftFootEffector": {},
+    "PunkBot_Rigged:Character1_Ctrl_RightHipEffector": {},
+    "PunkBot_Rigged:Character1_Ctrl_RightElbowEffector": {},
+    "PunkBot_Rigged:Character1_Ctrl_LeftShoulderEffector": {},
+    "PunkBot_Rigged:Character1_Ctrl_LeftHipEffector": {},
+    "PunkBot_Rigged:Character1_Ctrl_RightHandMiddleEffector": {},
+    "PunkBot_Rigged:Character1_Ctrl_HipsEffector": {},
+    "PunkBot_Rigged:Character1_Ctrl_LeftHandMiddleEffector": {},
+    "PunkBot_Rigged:Character1_Ctrl_LeftWristEffector": {},
+    "PunkBot_Rigged:Character1_Ctrl_ChestOriginEffector": {},
+    "PunkBot_Rigged:Character1_Ctrl_RightKneeEffector": {},
+    "PunkBot_Rigged:Character1_Ctrl_LeftHandIndexEffector": {},
+    "PunkBot_Rigged:Character1_Ctrl_LeftHandPinkyEffector": {},
+    "PunkBot_Rigged:Character1_Ctrl_RightHandThumbEffector": {},
+    "PunkBot_Rigged:Character1_Ctrl_RightShoulderEffector": {},
+    "PunkBot_Rigged:Character1_Ctrl_RightAnkleEffector": {},
+    "PunkBot_Rigged:Character1_Ctrl_RightWristEffector": {},
+    "PunkBot_Rigged:Character1_Ctrl_ChestEndEffector": {},
+    "PunkBot_Rigged:Character1_Ctrl_RightHandRingEffector": {},
+    "PunkBot_Rigged:Character1_Ctrl_LeftHandRingEffector": {},
+    "PunkBot_Rigged:Character1_Ctrl_LeftKneeEffector": {}
+  }
+}

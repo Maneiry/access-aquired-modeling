@@ -1,0 +1,20 @@
+{
+  "metadata": {
+    "left": "Left",
+    "right": "Right",
+    "mirrorPlane": [
+      -1,
+      1,
+      1
+    ],
+    "description": "",
+    "user": "manue",
+    "ctime": "1747295853",
+    "version": "1.0.0",
+    "references": [],
+    "mayaVersion": "2025",
+    "mayaSceneFile": "C:/Users/manue/Documents/GitHub/access-aquired-modeling/Characters/RoboticaB_CtrlRig.ma"
+  }
+,
+  "objects": {}
+}

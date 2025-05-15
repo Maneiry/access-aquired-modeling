@@ -26,6 +26,42 @@
         "modified": 1746165175.45326,
         "__class__": "studiolibrary.folderitem.FolderItem"
     },
+    "../../PunkBot/Hands/Grab.pose": {
+        "name": "Grab.pose",
+        "path": "../../PunkBot/Hands/Grab.pose",
+        "type": ".pose",
+        "folder": "../../PunkBot/Hands",
+        "category": "Hands",
+        "modified": 1747297587.1504667,
+        "__class__": "studiolibrarymaya.poseitem.PoseItem"
+    },
+    "../../PunkBot/MirrorTable.mirror": {
+        "name": "MirrorTable.mirror",
+        "path": "../../PunkBot/MirrorTable.mirror",
+        "type": ".mirror",
+        "folder": "../../PunkBot",
+        "category": "PunkBot",
+        "modified": 1747296036.0067563,
+        "__class__": "studiolibrarymaya.mirroritem.MirrorItem"
+    },
+    "../../PunkBot/RoboticaB": {
+        "name": "RoboticaB",
+        "path": "../../PunkBot/RoboticaB",
+        "type": "Folder",
+        "folder": "../../PunkBot",
+        "category": "PunkBot",
+        "modified": 1747298763.863274,
+        "__class__": "studiolibrary.folderitem.FolderItem"
+    },
+    "../../PunkBot/RoboticaB/IdleRdy.pose": {
+        "name": "IdleRdy.pose",
+        "path": "../../PunkBot/RoboticaB/IdleRdy.pose",
+        "type": ".pose",
+        "folder": "../../PunkBot/RoboticaB",
+        "category": "RoboticaB",
+        "modified": 1747298783.7513132,
+        "__class__": "studiolibrarymaya.poseitem.PoseItem"
+    },
     "../../PunkBot/Skeleton": {
         "name": "Skeleton",
         "path": "../../PunkBot/Skeleton",
@@ -116,6 +152,60 @@
         "modified": 1746597524.0452423,
         "__class__": "studiolibrary.libraryitem.LibraryItem"
     },
+    "../../Trash/Grab.pose": {
+        "name": "Grab.pose",
+        "path": "../../Trash/Grab.pose",
+        "type": ".pose",
+        "folder": "../../Trash",
+        "category": "Trash",
+        "modified": 1747297541.0046496,
+        "__class__": "studiolibrary.libraryitem.LibraryItem"
+    },
+    "../../Trash/GrabControls (2).pose": {
+        "name": "GrabControls (2).pose",
+        "path": "../../Trash/GrabControls (2).pose",
+        "type": ".pose",
+        "folder": "../../Trash",
+        "category": "Trash",
+        "modified": 1747295342.963857,
+        "__class__": "studiolibrary.libraryitem.LibraryItem"
+    },
+    "../../Trash/GrabControls (3).pose": {
+        "name": "GrabControls (3).pose",
+        "path": "../../Trash/GrabControls (3).pose",
+        "type": ".pose",
+        "folder": "../../Trash",
+        "category": "Trash",
+        "modified": 1747296228.5571551,
+        "__class__": "studiolibrary.libraryitem.LibraryItem"
+    },
+    "../../Trash/GrabControls (4).pose": {
+        "name": "GrabControls (4).pose",
+        "path": "../../Trash/GrabControls (4).pose",
+        "type": ".pose",
+        "folder": "../../Trash",
+        "category": "Trash",
+        "modified": 1747296415.177119,
+        "__class__": "studiolibrarymaya.poseitem.PoseItem"
+    },
+    "../../Trash/GrabControls.pose": {
+        "name": "GrabControls.pose",
+        "path": "../../Trash/GrabControls.pose",
+        "type": ".pose",
+        "folder": "../../Trash",
+        "category": "Trash",
+        "modified": 1747296211.5138485,
+        "__class__": "studiolibrarymaya.poseitem.PoseItem"
+    },
+    "../../Trash/MirrorTable.mirror": {
+        "name": "MirrorTable.mirror",
+        "path": "../../Trash/MirrorTable.mirror",
+        "type": ".mirror",
+        "folder": "../../Trash",
+        "category": "Trash",
+        "modified": 1747295853.8683238,
+        "__class__": "studiolibrarymaya.mirroritem.MirrorItem"
+    },
     "../../Trash/PunkBotBody": {
         "name": "PunkBotBody",
         "path": "../../Trash/PunkBotBody",
@@ -124,5 +214,23 @@
         "category": "Trash",
         "modified": 1746165064.6647842,
         "__class__": "studiolibrary.folderitem.FolderItem"
+    },
+    "../../Trash/Robotica.mirror": {
+        "name": "Robotica.mirror",
+        "path": "../../Trash/Robotica.mirror",
+        "type": ".mirror",
+        "folder": "../../Trash",
+        "category": "Trash",
+        "modified": 1747295995.1430566,
+        "__class__": "studiolibrarymaya.mirroritem.MirrorItem"
+    },
+    "../../Trash/Test.set": {
+        "name": "Test.set",
+        "path": "../../Trash/Test.set",
+        "type": ".set",
+        "folder": "../../Trash",
+        "category": "Trash",
+        "modified": 1747297720.6916196,
+        "__class__": "studiolibrarymaya.setsitem.SetsItem"
     }
 }
