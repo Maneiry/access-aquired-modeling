@@ -1,6 +1,6 @@
 //Maya ASCII 2025ff03 scene
 //Name: RoboticaB_CtrlRig.ma
-//Last modified: Mon, May 19, 2025 03:52:30 PM
+//Last modified: Mon, May 19, 2025 04:04:34 PM
 //Codeset: 1252
 requires maya "2025ff03";
 requires -nodeType "HIKSolverNode" -nodeType "HIKCharacterNode" -nodeType "HIKSkeletonGeneratorNode"
@@ -20,7 +20,7 @@ fileInfo "product" "Maya 2025";
 fileInfo "version" "2025";
 fileInfo "cutIdentifier" "202409190603-cbdc5a7e54";
 fileInfo "osv" "Windows 10 Home v2009 (Build: 19045)";
-fileInfo "UUID" "FFFE0DA7-4BF1-E96D-D6FE-AD9A768F2789";
+fileInfo "UUID" "AE363F3F-4493-B35A-F132-B3B8F9A72EC6";
 fileInfo "exportedFrom" "E:/Studium/GameDesign UU/Graphics3D/PunkBot_Skinning.ma";
 createNode transform -s -n "persp";
 	rename -uid "A5020B8C-425D-0A5B-0414-CB8C0BD879B3";
