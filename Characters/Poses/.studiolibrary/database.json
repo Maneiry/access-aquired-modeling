@@ -32,7 +32,34 @@
         "type": ".pose",
         "folder": "../../PunkBot/Hands",
         "category": "Hands",
-        "modified": 1747297587.1504667,
+        "modified": 1747733266.1823626,
+        "__class__": "studiolibrarymaya.poseitem.PoseItem"
+    },
+    "../../PunkBot/Hands/SKPipeJointRdyWalks.pose": {
+        "name": "SKPipeJointRdyWalks.pose",
+        "path": "../../PunkBot/Hands/SKPipeJointRdyWalks.pose",
+        "type": ".pose",
+        "folder": "../../PunkBot/Hands",
+        "category": "Hands",
+        "modified": 1747745337.6927454,
+        "__class__": "studiolibrarymaya.poseitem.PoseItem"
+    },
+    "../../PunkBot/Hands/SkGrab.pose": {
+        "name": "SkGrab.pose",
+        "path": "../../PunkBot/Hands/SkGrab.pose",
+        "type": ".pose",
+        "folder": "../../PunkBot/Hands",
+        "category": "Hands",
+        "modified": 1747740772.232461,
+        "__class__": "studiolibrarymaya.poseitem.PoseItem"
+    },
+    "../../PunkBot/Hands/SkTightSlight.pose": {
+        "name": "SkTightSlight.pose",
+        "path": "../../PunkBot/Hands/SkTightSlight.pose",
+        "type": ".pose",
+        "folder": "../../PunkBot/Hands",
+        "category": "Hands",
+        "modified": 1747743572.3438132,
         "__class__": "studiolibrarymaya.poseitem.PoseItem"
     },
     "../../PunkBot/MirrorTable.mirror": {
@@ -53,13 +80,40 @@
         "modified": 1747298763.863274,
         "__class__": "studiolibrary.folderitem.FolderItem"
     },
+    "../../PunkBot/RoboticaB/Idle.pose": {
+        "name": "Idle.pose",
+        "path": "../../PunkBot/RoboticaB/Idle.pose",
+        "type": ".pose",
+        "folder": "../../PunkBot/RoboticaB",
+        "category": "RoboticaB",
+        "modified": 1747733486.9406962,
+        "__class__": "studiolibrarymaya.poseitem.PoseItem"
+    },
     "../../PunkBot/RoboticaB/IdleRdy.pose": {
         "name": "IdleRdy.pose",
         "path": "../../PunkBot/RoboticaB/IdleRdy.pose",
         "type": ".pose",
         "folder": "../../PunkBot/RoboticaB",
         "category": "RoboticaB",
-        "modified": 1747298783.7513132,
+        "modified": 1747732980.8697581,
+        "__class__": "studiolibrarymaya.poseitem.PoseItem"
+    },
+    "../../PunkBot/RoboticaB/SKIdle.pose": {
+        "name": "SKIdle.pose",
+        "path": "../../PunkBot/RoboticaB/SKIdle.pose",
+        "type": ".pose",
+        "folder": "../../PunkBot/RoboticaB",
+        "category": "RoboticaB",
+        "modified": 1747734278.4562852,
+        "__class__": "studiolibrarymaya.poseitem.PoseItem"
+    },
+    "../../PunkBot/RoboticaB/SKIdleRdy.pose": {
+        "name": "SKIdleRdy.pose",
+        "path": "../../PunkBot/RoboticaB/SKIdleRdy.pose",
+        "type": ".pose",
+        "folder": "../../PunkBot/RoboticaB",
+        "category": "RoboticaB",
+        "modified": 1747734248.1836503,
         "__class__": "studiolibrarymaya.poseitem.PoseItem"
     },
     "../../PunkBot/Skeleton": {
@@ -152,6 +206,15 @@
         "modified": 1746597524.0452423,
         "__class__": "studiolibrary.libraryitem.LibraryItem"
     },
+    "../../Trash/Grab (2).pose": {
+        "name": "Grab (2).pose",
+        "path": "../../Trash/Grab (2).pose",
+        "type": ".pose",
+        "folder": "../../Trash",
+        "category": "Trash",
+        "modified": 1747383084.7549236,
+        "__class__": "studiolibrary.libraryitem.LibraryItem"
+    },
     "../../Trash/Grab.pose": {
         "name": "Grab.pose",
         "path": "../../Trash/Grab.pose",
@@ -196,6 +259,33 @@
         "category": "Trash",
         "modified": 1747296211.5138485,
         "__class__": "studiolibrarymaya.poseitem.PoseItem"
+    },
+    "../../Trash/Idle (2).pose": {
+        "name": "Idle (2).pose",
+        "path": "../../Trash/Idle (2).pose",
+        "type": ".pose",
+        "folder": "../../Trash",
+        "category": "Trash",
+        "modified": 1747733436.323735,
+        "__class__": "studiolibrary.libraryitem.LibraryItem"
+    },
+    "../../Trash/Idle.pose": {
+        "name": "Idle.pose",
+        "path": "../../Trash/Idle.pose",
+        "type": ".pose",
+        "folder": "../../Trash",
+        "category": "Trash",
+        "modified": 1747733216.2578008,
+        "__class__": "studiolibrary.libraryitem.LibraryItem"
+    },
+    "../../Trash/IdleRdy.pose": {
+        "name": "IdleRdy.pose",
+        "path": "../../Trash/IdleRdy.pose",
+        "type": ".pose",
+        "folder": "../../Trash",
+        "category": "Trash",
+        "modified": 1747383084.7659862,
+        "__class__": "studiolibrary.libraryitem.LibraryItem"
     },
     "../../Trash/MirrorTable.mirror": {
         "name": "MirrorTable.mirror",
