@@ -1,0 +1,1105 @@
+{
+  "metadata": {
+    "description": "skeleton",
+    "user": "Manuel",
+    "ctime": "1747740772",
+    "version": "1.0.0",
+    "references": [
+      {
+        "filename": "E:/UnrealGames/access-aquired-modeling/Characters/RoboticaB_CtrlRig.ma",
+        "unresolved": "E:/UnrealGames/access-aquired-modeling/Characters/RoboticaB_CtrlRig.ma",
+        "namespace": "PunkBot_Rigged",
+        "node": "PunkBot_RiggedPipeRN"
+      }
+    ],
+    "mayaVersion": "2025",
+    "mayaSceneFile": "E:/UnrealGames/access-aquired-modeling/Characters/RoboticaB_Equip.ma"
+  }
+,
+  "objects": {
+    "PunkBot_Rigged:Character1_RightHand": {
+      "attrs": {
+        "rotateX": {
+          "type": "doubleAngle",
+          "value": 66.39932598804292
+        },
+        "rotateZ": {
+          "type": "doubleAngle",
+          "value": 60.523836659578585
+        },
+        "translateZ": {
+          "type": "doubleLinear",
+          "value": 1.606963675367247
+        },
+        "rotateY": {
+          "type": "doubleAngle",
+          "value": 73.0701967811383
+        },
+        "scaleX": {
+          "type": "double",
+          "value": 1.0
+        },
+        "filmboxTypeID": {
+          "type": "short",
+          "value": 5
+        },
+        "scaleY": {
+          "type": "double",
+          "value": 1.0
+        },
+        "translateY": {
+          "type": "doubleLinear",
+          "value": -23.07101577507136
+        },
+        "lockInfluenceWeights": {
+          "type": "bool",
+          "value": false
+        },
+        "translateX": {
+          "type": "doubleLinear",
+          "value": -8.630592996270199
+        },
+        "scaleZ": {
+          "type": "double",
+          "value": 1.0
+        }
+      }
+    },
+    "PunkBot_Rigged:PipeJoint": {
+      "attrs": {
+        "rotateX": {
+          "type": "doubleAngle",
+          "value": 9.538453921883853e-06
+        },
+        "rotateZ": {
+          "type": "doubleAngle",
+          "value": 4.68806589388096e-06
+        },
+        "translateZ": {
+          "type": "doubleLinear",
+          "value": 5.226092886159233
+        },
+        "visibility": {
+          "type": "bool",
+          "value": true
+        },
+        "rotateY": {
+          "type": "doubleAngle",
+          "value": -11.413940471893966
+        },
+        "scaleX": {
+          "type": "double",
+          "value": 1.0
+        },
+        "scaleY": {
+          "type": "double",
+          "value": 1.0
+        },
+        "translateY": {
+          "type": "doubleLinear",
+          "value": -6.176507733185133
+        },
+        "lockInfluenceWeights": {
+          "type": "bool",
+          "value": false
+        },
+        "translateX": {
+          "type": "doubleLinear",
+          "value": -3.634900380001632
+        },
+        "scaleZ": {
+          "type": "double",
+          "value": 1.0
+        }
+      }
+    },
+    "PunkBot_Rigged:PipeJoint_parentConstraint1": {
+      "attrs": {
+        "nodeState": {
+          "type": "enum",
+          "value": 0
+        },
+        "rotationDecompositionTargetX": {
+          "type": "doubleLinear",
+          "value": 0.0
+        },
+        "nurbsCircle2W0": {
+          "type": "double",
+          "value": 1.0
+        },
+        "rotationDecompositionTargetY": {
+          "type": "doubleLinear",
+          "value": 0.0
+        },
+        "interpType": {
+          "type": "enum",
+          "value": 1
+        },
+        "rotationDecompositionTargetZ": {
+          "type": "doubleLinear",
+          "value": 0.0
+        }
+      }
+    },
+    "PunkBot_Rigged:Character1_RightHandThumb1": {
+      "attrs": {
+        "rotateX": {
+          "type": "doubleAngle",
+          "value": -82.39336192027167
+        },
+        "rotateZ": {
+          "type": "doubleAngle",
+          "value": -65.62468752496986
+        },
+        "translateZ": {
+          "type": "doubleLinear",
+          "value": 0.11312671298104959
+        },
+        "rotateY": {
+          "type": "doubleAngle",
+          "value": 63.319091411418654
+        },
+        "scaleX": {
+          "type": "double",
+          "value": 1.0
+        },
+        "filmboxTypeID": {
+          "type": "short",
+          "value": 5
+        },
+        "scaleY": {
+          "type": "double",
+          "value": 1.0
+        },
+        "translateY": {
+          "type": "doubleLinear",
+          "value": -1.5863310679346512
+        },
+        "lockInfluenceWeights": {
+          "type": "bool",
+          "value": false
+        },
+        "translateX": {
+          "type": "doubleLinear",
+          "value": -5.28432038542816
+        },
+        "scaleZ": {
+          "type": "double",
+          "value": 1.0
+        }
+      }
+    },
+    "PunkBot_Rigged:Character1_RightHandThumb2": {
+      "attrs": {
+        "rotateX": {
+          "type": "doubleAngle",
+          "value": 1.0055458785258715
+        },
+        "rotateZ": {
+          "type": "doubleAngle",
+          "value": 36.25834928283654
+        },
+        "translateZ": {
+          "type": "doubleLinear",
+          "value": 0.19488736383577532
+        },
+        "rotateY": {
+          "type": "doubleAngle",
+          "value": 0.3618797031822203
+        },
+        "scaleX": {
+          "type": "double",
+          "value": 1.0
+        },
+        "filmboxTypeID": {
+          "type": "short",
+          "value": 5
+        },
+        "scaleY": {
+          "type": "double",
+          "value": 1.0
+        },
+        "translateY": {
+          "type": "doubleLinear",
+          "value": -1.6019480299084847
+        },
+        "lockInfluenceWeights": {
+          "type": "bool",
+          "value": false
+        },
+        "translateX": {
+          "type": "doubleLinear",
+          "value": -2.1205637661776464
+        },
+        "scaleZ": {
+          "type": "double",
+          "value": 1.0
+        }
+      }
+    },
+    "PunkBot_Rigged:Character1_RightHandThumb3": {
+      "attrs": {
+        "rotateX": {
+          "type": "doubleAngle",
+          "value": 1.3987247720895102
+        },
+        "rotateZ": {
+          "type": "doubleAngle",
+          "value": 28.779310471604656
+        },
+        "translateZ": {
+          "type": "doubleLinear",
+          "value": 0.0825877130203505
+        },
+        "rotateY": {
+          "type": "doubleAngle",
+          "value": 0.16592411737985333
+        },
+        "scaleX": {
+          "type": "double",
+          "value": 1.0
+        },
+        "filmboxTypeID": {
+          "type": "short",
+          "value": 5
+        },
+        "scaleY": {
+          "type": "double",
+          "value": 1.0
+        },
+        "translateY": {
+          "type": "doubleLinear",
+          "value": -0.45261218983497997
+        },
+        "lockInfluenceWeights": {
+          "type": "bool",
+          "value": false
+        },
+        "translateX": {
+          "type": "doubleLinear",
+          "value": -3.140049166401276
+        },
+        "scaleZ": {
+          "type": "double",
+          "value": 1.0
+        }
+      }
+    },
+    "PunkBot_Rigged:Character1_RightHandThumb4": {
+      "attrs": {
+        "rotateX": {
+          "type": "doubleAngle",
+          "value": 0.0
+        },
+        "rotateZ": {
+          "type": "doubleAngle",
+          "value": -0.0001040280435135818
+        },
+        "translateZ": {
+          "type": "doubleLinear",
+          "value": 0.11752270676434229
+        },
+        "rotateY": {
+          "type": "doubleAngle",
+          "value": -0.0
+        },
+        "scaleX": {
+          "type": "double",
+          "value": 1.0
+        },
+        "filmboxTypeID": {
+          "type": "short",
+          "value": 5
+        },
+        "scaleY": {
+          "type": "double",
+          "value": 1.0
+        },
+        "translateY": {
+          "type": "doubleLinear",
+          "value": -2.708643138321378
+        },
+        "lockInfluenceWeights": {
+          "type": "bool",
+          "value": false
+        },
+        "translateX": {
+          "type": "doubleLinear",
+          "value": -1.8754521555010726
+        },
+        "scaleZ": {
+          "type": "double",
+          "value": 1.0
+        }
+      }
+    },
+    "PunkBot_Rigged:Character1_RightHandIndex1": {
+      "attrs": {
+        "rotateX": {
+          "type": "doubleAngle",
+          "value": -69.51774612301226
+        },
+        "rotateZ": {
+          "type": "doubleAngle",
+          "value": -1.9079888569513166
+        },
+        "translateZ": {
+          "type": "doubleLinear",
+          "value": 0.1878784645240792
+        },
+        "rotateY": {
+          "type": "doubleAngle",
+          "value": 39.287873221601494
+        },
+        "scaleX": {
+          "type": "double",
+          "value": 1.0
+        },
+        "filmboxTypeID": {
+          "type": "short",
+          "value": 5
+        },
+        "scaleY": {
+          "type": "double",
+          "value": 1.0
+        },
+        "translateY": {
+          "type": "doubleLinear",
+          "value": -8.18544101165675
+        },
+        "lockInfluenceWeights": {
+          "type": "bool",
+          "value": false
+        },
+        "translateX": {
+          "type": "doubleLinear",
+          "value": -7.138395362986515
+        },
+        "scaleZ": {
+          "type": "double",
+          "value": 1.0
+        }
+      }
+    },
+    "PunkBot_Rigged:Character1_RightHandIndex2": {
+      "attrs": {
+        "rotateX": {
+          "type": "doubleAngle",
+          "value": -79.24371275851004
+        },
+        "rotateZ": {
+          "type": "doubleAngle",
+          "value": -48.61696217003616
+        },
+        "translateZ": {
+          "type": "doubleLinear",
+          "value": 0.17323977069065677
+        },
+        "rotateY": {
+          "type": "doubleAngle",
+          "value": 34.846532110186494
+        },
+        "scaleX": {
+          "type": "double",
+          "value": 1.0
+        },
+        "filmboxTypeID": {
+          "type": "short",
+          "value": 5
+        },
+        "scaleY": {
+          "type": "double",
+          "value": 1.0
+        },
+        "translateY": {
+          "type": "doubleLinear",
+          "value": -3.71882968187694
+        },
+        "lockInfluenceWeights": {
+          "type": "bool",
+          "value": false
+        },
+        "translateX": {
+          "type": "doubleLinear",
+          "value": -1.9984131729881973
+        },
+        "scaleZ": {
+          "type": "double",
+          "value": 1.0
+        }
+      }
+    },
+    "PunkBot_Rigged:Character1_RightHandIndex3": {
+      "attrs": {
+        "rotateX": {
+          "type": "doubleAngle",
+          "value": -33.20664534623308
+        },
+        "rotateZ": {
+          "type": "doubleAngle",
+          "value": 36.0412639175269
+        },
+        "translateZ": {
+          "type": "doubleLinear",
+          "value": 0.043064450819798594
+        },
+        "rotateY": {
+          "type": "doubleAngle",
+          "value": 21.44154348913651
+        },
+        "scaleX": {
+          "type": "double",
+          "value": 1.0
+        },
+        "filmboxTypeID": {
+          "type": "short",
+          "value": 5
+        },
+        "scaleY": {
+          "type": "double",
+          "value": 1.0
+        },
+        "translateY": {
+          "type": "doubleLinear",
+          "value": -1.868111863489558
+        },
+        "lockInfluenceWeights": {
+          "type": "bool",
+          "value": false
+        },
+        "translateX": {
+          "type": "doubleLinear",
+          "value": -1.8845972413513863
+        },
+        "scaleZ": {
+          "type": "double",
+          "value": 1.0
+        }
+      }
+    },
+    "PunkBot_Rigged:Character1_RightHandIndex4": {
+      "attrs": {
+        "rotateX": {
+          "type": "doubleAngle",
+          "value": -0.00010877202882143822
+        },
+        "rotateZ": {
+          "type": "doubleAngle",
+          "value": 0.0
+        },
+        "translateZ": {
+          "type": "doubleLinear",
+          "value": -0.11451494614434665
+        },
+        "rotateY": {
+          "type": "doubleAngle",
+          "value": -0.0
+        },
+        "scaleX": {
+          "type": "double",
+          "value": 1.0
+        },
+        "filmboxTypeID": {
+          "type": "short",
+          "value": 5
+        },
+        "scaleY": {
+          "type": "double",
+          "value": 1.0
+        },
+        "translateY": {
+          "type": "doubleLinear",
+          "value": -1.869425559705796
+        },
+        "lockInfluenceWeights": {
+          "type": "bool",
+          "value": false
+        },
+        "translateX": {
+          "type": "doubleLinear",
+          "value": 0.5716230597877257
+        },
+        "scaleZ": {
+          "type": "double",
+          "value": 1.0
+        }
+      }
+    },
+    "PunkBot_Rigged:Character1_RightHandMiddle1": {
+      "attrs": {
+        "rotateX": {
+          "type": "doubleAngle",
+          "value": -67.99781419090172
+        },
+        "rotateZ": {
+          "type": "doubleAngle",
+          "value": 8.260307970214516
+        },
+        "translateZ": {
+          "type": "doubleLinear",
+          "value": 0.022647316640117765
+        },
+        "rotateY": {
+          "type": "doubleAngle",
+          "value": 19.306696301321978
+        },
+        "scaleX": {
+          "type": "double",
+          "value": 1.0
+        },
+        "filmboxTypeID": {
+          "type": "short",
+          "value": 5
+        },
+        "scaleY": {
+          "type": "double",
+          "value": 1.0
+        },
+        "translateY": {
+          "type": "doubleLinear",
+          "value": -9.23965380173513
+        },
+        "lockInfluenceWeights": {
+          "type": "bool",
+          "value": false
+        },
+        "translateX": {
+          "type": "doubleLinear",
+          "value": -4.471836560263142
+        },
+        "scaleZ": {
+          "type": "double",
+          "value": 1.0
+        }
+      }
+    },
+    "PunkBot_Rigged:Character1_RightHandMiddle2": {
+      "attrs": {
+        "rotateX": {
+          "type": "doubleAngle",
+          "value": -82.1770108836148
+        },
+        "rotateZ": {
+          "type": "doubleAngle",
+          "value": -38.28965409921694
+        },
+        "translateZ": {
+          "type": "doubleLinear",
+          "value": 0.20622488351806112
+        },
+        "rotateY": {
+          "type": "doubleAngle",
+          "value": 22.55472344615655
+        },
+        "scaleX": {
+          "type": "double",
+          "value": 1.0
+        },
+        "filmboxTypeID": {
+          "type": "short",
+          "value": 5
+        },
+        "scaleY": {
+          "type": "double",
+          "value": 1.0
+        },
+        "translateY": {
+          "type": "doubleLinear",
+          "value": -4.68755396639952
+        },
+        "lockInfluenceWeights": {
+          "type": "bool",
+          "value": false
+        },
+        "translateX": {
+          "type": "doubleLinear",
+          "value": -1.2788860462436524
+        },
+        "scaleZ": {
+          "type": "double",
+          "value": 1.0
+        }
+      }
+    },
+    "PunkBot_Rigged:Character1_RightHandMiddle3": {
+      "attrs": {
+        "rotateX": {
+          "type": "doubleAngle",
+          "value": -33.28585318820286
+        },
+        "rotateZ": {
+          "type": "doubleAngle",
+          "value": 28.86397176341309
+        },
+        "translateZ": {
+          "type": "doubleLinear",
+          "value": 0.0657964873516832
+        },
+        "rotateY": {
+          "type": "doubleAngle",
+          "value": -1.315382907050767
+        },
+        "scaleX": {
+          "type": "double",
+          "value": 1.0
+        },
+        "filmboxTypeID": {
+          "type": "short",
+          "value": 5
+        },
+        "scaleY": {
+          "type": "double",
+          "value": 1.0
+        },
+        "translateY": {
+          "type": "doubleLinear",
+          "value": -2.3373273085332613
+        },
+        "lockInfluenceWeights": {
+          "type": "bool",
+          "value": false
+        },
+        "translateX": {
+          "type": "doubleLinear",
+          "value": -1.4761846470699282
+        },
+        "scaleZ": {
+          "type": "double",
+          "value": 1.0
+        }
+      }
+    },
+    "PunkBot_Rigged:Character1_RightHandMiddle4": {
+      "attrs": {
+        "rotateX": {
+          "type": "doubleAngle",
+          "value": 0.0
+        },
+        "rotateZ": {
+          "type": "doubleAngle",
+          "value": 0.0
+        },
+        "translateZ": {
+          "type": "doubleLinear",
+          "value": -0.39045456754953634
+        },
+        "rotateY": {
+          "type": "doubleAngle",
+          "value": -0.0
+        },
+        "scaleX": {
+          "type": "double",
+          "value": 1.0
+        },
+        "filmboxTypeID": {
+          "type": "short",
+          "value": 5
+        },
+        "scaleY": {
+          "type": "double",
+          "value": 1.0
+        },
+        "translateY": {
+          "type": "doubleLinear",
+          "value": -1.7463120630631295
+        },
+        "lockInfluenceWeights": {
+          "type": "bool",
+          "value": false
+        },
+        "translateX": {
+          "type": "doubleLinear",
+          "value": 0.9058143777321384
+        },
+        "scaleZ": {
+          "type": "double",
+          "value": 1.0
+        }
+      }
+    },
+    "PunkBot_Rigged:Character1_RightHandRing1": {
+      "attrs": {
+        "rotateX": {
+          "type": "doubleAngle",
+          "value": -61.74495845942984
+        },
+        "rotateZ": {
+          "type": "doubleAngle",
+          "value": 16.97903984688273
+        },
+        "translateZ": {
+          "type": "doubleLinear",
+          "value": 0.11069983081567258
+        },
+        "rotateY": {
+          "type": "doubleAngle",
+          "value": 27.65308597912416
+        },
+        "scaleX": {
+          "type": "double",
+          "value": 1.0
+        },
+        "filmboxTypeID": {
+          "type": "short",
+          "value": 5
+        },
+        "scaleY": {
+          "type": "double",
+          "value": 1.0
+        },
+        "translateY": {
+          "type": "doubleLinear",
+          "value": -9.912030219804976
+        },
+        "lockInfluenceWeights": {
+          "type": "bool",
+          "value": false
+        },
+        "translateX": {
+          "type": "doubleLinear",
+          "value": -2.045774149263316
+        },
+        "scaleZ": {
+          "type": "double",
+          "value": 1.0
+        }
+      }
+    },
+    "PunkBot_Rigged:Character1_RightHandRing2": {
+      "attrs": {
+        "rotateX": {
+          "type": "doubleAngle",
+          "value": -87.8883255434496
+        },
+        "rotateZ": {
+          "type": "doubleAngle",
+          "value": -27.69550669384279
+        },
+        "translateZ": {
+          "type": "doubleLinear",
+          "value": 0.18907533477737104
+        },
+        "rotateY": {
+          "type": "doubleAngle",
+          "value": 8.570927923347798
+        },
+        "scaleX": {
+          "type": "double",
+          "value": 1.0
+        },
+        "filmboxTypeID": {
+          "type": "short",
+          "value": 5
+        },
+        "scaleY": {
+          "type": "double",
+          "value": 1.0
+        },
+        "translateY": {
+          "type": "doubleLinear",
+          "value": -4.53210542231772
+        },
+        "lockInfluenceWeights": {
+          "type": "bool",
+          "value": false
+        },
+        "translateX": {
+          "type": "doubleLinear",
+          "value": -0.12444074763456814
+        },
+        "scaleZ": {
+          "type": "double",
+          "value": 1.0
+        }
+      }
+    },
+    "PunkBot_Rigged:Character1_RightHandRing3": {
+      "attrs": {
+        "rotateX": {
+          "type": "doubleAngle",
+          "value": -35.42090839880871
+        },
+        "rotateZ": {
+          "type": "doubleAngle",
+          "value": 14.455067899657648
+        },
+        "translateZ": {
+          "type": "doubleLinear",
+          "value": 0.07042157593745912
+        },
+        "rotateY": {
+          "type": "doubleAngle",
+          "value": -29.63533657438515
+        },
+        "scaleX": {
+          "type": "double",
+          "value": 1.0
+        },
+        "filmboxTypeID": {
+          "type": "short",
+          "value": 5
+        },
+        "scaleY": {
+          "type": "double",
+          "value": 1.0
+        },
+        "translateY": {
+          "type": "doubleLinear",
+          "value": -2.1831369466505635
+        },
+        "lockInfluenceWeights": {
+          "type": "bool",
+          "value": false
+        },
+        "translateX": {
+          "type": "doubleLinear",
+          "value": -0.7347121681887181
+        },
+        "scaleZ": {
+          "type": "double",
+          "value": 1.0
+        }
+      }
+    },
+    "PunkBot_Rigged:Character1_RightHandRing4": {
+      "attrs": {
+        "rotateX": {
+          "type": "doubleAngle",
+          "value": 0.0
+        },
+        "rotateZ": {
+          "type": "doubleAngle",
+          "value": 0.0
+        },
+        "translateZ": {
+          "type": "doubleLinear",
+          "value": -0.6292911764765492
+        },
+        "rotateY": {
+          "type": "doubleAngle",
+          "value": -6.774577223386166e-05
+        },
+        "scaleX": {
+          "type": "double",
+          "value": 1.0
+        },
+        "filmboxTypeID": {
+          "type": "short",
+          "value": 5
+        },
+        "scaleY": {
+          "type": "double",
+          "value": 1.0
+        },
+        "translateY": {
+          "type": "doubleLinear",
+          "value": -1.4121653731118897
+        },
+        "lockInfluenceWeights": {
+          "type": "bool",
+          "value": false
+        },
+        "translateX": {
+          "type": "doubleLinear",
+          "value": 1.1441320161601567
+        },
+        "scaleZ": {
+          "type": "double",
+          "value": 1.0
+        }
+      }
+    },
+    "PunkBot_Rigged:Character1_RightHandPinky1": {
+      "attrs": {
+        "rotateX": {
+          "type": "doubleAngle",
+          "value": -61.38373802199707
+        },
+        "rotateZ": {
+          "type": "doubleAngle",
+          "value": 43.08345152523131
+        },
+        "translateZ": {
+          "type": "doubleLinear",
+          "value": 0.3041273311219115
+        },
+        "rotateY": {
+          "type": "doubleAngle",
+          "value": -8.700516136761703
+        },
+        "scaleX": {
+          "type": "double",
+          "value": 1.0
+        },
+        "filmboxTypeID": {
+          "type": "short",
+          "value": 5
+        },
+        "scaleY": {
+          "type": "double",
+          "value": 1.0
+        },
+        "translateY": {
+          "type": "doubleLinear",
+          "value": -9.860937707764407
+        },
+        "lockInfluenceWeights": {
+          "type": "bool",
+          "value": false
+        },
+        "translateX": {
+          "type": "doubleLinear",
+          "value": 0.31421481966009424
+        },
+        "scaleZ": {
+          "type": "double",
+          "value": 1.0
+        }
+      }
+    },
+    "PunkBot_Rigged:Character1_RightHandPinky2": {
+      "attrs": {
+        "rotateX": {
+          "type": "doubleAngle",
+          "value": -66.12115932278532
+        },
+        "rotateZ": {
+          "type": "doubleAngle",
+          "value": -11.717686959437755
+        },
+        "translateZ": {
+          "type": "doubleLinear",
+          "value": 0.11746802556397995
+        },
+        "rotateY": {
+          "type": "doubleAngle",
+          "value": -2.057466091470745
+        },
+        "scaleX": {
+          "type": "double",
+          "value": 1.0
+        },
+        "filmboxTypeID": {
+          "type": "short",
+          "value": 5
+        },
+        "scaleY": {
+          "type": "double",
+          "value": 1.0
+        },
+        "translateY": {
+          "type": "doubleLinear",
+          "value": -2.970925272728408
+        },
+        "lockInfluenceWeights": {
+          "type": "bool",
+          "value": false
+        },
+        "translateX": {
+          "type": "doubleLinear",
+          "value": 0.652925734778826
+        },
+        "scaleZ": {
+          "type": "double",
+          "value": 1.0
+        }
+      }
+    },
+    "PunkBot_Rigged:Character1_RightHandPinky3": {
+      "attrs": {
+        "rotateX": {
+          "type": "doubleAngle",
+          "value": -37.432578169512944
+        },
+        "rotateZ": {
+          "type": "doubleAngle",
+          "value": 26.096469302315537
+        },
+        "translateZ": {
+          "type": "doubleLinear",
+          "value": 0.07066069494015892
+        },
+        "rotateY": {
+          "type": "doubleAngle",
+          "value": -38.33070115489461
+        },
+        "scaleX": {
+          "type": "double",
+          "value": 1.0
+        },
+        "filmboxTypeID": {
+          "type": "short",
+          "value": 5
+        },
+        "scaleY": {
+          "type": "double",
+          "value": 1.0
+        },
+        "translateY": {
+          "type": "doubleLinear",
+          "value": -1.9667830839383598
+        },
+        "lockInfluenceWeights": {
+          "type": "bool",
+          "value": false
+        },
+        "translateX": {
+          "type": "doubleLinear",
+          "value": -0.15951791761013823
+        },
+        "scaleZ": {
+          "type": "double",
+          "value": 1.0
+        }
+      }
+    },
+    "PunkBot_Rigged:Character1_RightHandPinky4": {
+      "attrs": {
+        "rotateX": {
+          "type": "doubleAngle",
+          "value": -9.450164399847921e-05
+        },
+        "rotateZ": {
+          "type": "doubleAngle",
+          "value": 5.787812969900346e-05
+        },
+        "translateZ": {
+          "type": "doubleLinear",
+          "value": -0.738420816183357
+        },
+        "rotateY": {
+          "type": "doubleAngle",
+          "value": -0.0
+        },
+        "scaleX": {
+          "type": "double",
+          "value": 1.0
+        },
+        "filmboxTypeID": {
+          "type": "short",
+          "value": 5
+        },
+        "scaleY": {
+          "type": "double",
+          "value": 1.0
+        },
+        "translateY": {
+          "type": "doubleLinear",
+          "value": -0.920641526569657
+        },
+        "lockInfluenceWeights": {
+          "type": "bool",
+          "value": false
+        },
+        "translateX": {
+          "type": "doubleLinear",
+          "value": 1.1767558048930908
+        },
+        "scaleZ": {
+          "type": "double",
+          "value": 1.0
+        }
+      }
+    }
+  }
+}

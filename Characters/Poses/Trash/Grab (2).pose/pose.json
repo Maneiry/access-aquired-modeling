@@ -1,187 +1,187 @@
 {
   "metadata": {
     "description": "",
-    "user": "Manuel",
-    "ctime": "1747733266",
+    "user": "manue",
+    "ctime": "1747297587",
     "version": "1.0.0",
     "references": [
       {
-        "filename": "E:/UnrealGames/access-aquired-modeling/Characters/RoboticaB_CtrlRig.ma",
-        "unresolved": "E:/UnrealGames/access-aquired-modeling/Characters/RoboticaB_CtrlRig.ma",
+        "filename": "C:/Users/manue/Documents/GitHub/access-aquired-modeling/Characters/RoboticaB_CtrlRig.ma",
+        "unresolved": "C:/Users/manue/Documents/GitHub/access-aquired-modeling/Characters/RoboticaB_CtrlRig.ma",
         "namespace": "PunkBot_Rigged",
         "node": "PunkBot_RiggedPipeRN"
       }
     ],
     "mayaVersion": "2025",
-    "mayaSceneFile": "E:/UnrealGames/access-aquired-modeling/Characters/RoboticaB_Equip.ma"
+    "mayaSceneFile": "C:/Users/manue/Documents/GitHub/access-aquired-modeling/Characters/RoboticaB_Equip.ma"
   }
 ,
   "objects": {
-    "PunkBot_Rigged:Character1_Ctrl_RightHandPinkyEffector": {
-      "attrs": {
-        "translateZ": {
-          "type": "doubleLinear",
-          "value": -0.23386311531066895
-        },
-        "rotateX": {
-          "type": "doubleAngle",
-          "value": 95.52759903820939
-        },
-        "rotateZ": {
-          "type": "doubleAngle",
-          "value": 24.469186241671665
-        },
-        "translateY": {
-          "type": "doubleLinear",
-          "value": 82.2840805053711
-        },
-        "translateX": {
-          "type": "doubleLinear",
-          "value": -20.70915412902832
-        },
-        "rotateY": {
-          "type": "doubleAngle",
-          "value": 135.38121854341315
-        }
-      }
-    },
-    "PunkBot_Rigged:Character1_Ctrl_RightHandThumbEffector": {
-      "attrs": {
-        "translateZ": {
-          "type": "doubleLinear",
-          "value": 3.693265199661255
-        },
-        "rotateX": {
-          "type": "doubleAngle",
-          "value": -179.54636870619757
-        },
-        "rotateZ": {
-          "type": "doubleAngle",
-          "value": 157.0697461593113
-        },
-        "translateY": {
-          "type": "doubleLinear",
-          "value": 81.8463134765625
-        },
-        "translateX": {
-          "type": "doubleLinear",
-          "value": -18.611980438232422
-        },
-        "rotateY": {
-          "type": "doubleAngle",
-          "value": 49.006894719221314
-        }
-      }
-    },
     "PunkBot_Rigged:Character1_Ctrl_RightHandIndexEffector": {
       "attrs": {
-        "translateZ": {
+        "translateX": {
           "type": "doubleLinear",
-          "value": 4.645907878875732
+          "value": -20.161415100097656
         },
         "rotateX": {
           "type": "doubleAngle",
-          "value": 0.9182088587662678
+          "value": -11.87870132864572
         },
         "rotateZ": {
           "type": "doubleAngle",
-          "value": -71.98240818720618
+          "value": -63.24633843046015
         },
         "translateY": {
           "type": "doubleLinear",
-          "value": 82.14320373535156
+          "value": 86.3611831665039
         },
-        "translateX": {
+        "translateZ": {
           "type": "doubleLinear",
-          "value": -21.08011245727539
+          "value": 3.188568353652954
         },
         "rotateY": {
           "type": "doubleAngle",
-          "value": -14.555884306206167
+          "value": -31.58739244445433
         }
       }
     },
-    "PunkBot_Rigged:Character1_Ctrl_RightHandRingEffector": {
+    "PunkBot_Rigged:Character1_Ctrl_RightHandPinkyEffector": {
       "attrs": {
-        "translateZ": {
+        "translateX": {
           "type": "doubleLinear",
-          "value": 0.33644139766693115
+          "value": -19.907804489135742
         },
         "rotateX": {
           "type": "doubleAngle",
-          "value": -61.51737444627633
+          "value": -71.05406242423385
         },
         "rotateZ": {
           "type": "doubleAngle",
-          "value": -109.37191391242231
+          "value": -130.77285613100253
         },
         "translateY": {
           "type": "doubleLinear",
-          "value": 83.27082061767578
+          "value": 84.77130889892578
         },
-        "translateX": {
-          "type": "doubleLinear",
-          "value": -20.777454376220703
-        },
-        "rotateY": {
-          "type": "doubleAngle",
-          "value": 47.58163804893161
-        }
-      }
-    },
-    "PunkBot_Rigged:Character1_Ctrl_RightWristEffector": {
-      "attrs": {
         "translateZ": {
           "type": "doubleLinear",
-          "value": 4.202059745788574
-        },
-        "rotateX": {
-          "type": "doubleAngle",
-          "value": -58.73783400370659
-        },
-        "rotateZ": {
-          "type": "doubleAngle",
-          "value": -68.24138998603422
-        },
-        "translateY": {
-          "type": "doubleLinear",
-          "value": 90.12541198730469
-        },
-        "translateX": {
-          "type": "doubleLinear",
-          "value": -24.522369384765625
+          "value": -1.4350204467773438
         },
         "rotateY": {
           "type": "doubleAngle",
-          "value": 65.89856509087828
+          "value": 35.710198482048334
         }
       }
     },
     "PunkBot_Rigged:Character1_Ctrl_RightHandMiddleEffector": {
       "attrs": {
-        "translateZ": {
+        "translateX": {
           "type": "doubleLinear",
-          "value": 3.239386796951294
+          "value": -19.19559669494629
         },
         "rotateX": {
           "type": "doubleAngle",
-          "value": -10.350458972507417
+          "value": -16.304614630907913
         },
         "rotateZ": {
           "type": "doubleAngle",
-          "value": -86.6225537466273
+          "value": -78.5533417017593
         },
         "translateY": {
           "type": "doubleLinear",
-          "value": 82.30585479736328
+          "value": 86.04679107666016
         },
-        "translateX": {
+        "translateZ": {
           "type": "doubleLinear",
-          "value": -20.073978424072266
+          "value": 1.7795264720916748
         },
         "rotateY": {
           "type": "doubleAngle",
-          "value": 9.479519392434979
+          "value": -8.96228331181746
+        }
+      }
+    },
+    "PunkBot_Rigged:Character1_Ctrl_RightHandThumbEffector": {
+      "attrs": {
+        "translateX": {
+          "type": "doubleLinear",
+          "value": -17.704824447631836
+        },
+        "rotateX": {
+          "type": "doubleAngle",
+          "value": -159.8372759776951
+        },
+        "rotateZ": {
+          "type": "doubleAngle",
+          "value": 169.3109877583491
+        },
+        "translateY": {
+          "type": "doubleLinear",
+          "value": 85.8272933959961
+        },
+        "translateZ": {
+          "type": "doubleLinear",
+          "value": 2.3125085830688477
+        },
+        "rotateY": {
+          "type": "doubleAngle",
+          "value": 66.81303696913173
+        }
+      }
+    },
+    "PunkBot_Rigged:Character1_Ctrl_RightWristEffector": {
+      "attrs": {
+        "translateX": {
+          "type": "doubleLinear",
+          "value": -23.946420669555664
+        },
+        "rotateX": {
+          "type": "doubleAngle",
+          "value": -3.66884821577686
+        },
+        "rotateZ": {
+          "type": "doubleAngle",
+          "value": -12.68898330548596
+        },
+        "translateY": {
+          "type": "doubleLinear",
+          "value": 93.43467712402344
+        },
+        "translateZ": {
+          "type": "doubleLinear",
+          "value": -0.4671821594238281
+        },
+        "rotateY": {
+          "type": "doubleAngle",
+          "value": 83.25996115317534
+        }
+      }
+    },
+    "PunkBot_Rigged:Character1_Ctrl_RightHandRingEffector": {
+      "attrs": {
+        "translateX": {
+          "type": "doubleLinear",
+          "value": -20.00661277770996
+        },
+        "rotateX": {
+          "type": "doubleAngle",
+          "value": -59.85392998559309
+        },
+        "rotateZ": {
+          "type": "doubleAngle",
+          "value": -95.92734877367603
+        },
+        "translateY": {
+          "type": "doubleLinear",
+          "value": 85.89344787597656
+        },
+        "translateZ": {
+          "type": "doubleLinear",
+          "value": -1.2489840984344482
+        },
+        "rotateY": {
+          "type": "doubleAngle",
+          "value": 30.660724580976908
         }
       }
     }

@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "description": "",
+    "user": "Manuel",
+    "ctime": "1747745337",
+    "version": "1.0.0",
+    "references": [],
+    "mayaVersion": "2025",
+    "mayaSceneFile": "E:/UnrealGames/access-aquired-modeling/Characters/RoboticaB_WalkRdyFwd_E.ma"
+  }
+,
+  "objects": {
+    "PipeJoint": {
+      "attrs": {
+        "translateX": {
+          "type": "doubleLinear",
+          "value": -3.634900380001632
+        },
+        "visibility": {
+          "type": "bool",
+          "value": true
+        },
+        "scaleZ": {
+          "type": "double",
+          "value": 1.0
+        },
+        "translateY": {
+          "type": "doubleLinear",
+          "value": -6.176507733185133
+        },
+        "rotateZ": {
+          "type": "doubleAngle",
+          "value": 79.95654619304575
+        },
+        "scaleX": {
+          "type": "double",
+          "value": 1.0
+        },
+        "rotateX": {
+          "type": "doubleAngle",
+          "value": 9.817063418849136
+        },
+        "scaleY": {
+          "type": "double",
+          "value": 1.0
+        },
+        "rotateY": {
+          "type": "doubleAngle",
+          "value": -6.233236887548804
+        },
+        "translateZ": {
+          "type": "doubleLinear",
+          "value": 5.226092886159233
+        }
+      }
+    }
+  }
+}
