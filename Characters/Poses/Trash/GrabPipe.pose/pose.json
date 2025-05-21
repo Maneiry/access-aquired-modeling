@@ -1,0 +1,154 @@
+{
+  "metadata": {
+    "description": "",
+    "user": "manue",
+    "ctime": "1747826056",
+    "version": "1.0.0",
+    "references": [],
+    "mayaVersion": "2025",
+    "mayaSceneFile": "C:/Users/manue/Documents/GitHub/access-aquired-modeling/Characters/PunkBot_CtrlRig.ma"
+  }
+,
+  "objects": {
+    "Character1_Ctrl_RightHandIndexEffector": {
+      "attrs": {
+        "translateY": {
+          "type": "doubleLinear",
+          "value": 150.47813415527344
+        },
+        "rotateZ": {
+          "type": "doubleAngle",
+          "value": 121.1870510696785
+        },
+        "translateX": {
+          "type": "doubleLinear",
+          "value": -85.69532012939453
+        },
+        "translateZ": {
+          "type": "doubleLinear",
+          "value": 3.1103250980377197
+        },
+        "rotateY": {
+          "type": "doubleAngle",
+          "value": 13.025809441590903
+        },
+        "rotateX": {
+          "type": "doubleAngle",
+          "value": 3.9466401821754236
+        }
+      }
+    },
+    "Character1_Ctrl_RightHandThumbEffector": {
+      "attrs": {
+        "translateY": {
+          "type": "doubleLinear",
+          "value": 151.2843017578125
+        },
+        "rotateZ": {
+          "type": "doubleAngle",
+          "value": 63.06292015801343
+        },
+        "translateX": {
+          "type": "doubleLinear",
+          "value": -81.03260040283203
+        },
+        "translateZ": {
+          "type": "doubleLinear",
+          "value": 4.316061496734619
+        },
+        "rotateY": {
+          "type": "doubleAngle",
+          "value": 33.11041989966863
+        },
+        "rotateX": {
+          "type": "doubleAngle",
+          "value": 57.6835339766141
+        }
+      }
+    },
+    "Character1_Ctrl_RightHandMiddleEffector": {
+      "attrs": {
+        "translateY": {
+          "type": "doubleLinear",
+          "value": 150.01087951660156
+        },
+        "rotateZ": {
+          "type": "doubleAngle",
+          "value": 122.09464706424086
+        },
+        "translateX": {
+          "type": "doubleLinear",
+          "value": -85.81146240234375
+        },
+        "translateZ": {
+          "type": "doubleLinear",
+          "value": -0.0017514079809188843
+        },
+        "rotateY": {
+          "type": "doubleAngle",
+          "value": 14.502801596086641
+        },
+        "rotateX": {
+          "type": "doubleAngle",
+          "value": -8.417490095686482
+        }
+      }
+    },
+    "Character1_Ctrl_RightHandRingEffector": {
+      "attrs": {
+        "translateY": {
+          "type": "doubleLinear",
+          "value": 151.15771484375
+        },
+        "rotateZ": {
+          "type": "doubleAngle",
+          "value": 133.91314017685755
+        },
+        "translateX": {
+          "type": "doubleLinear",
+          "value": -85.08283233642578
+        },
+        "translateZ": {
+          "type": "doubleLinear",
+          "value": -3.3698153495788574
+        },
+        "rotateY": {
+          "type": "doubleAngle",
+          "value": 9.18499313882003
+        },
+        "rotateX": {
+          "type": "doubleAngle",
+          "value": -4.977268763414718
+        }
+      }
+    },
+    "Character1_Ctrl_RightHandPinkyEffector": {
+      "attrs": {
+        "translateY": {
+          "type": "doubleLinear",
+          "value": 152.9444580078125
+        },
+        "rotateZ": {
+          "type": "doubleAngle",
+          "value": 113.96196447971101
+        },
+        "translateX": {
+          "type": "doubleLinear",
+          "value": -85.83289337158203
+        },
+        "translateZ": {
+          "type": "doubleLinear",
+          "value": -6.374271392822266
+        },
+        "rotateY": {
+          "type": "doubleAngle",
+          "value": 0.9928490950088765
+        },
+        "rotateX": {
+          "type": "doubleAngle",
+          "value": -9.749051912061624
+        }
+      }
+    }
+  }
+}

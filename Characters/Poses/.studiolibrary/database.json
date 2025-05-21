@@ -17,6 +17,15 @@
         "modified": 1746165154.931504,
         "__class__": "studiolibrary.folderitem.FolderItem"
     },
+    "../../PunkBot/Body/TPoseHandsDown.pose": {
+        "name": "TPoseHandsDown.pose",
+        "path": "../../PunkBot/Body/TPoseHandsDown.pose",
+        "type": ".pose",
+        "folder": "../../PunkBot/Body",
+        "category": "Body",
+        "modified": 1747824184.3191385,
+        "__class__": "studiolibrarymaya.poseitem.PoseItem"
+    },
     "../../PunkBot/Hands": {
         "name": "Hands",
         "path": "../../PunkBot/Hands",
@@ -33,6 +42,15 @@
         "folder": "../../PunkBot/Hands",
         "category": "Hands",
         "modified": 1747733266.1823626,
+        "__class__": "studiolibrarymaya.poseitem.PoseItem"
+    },
+    "../../PunkBot/Hands/GrabPipe.pose": {
+        "name": "GrabPipe.pose",
+        "path": "../../PunkBot/Hands/GrabPipe.pose",
+        "type": ".pose",
+        "folder": "../../PunkBot/Hands",
+        "category": "Hands",
+        "modified": 1747826165.4957268,
         "__class__": "studiolibrarymaya.poseitem.PoseItem"
     },
     "../../PunkBot/Hands/SKPipeJointRdyWalks.pose": {
@@ -259,6 +277,15 @@
         "category": "Trash",
         "modified": 1747296211.5138485,
         "__class__": "studiolibrarymaya.poseitem.PoseItem"
+    },
+    "../../Trash/GrabPipe.pose": {
+        "name": "GrabPipe.pose",
+        "path": "../../Trash/GrabPipe.pose",
+        "type": ".pose",
+        "folder": "../../Trash",
+        "category": "Trash",
+        "modified": 1747826056.7789955,
+        "__class__": "studiolibrary.libraryitem.LibraryItem"
     },
     "../../Trash/Idle (2).pose": {
         "name": "Idle (2).pose",
