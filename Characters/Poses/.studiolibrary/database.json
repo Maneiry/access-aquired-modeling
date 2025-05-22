@@ -53,6 +53,15 @@
         "modified": 1747826165.4957268,
         "__class__": "studiolibrarymaya.poseitem.PoseItem"
     },
+    "../../PunkBot/Hands/GrabPipeLeft.pose": {
+        "name": "GrabPipeLeft.pose",
+        "path": "../../PunkBot/Hands/GrabPipeLeft.pose",
+        "type": ".pose",
+        "folder": "../../PunkBot/Hands",
+        "category": "Hands",
+        "modified": 1747918012.0143805,
+        "__class__": "studiolibrarymaya.poseitem.PoseItem"
+    },
     "../../PunkBot/Hands/SKPipeJointRdyWalks.pose": {
         "name": "SKPipeJointRdyWalks.pose",
         "path": "../../PunkBot/Hands/SKPipeJointRdyWalks.pose",
