@@ -1,0 +1,53 @@
+{
+  "metadata": {
+    "description": "",
+    "user": "manue",
+    "ctime": "1747987319",
+    "version": "1.0.0",
+    "references": [
+      {
+        "filename": "C:/Users/manue/Documents/GitHub/access-aquired-modeling/Characters/PunkBot/PunkBot_CtrlRig.ma",
+        "unresolved": "C:/Users/manue/Documents/GitHub/access-aquired-modeling/Characters/PunkBot/PunkBot_CtrlRig.ma",
+        "namespace": "PunkBot_Rigged",
+        "node": "PunkBot_RiggedPipeRN"
+      }
+    ],
+    "mayaVersion": "2025",
+    "mayaSceneFile": "C:/Users/manue/Documents/GitHub/access-aquired-modeling/Characters/PunkBot/PunkBot_ModeNeutral.0001.ma"
+  }
+,
+  "objects": {
+    "PunkBot_Rigged:Character1_Ctrl_LeftWristEffector": {
+      "attrs": {
+        "translateY": {
+          "type": "doubleLinear",
+          "value": 181.3196105957031
+        },
+        "translateZ": {
+          "type": "doubleLinear",
+          "value": -26.1865005493164
+        },
+        "rotateY": {
+          "type": "doubleAngle",
+          "value": 112.345528717015
+        },
+        "rotateX": {
+          "type": "doubleAngle",
+          "value": -85.51781716572366
+        },
+        "blendParent1": {
+          "type": "double",
+          "value": 1.0
+        },
+        "translateX": {
+          "type": "doubleLinear",
+          "value": 31.844779968261708
+        },
+        "rotateZ": {
+          "type": "doubleAngle",
+          "value": 18.189846529076735
+        }
+      }
+    }
+  }
+}

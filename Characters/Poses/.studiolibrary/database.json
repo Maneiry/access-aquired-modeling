@@ -89,6 +89,15 @@
         "modified": 1747743572.3438132,
         "__class__": "studiolibrarymaya.poseitem.PoseItem"
     },
+    "../../PunkBot/Hands/hand.pose": {
+        "name": "hand.pose",
+        "path": "../../PunkBot/Hands/hand.pose",
+        "type": ".pose",
+        "folder": "../../PunkBot/Hands",
+        "category": "Hands",
+        "modified": 1747987319.6819005,
+        "__class__": "studiolibrarymaya.poseitem.PoseItem"
+    },
     "../../PunkBot/MirrorTable.mirror": {
         "name": "MirrorTable.mirror",
         "path": "../../PunkBot/MirrorTable.mirror",
