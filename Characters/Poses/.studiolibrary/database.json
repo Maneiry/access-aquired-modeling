@@ -89,15 +89,6 @@
         "modified": 1747743572.3438132,
         "__class__": "studiolibrarymaya.poseitem.PoseItem"
     },
-    "../../PunkBot/Hands/hand.pose": {
-        "name": "hand.pose",
-        "path": "../../PunkBot/Hands/hand.pose",
-        "type": ".pose",
-        "folder": "../../PunkBot/Hands",
-        "category": "Hands",
-        "modified": 1747987319.6819005,
-        "__class__": "studiolibrarymaya.poseitem.PoseItem"
-    },
     "../../PunkBot/MirrorTable.mirror": {
         "name": "MirrorTable.mirror",
         "path": "../../PunkBot/MirrorTable.mirror",
@@ -367,5 +358,14 @@
         "category": "Trash",
         "modified": 1747297720.6916196,
         "__class__": "studiolibrarymaya.setsitem.SetsItem"
+    },
+    "../../Trash/hand.pose": {
+        "name": "hand.pose",
+        "path": "../../Trash/hand.pose",
+        "type": ".pose",
+        "folder": "../../Trash",
+        "category": "Trash",
+        "modified": 1748004724.869127,
+        "__class__": "studiolibrarymaya.poseitem.PoseItem"
     }
 }
