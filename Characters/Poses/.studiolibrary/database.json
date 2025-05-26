@@ -179,6 +179,15 @@
         "modified": 1746166446.8006237,
         "__class__": "studiolibrarymaya.poseitem.PoseItem"
     },
+    "../../PunkBot/Skeleton/SK_TPose.pose": {
+        "name": "SK_TPose.pose",
+        "path": "../../PunkBot/Skeleton/SK_TPose.pose",
+        "type": ".pose",
+        "folder": "../../PunkBot/Skeleton",
+        "category": "Skeleton",
+        "modified": 1748256483.5126595,
+        "__class__": "studiolibrarymaya.poseitem.PoseItem"
+    },
     "../../PunkBot/Skeleton/TPose-All.pose": {
         "name": "TPose-All.pose",
         "path": "../../PunkBot/Skeleton/TPose-All.pose",
