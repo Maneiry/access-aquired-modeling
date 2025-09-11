@@ -1,1 +1,1 @@
-*.ssp filter=lfs diff=lfs merge=lfs -text
+*.spp filter=lfs diff=lfs merge=lfs -text
