@@ -1,2 +1,2 @@
 *.spp filter=lfs diff=lfs merge=lfs -text
-*_autosave_*.spp filter= diff= merge= text
+*_autosave_*.spp !filter !diff !merge -text
